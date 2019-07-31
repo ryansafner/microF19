@@ -1,6 +1,6 @@
-baseurl: "https://classtest.ryansafner.com/"
+baseurl: "https://microf19.classes.ryansafner.com/"
 languageCode: "en-us"
-title: "Econometrics"
+title: "Microeconomic Analysis"
 theme: "ath-tufte-hugo_18-19"
 googleAnalytics: ""
 ignoreFiles:
@@ -27,12 +27,6 @@ menu:
     - name: Reference
       url: /reference/
       weight: 4
-    - name: RStudio.cloud
-      url: "https://rstudio.cloud"
-      weight: 5
-    - name: Slack
-      url: "https://hoodeconometrics.slack.com"
-      weight: 6
 # Disable taxonomies
 taxonomies:
   tag: ""
@@ -49,16 +43,16 @@ params:
     github: ryansafner
     office: 118 Rosenstock
   course:
-    number: ECON 480
+    number: ECON 306
     semester: Fall 2019
-    days: "TuTh"
-    time: "2:00–3:15 PM"
-    location: "119 Rosenstock"
+    days: "TuTh (§1); MW (§2)"
+    time: "11:30 AM-12:45 PM (§1); 2:00 PM-3:15 PM (§2)"
+    location: "Rosenstock 215 (§1); Hodson 236 (§)"
     twitter: ryansafner
     dates: >-
       August 26–December 10, 2019
-    github: "ryansafner/classtest"
-    slack: "https://hoodeconometrics.slack.com/"
+    github: "ryansafner/microf19"
+    #slack: "https://hoodeconometrics.slack.com/"
     copyrightYear: "2019"
     contactDetails: >-
       Office hours: MW 10:30--11:30AM
@@ -68,14 +62,14 @@ params:
   school:
     name: George B. Delaplane, Jr. School of Business
     url: "https://hood.edu"
-  description: "Understand and use economic reasoning to evaluate public policy"
+  description: ""
   primaryColor: "#5E81AC"
   secondaryColor: "#D08770"
   credits: >-
     Hex icon by Ryan Safner via [hexSticker](https://github.com/GuangchuangYu/hexSticker).<br> Course website based on [Andrew Heiss](https://econw19.classes.andrewheiss.com/). <br>[Nord color scheme](https://github.com/arcticicestudio/nord) from [Arctic Ice Studio](http://arcticicestudio.com/).
   logo:
     url: /images/hoodmetrics.png
-    alt: Econometrics
+    alt: Microeconomics
   meta:
     twitterSite: "@ryansafner"
     twitterCreator: "@ryansafner"

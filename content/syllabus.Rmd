@@ -14,10 +14,10 @@ library(pander)
 
 - [<i class="fas fa-file-pdf"></i> `Download as PDF`](/files/syllabus.pdf)
 
-<span class="newthought">Econometrics</span> [^courseinfo] is the application of statistical tools to quantify and measure economic relationships in the real world. It uses real data to test economic hypotheses, quantitatively estimate causal relationships between economic variables, and to make forecasts of future events. The primary tool that economists use for empirical analysis is ordinary least squares (OLS) linear regression, so the majority of this course will focus on understanding, applying, and extending OLS regressions.
+> "The curious task of economics is to demonstrate to men how little they really know about what they imagine they can design." - F.A. Hayek, 1974 Economics Nobel Laureate
 
- 
-I assume you have *some* working knowledge of  economics at the intermediate level and some basic statistical tools.^[The formal prerequisites for this course are **ECON 205** and **ECON 206**; **ECMG 212** or **MATH 112**; and **ECON 305** or **ECON 306**] We will do some basic review of some necessary statistics and probability at the beginning until everyone is comfortable, before jumping right into regressions. 
+<span class="newthought">Microeconomic Analysis</span> [^courseinfo] is a collection of analytical tools for modeling and understanding how decisions made by agents (individuals and firms) in a context of market institutions lead to social coordination and the creation of value. This toolkit is the analytical foundation for exploring *all* fields and applications of economics as a social science, has many practical applications in business, finance, politics, and insights into any realm of human endeavors. Economics, after all, is the study of human action. At the intermediate level, these concepts are made more rigorous through the use of mathematical models, but we will first and foremost lay the theoretical foundations with economic intuition. As such, this class assumes you have met the **required prerequisite courses** by taking introductory economics^[ECON 205, 206] and basic mathematics^[MATH 112].
+
 
 [^courseinfo]: {-}
   `r blogdown::shortcode("courseinfo")`
@@ -25,64 +25,39 @@ I assume you have *some* working knowledge of  economics at the intermediate lev
 
 # Course objectives
 
+This class will add rigor to your thinking about the world by empowering you with the ability to model the choices and interactions of people and organizations in their economic capacities -- as consumers, producers, firms, voters, etc. 
+
 <span class="newthought">By the end of this course,</span> you will: 
 
-1. understand and evaluate statistical and empirical claims;
-2. understand research design and hypothesis testing;
-3. gain experience working with, interpreting, and communicating real data. 
+1. apply the tools of microeconomics (constrained optimization and equilibrium) towards explaining real world phenomena
+2. apply models of rational choices for individual and firm behavior
+3. identify key features of various market structures (perfect price competition, monopoly, oligopoly, and monopolistic competition
+4. understand the role of market institutions of property rights, prices, and profit and losses in bringing about social coordination
 
-I am less concerned with forcing you to memorize and recite proofs of statistical estimator properties, and more concerned with the development of your intuitions and the ability to think critically as an empirical social scientist---although this will require you to demonstrate proficiency with some intermediate statistical and mathematical tools. 
+Given these objectives, this course fulfills all three of the learning outcomes for [the George B. Delaplaine, Jr. School of Business](https://www.hood.edu/academics/departments/george-b-delaplaine-jr-school-business/student-learning-outcomes) Economics B.A. program:
 
-Given these objectives, this course fulfills three of the four learning outcomes for BYU's [Master of Public Administration (MPA)](https://marriottschool.byu.edu/mpa/) program:
+- Use quantitative tools and techniques in the preparation, interpretation, analysis and presentation of data and information for problem solving and decision making [...]
+- Apply economic reasoning and models to understand and analyze problems of public policy [...]
+- Demonstrate effective oral and written communications skills for personal and professional success[...]
 
-- **Quantitative Analysis**: BYU MPA graduates are skilled at evaluating programs and policies. They know how to gather data, correctly analyze it, and employ the analysis to recommend policy and programmatic action in public service organizations.
-- **Public Service Values**: BYU MPA graduates demonstrate an understanding of, passion for, and commitment to public service values, including reverence for the dignity and worth of all people and dedication to ethical governance.
-- **Communication**: BYU MPA graduates effectively convey verbal and written information with the polish and professionalism appropriate for the public service context. They listen to and promote understanding among people with diverse viewpoints.
-
-<span class="newthought">\textbf{Fair warning:}</span> **Econometrics is hard.** *It will be one of the hardest economics courses that you will take, primarily due to the mathematical content.* I will do my best to make this class intuitive and helpful, if not interesting. If at any point you find yourself struggling in this course for any reason, please come see me. Do not suffer in silence! Coming to see me for help does not diminish my view of you, in fact I will hold you in *higher* regard for understanding your own needs and taking charge of your own learning. There are also a some fantastic resources on campus, such as the [Center for Academic Achievement and Retention (CAAR)](http://www.hood.edu/campus-services/academic-services/index.html) and the [Beneficial-Hodson Library](http://www.hood.edu/library/}{Beneficial-Hodson Library). 
+<span class="newthought">\textbf{Fair warning:}</span> **Economics is hard.** *This, in particular, may be of the hardest courses that you will take, primarily due to the mathematical content.* Using the economic way of thinking is a skill, it is literally retraining your brain to interpret and analyze the world in a novel way, and is not something that can be memorized. I will do my best to make this class intuitive and helpful, if not interesting. If at any point you find yourself struggling in this course for any reason, please come see me. Do not suffer in silence! Coming to see me for help does not diminish my view of you, in fact I will hold you in *higher* regard for understanding your own needs and taking charge of your own learning. There are also a some fantastic resources on campus, such as the [Center for Academic Achievement and Retention (CAAR)](http://www.hood.edu/campus-services/academic-services/index.html) and the [Beneficial-Hodson Library](http://www.hood.edu/library/).  
 
 # Course materials
 
-<span class="newthought">Most of the readings in this class are free.</span> 
+You can find all course materials at my academic website dedicated for (all sections of) this course [microf19.classes.ryansafner.com](http://microf19.classes.ryansafner.com).
+
+My lecture slides will be shared with you, and serve as your primary resource, but our main "textbook" below is **recommended** as the next best resource and will be available from the campus bookstore. 
 
 ## Books
 
-The following book is **required**^[You are not *obligated* to buy it, I just **strongly recommend** it in the sense that you will still have access to all data and assignments without possessing the book. But this is a course where you really will want to understand the derivations or get additional context beyond just my slides...] and will be available from the campus bookstore.
+1. Goolsbee, Austan, Steven Levitt, and Chad Syverson, 2012, *Microeconomics* 2nd ed, USA: Worth Publishers, ISBN: 978-1464187025 
 
-- [@Bailey], 2^nd^ ed. ISBN: 978-0190857462
-
-You are welcome to purchase the book by other means (e.g. [Amazon](https://www.amazon.com/Real-Econometrics-Answer-Important-Questions/dp/0190857463/ref=dp_ob_title_bk), half.com, etc). I have no financial stake in requiring you to purchase this book. The (cheaper) 1st edition is sufficient, but makes significantly less use of `R` (in favor of `STATA`). 
-
-## Software 
-
-You are **strongly recommended** to download copies of [`R`](https://www.r-project.org/) and [`R Studio`](http://www.rstudio.com) on your own computers. These software packages are available on all computers in the trading room, and you will have access to them during the week to work on assignments. 
-
-We will also have a shared class workspace in [RStudio.cloud](http://rstudio.cloud/) that runs a full instance of R Studio in your web browser (so no need to install anything!) will let you access files and assignments.  
-
-## Articles
-
-Throughout the course, I will post both required and supplemental (non-required) readings that enrich your understanding for each topic on Blackboard. Check Blackboard *frequently* for announcements and updates to assignments, readings, and grades.
-
-## Online help and Slack
-
-Economics can be difficult. Computer programming can be difficult. Computers are stupid and little errors in your code can cause hours of headache (even if you've been doing this stuff for years!).
-
-Fortunately there are tons of online resources to help you with this. Two of the most important are [StackOverflow](https://stackoverflow.com/) (a Q&A site with hundreds of thousands of answers to all sorts of programming questions) and [RStudio Community](https://community.rstudio.com/) (a forum specifically designed for people using RStudio and the tidyverse (i.e. you)). 
-
-Searching for help with R on Google can be tricky because the program is, um, a single letter. Try searching for "rstats" instead. If you use Twitter, post R-related questions and content with [#rstats](https://twitter.com/search?q=%23rstats).
-
-Additionally, we have a class chatroom at [Slack](https://hoodeconometrics.slack.com/) where anyone in the class can ask questions and anyone can answer. Ask questions about the readings or problem sets [in the class Slack workspace](https://hoodeconometrics.slack.com/). I will monitor Slack regularly, and you should also all do so as well. You'll likely have similar questions as your peers, and you'll likely be able to answer other peoples' questions too.
-
+You are welcome to purchase the book by other means (e.g. Amazon, half.com, etc). I have no  financial stake in requiring you to purchase this book. You are welcome to use previous version of the book, but carefully verify the reading assignments, as the material may be different across versions. 
 # Course policies
 
 <span class="newthought">Be nice. Be honest. Don't cheat.</span>
 
 We will also follow the [full list of Marriott School and BYU classroom policies](https://marriottschool.byu.edu/policies/classroom/).
-
-## Counseling and Psychological Services (CAPS)
-
-Life at BYU can be complicated and challenging. You might feel overwhelmed, experience anxiety or depression, or struggle with relationships or family responsibilities. [Counseling and Psychological Services (CAPS)](https://caps.byu.edu/) provides free, *confidential* support for students who are struggling with mental health and emotional challenges. The CAPS office is staffed by professional psychologists who are attuned to the needs of all types of college and professional students. Please do not hesitate to contact CAPS for assistance—getting help is a smart and courageous thing to do.
-
 
 # Assignments and grades
 
@@ -91,10 +66,9 @@ Life at BYU can be complicated and challenging. You might feel overwhelmed, expe
 ```{r assignments-grades, include=FALSE}
 assignments <- tribble(
   ~"",  ~Assignment, ~Percent,
-  1     , "Research Project", "30%",
-  "n"  , "Problem sets (Average)", "25%",
-  1      , "Midterm", "20%",
-  1     , "Final", "25%"
+  1     , "Opinion-Editorial", "20%",
+  "n"  , "Homeworks (Average)", "20%",
+  3      , "Exams", "20% each",
 )
 
 grading <- tribble(
@@ -108,7 +82,7 @@ grading <- tribble(
 )
 ```
 
-```{r}
+```{r, echo = F}
 knitr::kable(assignments)
 ```
 
@@ -122,7 +96,6 @@ bind_rows(assignments, assignments_total) %>%
   pandoc.table(justify = "lcc", missing = "—")
 ```
 
-\
 
 ```{r show-grades-table, echo=FALSE, results="asis"}
 grading %>%
@@ -130,6 +103,42 @@ grading %>%
                col.names = c("Grade", "Range", "Grade", "Range"))
 ```
 
+These grades are firm cutoffs, but I do of course round upwards ($\geq 0.5$) for final grades. A necessary reminder, as an academic, I am not in the business of *giving* out grades, I merely report the grade that you *earn*. I will not alter your grade unless you provide a reasonable argument that I am in error (which does happen from time to time). 
+
+# Policies and Expectations
+
+### Attendance and Participation
+
+I expect you to attend class and to come having already done the reading assigned for that day. I will remind you in class and possibly through Blackboard or email which readings I want you to read for the next class. You are all adults and I will treat you as such. I do not take attendance, nor do I grade formally for participation but I strongly recommended you attend class and participate for your sake and the sake of your classmates. If you are too distracted or are not prepared to learn, I suggest you stay home, where you can check Facebook more efficiently. I reserve the right to boost the final grades of students that I believe have made consistent, quality contributions above and beyond their peers in class conversations by up to 2.5 points. 
+
+### Absences and Make-Ups
+
+You generally do *not* need to let me know if you are unable to make class, *unless* it is on the day of an exam. It will however, be your responsibility to acquire the notes from a classmate for any missed classes. If you are unable to attend an exam for a legitimate reason (e.g. sports/club events, traveling, illness, family issues), please notify me at least *one week* in advance, and we will schedule a make-up exam date. If you are ill or otherwise unable to attend on the day of the exam, contact me ASAP to make arrangements. Failure to do so, including desperate attempts to make arrangements only *after* the absence will result in a grade of 0 and little sympathy. I reserve the right to re-weight other assignments for students who I believe are legitimately unable to complete a particular assignment.
+
+### Email Accounts
+
+Students must regularly monitor their Hood email accounts to receive important college information, including messages related to this class. Email through the Blackboard system is my main method of communicating announcements and deadlines regarding your assignments. **Do not reply to the automated Blackboard email**. My Hood email (safner@hood.edu) is the best means of contacting me. I will do my best to respond within 24 hours. If I do not reply within 48 hours, do not take it personally, and *feel free to send a follow up email* in case I genuinely missed your original message. 
+
+### Office Hours
+
+I am generally in my office Monday-Thursday during "normal business hours." You are always welcome to walk-in and chat about class, college, careers, or whatever you like. Please try to use the official office hours stated at the head of the syllabus if possible. If you need to meet at a different time, I request that you send me an email or let me know after class so I know when to expect you. If you want to go over material from class, please have *specific* questions you want answered. 
+
+### Enrollment
+
+Students are responsible for verifying their enrollment in this class.  The last day to add or drop this class \textbf{Tuesday, September 4}.
+
+### Honor Code
+
+Hood College has an Academic Honor Code which requires all members of this community to maintain the highest standards of academic honesty and integrity. Cheating, plagiarism, lying, and stealing are all prohibited.  All violations of the Honor Code are taken seriously, will be reported to appropriate authority, and may result in severe penalties, including expulsion from the college. See [here](http://hood.smartcatalogiq.com/en/2016-2017/Catalog/The-Spirit-of-Hood/The-Academic-Honor-Code-and-Code-of-Conduct) for more detailed information.
+
+### Accessibility and Students With Disabilities
+
+This course is intended to be accessible for all students, including those with mental, physical, or cognitive disabilities, illness, injuries, impairments, or any other condition that tends to negatively affect one's equal access to education. If at any point in the term, you find yourself not able to fully access the space, content, and experience of this course, you are welcome (and not required) to contact me by email, phone, or during office hours to discuss your specific needs. I also encourage you to contact the Office of Accessibility Services (301-696-3421 or gmuer@hood.edu). If you have a diagnosis or history of accommodations in high school or previous postsecondary institutions, Accessibility Services can help you document your needs and create an accommodation plan. By making a plan through Accessibility Services, you can ensure appropriate accommodations without disclosing your condition or diagnosis to course instructors.  
+
+
+# Schedule
+
+<span class="newthought">You can find a full roadmap</span> with resources for each class meeting on the [schedule page](/schedule/).
 
 # Red pandas
 
