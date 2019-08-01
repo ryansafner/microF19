@@ -1,79 +1,79 @@
 lessons:
-  - title: '<span class="fake-header-table">Rational Choice Theory</span>'
+  - title: '<span class="fake-header-table">1. Rational Choice Theory</span>'
     header: True
 
   - title: "Preliminary Survey"
     assignment: "00-preliminary-survey"
     
-  - title: "The Tools of Microeconomics"
+  - title: "1.1 The Tools of Microeconomics"
     class: "01-class"
     slides: "01-slides"
 
-  - title: "Scarcity"
+  - title: "1.2 Scarcity"
     slides: "02-slides"
 
-  - title: "Budget Constraint"
+  - title: "1.3 Budget Constraint"
     slides: "03-slides"
     class: "03-class"
     r: "03-r"
     
-  - title: "Preferences and Utility"
+  - title: "1.4 Preferences and Utility"
     slides: "04-slides"
     assignment: "01-problem-set"
   
-  - title: "Solving the Consumer's Problem"
+  - title: "1.5 Solving the Consumer's Problem"
 
-  - title: "Building a Demand Function"
+  - title: "1.6 Building a Demand Function"
     slides: "05-slides"
 
-  - title: "Price Elasticity"
+  - title: "1.7 Price Elasticity"
 
   - title: '<i class="fas fa-star"></i> **Exam 1**'
     date: "c. February 15 (F)"
     
-  - title: '<span class="fake-header-table">Production Theory</span>'
+  - title: '<span class="fake-header-table">2. Production Theory</span>'
     header: True
 
-  - title: "Theory of the Firm"
+  - title: "2.1 Theory of the Firm"
   
-  - title: "Short Run and Long Run"
+  - title: "2.2 Short Run and Long Run"
   
-  - title: "Solving the Firm's Cost Minimization Problem"
+  - title: "2.3 Solving the Firm's Cost Minimization Problem"
 
-  - title: "Cost and Revenue Functions"
+  - title: "2.4 Cost and Revenue Functions"
 
-  - title: "Short Run Profit Maximization"
+  - title: "2.5 Short Run Profit Maximization"
   
-  - title: "Long Run Industry Equilibrium"
+  - title: "2.6 Long Run Industry Equilibrium"
 
   - title: '<i class="fas fa-star"></i> **Exam 2**'
     date: "c. February 15 (F)"
     
-  - title: '<span class="fake-header-table">Market Equilibrium</span>'
+  - title: '<span class="fake-header-table">3. Market Equilibrium</span>'
     header: True
 
-  - title: "Comparative Statics"
+  - title: "3.1 Comparative Statics"
 
-  - title: "Markets and Surpluses"
+  - title: "3.2 Markets and Surpluses"
   
-  - title: "The Social Functions of Market Prices"
+  - title: "3.3 The Social Functions of Market Prices"
   
-  - title: "Policies that Raise Transaction Costs"
+  - title: "3.4 Policies that Raise Transaction Costs"
   
-  - title: "Taxation"
+  - title: "3.5 Taxation"
   
-  - title: '<span class="fake-header-table">Game Theory and Imperfect Competition</span>'
+  - title: '<span class="fake-header-table">4. Game Theory and Imperfect Competition</span>'
     header: True
 
-  - title: "The Monopolist's Problem"
+  - title: "4.1 The Monopolist's Problem"
   
-  - title: "Sources of Market Power"
+  - title: "4.2 Sources of Market Power"
   
-  - title: "Pricing with Market Power"
+  - title: "4.3 Pricing with Market Power"
   
-  - title: "Monopolistic Competition"
+  - title: "4.4 Monopolistic Competition"
   
-  - title: "Contestable Markets and Collusion"
+  - title: "4.5 Contestable Markets and Collusion"
   
   - title: '<span class="fake-header-table">Final Exam</span>'
     header: True

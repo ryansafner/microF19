@@ -45,9 +45,12 @@ params:
   course:
     number: ECON 306
     semester: Fall 2019
-    days: "TuTh (§1); MW (§2)"
-    time: "11:30 AM-12:45 PM (§1); 2:00 PM-3:15 PM (§2)"
-    location: "Rosenstock 215 (§1); Hodson 236 (§)"
+    days: >-
+      TuTh (§1); <br> MW (§2)
+    time: >- 
+      11:30 AM-12:45 PM (§1); <br> 2:00 PM-3:15 PM (§2)
+    location: >-
+      Rosenstock 215 (§1); <br> Hodson 236 (§)
     twitter: ryansafner
     dates: >-
       August 26–December 10, 2019
