@@ -34,7 +34,7 @@ taxonomies:
   category: ""
 params:
   author: Ryan Safner
-  thumbnail: /images/econ_meta.png
+  thumbnail: /images/micro_hex.png
   instructor: 
     name: Dr. Ryan Safner
     email: safner@hood.edu
@@ -46,11 +46,11 @@ params:
     number: ECON 306
     semester: Fall 2019
     days: >-
-      TuTh (§1); <br> MW (§2)
+      TuTh (§1)<br>MW (§2)
     time: >- 
-      11:30 AM-12:45 PM (§1); <br> 2:00 PM-3:15 PM (§2)
+      11:30 AM-12:45 PM (§1)<br>2:00 PM-3:15 PM (§2)
     location: >-
-      Rosenstock 215 (§1); <br> Hodson 236 (§)
+      Rosenstock 215 (§1)<br>Hodson 236 (§)
     twitter: ryansafner
     dates: >-
       August 26–December 10, 2019
@@ -64,14 +64,14 @@ params:
     url: "https://www.hood.edu"
   school:
     name: George B. Delaplane, Jr. School of Business
-    url: "https://hood.edu"
-  description: ""
+    url: "https://www.hood.edu/academics/departments/george-b-delaplaine-jr-school-business"
+  description: "Microeconomic analysis"
   primaryColor: "#5E81AC"
   secondaryColor: "#D08770"
   credits: >-
     Hex icon by Ryan Safner via [hexSticker](https://github.com/GuangchuangYu/hexSticker).<br> Course website based on [Andrew Heiss](https://econw19.classes.andrewheiss.com/). <br>[Nord color scheme](https://github.com/arcticicestudio/nord) from [Arctic Ice Studio](http://arcticicestudio.com/).
   logo:
-    url: /images/hoodmetrics.png
+    url: /images/micro_hex.png
     alt: Microeconomics
   meta:
     twitterSite: "@ryansafner"

@@ -29,10 +29,9 @@ This class will add rigor to your thinking about the world by empowering you wit
 
 <span class="newthought">By the end of this course,</span> you will: 
 
-1. apply the tools of microeconomics (constrained optimization and equilibrium) towards explaining real world phenomena
-2. apply models of rational choices for individual and firm behavior
-3. identify key features of various market structures (perfect price competition, monopoly, oligopoly, and monopolistic competition
-4. understand the role of market institutions of property rights, prices, and profit and losses in bringing about social coordination
+1. apply the models of microeconomics (constrained optimization and equilibrium) towards explaining real world behavior of individuals, firms, and governments
+2. explore the effects of economic and political processes on market performance (competition, market prices, profits and losses, property rights, entrepreneurship, market power, market failures, public policy, government failures)
+3. apply the economic way of thinking to real world issues in writing
 
 Given these objectives, this course fulfills all three of the learning outcomes for [the George B. Delaplaine, Jr. School of Business](https://www.hood.edu/academics/departments/george-b-delaplaine-jr-school-business/student-learning-outcomes) Economics B.A. program:
 
