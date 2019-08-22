@@ -13,6 +13,7 @@ library(pander)
 ```
 
 - [<i class="fas fa-file-pdf"></i> `Download as PDF`](/files/syllabus.pdf)
+- **Last Updated**: 2019-08-22
 
 > "The curious task of economics is to demonstrate to men how little they really know about what they imagine they can design." - F.A. Hayek, 1974 Economics Nobel Laureate
 
@@ -95,6 +96,7 @@ bind_rows(assignments, assignments_total) %>%
   pandoc.table(justify = "lcc", missing = "—")
 ```
 
+All grades are based on the following traditional scale:
 
 ```{r show-grades-table, echo=FALSE, results="asis"}
 grading %>%
@@ -106,42 +108,62 @@ These grades are firm cutoffs, but I do of course round upwards ($\geq 0.5$) for
 
 # Policies and Expectations
 
+This syllabus is a contract between you, the student, and me, your instructor. It has been carefully and deliberately thought out^[A syllabus can and will be used as a legal document for disputes tried at a court of law. Ask me how I know.], and I will uphold my end of the agreement and expect you to uphold yours. 
+
+In the language of game theory, this syllabus is my commitment device. I am a very understanding person, and I know that exceptions to rules often need to be made for students. However, to be *fair* to *all* students the syllabus artificially constrains my ability to make exceptions at a whim for anyone. This prevents clever students from exploiting my congenial personality at everyone else's expense. Please read and familiarize yourself with the course policies and expectations of you. Chances are, if you have a question, it is answered herein.
+
 ### Attendance and Participation
 
-I expect you to attend class and to come having already done the reading assigned for that day. I will remind you in class and possibly through Blackboard or email which readings I want you to read for the next class. You are all adults and I will treat you as such. I do not take attendance, nor do I grade formally for participation but I strongly recommended you attend class and participate for your sake and the sake of your classmates. If you are too distracted or are not prepared to learn, I suggest you stay home, where you can check Facebook more efficiently. I reserve the right to boost the final grades of students that I believe have made consistent, quality contributions above and beyond their peers in class conversations by up to 2.5 points. 
+I expect you to attend class and to come having already done the reading assigned for that day. I will remind you in class and possibly through Blackboard or email which readings I want you to read for the next class. You are all adults and I will treat you as such. I do not take attendance, nor do I grade formally for participation but I strongly recommended you attend class and participate for your sake and the sake of your classmates. If you are too distracted or are not prepared to learn, I suggest you stay home, where you can check Facebook more efficiently. I reserve the right to boost the final grades of students that I believe have made consistent, quality contributions above and beyond their peers in class conversations by up to 2.5 points.
+
+### Devices
+
+You are allowed to have and use laptops and tablets in the classroom. I will not stop you, but I strongly discourage you from using these to take notes (see Tips for Success). As a courtesy to myself and to others, do not use your phone in class. I reserve the right to embarrass you in front of everyone if you do so.
 
 ### Absences and Make-Ups
 
 You generally do *not* need to let me know if you are unable to make class, *unless* it is on the day of an exam. It will however, be your responsibility to acquire the notes from a classmate for any missed classes. If you are unable to attend an exam for a legitimate reason (e.g. sports/club events, traveling, illness, family issues), please notify me at least *one week* in advance, and we will schedule a make-up exam date. If you are ill or otherwise unable to attend on the day of the exam, contact me ASAP to make arrangements. Failure to do so, including desperate attempts to make arrangements only *after* the absence will result in a grade of 0 and little sympathy. I reserve the right to re-weight other assignments for students who I believe are legitimately unable to complete a particular assignment.
 
+### Late Assignments
+
+I will accept late assignments, but will subtract a specified amount of points as a penalty. See individual assignment descriptions for the amount of points taken off (as it varies by assignment). If an answer key is posted before you turn in your assignment, the maximum grade you can earn is an 80. Even if it is the last week of the semester, I encourage you to turn in late work: some points are better than no points!
+
+### Grading
+
+I will try my best to post grades on Blackboard's Grading Center and return graded assignments to you within about one week of you turning them in. There will be exceptions. Where applicable, I will post answer keys once I know most homeworks are turned in (see Late Assignments above for penalties). Blackboard's Grading Center is the place to look for your most up-to-date grades. You will also be given an Excel spreadsheet template where you can calculate your overall grade and forecast "what if" scenarios.
+
 ### Email Accounts
 
-Students must regularly monitor their Hood email accounts to receive important college information, including messages related to this class. Email through the Blackboard system is my main method of communicating announcements and deadlines regarding your assignments. **Do not reply to the automated Blackboard email**. My Hood email (safner@hood.edu) is the best means of contacting me. I will do my best to respond within 24 hours. If I do not reply within 48 hours, do not take it personally, and *feel free to send a follow up email* in case I genuinely missed your original message. 
+Students must regularly monitor their Hood email accounts to receive important college information, including messages related to this class. Email through the Blackboard system is my main method of communicating announcements and deadlines regarding your assignments. **Please do not reply to any automated Blackboard emails - I may not recieve it!**. My Hood email (safner@hood.edu) is the best means of contacting me. I will do my best to respond within 24 hours. If I do not reply within 48 hours, do not take it personally, and *feel free to send a follow up email* in the very likely event that I genuinely did not see your original message.
 
 ### Office Hours
 
-I am generally in my office Monday-Thursday during "normal business hours." You are always welcome to walk-in and chat about class, college, careers, or whatever you like. Please try to use the official office hours stated at the head of the syllabus if possible. If you need to meet at a different time, I request that you send me an email or let me know after class so I know when to expect you. If you want to go over material from class, please have *specific* questions you want answered. 
+I am generally in my office Monday-Thursday during "normal business hours." You are always welcome to walk-in and chat about class, college, careers, or anything at all. Please do try to use the official office hours stated at the head of the syllabus if possible. If you need to meet at a different time, I request that you send me an email or let me know after class so I know when to expect you. If you want to go over material from class, please have *specific* questions you want help with. I am not in the business of giving private lectures (particularly if you missed class without a valid excuse).
+
+Watch this excellent and accurate video explaining office hours:
+
+<iframe src="https://player.vimeo.com/video/270014784" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+### Van Halen and M&Ms
+
+When you have completed reading the syllabus, email me a picture of the band Van Halen and a picture of a bowl of M&Ms. If you do this *before* the date of the first exam, you will get 3 bonus points on the exam. Yes, this is real.
 
 ### Enrollment
 
-Students are responsible for verifying their enrollment in this class.  The last day to add or drop this class \textbf{Tuesday, September 4}.
+Students are responsible for verifying their enrollment in this class. The last day to add or drop this class with no penalty is **Tuesday, September 4**. Be aware of [important dates](https://www.hood.edu/offices-services/registrars-office/academic-calendar).
 
 ### Honor Code
 
 Hood College has an Academic Honor Code which requires all members of this community to maintain the highest standards of academic honesty and integrity. Cheating, plagiarism, lying, and stealing are all prohibited.  All violations of the Honor Code are taken seriously, will be reported to appropriate authority, and may result in severe penalties, including expulsion from the college. See [here](http://hood.smartcatalogiq.com/en/2016-2017/Catalog/The-Spirit-of-Hood/The-Academic-Honor-Code-and-Code-of-Conduct) for more detailed information.
 
-### Accessibility and Students With Disabilities
+### Accessibility, Equity, and Accommodations
 
-This course is intended to be accessible for all students, including those with mental, physical, or cognitive disabilities, illness, injuries, impairments, or any other condition that tends to negatively affect one's equal access to education. If at any point in the term, you find yourself not able to fully access the space, content, and experience of this course, you are welcome (and not required) to contact me by email, phone, or during office hours to discuss your specific needs. I also encourage you to contact the Office of Accessibility Services (301-696-3421 or gmuer@hood.edu). If you have a diagnosis or history of accommodations in high school or previous postsecondary institutions, Accessibility Services can help you document your needs and create an accommodation plan. By making a plan through Accessibility Services, you can ensure appropriate accommodations without disclosing your condition or diagnosis to course instructors.  
+College courses can, and should, be challenging and bring you out of your comfort zone in a safe and equitable environment. If, however, you feel at any point in the semester that certain assignments or aspects of the course will be disproportionately uncomfortable or burdensome for you due to any factor beyond your control, please come see me or email me. I am a very understanding person and am happy to work out a solution together. I reserve the right to modify and reweight assignments at my sole discretion for students that I belive would legitimately be at a disadvantage, through no fault of their own, to complete them as described.
 
+If you are unable to afford required textbooks or other resources for any reason, come see me and we can find a solution that works for you.
+
+This course is intended to be accessible for all students, including those with mental, physical, or cognitive disabilities, illness, injuries, impairments, or any other condition that tends to negatively affect one's equal access to education. If at any point in the term, you find yourself not able to fully access the space, content, and experience of this course, you are welcome to contact me to discuss your specific needs. I also encourage you to contact the [Office of Accessibility Services](https://www.hood.edu/academics/josephine-steiner-center-academic-achievement-retention/accessibility-services) (301-696-3421). If you have a diagnosis or history of accommodations in high school or previous postsecondary institutions, Accessibility Services can help you document your needs and create an accommodation plan. By making a plan through Accessibility Services, you can ensure appropriate accommodations without disclosing your condition or diagnosis to course instructors.
 
 # Schedule
 
-<span class="newthought">You can find a full roadmap</span> with resources for each class meeting on the [schedule page](/schedule/).
-
-# Red pandas
-
-[^panda] <span class="newthought">Once you have read</span> this entire syllabus and [the assignments page](/assignments/), please [click here](mailto:andrew_heiss@byu.edu) and e-mail me a picture of a red panda. For real. Brownie points if it's animated.
-
-[^panda]: {-}
-  ![Hungry red panda](https://media.giphy.com/media/r7Nbr97FsXxXG/giphy.gif)
+<span class="newthought">You can find a full schedule</span> with resources for each class meeting on the [schedule page](/schedule/).
