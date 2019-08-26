@@ -1,0 +1,830 @@
+---
+title: "1.1: The Tools of Microeconomics"
+subtitle: "ECON 306 · Microeconomic Analysis · Fall 2019"
+author: 'Ryan Safner<br> Assistant Professor of Economics <br> <a href="mailto:safner@hood.edu"><i class="fa fa-paper-plane fa-fw"></i> safner@hood.edu</a> <br> <a href="https://github.com/ryansafner/microf19"><i class="fa fa-github fa-fw"></i> ryansafner/microf19</a><br> <a href="https://microF19.classes.ryansafner.com"> <i class="fa fa-globe fa-fw"></i> microF19.classes.ryansafner.com</a><br>'
+#date:
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML" # rescales math with css changes https://github.com/yihui/xaringan/issues/143
+    lib_dir: libs
+    #seal: false
+    css: [custom.css, custom-fonts.css, "hygge"] #, metropolis, metropolis-fonts
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"] # first is for rescaling images , second is for embedding tweets, https://github.com/yihui/xaringan/issues/100
+      highlightStyle: ocean #rainbow #monokai rainbow solarized-light #tomorrow-night -blue -eighties zenburn
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+    includes:
+      in_header: header.html # for font awesome, used in title  
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo=F,
+                      message=F,
+                      warning=F)
+```
+
+# *Micro*-economics
+
+.center[
+![:scale 70%](https://www.dropbox.com/s/9bwomccrp9x9y0o/microeconomics.jpg?raw=1)
+]
+
+---
+
+# Micro- vs. Macro-economics
+
+.pull-left[
+
+- What is "an economy?"
+
+- Where do aggregates (GDP, unemployment, & inflation) come from? 
+
+- Micro: [modelling] Choices and consequences
+
+- Macro: [modelling] Systemic interaction of choosers & emergent behavior
+
+]
+
+.pull-right[
+![:scale 80%](https://www.dropbox.com/s/zd4izfode9qxq6s/macroeconomics.jpg?raw=1)
+]
+
+---
+
+# Where You Are Now
+
+- Basic concepts of markets, individuals (consumers & firms), economies:
+    - ECON 205: Principles of Macroeconomics
+    - ECON 206: Principles of Microeconomics
+
+- Modelling markets, individuals (consumers & firms), economies
+    - ECON 306: Microeconomic Analysis
+    - ECON 305: Macroeconomic Analysis<sup>1</sup>
+    
+.footnote[<sup>1</sup> Required for ECON majors only. Calculus I is required.]
+
+---
+
+# Economists Speak a Foreign Language...
+
+.pull-left[
+
+- Terms you "know" from ordinary life mean *very different things* to economists:
+
+> Cost, efficiency, welfare, competition, marginal, equilibrium, profit, public good, discrimination, elasticity
+
+- Using these words' "ordinary" meanings will lead to wrong economic conclusions!
+
+- You will need to "relearn" the economic meanings of these words
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/ncbn275kw7dg090/translate.jpg?raw=1)
+]
+]
+
+---
+
+# ...But You Can Learn It
+
+.pull-left[
+
+- You'll need to master a new vocabulary:
+
+> externality, marginal rate of transformation, marginal cost, consumer surplus, allocative efficiency
+
+- I will try to avoid jargon, but many of these concepts are useful in the real world! 
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/ncbn275kw7dg090/translate.jpg?raw=1)
+]
+]
+
+---
+
+# ...But You Can Learn It
+
+.pull-left[
+
+- Everyone thinks they are already an economist and can speak this foreign language
+
+- Be humble!
+
+- Economics is *often* common sense, but reached via deep analytical thinking
+
+]
+
+.pull-right[
+
+.center[
+![:scale 100%](https://www.dropbox.com/s/vrf805179hkg0f4/expert.png?raw=1)
+]
+]
+
+---
+
+class: inverse, center, middle
+
+# The Tools of Microeconomics
+
+---
+
+# Modeling Tools: Incentives and Equilibrium
+
+.pull-left[
+
+- Economics is a .whisper[way of thinking] based on a few core ideas:
+]
+
+---
+
+# Modeling Tools: Incentives and Equilibrium
+
+.pull-left[
+
+- Economics is a .whisper[way of thinking] based on a few core ideas:
+
+- .shout[People respond to incentives]
+
+]
+
+.pull-right[
+
+.center[
+![:scale 70%](https://www.dropbox.com/s/wp97bsk0yni31k9/incentive2.jpg?raw=1)
+]
+]
+
+---
+
+# Economics as a *Way of Thinking*
+
+.pull-left[
+
+- Economics is a .whisper[way of thinking] based on a few core ideas:
+
+- .shout[People respond to incentives]
+    - Money, punishment, taxes and subsidies, risk of injury, reputation, profits, sex, effort, morals
+
+- .shout[Environments adjust until they are in equilibrium]
+    - Prices adjust until supply and demand are balanced
+    - Competing agents adjust their strategies until each is optimal given others’ actions
+]
+
+.pull-right[
+
+.center[
+![:scale 70%](https://www.dropbox.com/s/wp97bsk0yni31k9/incentive2.jpg?raw=1)
+
+![:scale 70%](https://www.dropbox.com/s/j7xenkgo3p71vke/equilibriumbalance.png?raw=1)
+]
+]
+
+---
+
+# Incentives Example: Subway I
+
+.center[
+![:scale 50%](https://www.dropbox.com/s/g9pln3v8wd16q5b/nycsubway.png?raw=1)
+
+The NYC Subway bans dogs unless they can be ["enclosed in a container"](https://cityroom.blogs.nytimes.com/2009/09/30/answers-about-exploring-new-york-with-your-dog/?_r=0)
+]
+
+---
+
+# Incentives Example: Subway II
+
+.center[
+![:scale 40%](https://www.dropbox.com/s/zwtmw8gl4yx194s/dogsubway2.jpg?raw=1) ![:scale 25%](https://www.dropbox.com/s/hwzk9j6tdrak1zg/dogsubway1.jpg?raw=1)
+
+Pictures [Source](https://www.rover.com/blog/nyc-subway-dogs-fs/)
+]
+
+---
+
+# Incentives Example: Rat Bounty
+
+.content-box-green[
+Some governments pay bounties to reduce pest populations such as rats.
+
+.green[**Example**]: Suppose the government were to pay $250 for every rat tail turned in. 
+]
+
+--
+
+.center[
+![:scale 45%](https://www.dropbox.com/s/tt34lq7i0mrjut9/ratfarming.jpg?raw=1)
+]
+
+---
+
+# Incentives: Even Dolphins Understand I
+
+.center[
+![:scale 70%](https://www.dropbox.com/s/ystplmrqlq0yvwf/dolphinincentives.png?raw=1)
+]
+
+.source[July 2 2003, ["Why Dolphins are Deep Thinkers"](https://www.theguardian.com/science/2003/jul/03/research.science), *The Guardian*]
+
+---
+
+# Incentives: Even Dolphins Understand II
+
+.center[
+![](https://www.dropbox.com/s/3ry8g3ucm82qes6/dolphinincentives2.png?raw=1)
+]
+
+.source[July 2 2003, ["Why Dolphins are Deep Thinkers"](https://www.theguardian.com/science/2003/jul/03/research.science), *The Guardian*]
+
+---
+
+# Takeaways About Incentives I
+
+.pull-left[
+
+- People respond to (changes in) incentives<sup>1</sup>
+
+- People have different goals they seek to attain
+
+- Blocking one alternative $\neq$ people stop persuing their goals
+
+- People will seek (less preferred) alternative methods of attaining their goals
+
+- People are creative, and many consequences are *unintended*
+
+] 
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/wp97bsk0yni31k9/incentive2.jpg?raw=1)
+]
+]
+
+.footnote[<sup>1</sup> Later we'll call these *prices*.]
+
+---
+
+# Takeaways About Incentives II
+
+.center[
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Whenever I am working on policy decisions I think of this image... 🚴
+♂️ <a href="https://t.co/GE3yyDmjs0">pic.twitter.com/GE3yyDmjs0</a></p>&mdash; Councillor Peter Fortune (@PeterTFortune) <a href="https://twitter.com/PeterTFortune/status/1159176114230763520?ref_src=twsrc%5Etfw">August 7, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+]
+
+---
+
+# Equilibrium Example I
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/z3ver9eq0fc5ch6/eq1.png?raw=1)
+]
+]
+
+.pull-right[
+
+- Suppose 2 roads connect Frederick and Washington
+
+- 100 cars commute
+
+- Local road travel time: 30 min + 1 min/car
+
+- Highway travel time: 1 hour (always)
+]
+
+---
+
+# Equilibrium Example I
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/z3ver9eq0fc5ch6/eq1.png?raw=1)
+]
+]
+
+.pull-right[
+
+- Suppose 2 roads connect Frederick and Washington
+
+- 100 cars commute
+
+- Local road travel time: 30 min + 1 min/car
+
+- Highway travel time: 1 hour (always)
+
+- Assume people .shout[optimize]: choose road to minimize travel time between cities
+]
+
+---
+
+# Equilibrium Example II
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/shk0aeneyghnhml/eq2.png?raw=1)
+]
+]
+
+.pull-right[
+
+- Suppose 2 roads connect Frederick and Washington
+
+- 100 cars commute
+
+- Local road travel time: 30 min + 1 min/car
+
+- Highway travel time: 1 hour (always)
+
+.content-box-green[
+.green[**Scenario I**:] There are **less than 30 cars** on the local road
+- What will people do?
+]
+]
+
+---
+
+# Equilibrium Example III
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/2mg9ailnx55ilkp/eq3.png?raw=1)
+]
+]
+
+.pull-right[
+
+- Suppose 2 roads connect Frederick and Washington
+
+- 100 cars commute
+
+- Local road travel time: 30 min + 1 min/car
+
+- Highway travel time: 1 hour (always)
+
+.content-box-green[
+.green[**Scenario II**:] There are **more than 30 cars** on the local road
+- What will people do?
+]
+]
+
+---
+
+# Equilibrium Example IV
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/rw7ks1kei5zrdeb/eq4.png?raw=1)
+]
+]
+
+.pull-right[
+
+- Suppose 2 roads connect Frederick and Washington
+
+- 100 cars commute
+
+- Local road travel time: 30 min + 1 min/car
+
+- Highway travel time: 1 hour (always)
+
+.content-box-green[
+.green[**Equilibrium**:] How many cars are on each road?
+- Why?
+]
+]
+
+---
+
+# Equilibrium Example V
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/fnj6xps8tk4gbwh/eq5.png?raw=1)
+]
+]
+
+.pull-right[
+
+- Suppose the State *doubles the capacity* of the local road
+
+- Local road travel time: 30 min + 0.5 min/car
+
+- Highway travel time: 1 hour (always)
+
+]
+
+---
+
+# Equilibrium Example V
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/fnj6xps8tk4gbwh/eq5.png?raw=1)
+]
+]
+
+.pull-right[
+
+- Suppose the State doubles the width of the local road
+
+- Local road travel time: 30 min + 0.5 min/car
+
+- Highway travel time: 1 hour (always)
+
+- Will this reduce travel time? 
+
+- Yes! says the State:
+    - 30 cars use the local road, takes 1 hour
+    - With wider road it takes them 45 minutes!
+
+]
+
+---
+
+# Equilibrium Example V
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/fnj6xps8tk4gbwh/eq5.png?raw=1)
+]
+]
+
+.pull-right[
+
+- Suppose the State doubles the width of the local road
+
+- Local road travel time: 30 min + 0.5 min/car
+
+- Highway travel time: 1 hour (always)
+
+- Will this reduce travel time? 
+
+- Yes! says the State:
+    - 30 cars use the local road, takes 1 hour
+    - With wider road, now it takes them only 45 minutes!
+
+- .shout[Is this an equilibrium?]
+]
+
+
+---
+
+# Comparative Statics
+
+- .shout[Comparative statics]: examining changes in equilibria cased by an external change (in incentives, constraints, etc.)
+
+```{r, echo = F, message = F, warning = F, fig.align = "center", fig.width = 6, fig.asp = 0.618, fig.retina = 2}
+library("tidyverse")
+library("ggrepel")
+
+plot_eqs <- tibble(x = c(1, 3),
+                 y = c(1, 1),
+                 lab = c("Equilibrium 1", "Equilibrium 2"))
+
+plot_shock <- tibble(x = c(2),
+                 y = c(1),
+                 lab = c("Change"))
+
+ggplot(plot_eqs, aes(x = x,
+                   y = y))+
+  geom_point(data = plot_eqs, shape = 22, size = 40, fill = "limegreen")+ # shape for equilibria
+  geom_point(data = plot_shock, shape = 23, size = 28, fill = "firebrick2")+ # shape for shock
+  geom_text(data = plot_eqs, mapping = aes(label = lab), color = "white")+ # text for equilibria
+  geom_text(data = plot_shock, mapping = aes(label = lab), color = "white")+ # text for shock
+  scale_x_continuous(expand = c(0.125,0.125))+
+  scale_y_continuous(breaks=c(0.99, 1.01), limits = c(0.99, 1.01), expand = c(0,0))+
+  annotate("segment", x = 1.25, xend = 1.75, y = 1, yend = 1, colour = "#000000", size=0.5, linetype = 2, alpha=1, arrow=arrow(length=unit(0.25,"cm"), ends="last", type="closed"))+
+  annotate("segment", x = 2.25, xend = 2.75, y = 1, yend = 1, colour = "#000000", size=0.5, linetype = 2, alpha=1, arrow=arrow(length=unit(0.25,"cm"), ends="last", type="closed"))+
+  theme_void()
+```
+
+---
+
+# Optimization and Equilibrium
+
+.pull-left[
+- If people can *learn* and *change* their behavior, they will always switch to a higher-valued option
+
+- If there are no alternatives that are better, people are at an *optimum*
+
+- If everyone is at an optimum, the system is in *equilibrium*
+]
+
+.pull-right[
+.center[
+![:scale 70%](https://www.dropbox.com/s/wp97bsk0yni31k9/incentive2.jpg?raw=1)
+
+![:scale 70%](https://www.dropbox.com/s/j7xenkgo3p71vke/equilibriumbalance.png?raw=1)
+]
+]
+]
+
+---
+
+# Reminder: Positive vs Normative Economics
+
+- You may vehemently disagree with certain policies, institutions, or market outcomes
+- All I ask is you allow us to explain *why* they occur
+- You will miss useful explanations (and the ability to improve things you disapprove of) if you are blinded by your judgment
+- You may disapprove of gravity, but you are bound by it
+
+.center[
+![:scale 50%](https://www.dropbox.com/s/7l05ucw4hfwlsyc/economics1.jpg?raw=1)
+]
+
+---
+
+# Economics Is Broader Than You Think
+
+.center[
+![:scale 82%](https://www.dropbox.com/s/bqb48eg20ld6li9/cooleconbooks.png?raw=1)
+]
+
+---
+
+# Real Talk
+
+.center[
+![:scale 60%](https://www.dropbox.com/s/k3hhulc5tjy6eis/opengatemath1.jpg?raw=1)
+]
+
+---
+
+# Real Talk
+
+.center[
+![:scale 60%](https://www.dropbox.com/s/60kmhih3bpe8l1p/opengatemath2.jpg?raw=1)
+]
+
+---
+
+# Real Talk
+
+.center[
+![:scale 60%](https://www.dropbox.com/s/8apd0v6rf5rt165/opengatemath3.jpg?raw=1)
+]
+
+---
+
+# Why We Model I
+
+.pull-left[
+
+- Economists often "speak" in models that explain and predict human behavior
+
+- The pure language of models is mathematics
+    - things that are universally true, deducible from axioms, can easily spot errors
+    - often equations and graphs
+    - this is what scares students most about economics 
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/n3qe9hnt7ewcmkg/maths.jpg?raw=1)
+]
+]
+
+---
+
+# Why We Model II
+
+.pull-left[
+
+- Economists use conceptual models: fictional constructions to logically examine consequences
+
+- Very different from other sciences
+    - No social experiments
+    - Purposive, strategic human beings 
+    - Introspective understanding
+
+> "All models lie. The art is telling useful lies." - George Box
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/z5axki7ufozcgyn/imagination.png?raw=1)
+]
+]
+
+---
+
+# The Two Major Models of Economics as a "Science"
+
+.pull-left[
+
+## Optimization
+
+- Agents have objectives they value
+
+- Agents face constraints
+
+- Make tradeoffs to maximize objectives within constraints
+
+.center[
+![](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+--
+
+.pull-right[
+
+## Equilibrium
+
+- Agents face competition from others that affect prices
+
+- Agents adjust their behaviors based on prices
+
+- Stable outcomes result where all agents cease adjusting
+
+.center[
+![](https://www.dropbox.com/s/j7xenkgo3p71vke/equilibriumbalance.png?raw=1)
+]
+
+]
+
+---
+
+# Model 1: Optimization
+
+.pull-left[
+
+- .shout[Optimization]: which action(s) best achieve an *objective*? 
+    - How long should I keep my old car before buying a new one?
+    - Should the U.S. legalize marijuana?
+    - Which college courses should I pick?
+    - Which political campaign platform will win the most votes?
+    - Which path minimizes travel time? 
+
+- Find the *optimum* using .whisper[marginal analysis]
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+---
+
+# Model 2: Equilibrium
+
+.pull-left[
+
+- .shout[Equilibrium]: how do stable outcomes emerge in the world (and change)? 
+    - Why is there a shortage of affordable housing in big cities?
+    - Why is the price of Apple iPhones so high?
+    - Why is there only one provider of electricity in a city?
+    - Why did the recent election turn out the way it did?
+
+- Find the outcome where *no agents change their behavior* using .whisper[supply and demand]
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/j7xenkgo3p71vke/equilibriumbalance.png?raw=1)
+]
+]
+
+---
+
+# Model 3: Game Theory
+
+.pull-left[
+
+- .shout[Game Theory]: what outcome will we *jointly* reach if our choices are **strategic**?
+    - Can big companies secretly all raise prices together?
+    - Are markets with only a few sellers actually competitive?
+    - How can we coordinate our actions to reduce climate change?
+    - Why is doping so prevalent in professional sports?
+
+- Find the outcome where *no agents change their behavior* (again, but slightly different!)
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/tymdsxbqaq2scxq/chessknights.jpg?raw=1)
+]
+]
+
+---
+
+# Remember: All Models are Wrong!
+
+.pull-left[
+.content-box-red[
+.red[**Caution**:] Don't conflate models with reality!
+]
+- Models help us *understand* reality.
+
+- A good economist is always aware of:
+    - "*ceterus paribus*"
+    - "...and then what?"
+    - "...compared to what?"
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/17cb7ceqipgi8fs/citymodel.jpg?raw=1)
+]
+]
+---
+
+class: inverse, middle, center
+# About This Course
+
+---
+
+# Learning Goals
+
+By the end of this course, you will: 
+
+1. apply the models of microeconomics (constrained optimization and equilibrium) towards explaining real world behavior of individuals, firms, and governments
+
+2. explore the effects of economic and political processes on market performance (competition, market prices, profits and losses, property rights, entrepreneurship, market power, market failures, public policy, government failures)
+
+3. apply the economic way of thinking to real world issues in writing
+
+---
+
+
+# Assignments
+
+```{r}
+library(tidyverse)
+
+assignments <- tribble(
+  ~"",  ~Assignment, ~Percent,
+  1     , "Opinion-Editorial", "20%",
+  "n"  , "Homeworks (Average)", "20%",
+  3      , "Exams", "20% each",
+)
+
+knitr::kable(assignments, "html")
+```
+
+---
+
+# Your "Textbook"
+
+.center[
+![:scale 45%](https://www.dropbox.com/s/2uehxiwnwpjkteh/microtextbook.jpg?raw=1)
+]
+
+---
+
+# Course Website
+
+.center[
+![:scale 30%](https://www.dropbox.com/s/63ht5z4yi2qg19l/micro_hex.png?raw=1)
+
+[microf19.classes.ryansafner.com](http://microf19.classes.ryansafner.com)
+]
+
+---
+
+# Tips for Success, Or: How to College
+
+.pull-left[
+- Take notes. On paper. Really.
+
+- Read the readings.
+
+- Ask questions, come to office hours.Don't struggle in silence, you are not alone!
+
+- You are learning how to learn
+
+- See the [reference page](http://devf19.classes.ryansafner.com/reference) for more
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/rfdf5g27mdtq5wx/education.png?raw=1)
+]
+]
+
+---
+
+# Roadmap for the Semester
+
+.center[
+![:scale 75%](https://www.dropbox.com/s/za9h5a9z38lz9g1/micro_flowchart_blankbg.png?raw=1)
+]
