@@ -42,6 +42,8 @@ Given these objectives, this course fulfills all three of the learning outcomes 
 
 <span class="newthought">Fair warning:</span> **Economics is hard.** *This, in particular, may be of the hardest courses that you will take, primarily due to the mathematical content.* Using the economic way of thinking is a skill, it is literally retraining your brain to interpret and analyze the world in a novel way, and is not something that can be memorized. I will do my best to make this class intuitive and helpful, if not interesting. If at any point you find yourself struggling in this course for any reason, please come see me. Do not suffer in silence! Coming to see me for help does not diminish my view of you, in fact I will hold you in *higher* regard for understanding your own needs and taking charge of your own learning. There are also a some fantastic resources on campus, such as the [Center for Academic Achievement and Retention (CAAR)](http://www.hood.edu/campus-services/academic-services/index.html) and the [Beneficial-Hodson Library](http://www.hood.edu/library/).  
 
+See my [tips for success in this course](/reference#tips). 
+
 # Course materials
 
 You can find all course materials at my academic website dedicated for (all sections of) this course [microf19.classes.ryansafner.com](http://microf19.classes.ryansafner.com).
@@ -144,10 +146,6 @@ Watch this excellent and accurate video explaining office hours:
 
 <iframe src="https://player.vimeo.com/video/270014784" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
-### Van Halen and M&Ms
-
-When you have completed reading the syllabus, email me a picture of the band Van Halen and a picture of a bowl of M&Ms. If you do this *before* the date of the first exam, you will get 3 bonus points on the exam. Yes, this is real.
-
 ### Enrollment
 
 Students are responsible for verifying their enrollment in this class. The last day to add or drop this class with no penalty is **Tuesday, September 4**. Be aware of [important dates](https://www.hood.edu/offices-services/registrars-office/academic-calendar).
@@ -155,6 +153,10 @@ Students are responsible for verifying their enrollment in this class. The last 
 ### Honor Code
 
 Hood College has an Academic Honor Code which requires all members of this community to maintain the highest standards of academic honesty and integrity. Cheating, plagiarism, lying, and stealing are all prohibited.  All violations of the Honor Code are taken seriously, will be reported to appropriate authority, and may result in severe penalties, including expulsion from the college. See [here](http://hood.smartcatalogiq.com/en/2016-2017/Catalog/The-Spirit-of-Hood/The-Academic-Honor-Code-and-Code-of-Conduct) for more detailed information.
+
+### Van Halen and M&Ms
+
+When you have completed reading the syllabus, email me a picture of the band Van Halen and a picture of a bowl of M&Ms. If you do this *before* the date of the first exam, you will get 3 bonus points on the exam. Yes, this is real.
 
 ### Accessibility, Equity, and Accommodations
 

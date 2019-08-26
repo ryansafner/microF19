@@ -7,6 +7,8 @@ output:
     toc: true
 ---
 
+Look here over the course of the semester for resources, links, and tips on how to succeed in the course, how to write well, and other things of interest related to economic development. 
+
 # Tips for Success {#tips}
 
 1. **Take notes. On paper. Yes.** [Studies show](https://journals.sagepub.com/doi/abs/10.1177/0956797614524581) that using pen and paper trump taking notes on a device. The main reason is because *you cannot possibly write down everything I am saying by hand*. This forces you to selectively filter my lecture to its most essential and important components -- an integral part of the learning and retention process. If you are taking notes on a laptop, you become a court stenographer, thoughtlessly transcribing everything I am saying. At the other extreme, do not assume *everything* is written in my lecture slides. My lecture slides are visuals and cues to organize the content both for me and for you. I try hard to make sure that I have few words on slides, and even fewer answers to problems. 

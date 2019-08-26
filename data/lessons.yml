@@ -6,6 +6,8 @@ lessons:
     assignment: "00-preliminary-survey"
     
   - title: "1.1 The Tools of Microeconomics"
+    class: "01-class"
+    slides: "01-slides"
 
   - title: "1.2 Scarcity"
 
@@ -31,10 +33,12 @@ lessons:
   - title: "2.3 Solving the Firm's Cost Minimization Problem"
 
   - title: "2.4 Cost and Revenue Functions"
-
-  - title: "2.5 Short Run Profit Maximization"
   
-  - title: "2.6 Long Run Industry Equilibrium"
+  - title: "2.5 Factor Markets"
+
+  - title: "2.6 Short Run Profit Maximization"
+  
+  - title: "2.7 Long Run Industry Equilibrium"
 
   - title: '<i class="fas fa-star"></i> **Exam 2**'
 
@@ -46,10 +50,6 @@ lessons:
   - title: "3.2 Markets and Surpluses"
   
   - title: "3.3 The Social Functions of Market Prices"
-  
-  - title: "3.4 Policies that Raise Transaction Costs"
-  
-  - title: "3.5 Taxation"
   
   - title: '<span class="fake-header-table">4. Game Theory and Imperfect Competition</span>'
     header: True
