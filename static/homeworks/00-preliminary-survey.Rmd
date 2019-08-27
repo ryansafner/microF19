@@ -1,0 +1,63 @@
+---
+title: "Preliminary Survey on Math Background"
+author: "Ryan Safner"
+date: "ECON 306 Fall 2019"
+output: pdf_document
+header-includes:
+- \usepackage{amsmath}
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*Due by Monday/Tuesday, September 2/3, 2019* (depending on section)
+
+This is an *ungraded* and *anonymous* survey for me to evaluate the distribution of your math and statistics backgrounds. You do not need to write your name on it. Please complete all problems to the best of your ability. Your responses will help me craft the course to see which material we need to focus on at greater length, especially review material.
+
+### 1. Draw a graph of the following equation, $R=4-\frac{1}{2}W$. Plot $W$ on the vertical axis and $R$ on the horizontal axis.
+
+\clearpage
+
+### 2. Draw a continuous function which begins at the origin, increases at a decreasing rate, reaches an inflection point, and then increases at an increasing rate. Show where each part of the function is concave and/or convex.
+
+\clearpage
+
+### 3. Solve the system of equations for $x$ and $y$: 
+
+$$\begin{aligned}
+2x+y&=20\\
+4x-3y&=10\\
+\end{aligned}$$
+
+\clearpage
+
+### 4. Simplify the following equation: 
+
+$$Z=\frac{0.5X^{-0.5} Y^{0.5}}{0.5X^{0.5}Y^{-0.5}}$$
+
+\clearpage
+
+### 5. For the function $f(x) = 3x^2+2x-7$: 
+
+### a. Take the derivative of $f(x)$, $f'(x)$. 
+### b. In English, describe what the derivative of $f(x)$ means
+### c. Evaluate $f'(4)$. In English, describe what this means. 
+
+\clearpage
+
+### 6. Find the maximum value of:
+
+$$f(x)=-2x^2+16x$$
+
+\clearpage
+
+### 7.
+
+### a. On a scale of 1 (worst) to 10 (best), rate your algebra skills (i.e. solving equations, graphing lines, working with fractions, etc.). 
+### b. Have you had any experience with calculus?
+
+\vspace{2in}
+
+### 8. On a scale of 1 (least) to 10 (most), how anxious are you about this class? Feel free to elaborate any specific anxieties -- it will make it more likely that I can speifically address them!
