@@ -159,6 +159,7 @@ class: inverse, center, middle
 - Economics is a .whisper[way of thinking] based on a few core ideas:
 
 - .shout[People respond to incentives]
+    - Money, punishment, taxes and subsidies, risk of injury, reputation, profits, sex, effort, morals
 
 ]
 
@@ -812,7 +813,7 @@ knitr::kable(assignments, "html")
 
 - You are learning how to learn
 
-- See the [reference page](http://devf19.classes.ryansafner.com/reference) for more
+- See the [reference page](http://microf19.classes.ryansafner.com/reference) for more
 ]
 
 .pull-right[
