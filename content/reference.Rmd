@@ -7,7 +7,7 @@ output:
     toc: true
 ---
 
-Look here over the course of the semester for resources, links, and tips on how to succeed in the course, how to write well, and other things of interest related to economic development. 
+Look here over the course of the semester for resources, links, and tips on how to succeed in the course, how to write well, and other things of interest related to microeconomics. 
 
 # Tips for Success {#tips}
 
