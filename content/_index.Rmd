@@ -5,7 +5,7 @@ author: "Ryan Safner"
 
 ^[{-} `r blogdown::shortcode("courseinfo")`] <span class="newthought">This site contains</span> the syllabus, schedule, and assignments for ECON 306: Microeconomic Analysis, held during Fall 2019 at Hood College.
 
-**Last Update**: [`r format(Sys.time(), "%X %a %b %d %Y")`](https://github.com/ryansafner/devF19/commits/master)
+**Last Update**: [`r format(Sys.time(), "%X %a %b %d %Y")`](https://github.com/ryansafner/microF19/commits/master)
 
 By the end of this course, you will: 
 
