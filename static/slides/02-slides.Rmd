@@ -176,7 +176,7 @@ class: inverse, center, middle
 
 ---
 
-# Cost
+# Choice
 
 .pull-left[
 
@@ -195,7 +195,7 @@ class: inverse, center, middle
 
 ---
 
-# Cost $\rightarrow$ Opportunity Cost
+# Choice $\rightarrow$ Opportunity Cost
 
 .pull-left[
 
