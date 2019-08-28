@@ -1,0 +1,25 @@
+---
+title: "Class 2: Scarcity, Choice, and Cost"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# Overview
+
+Before we jump into our optimization models to descibe and predict (changes in) individual choices and behavior, we cover the basic principles of choice and action in a world of scarcity. This is what motivates economics.
+
+# Slides
+
+- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/02-slides.html)
+
+# Survey
+
+Don't forget to fill out the preliminary survey by next class! 
+

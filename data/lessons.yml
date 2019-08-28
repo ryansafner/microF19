@@ -9,8 +9,10 @@ lessons:
     class: "01-class"
     slides: "01-slides"
 
-  - title: "1.2 Scarcity"
-
+  - title: "1.2 Scarcity, Choice, and Cost"
+    class: "02-class"
+    slides: "02-slides"
+    
   - title: "1.3 Budget Constraint"
 
   - title: "1.4 Preferences and Utility"
