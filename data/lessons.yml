@@ -14,7 +14,10 @@ lessons:
     slides: "02-slides"
     
   - title: "1.3 Budget Constraint"
-
+    class: "03-class"
+    slides: "03-slides"
+    practice: "03-practice"
+    
   - title: "1.4 Preferences and Utility"
 
   - title: "1.5 Solving the Consumer's Problem"
