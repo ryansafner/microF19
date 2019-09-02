@@ -33,6 +33,7 @@ library("tidyverse")
 library("mosaic")
 library("ggrepel")
 update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+set.seed(256)
 ```
 
 # The Two Major Models of Economics as a "Science"

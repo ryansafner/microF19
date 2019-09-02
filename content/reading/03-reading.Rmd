@@ -1,0 +1,14 @@
+---
+title: "1.3 Constrained Optimization and the Budget Constraint - Readings"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Recommended
+
+- <i class="fas fa-external-link-square-alt"></i>@textbook[Ch. 4.3]^[Goolsbee, Austan, Steven Levitt, and Chad Syverson, 2012, *Microeconomics* 2nd ed, USA: Worth Publishers]
+
+Now that we are picking up the intensity and working with some models (many will be new to you at first), I recommend looking at the textbook readings for each class.
+
+We are going a bit out of order in two ways. First, Goolsbee et. al start with a review of Supply and Demand in chapters 2-3, and don't get to "Consumer Theory" (what we are starting now) until chapter 4. Second, they start with the "newer" and "weider" stuff first - indifference curves and utility functions, and then teach budget constraints second. I will go in the *opposite* order to slowly acclimate you from familiar territory into newer tools and concepts.

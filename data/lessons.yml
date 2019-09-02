@@ -17,8 +17,10 @@ lessons:
     class: "03-class"
     slides: "03-slides"
     practice: "03-practice"
+    reading: "03-reading"
     
   - title: "1.4 Preferences and Utility"
+    reading: "04-reading"
 
   - title: "1.5 Solving the Consumer's Problem"
 

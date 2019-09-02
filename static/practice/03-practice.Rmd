@@ -1,5 +1,5 @@
 ---
-title: "Constrained Optimization and the Budget Constraint: Practice Problems"
+title: "1.3 Constrained Optimization and the Budget Constraint - Practice Problems"
 author: "Ryan Safner"
 date: "ECON 306 - Fall 2019"
 output: pdf_document
