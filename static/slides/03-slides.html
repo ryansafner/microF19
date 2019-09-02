@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>1.3: Constrained Optimization and the Budget Constraint</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ryan Safner  Assistant Professor of Economics    safner@hood.edu    ryansafner/microf19    microF19.classes.ryansafner.com" />
+    <link href="libs/remark-css/hygge.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/5235085b15.js"></script>
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+    <link rel="stylesheet" href="custom-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# 1.3: Constrained Optimization and the Budget Constraint
+## ECON 306 · Microeconomic Analysis · Fall 2019
+### Ryan Safner<br> Assistant Professor of Economics <br> <a href="mailto:safner@hood.edu"><i class="fa fa-paper-plane fa-fw"></i> safner@hood.edu</a> <br> <a href="https://github.com/ryansafner/microf19"><i class="fa fa-github fa-fw"></i> ryansafner/microf19</a><br> <a href="https://microF19.classes.ryansafner.com"> <i class="fa fa-globe fa-fw"></i> microF19.classes.ryansafner.com</a><br>
+
+---
+
+
+
+
+# The Two Major Models of Economics as a "Science"
+
+.pull-left[
+
+## Optimization
+
+- Agents have objectives they value
+
+- Agents face constraints
+
+- Make tradeoffs to maximize objectives within constraints
+
+.center[
+![](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+--
+
+.pull-right[
+
+## Equilibrium
+
+- Agents face competition from others that affect prices
+
+- Agents adjust their behaviors based on prices
+
+- Stable outcomes result where all agents cease adjusting
+
+.center[
+![](https://www.dropbox.com/s/j7xenkgo3p71vke/equilibriumbalance.png?raw=1)
+]
+
+]
+
+---
+class: inverse, center, middle
+
+# Individual Choice
+
+---
+
+# Consumer Behavior
+
+.pull-left[
+
+- How do people decide:
+    - which products to buy
+    - which activities to dedicate their time to
+    - how to save or invest/plan for the future
+
+- A model of behavior we can extend to most scenarios
+
+- Answers to these questions are building blocks for **demand curves**	
+]
+
+.pull-right[
+
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# Individuals and Consumers
+
+.pull-left[
+
+- *Everyone* is a consumer
+    - Recall we need not limit "goods and services" to food, clothing, etc. - theyr are *anything* that you value!
+
+- Consumers making purchasing decisions will be our paradigmatic *example*
+    - But we are really talking about how *individuals* make choices in almost *any* context! 
+]
+
+.pull-right[
+
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+class: inverse, center, middle
+
+# Constrained Optimization
+
+---
+
+# Constrained Optimization I
+
+.pull-left[
+
+- We model most situations as a .shout[constrained optimization problem]:
+
+- People **optimize**: make tradeoffs to achieve their **objective** *as best as they can*
+
+- Subject to **constraints**: limited resources (income, time, attention, etc) 
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization II
+
+.pull-left[
+
+- One of the most generally useful mathematical models
+
+- *Endless applications*: how we model nearly every decision-maker
+
+&gt; consumer, business firm, politician, judge, bureaucrat, voter, dictator, pirate, drug cartel, drug addict, parent, child, etc
+
+- .whisper[Key economic skill: recognizing how to apply the model to a situation]
+
+- Luckily, all models have a common setup...
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization III
+
+.pull-left[
+
+- All constrained optimization models have three moving parts: 
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization III
+
+.pull-left[
+
+- All constrained optimization models have three moving parts: 
+
+1. **Choose:** .blue[ &lt; some alternative &gt;]
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization III
+
+.pull-left[
+
+- All constrained optimization models have three moving parts: 
+
+1. **Choose:** .blue[ &lt; some alternative &gt;]
+
+2. **In order to maximize:** .green[&lt; some objective &gt;]
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization III
+
+.pull-left[
+
+- All constrained optimization models have three moving parts: 
+
+1. **Choose:** .blue[ &lt; some alternative &gt;]
+
+2. **In order to maximize:** .green[&lt; some objective &gt;]
+
+3. **Subject to:** .red[&lt; some constraints &gt;]
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization: Example I
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**:] A Hood student picking courses hoping to achieve the highest GPA while getting an Econ major.
+
+1. **Choose:**
+
+2. **In order to maximize:**
+
+3. **Subject to:**
+
+]
+]
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/rfdf5g27mdtq5wx/education.png?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization: Example II
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**:] How should FedEx plan its delivery route?
+
+1. **Choose:**
+
+2. **In order to maximize:**
+
+3. **Subject to:**
+
+]
+]
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/ry24hnkfnadmi5v/routeoptimization.png?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization: Example III
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**:] The U.S. government wants to remain economically competitive but reduce emissions by 25%. 
+
+1. **Choose:**
+
+2. **In order to maximize:**
+
+3. **Subject to:**
+
+]
+]
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/8pxkkx4bum7envu/pollution1.jpg?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization: Example IV
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**:] How do elected officials make decisions in politics? 
+
+1. **Choose:**
+
+2. **In order to maximize:**
+
+3. **Subject to:**
+
+]
+]
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/va6gt4wp3trsnel/veep.jpeg?raw=1)
+]
+]
+
+---
+
+# The Consumer's Problem
+
+.pull-left[
+
+- The **consumer's constrained optimization problem** is: 
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# The Consumer's Problem
+
+.pull-left[
+
+- The **consumer's constrained optimization problem** is: 
+
+1. **Choose:** .blue[ &lt; a consumption bundle &gt;]
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# The Consumer's Problem
+
+.pull-left[
+
+- The **consumer's constrained optimization problem** is: 
+
+1. **Choose:** .blue[ &lt; a consumption bundle &gt;]
+
+2. **In order to maximize:** .green[&lt; utility &gt;]
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# The Consumer's Problem
+
+.pull-left[
+
+- The **consumer's constrained optimization problem** is: 
+
+1. **Choose:** .blue[ &lt; a consumption bundle &gt;]
+
+2. **In order to maximize:** .green[&lt; utility &gt;]
+
+3. **Subject to:** .red[&lt; income and market prices &gt;]
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+class: inverse, center, middle
+# Consumer Behavior: Basic Framework
+
+---
+
+# Consumption Bundles
+
+.pull-left[
+
+- Imagine a (very strange) supermarket sells xylophones `\((x)\)` and yams `\((y)\)`
+
+- Your choices: amounts of `\(x, y\)` to buy	as a **bundle**
+
+- We can represent your choices as a vector:
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# Consumption Bundles
+
+.pull-left[
+
+- Imagine a (very strange) supermarket sells xylophones `\((x)\)` and yams `\((y)\)`
+
+- Your choices: amounts of `\(x, y\)` to buy	as a **bundle**
+
+- We can represent your choices as a vector:
+
+`$$a=\begin{pmatrix}
+			x \\
+			y\\
+			\end{pmatrix}$$`
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# Consumption Bundles
+
+.pull-left[
+
+- Imagine a (very strange) supermarket sells xylophones `\((x)\)` and yams `\((y)\)`
+
+- Your choices: amounts of `\(x, y\)` to buy	as a **bundle**
+
+- We can represent your choices as a vector:
+
+`$$a=\begin{pmatrix}
+			x \\
+			y\\
+			\end{pmatrix}$$`
+
+.content-box-green[
+.green[**Examples**:]
+
+`$$a=\begin{pmatrix}
+			4 \\
+			12\\
+			\end{pmatrix}; \; b=\begin{pmatrix}
+			6 \\
+			12\\
+			\end{pmatrix}; \; c=\begin{pmatrix}
+			21 \\
+			0\\
+			\end{pmatrix}$$`
+]
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# Consumption Bundles: Graphically
+
+.pull-left[
+
+- We can represent choices graphically
+
+- We'll stick with 2 goods `\((x, y)\)` in 2-dimensions
+]
+
+.pull-right[
+&lt;img src="03-slides_files/figure-html/unnamed-chunk-1-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+class: inverse, center, middle
+# The Budget Constraint
+
+---
+
+# Affordability
+
+.pull-left[
+
+- If had $100 to spend, what bundles of goods `\(\{x, y\}\)` would you buy?
+
+- Only those bundles that are .whisper[affordable]
+
+- Denote prices of each good as `\(\{p_x, p_y\}\)`
+
+- Let `\(m\)` be the amount of income or wealth a consumer has
+
+- A consumption bundle `\(\{x, y\}\)` is .onfire[affordable] at given prices `\(\{p_x,p_y\}\)` when:
+
+`$$p_x x+p_y y \leq m$$`
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# The Budget Set
+
+.pull-left[
+
+- The set of *all* affordable bundles that a consumer can choose is called the .shout[budget set] or .shout[choice set]
+
+`$$p_x x+p_y \leq m$$`
+
+- The .shout[budget *constraint*] is the set of all bundles that spend *all income* `\(m\)`:
+
+`$$p_x x+p_y y = m$$`
+
+- Note the difference: `\(\leq\)` vs. `\(=\)`; budget *constraint* is the subset of the *budget set* that *spends all income*
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# The Budget Constraint, Graphically
+
+.pull-left[
+
+- For 2 goods, `\((x, y)\)`
+
+`$$p_xx+p_yy=m$$`
+
+]
+
+---
+
+# The Budget Constraint, Graphically
+
+.pull-left[
+
+- For 2 goods, `\((x, y)\)`
+
+`$$p_xx+p_yy=m$$`
+
+- Solve for `\(y\)` to graph
+
+`$$y=\frac{m}{p_y}-\frac{p_x}{p_y}x$$`
+
+]
+
+.pull-right[
+
+
+&lt;img src="03-slides_files/figure-html/BC-plot0-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# The Budget Constraint, Graphically
+
+.pull-left[
+- For 2 goods, `\((x, y)\)`
+
+`$$p_xx+p_yy=m$$`
+
+- Solve for `\(y\)` to graph
+
+`$$y=\frac{m}{p_y}-\frac{p_x}{p_y}x$$`
+
+- `\(y\)`-intercept: `\(\frac{m}{p_y}\)`
+- `\(x\)`-intercept: `\(\frac{m}{p_x}\)`
+]
+
+.pull-right[
+
+&lt;img src="03-slides_files/figure-html/BC-plot1-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+# The Budget Constraint, Graphically
+
+.pull-left[
+
+- For 2 goods, `\((x, y)\)`
+
+`$$p_xx+p_yy=m$$`
+
+- Solve for `\(y\)` to graph
+
+`$$y=\frac{m}{p_y}-\frac{p_x}{p_y}x$$`
+
+- `\(y\)`-intercept: `\(\frac{m}{p_y}\)`
+- `\(x\)`-intercept: `\(\frac{m}{p_x}\)`
+- slope: `\(\frac{p_x}{p_y}\)`
+
+]
+
+.pull-right[
+&lt;img src="03-slides_files/figure-html/BC-plot2-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# The Budget Constraint, Graphically
+
+.pull-left[
+
+- For 2 goods, `\((x, y)\)`
+
+`$$p_xx+p_yy=m$$`
+
+- Solve for `\(y\)` to graph
+
+`$$y=\frac{m}{p_y}-\frac{p_x}{p_y}x$$`
+
+- `\(y\)`-intercept: `\(\frac{m}{p_y}\)`
+- `\(x\)`-intercept: `\(\frac{m}{p_x}\)`
+- slope: `\(\frac{p_x}{p_y}\)`
+
+- .blue[Budget constraint] is the upper limit of the .green[budget set]
+]
+
+.pull-right[
+&lt;img src="03-slides_files/figure-html/BC-plot3-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# The Budget Constraint: Example
+
+.content-box-green[
+.green[**Example**]: Suppose you have an income of $50 to spend on lattes `\((l)\)` and burritos `\((b)\)`. The price of lattes is $5 and the price of burritos is $10. Let `\(l\)` be on the horizontal axis and `\(b\)` be on the vertical axis.
+
+1. Write an equation for the budget constraint (in graphable form).
+
+2. Graph the budget constraint.
+]
+
+---
+
+# Interpreting the Budget Constraint
+
+.pull-left[
+
+- Any point .blue[on] the line spends all income
+  - A: \\($5(0x)+$10(5y) = $50\\) 
+  - B: \\($5(10x)+$10(0y) = $50\\)
+  - C: \\($5(2x)+$10(4y) = $50\\) 
+  - D: \\($5(6x)+$10(2y) = $50\\)
+
+
+]
+
+.pull-right[
+
+
+
+&lt;img src="03-slides_files/figure-html/BC2-plot1-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Interpreting the Budget Constraint
+
+.pull-left[
+
+- Points .blue[on] the line spend all income
+  - A: \\($5(0x)+$10(5y) = $50\\) 
+  - B: \\($5(10x)+$10(0y) = $50\\)
+  - C: \\($5(2x)+$10(4y) = $50\\) 
+  - D: \\($5(6x)+$10(2y) = $50\\)
+
+- Points .green[beneath] the line is .green[affordable] (in the budget set) but doesn't use all income
+  - E: \\($5(3x)+$10(2y) = $35\\) 
+
+
+]
+
+.pull-right[
+
+&lt;img src="03-slides_files/figure-html/BC2-plot2-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Interpreting the Budget Constraint
+
+.pull-left[
+
+- Points .blue[on] the line spend all income
+  - A: \\($5(0x)+$10(5y) = $50\\) 
+  - B: \\($5(10x)+$10(0y) = $50\\)
+  - C: \\($5(2x)+$10(4y) = $50\\) 
+  - D: \\($5(6x)+$10(2y) = $50\\)
+
+- Points .green[beneath] the line is .green[affordable] (in the budget set) but doesn't use all income
+  - E: \\($5(3x)+$10(2y) = $35\\) 
+
+- Points .red[above] the line are .red[unaffordable] (at current income and prices)
+  - F: \\($5(6x)+$10(4y) = $70\\) 
+
+]
+
+.pull-right[
+
+&lt;img src="03-slides_files/figure-html/BC2-plot3-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Interpretting the Slope
+
+.pull-left[
+
+- **Slope**: market-rate of .shout[tradeoff] between `\(x\)` and `\(y\)`
+
+- .shout[Relative price] of `\(x\)` or .shout[opportunity cost] of `\(x\)`:
+
+&gt; Consuming 1 more unit of `\(x\)` requires giving up `\(\frac{p_x}{p_y}\)` units of `\(y\)`
+
+]
+
+.pull-right[
+&lt;img src="03-slides_files/figure-html/BC-slope-plot-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Interpretting the Slope
+
+.pull-left[
+
+- **Slope**: market-rate of .shout[tradeoff] between `\(x\)` and `\(y\)`
+
+- .shout[Relative price] of `\(x\)` or .shout[opportunity cost] of `\(x\)`:
+
+&gt; Consuming 1 more unit of `\(x\)` requires giving up `\(\frac{p_x}{p_y}\)` units of `\(y\)`
+
+- Foreshadowing: 
+
+&gt; Is **your** valuation of the tradeoff between `\(x\)` and `\(y\)` the same as the market rate? 
+
+]
+
+.pull-right[
+&lt;img src="03-slides_files/figure-html/unnamed-chunk-2-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+class: inverse, center, middle
+# Changes in Parameters
+
+---
+
+# Changes in Parameters
+
+.pull-left[
+
+`$$\begin{aligned}
+m &amp;= p_x x + p_y y\\
+y &amp;= \frac{m}{p_y}-\frac{p_x}{p_y}x\\
+\end{aligned}$$`
+
+- Note the budget constraint is a function of specific .onfire[parameters]"
+  - `\(m\)`: income
+  - `\(p_x, p_y\)`: market prices
+
+- What happens to the budget constraint *as these change*?
+
+- Where economics begins: how changes in constraints affect people's choices
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Changes in Income, `\(m\)`
+
+.pull-left[
+
+- Changes in .onfire[income]: a *parallel* shift in budget constraint
+
+.content-box-green[
+.green[**Example**]: An increase in income
+
+- Same slope (relative prices don't change!)
+
+- .green[Gain of affordable bundles]
+]
+]
+
+.pull-right[
+
+
+&lt;img src="03-slides_files/figure-html/BC-m-change-plot-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Changes in Income, `\(m\)`: Example
+
+.content-box-green[
+**Example**: Continuing the lattes and burritos example, (income is $50, lattes are $5, burritos are $10), suppose your income doubles to $100.
+
+1. Find the equation of the new budget constraint (in graphable form).
+
+2. Graph the new budget constraint.
+]
+
+---
+
+# Changes in Relative Prices, `\(p_x\)` or `\(p_y\)`
+
+.pull-left[
+
+- Changes in .onfire[relative prices]: *rotate* the budget constraint
+
+.content-box-green[
+.green[**Example**]: An increase in the price of `\(x\)`
+
+- Slope steepens: `\(-\frac{p_x'}{p_y}\)`
+
+- .red[Loss of affordable bundles]
+]
+]
+
+.pull-right[
+
+
+&lt;img src="03-slides_files/figure-html/BC-x-change-plot-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Changes in Relative Prices, `\(p_x\)` or `\(p_y\)`
+
+.pull-left[
+
+- Changes in .onfire[relative prices]: *rotate* the budget constraint
+
+.content-box-green[
+.green[**Example**]: A decrease in the price of `\(y\)`
+
+- Slope flattens: `\(-\frac{p_x}{p_y'}\)`
+
+- .green[Gain of affordable bundles]
+]
+]
+
+.pull-right[
+
+
+&lt;img src="03-slides_files/figure-html/BC-y-change-plot-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Economics is About (Changes in) Relative Prices
+
+.pull-left[
+
+- .shout[Economics revolves around (changes in) **relative** prices]
+
+- Budget constraint slope `\(\left(\frac{p_x}{p_y}\right)\)`: the price of good `\(x\)` relative to good `\(y\)`'s price
+
+- Only **"real"** changes in *relative* prices (from changes in market valuations) change consumer constraints
+
+- **"Nominal"** prices are often meaningless!
+
+.content-box-green[
+.green[**Example**]: Imagine yourself in a strange country. All you know is that the price of bread is "6"...
+]
+
+- If all prices and incomes changed at the *same* rate...what would happen in **real** terms?
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/9e7tx7dj47bsscz/scale.png?raw=1)
+]
+]
+
+---
+
+# Changes in Relative Prices: Example
+
+.content-box-green[
+**Example**: Continuing the lattes and burritos example (income is $50, lattes are $5, burritos are $10).
+
+1. Suppose the price of lattes doubles from $5 to $10. Find the equation of the new budget constraint and graph it.
+
+2. Return to the original price of lattes ($5) and suppose the price of burritos falls from $10 to $5 Find the equation of the new budget constraint and graph it.
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "ocean",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "<div class=\"progress-bar-container\">   <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">   </div> </div> "
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+---
+title: "Class 3: Constrained Optimization and the Budget Constraint"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# Overview
+
+We begin with an overview of constrained optimization models and our first application, how individuals choose. Our primary focus will be people as consumers - how do they choose to spend their money and how do those choices change? While we will focus extensively on consumers making purchasing choices, do not think this is the only use of this type of model! Today we will cover the *constraints* in the model.
+
+# Slides
+
+- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/03-slides.html)
+
+# Practice Problems
+
+Today you will be working on [practice problems](/practice/03-practice.html). Answers will be posted later.
+
+# Math Survey
+
+Please turn in your math surveys. I will post "answers" after both sections have turned in their surveys.
+
+# Math Review
+
+As we are beginning to work with math tools (graphing, algebra, linear equations, etc), I have posted a [math review guide](/files/math_review_guide.pdf)^[Also now linked to on the [Reference](/reference) page] for all of the mathematical tools that are necessary for the class. It is fairly comprehensive, and in a more conceptual order than chronological order. You will not need to recall/understand everything right now, but it may be handy to consult over the semester as we introduce new economic concepts using different mathematical tools.

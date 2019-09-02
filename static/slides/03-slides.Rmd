@@ -1,0 +1,1247 @@
+---
+title: "1.3: Constrained Optimization and the Budget Constraint"
+subtitle: "ECON 306 · Microeconomic Analysis · Fall 2019"
+author: 'Ryan Safner<br> Assistant Professor of Economics <br> <a href="mailto:safner@hood.edu"><i class="fa fa-paper-plane fa-fw"></i> safner@hood.edu</a> <br> <a href="https://github.com/ryansafner/microf19"><i class="fa fa-github fa-fw"></i> ryansafner/microf19</a><br> <a href="https://microF19.classes.ryansafner.com"> <i class="fa fa-globe fa-fw"></i> microF19.classes.ryansafner.com</a><br>'
+#date:
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML" # rescales math with css changes https://github.com/yihui/xaringan/issues/143
+    lib_dir: libs
+    #seal: false
+    css: [custom.css, custom-fonts.css, "hygge"] #, metropolis, metropolis-fonts
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"] # first is for rescaling images , second is for embedding tweets, https://github.com/yihui/xaringan/issues/100
+      highlightStyle: ocean #rainbow #monokai rainbow solarized-light #tomorrow-night -blue -eighties zenburn
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+    includes:
+      in_header: header.html # for font awesome, used in title  
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo=F,
+                      message=F,
+                      warning=F)
+library("tidyverse")
+library("mosaic")
+library("ggrepel")
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+```
+
+# The Two Major Models of Economics as a "Science"
+
+.pull-left[
+
+## Optimization
+
+- Agents have objectives they value
+
+- Agents face constraints
+
+- Make tradeoffs to maximize objectives within constraints
+
+.center[
+![](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+--
+
+.pull-right[
+
+## Equilibrium
+
+- Agents face competition from others that affect prices
+
+- Agents adjust their behaviors based on prices
+
+- Stable outcomes result where all agents cease adjusting
+
+.center[
+![](https://www.dropbox.com/s/j7xenkgo3p71vke/equilibriumbalance.png?raw=1)
+]
+
+]
+
+---
+class: inverse, center, middle
+
+# Individual Choice
+
+---
+
+# Consumer Behavior
+
+.pull-left[
+
+- How do people decide:
+    - which products to buy
+    - which activities to dedicate their time to
+    - how to save or invest/plan for the future
+
+- A model of behavior we can extend to most scenarios
+
+- Answers to these questions are building blocks for **demand curves**	
+]
+
+.pull-right[
+
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# Individuals and Consumers
+
+.pull-left[
+
+- *Everyone* is a consumer
+    - Recall we need not limit "goods and services" to food, clothing, etc. - theyr are *anything* that you value!
+
+- Consumers making purchasing decisions will be our paradigmatic *example*
+    - But we are really talking about how *individuals* make choices in almost *any* context! 
+]
+
+.pull-right[
+
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+class: inverse, center, middle
+
+# Constrained Optimization
+
+---
+
+# Constrained Optimization I
+
+.pull-left[
+
+- We model most situations as a .shout[constrained optimization problem]:
+
+- People **optimize**: make tradeoffs to achieve their **objective** *as best as they can*
+
+- Subject to **constraints**: limited resources (income, time, attention, etc) 
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization II
+
+.pull-left[
+
+- One of the most generally useful mathematical models
+
+- *Endless applications*: how we model nearly every decision-maker
+
+> consumer, business firm, politician, judge, bureaucrat, voter, dictator, pirate, drug cartel, drug addict, parent, child, etc
+
+- .whisper[Key economic skill: recognizing how to apply the model to a situation]
+
+- Luckily, all models have a common setup...
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization III
+
+.pull-left[
+
+- All constrained optimization models have three moving parts: 
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization III
+
+.pull-left[
+
+- All constrained optimization models have three moving parts: 
+
+1. **Choose:** .blue[ < some alternative >]
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization III
+
+.pull-left[
+
+- All constrained optimization models have three moving parts: 
+
+1. **Choose:** .blue[ < some alternative >]
+
+2. **In order to maximize:** .green[< some objective >]
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization III
+
+.pull-left[
+
+- All constrained optimization models have three moving parts: 
+
+1. **Choose:** .blue[ < some alternative >]
+
+2. **In order to maximize:** .green[< some objective >]
+
+3. **Subject to:** .red[< some constraints >]
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization: Example I
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**:] A Hood student picking courses hoping to achieve the highest GPA while getting an Econ major.
+
+1. **Choose:**
+
+2. **In order to maximize:**
+
+3. **Subject to:**
+
+]
+]
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/rfdf5g27mdtq5wx/education.png?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization: Example II
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**:] How should FedEx plan its delivery route?
+
+1. **Choose:**
+
+2. **In order to maximize:**
+
+3. **Subject to:**
+
+]
+]
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/ry24hnkfnadmi5v/routeoptimization.png?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization: Example III
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**:] The U.S. government wants to remain economically competitive but reduce emissions by 25%. 
+
+1. **Choose:**
+
+2. **In order to maximize:**
+
+3. **Subject to:**
+
+]
+]
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/8pxkkx4bum7envu/pollution1.jpg?raw=1)
+]
+]
+
+---
+
+# Constrained Optimization: Example IV
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**:] How do elected officials make decisions in politics? 
+
+1. **Choose:**
+
+2. **In order to maximize:**
+
+3. **Subject to:**
+
+]
+]
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/va6gt4wp3trsnel/veep.jpeg?raw=1)
+]
+]
+
+---
+
+# The Consumer's Problem
+
+.pull-left[
+
+- The **consumer's constrained optimization problem** is: 
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# The Consumer's Problem
+
+.pull-left[
+
+- The **consumer's constrained optimization problem** is: 
+
+1. **Choose:** .blue[ < a consumption bundle >]
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# The Consumer's Problem
+
+.pull-left[
+
+- The **consumer's constrained optimization problem** is: 
+
+1. **Choose:** .blue[ < a consumption bundle >]
+
+2. **In order to maximize:** .green[< utility >]
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# The Consumer's Problem
+
+.pull-left[
+
+- The **consumer's constrained optimization problem** is: 
+
+1. **Choose:** .blue[ < a consumption bundle >]
+
+2. **In order to maximize:** .green[< utility >]
+
+3. **Subject to:** .red[< income and market prices >]
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+class: inverse, center, middle
+# Consumer Behavior: Basic Framework
+
+---
+
+# Consumption Bundles
+
+.pull-left[
+
+- Imagine a (very strange) supermarket sells xylophones $(x)$ and yams $(y)$
+
+- Your choices: amounts of $x, y$ to buy	as a **bundle**
+
+- We can represent your choices as a vector:
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# Consumption Bundles
+
+.pull-left[
+
+- Imagine a (very strange) supermarket sells xylophones $(x)$ and yams $(y)$
+
+- Your choices: amounts of $x, y$ to buy	as a **bundle**
+
+- We can represent your choices as a vector:
+
+$$a=\begin{pmatrix}
+			x \\
+			y\\
+			\end{pmatrix}$$
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# Consumption Bundles
+
+.pull-left[
+
+- Imagine a (very strange) supermarket sells xylophones $(x)$ and yams $(y)$
+
+- Your choices: amounts of $x, y$ to buy	as a **bundle**
+
+- We can represent your choices as a vector:
+
+$$a=\begin{pmatrix}
+			x \\
+			y\\
+			\end{pmatrix}$$
+
+.content-box-green[
+.green[**Examples**:]
+
+$$a=\begin{pmatrix}
+			4 \\
+			12\\
+			\end{pmatrix}; \; b=\begin{pmatrix}
+			6 \\
+			12\\
+			\end{pmatrix}; \; c=\begin{pmatrix}
+			21 \\
+			0\\
+			\end{pmatrix}$$
+]
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# Consumption Bundles: Graphically
+
+.pull-left[
+
+- We can represent choices graphically
+
+- We'll stick with 2 goods $(x, y)$ in 2-dimensions
+]
+
+.pull-right[
+```{r, echo=F, message = F, warning = F, fig.retina=3, fig.align="center"}
+library(tidyverse)
+library(ggrepel)
+df <- tribble(
+  ~x, ~y,
+  2, 3
+)
+
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+
+ggplot(df, aes(x = x,
+               y = y))+
+  geom_point()+
+  geom_text_repel(label="(2,3)")+
+  scale_x_continuous(breaks = seq(0,10,1), 
+                     limits = c(0,10))+
+  scale_y_continuous(breaks = seq(0,10,1), 
+                     limits = c(0,10))+
+  theme_classic(base_family = "Fira Sans Condensed")
+```
+]
+
+---
+
+class: inverse, center, middle
+# The Budget Constraint
+
+---
+
+# Affordability
+
+.pull-left[
+
+- If had $100 to spend, what bundles of goods $\{x, y\}$ would you buy?
+
+- Only those bundles that are .whisper[affordable]
+
+- Denote prices of each good as $\{p_x, p_y\}$
+
+- Let $m$ be the amount of income or wealth a consumer has
+
+- A consumption bundle $\{x, y\}$ is .onfire[affordable] at given prices $\{p_x,p_y\}$ when:
+
+$$p_x x+p_y y \leq m$$
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# The Budget Set
+
+.pull-left[
+
+- The set of *all* affordable bundles that a consumer can choose is called the .shout[budget set] or .shout[choice set]
+
+$$p_x x+p_y \leq m$$
+
+- The .shout[budget *constraint*] is the set of all bundles that spend *all income* $m$:
+
+$$p_x x+p_y y = m$$
+
+- Note the difference: $\leq$ vs. $=$; budget *constraint* is the subset of the *budget set* that *spends all income*
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+]
+]
+
+---
+
+# The Budget Constraint, Graphically
+
+.pull-left[
+
+- For 2 goods, $(x, y)$
+
+$$p_xx+p_yy=m$$
+
+]
+
+---
+
+# The Budget Constraint, Graphically
+
+.pull-left[
+
+- For 2 goods, $(x, y)$
+
+$$p_xx+p_yy=m$$
+
+- Solve for $y$ to graph
+
+$$y=\frac{m}{p_y}-\frac{p_x}{p_y}x$$
+
+]
+
+.pull-right[
+```{r BC-setup}
+library("mosaic")
+px<-2.5
+py<-5
+m<-20
+
+ends<-tribble(
+  ~x, ~y,
+  0, (m/py),
+  (m/px), 0
+)
+BC=function(x){(m/py)-(px/py)*x}
+line_colors <- c("BC" = "blue")
+```
+
+```{r BC-plot0, echo=F, message = F, warning = F, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,m/px)), aes(x=x))+
+  scale_x_continuous(breaks = NULL)+
+  scale_y_continuous(breaks = NULL)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# The Budget Constraint, Graphically
+
+.pull-left[
+- For 2 goods, $(x, y)$
+
+$$p_xx+p_yy=m$$
+
+- Solve for $y$ to graph
+
+$$y=\frac{m}{p_y}-\frac{p_x}{p_y}x$$
+
+- $y$-intercept: $\frac{m}{p_y}$
+- $x$-intercept: $\frac{m}{p_x}$
+]
+
+.pull-right[
+
+```{r BC-plot1, echo=F, message = F, warning = F, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,m/px)), aes(x=x))+
+  geom_point(data = ends,
+             mapping = aes(x = x,
+                           y = y),
+             size=3)+
+  #stat_function(fun=BC, geom="line", size=1, aes(color="BC"))+
+  scale_x_continuous(breaks = c(0,(m/px)),
+                     labels = c(0,expression(m/p[x])),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks = c(0,(m/py)),
+                     labels = c(0,expression(m/p[y])),
+                     expand=expand_scale(mult=c(0,0.1)))+
+   coord_cartesian(clip = 'off')+ # show points on edge
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+# The Budget Constraint, Graphically
+
+.pull-left[
+
+- For 2 goods, $(x, y)$
+
+$$p_xx+p_yy=m$$
+
+- Solve for $y$ to graph
+
+$$y=\frac{m}{p_y}-\frac{p_x}{p_y}x$$
+
+- $y$-intercept: $\frac{m}{p_y}$
+- $x$-intercept: $\frac{m}{p_x}$
+- slope: $\frac{p_x}{p_y}$
+
+]
+
+.pull-right[
+```{r BC-plot2, echo=F, message = F, warning = F, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,m/px)), aes(x=x))+
+  geom_point(data = ends,
+             mapping = aes(x = x,
+                           y = y))+
+  stat_function(fun=BC, geom="line", size=2, aes(color="BC"))+
+  scale_x_continuous(breaks = c(0,(m/px)),
+                     labels = c(0,expression(m/p[x])),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks = c(0,(m/py)),
+                     labels = c(0,expression(m/p[y])),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# The Budget Constraint, Graphically
+
+.pull-left[
+
+- For 2 goods, $(x, y)$
+
+$$p_xx+p_yy=m$$
+
+- Solve for $y$ to graph
+
+$$y=\frac{m}{p_y}-\frac{p_x}{p_y}x$$
+
+- $y$-intercept: $\frac{m}{p_y}$
+- $x$-intercept: $\frac{m}{p_x}$
+- slope: $\frac{p_x}{p_y}$
+
+- .blue[Budget constraint] is the upper limit of the .green[budget set]
+]
+
+.pull-right[
+```{r BC-plot3, fig.retina=3, fig.align="center", fig.width=6}
+fill<-tribble(
+  ~x, ~y,
+  0, (m/py),
+  (m/px), 0,
+  0,0
+)
+
+ggplot(data.frame(x=c(0,m/px)), aes(x=x))+
+  geom_polygon(data=fill, aes(x=x, y=y),fill="green", alpha=0.4)+
+  stat_function(fun=BC, geom="line", size=2, aes(color="BC"))+
+  scale_x_continuous(breaks = c(0,(m/px)),
+                     labels = c(0,expression(m/p[x])),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks = c(0,(m/py)),
+                     labels = c(0,expression(m/p[y])),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# The Budget Constraint: Example
+
+.content-box-green[
+.green[**Example**]: Suppose you have an income of $50 to spend on lattes $(l)$ and burritos $(b)$. The price of lattes is $5 and the price of burritos is $10. Let $l$ be on the horizontal axis and $b$ be on the vertical axis.
+
+1. Write an equation for the budget constraint (in graphable form).
+
+2. Graph the budget constraint.
+]
+
+---
+
+# Interpreting the Budget Constraint
+
+.pull-left[
+
+- Any point .blue[on] the line spends all income
+  - A: \\($5(0x)+$10(5y) = $50\\) 
+  - B: \\($5(10x)+$10(0y) = $50\\)
+  - C: \\($5(2x)+$10(4y) = $50\\) 
+  - D: \\($5(6x)+$10(2y) = $50\\)
+
+
+]
+
+.pull-right[
+
+```{r BC2-setup}
+library("mosaic")
+points<-tribble(
+  ~letter, ~x, ~y,
+  "A", 0, 5,
+  "B", 10, 0,
+  "C", 2, 4,
+  "D", 6, 2,
+  "E", 3, 2,
+  "F", 6, 4
+)
+BC1=function(x){5-0.5*x}
+line_colors <- c("BC" = "blue")
+```
+
+```{r BC2-plot1, fig.retina=3, fig.align="center", fig.width=6}
+fill1<-tribble(
+  ~x, ~y,
+  0, 5,
+  10, 0,
+  0,0
+)
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_polygon(data=fill1, aes(x=x, y=y),fill="green", alpha=0.4)+
+  geom_point(data = subset(points, letter %in% c("A", "B", "C", "D")),
+             aes(x = x, y = y), size=4, color = "blue")+
+  stat_function(fun=BC1, geom="line", size=2, aes(color="BC"))+
+  geom_text_repel(data = subset(points, letter %in% c("A", "B", "C", "D")),
+                  aes(x=x , y = y, label = letter),
+                  color="blue", size=6,
+                  point.padding=0.25)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Interpreting the Budget Constraint
+
+.pull-left[
+
+- Points .blue[on] the line spend all income
+  - A: \\($5(0x)+$10(5y) = $50\\) 
+  - B: \\($5(10x)+$10(0y) = $50\\)
+  - C: \\($5(2x)+$10(4y) = $50\\) 
+  - D: \\($5(6x)+$10(2y) = $50\\)
+
+- Points .green[beneath] the line is .green[affordable] (in the budget set) but doesn't use all income
+  - E: \\($5(3x)+$10(2y) = $35\\) 
+
+
+]
+
+.pull-right[
+
+```{r BC2-plot2, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_polygon(data=fill1, aes(x=x, y=y),fill="green", alpha=0.4)+
+  geom_point(data = subset(points, letter %in% c("A", "B", "C", "D")),
+             aes(x = x, y = y), size=4, color = "blue")+
+  geom_text_repel(data = subset(points, letter %in% c("A", "B", "C", "D")),
+                  aes(x=x , y = y, label = letter),
+                  color="blue", size=6,
+                  point.padding=0.25)+
+  geom_point(data = subset(points, letter=="E"),
+             aes(x = x, y = y), size=4, color = "green")+
+  geom_text_repel(data = subset(points, letter=="E"),
+                  aes(x=x , y = y, label = letter),
+                  color="green", size=6,
+                  point.padding=0.25)+
+  stat_function(fun=BC1, geom="line", size=2, aes(color="BC"))+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Interpreting the Budget Constraint
+
+.pull-left[
+
+- Points .blue[on] the line spend all income
+  - A: \\($5(0x)+$10(5y) = $50\\) 
+  - B: \\($5(10x)+$10(0y) = $50\\)
+  - C: \\($5(2x)+$10(4y) = $50\\) 
+  - D: \\($5(6x)+$10(2y) = $50\\)
+
+- Points .green[beneath] the line is .green[affordable] (in the budget set) but doesn't use all income
+  - E: \\($5(3x)+$10(2y) = $35\\) 
+
+- Points .red[above] the line are .red[unaffordable] (at current income and prices)
+  - F: \\($5(6x)+$10(4y) = $70\\) 
+
+]
+
+.pull-right[
+
+```{r BC2-plot3, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_polygon(data=fill1, aes(x=x, y=y),fill="green", alpha=0.4)+
+  geom_point(data = subset(points, letter %in% c("A", "B", "C", "D")),
+             aes(x = x, y = y), size=4, color = "blue")+
+  geom_text_repel(data = subset(points, letter %in% c("A", "B", "C", "D")),
+                  aes(x=x , y = y, label = letter),
+                  color="blue", size=6,
+                  point.padding=0.25)+
+  geom_point(data = subset(points, letter=="E"),
+             aes(x = x, y = y), size=4, color = "green")+
+  geom_text_repel(data = subset(points, letter=="E"),
+                  aes(x=x , y = y, label = letter),
+                  color="green", size=6,
+                  point.padding=0.25)+
+  geom_point(data = subset(points, letter=="F"),
+             aes(x = x, y = y), size=4, color = "red")+
+  geom_text_repel(data = subset(points, letter=="F"),
+                  aes(x=x , y = y, label = letter),
+                  color="red", size=6,
+                  point.padding=0.25)+
+  stat_function(fun=BC1, geom="line", size=2, aes(color="BC"))+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Interpretting the Slope
+
+.pull-left[
+
+- **Slope**: market-rate of .shout[tradeoff] between $x$ and $y$
+
+- .shout[Relative price] of $x$ or .shout[opportunity cost] of $x$:
+
+> Consuming 1 more unit of $x$ requires giving up $\frac{p_x}{p_y}$ units of $y$
+
+]
+
+.pull-right[
+```{r BC-slope-plot, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,m/px)), aes(x=x))+
+  geom_point(data = ends,
+             mapping = aes(x = x,
+                           y = y))+
+  stat_function(fun=BC, geom="line", size=2, aes(color="BC"))+
+  annotate("text", x = (0.5*(m/px)+1.75), y = BC(0.5*(m/px)), label = expression(paste("slope =", - p[x]/p[y])), color="blue", size =7)+
+  scale_x_continuous(breaks = c(0,(m/px)),
+                     labels = c(0,expression(m/p[x])),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks = c(0,(m/py)),
+                     labels = c(0,expression(m/p[y])),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Interpretting the Slope
+
+.pull-left[
+
+- **Slope**: market-rate of .shout[tradeoff] between $x$ and $y$
+
+- .shout[Relative price] of $x$ or .shout[opportunity cost] of $x$:
+
+> Consuming 1 more unit of $x$ requires giving up $\frac{p_x}{p_y}$ units of $y$
+
+- Foreshadowing: 
+
+> Is **your** valuation of the tradeoff between $x$ and $y$ the same as the market rate? 
+
+]
+
+.pull-right[
+```{r, ref.label="BC-slope-plot", fig.retina=3, fig.align="center", fig.width=6}
+```
+]
+
+---
+
+class: inverse, center, middle
+# Changes in Parameters
+
+---
+
+# Changes in Parameters
+
+.pull-left[
+
+$$\begin{aligned}
+m &= p_x x + p_y y\\
+y &= \frac{m}{p_y}-\frac{p_x}{p_y}x\\
+\end{aligned}$$
+
+- Note the budget constraint is a function of specific .onfire[parameters]"
+  - $m$: income
+  - $p_x, p_y$: market prices
+
+- What happens to the budget constraint *as these change*?
+
+- Where economics begins: how changes in constraints affect people's choices
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Changes in Income, $m$
+
+.pull-left[
+
+- Changes in .onfire[income]: a *parallel* shift in budget constraint
+
+.content-box-green[
+.green[**Example**]: An increase in income
+
+- Same slope (relative prices don't change!)
+
+- .green[Gain of affordable bundles]
+]
+]
+
+.pull-right[
+```{r m-change-setup}
+m2 <- 40
+ends2<-tribble(
+  ~x, ~y,
+  0, (m2/py),
+  (m2/px), 0
+)
+ends_betw1<-tribble(
+  ~x, ~y,
+  0, (m/py),
+  0, (m2/py),
+  (m2/px), 0,
+  (m/px), 0
+)
+
+BC2=function(x){(m2/py)-(px/py)*x}
+#line_colors <- c("BC" = "blue")
+```
+
+```{r BC-m-change-plot, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,m/px)), aes(x=x))+
+  stat_function(fun=BC, geom="line", size=2, aes(color="BC"))+
+  stat_function(fun=BC2, geom="line", linetype="dashed", size=2, aes(color="BC"))+
+  geom_polygon(data=ends_betw1, aes(x=x, y=y),fill="green", alpha=0.4)+
+  scale_x_continuous(breaks = c(0,(m/px), (m2/px)),
+                     labels = c(0,expression(m[1]/p[x]),expression(m[2]/p[x])),
+                     limits = c(0, (m2/px)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks = c(0,(m/py), (m2/py)),
+                     labels = c(0,expression(m[1]/p[y]),expression(m[2]/p[y])),
+                     limits = c(0, (m2/py)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Changes in Income, $m$: Example
+
+.content-box-green[
+**Example**: Continuing the lattes and burritos example, (income is $50, lattes are $5, burritos are $10), suppose your income doubles to $100.
+
+1. Find the equation of the new budget constraint (in graphable form).
+
+2. Graph the new budget constraint.
+]
+
+---
+
+# Changes in Relative Prices, $p_x$ or $p_y$
+
+.pull-left[
+
+- Changes in .onfire[relative prices]: *rotate* the budget constraint
+
+.content-box-green[
+.green[**Example**]: An increase in the price of $x$
+
+- Slope steepens: $-\frac{p_x'}{p_y}$
+
+- .red[Loss of affordable bundles]
+]
+]
+
+.pull-right[
+```{r x-change-setup}
+px2 <- 5
+ends_betw2<-tribble(
+  ~x, ~y,
+  0, (m/py),
+  (m/px), 0,
+  (m/px2), 0
+)
+
+BC3=function(x){(m/py)-(px2/py)*x}
+#line_colors <- c("BC" = "blue")
+```
+
+```{r BC-x-change-plot, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,m/px)), aes(x=x))+
+  stat_function(fun=BC, geom="line", size=2, aes(color="BC"))+
+  stat_function(fun=BC3, geom="line", linetype="dashed", size=2, aes(color="BC"))+
+  geom_polygon(data=ends_betw2, aes(x=x, y=y),fill="red", alpha=0.4)+
+  scale_x_continuous(breaks = c(0,(m/px2), (m/px)),
+                     labels = c(0,expression(m/p[x]*minute),expression(m/p[x])),
+                     limits = c(0, (m2/px)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks = c(0,(m/py)),
+                     labels = c(0,expression(m/p[y])),
+                     limits = c(0, (m2/py)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Changes in Relative Prices, $p_x$ or $p_y$
+
+.pull-left[
+
+- Changes in .onfire[relative prices]: *rotate* the budget constraint
+
+.content-box-green[
+.green[**Example**]: A decrease in the price of $y$
+
+- Slope flattens: $-\frac{p_x}{p_y'}$
+
+- .green[Gain of affordable bundles]
+]
+]
+
+.pull-right[
+```{r y-change-setup}
+py2 <- 2.5
+ends_betw3<-tribble(
+  ~x, ~y,
+  0, (m/py),
+  0, (m/py2),
+  (m/px), 0
+)
+
+BC4=function(x){(m/py2)-(px/py2)*x}
+#line_colors <- c("BC" = "blue")
+```
+
+```{r BC-y-change-plot, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,m/px)), aes(x=x))+
+  stat_function(fun=BC, geom="line", size=2, aes(color="BC"))+
+  stat_function(fun=BC4, geom="line", linetype="dashed", size=2, aes(color="BC"))+
+  geom_polygon(data=ends_betw3, aes(x=x, y=y),fill="green", alpha=0.4)+
+  scale_x_continuous(breaks = c(0,(m/px)),
+                     labels = c(0,expression(m/p[x])),
+                     limits = c(0, (m2/px)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks = c(0,(m/py),(m/py2)),
+                     labels = c(0,expression(m/p[y]),expression(m/p[y]*minute)),
+                     limits = c(0, (m2/py)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Economics is About (Changes in) Relative Prices
+
+.pull-left[
+
+- .shout[Economics revolves around (changes in) **relative** prices]
+
+- Budget constraint slope $\left(\frac{p_x}{p_y}\right)$: the price of good $x$ relative to good $y$'s price
+
+- Only **"real"** changes in *relative* prices (from changes in market valuations) change consumer constraints
+
+- **"Nominal"** prices are often meaningless!
+
+.content-box-green[
+.green[**Example**]: Imagine yourself in a strange country. All you know is that the price of bread is "6"...
+]
+
+- If all prices and incomes changed at the *same* rate...what would happen in **real** terms?
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/9e7tx7dj47bsscz/scale.png?raw=1)
+]
+]
+
+---
+
+# Changes in Relative Prices: Example
+
+.content-box-green[
+**Example**: Continuing the lattes and burritos example (income is $50, lattes are $5, burritos are $10).
+
+1. Suppose the price of lattes doubles from $5 to $10. Find the equation of the new budget constraint and graph it.
+
+2. Return to the original price of lattes ($5) and suppose the price of burritos falls from $10 to $5 Find the equation of the new budget constraint and graph it.
+]

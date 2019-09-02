@@ -9,7 +9,7 @@ This page contains all of the following resources for each class meeting:
 - <i class="fas fa-laptop-code"></i> **Assignments** are due by the beginning of class unless otherwise stated
 - <i class="fas fa-info-circle"></i> **Class** materials contain extra explanations, math/statistical properties & proofs, and other helpful resources^[These "online appendices" keep the slides nice and de-cluttered!]
 - <i class="fas fa-chalkboard-teacher"></i> **Slides** are "[Xaringan](https://github.com/yihui/xaringan)" presentations in html that can be opened in any browser^[`File > Print > Save as PDF` if you wish to download them]
-
+- <i class="fas fa-dumbbell"></i> **Practice** problems we work on together in class to prepare for homeworks and exams
 Relevant materials (if applicable, icons will become links) will be posted before class meets.
 
 **Last Update**: [`r Sys.time()`](https://github.com/ryansafner/microF19/commits/master).
