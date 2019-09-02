@@ -7,7 +7,7 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 
 # Recommended
 
-- <i class="fas fa-external-link-square-alt"></i>@textbook[Ch. 4.3]^[Goolsbee, Austan, Steven Levitt, and Chad Syverson, 2012, *Microeconomics* 2nd ed, USA: Worth Publishers]
+- <i class="fas fa-book"></i> Ch. 4.3 in @textbook
 
 Now that we are picking up the intensity and working with some models (many will be new to you at first), I recommend looking at the textbook readings for each class.
 

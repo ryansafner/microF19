@@ -7,4 +7,4 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 
 # Recommended
 
-- <i class="fas fa-external-link-square-alt"></i>@textbook[Ch. 4.1-4.2]^[Goolsbee, Austan, Steven Levitt, and Chad Syverson, 2012, *Microeconomics* 2nd ed, USA: Worth Publishers]
+- <i class="fas fas fa-book"></i> Ch. 4.1-4.2 in @textbook
