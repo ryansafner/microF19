@@ -3,7 +3,7 @@
 /* ----ADDING------------------------------------------------ */
 
 .shout { color: #bf616a; /* originally #ee5863 and Lato */
-font-family: 'Lato', sans-serif;
+font-family: 'Fira Sans';
 font-weight: bold;
 }
 
@@ -13,23 +13,8 @@ font-variant: small-caps;
 }
 
 
-.whisper { color: #5e81ac;  /* originally #84d6d3 and Zeyada */
-font-family: 'Crimson Text';
-font-size: larger;
-}
-
-.whispercaps { color: #5e81ac;  /* originally #84d6d3 and Zeyada */
-font-family: 'Crimson Text';
-font-size: larger;
-font-variant: small-caps;
-}
-
-.onfire { color: #b48ead;
+.whisper { color: #236192;
 font-family: 'Fira Sans';}  /* originally #ff7436 and no font*/
-
-.onfirecaps { color: #b48ead;
-font-family: 'Fira Sans';
-font-variant: small-caps;
 
 }  /* originally #ff7436 and no font*/
 
