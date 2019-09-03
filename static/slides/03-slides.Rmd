@@ -1235,7 +1235,7 @@ ggplot(data.frame(x=c(0,m/px)), aes(x=x))+
 
 .pull-left[
 
-- .whisper[Economics revolves around (changes in) *relative* prices]
+- .whisper[Economics is about (changes in) *relative* prices]
 
 - Budget constraint slope is $\left(\frac{p_x}{p_y}\right)$
 
@@ -1248,7 +1248,7 @@ ggplot(data.frame(x=c(0,m/px)), aes(x=x))+
 .pull-right[
 
 .center[
-![:scale 90%](https://www.dropbox.com/s/9e7tx7dj47bsscz/scale.png?raw=1)
+![:scale 80%](https://www.dropbox.com/s/9e7tx7dj47bsscz/scale.png?raw=1)
 ]
 ]
 
@@ -1274,7 +1274,7 @@ ggplot(data.frame(x=c(0,m/px)), aes(x=x))+
 .pull-right[
 
 .center[
-![:scale 85%](https://www.dropbox.com/s/9e7tx7dj47bsscz/scale.png?raw=1)
+![:scale 80%](https://www.dropbox.com/s/9e7tx7dj47bsscz/scale.png?raw=1)
 ]
 ]
 
@@ -1302,7 +1302,7 @@ ggplot(data.frame(x=c(0,m/px)), aes(x=x))+
 .pull-right[
 
 .center[
-![:scale 85%](https://www.dropbox.com/s/9e7tx7dj47bsscz/scale.png?raw=1)
+![:scale 80%](https://www.dropbox.com/s/9e7tx7dj47bsscz/scale.png?raw=1)
 ]
 ]
 
