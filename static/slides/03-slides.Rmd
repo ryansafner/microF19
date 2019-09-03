@@ -1317,3 +1317,17 @@ ggplot(data.frame(x=c(0,m/px)), aes(x=x))+
 
 2. Return to the original price of lattes ($5) and suppose the price of burritos falls from $10 to $5. Find the equation of the new budget constraint and graph it.
 ]
+
+---
+
+# Applications of Budget Constraints
+
+.content-box-blue[
+.blue[**Application I**]: Which is better, a gift in kind, or cash? Relatedly - which policy is better, giving low income groups access to specific goods, or them giving cash? 
+]
+
+--
+
+.content-box-blue[
+.blue[**Application II**]: Are Cadillacs cheaper for professors than for students? 
+]

@@ -12,6 +12,9 @@ font-family: 'Lato', sans-serif;
 font-variant: small-caps;
 }
 
+.content-box-blue {
+    background-color: #92a8d1;
+}
 
 .whisper { color: #236192;
 font-family: 'Fira Sans';}  /* originally #ff7436 and no font*/
