@@ -1204,7 +1204,6 @@ class: inverse, center, middle
 - Recall, **budget constraint** measures *market*-valued trade off between $x$ and $y$
 
 - **MRS** measures your *personal* evaluation of $x$ vs. $y$ based on your preferences
-    - **Foreshadowing**: what if they are *different*? Are you truly maximizing your preferences?
 ]
 
 .pull-right[
