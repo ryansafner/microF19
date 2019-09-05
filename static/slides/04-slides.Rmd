@@ -186,13 +186,71 @@ $$\text{Bundle }a=\begin{pmatrix}
 
 - We assume preferences are "**well-behaved**" to model:
 
-1. *Reflexivity*: any bundle is at least as preferred as itself:
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Assumptions About Preferences
+
+.pull-left[
+
+- We assume preferences are "**well-behaved**" to model:
+
+1. *Reflexivity* : any bundle is at least as preferred as itself:
 $$a \succeq a$$
 
-2. *Completeness*: any two bundles can be ranked:
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Assumptions About Preferences
+
+.pull-left[
+
+- We assume preferences are "**well-behaved**" to model:
+
+1. *Reflexivity* : any bundle is at least as preferred as itself:
+$$a \succeq a$$
+
+2. *Completeness* : any two bundles can be ranked:
 $$a \succeq b \text{ or } a \preceq b \text{ or } a \sim b \; \forall (a,b) \in \mathbb{R}^+$$
 
-3. *Transitivity*: rankings are logically consistent:
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Assumptions About Preferences
+
+.pull-left[
+
+- We assume preferences are "**well-behaved**" to model:
+
+1. *Reflexivity* : any bundle is at least as preferred as itself:
+$$a \succeq a$$
+
+2. *Completeness* : any two bundles can be ranked:
+$$a \succeq b \text{ or } a \preceq b \text{ or } a \sim b \; \forall (a,b) \in \mathbb{R}^+$$
+
+3. *Transitivity* : rankings are logically consistent:
   - If $a \succ b$ and $b \succ c$, then $a \succ c$
 
 - Are these good assumptions? As usual in economics: *very very often yes, sometimes no!*
