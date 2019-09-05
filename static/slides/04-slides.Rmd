@@ -1,0 +1,1369 @@
+---
+title: "1.4: Preferences I: Indifference Curves"
+subtitle: "ECON 306 · Microeconomic Analysis · Fall 2019"
+author: 'Ryan Safner<br> Assistant Professor of Economics <br> <a href="mailto:safner@hood.edu"><i class="fa fa-paper-plane fa-fw"></i> safner@hood.edu</a> <br> <a href="https://github.com/ryansafner/microf19"><i class="fa fa-github fa-fw"></i> ryansafner/microf19</a><br> <a href="https://microF19.classes.ryansafner.com"> <i class="fa fa-globe fa-fw"></i> microF19.classes.ryansafner.com</a><br>'
+#date:
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML" # rescales math with css changes https://github.com/yihui/xaringan/issues/143
+    lib_dir: libs
+    #seal: false
+    css: [custom.css, custom-fonts.css, "hygge"] #, metropolis, metropolis-fonts
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"] # first is for rescaling images , second is for embedding tweets, https://github.com/yihui/xaringan/issues/100
+      highlightStyle: ocean #rainbow #monokai rainbow solarized-light #tomorrow-night -blue -eighties zenburn
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+    includes:
+      in_header: header.html # for font awesome, used in title  
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo=F,
+                      message=F,
+                      warning=F)
+library("tidyverse")
+library("mosaic")
+library("ggrepel")
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+set.seed(256)
+```
+
+# Consumer's Objectives
+
+.pull-left[
+
+- What do consumers want? What do they *maximize*?
+
+- Avoid being normative & make as few assumptions as possible
+
+- We'll assume people maximize .shout[preferences]
+    - WTF does that mean?
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+class: inverse, center, middle
+
+# Preferences
+
+---
+
+# Preferences I
+
+.pull-left[
+
+- Which bundles of $(x, y)$ are **preferred** over others?
+
+.content-box-green[
+.green[**Example**:]
+
+$$\text{Bundle }a=\begin{pmatrix}
+			4 \\
+			12\\
+			\end{pmatrix}
+\text{ or Bundle } b=\begin{pmatrix}
+			6 \\
+			12\\\end{pmatrix}$$
+]
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Preferences II
+
+.pull-left[
+
+- We will allow **three possible answers**:
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Preferences II
+
+.pull-left[
+
+- We will allow **three possible answers**:
+
+.content-box-blue[
+
+1. .blue[`\\(a \succ b\\)`: Strictly prefer `\\(a\\)` over `\\(b\\)`]
+]
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Preferences II
+
+.pull-left[
+
+- We will allow **three possible answers**:
+
+.content-box-blue[
+
+1. .blue[`\\(a \succ b\\)`: Strictly prefer `\\(a\\)` over `\\(b\\)`]
+
+2. .blue[`\\(a \precc b\\)`: Strictly prefer `\\(b\\)` over `\\(a\\)`]
+
+]
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Preferences II
+
+.pull-left[
+
+- We will allow **three possible answers**:<sup>.red[1]</sup>
+
+.content-box-blue[
+
+1. .blue[`\\(a \succ b\\)`: Strictly prefer `\\(a\\)` over `\\(b\\)`]
+
+2. .blue[`\\(a \prec b\\)`: Strictly prefer `\\(b\\)` over `\\(a\\)`]
+
+3. .blue[`\\(a \sim b\\)`: Indifferent between `\\(a\\)` and `\\(b\\)`]
+]
+
+- .shout[*Preferences* are a list of all such comparisons between all bundles]
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+.footnote[<sup>.red[1]</sup> Note you can allow for "weak" preferences: `\\((a \succeq b)\\)`, i.e. "`\\(a\\)` is at least as good as `\\(b\\)`." We use "strict" preferences to keep it simple.]
+
+---
+
+# Assumptions About Preferences
+
+.pull-left[
+
+- We assume preferences are "**well-behaved**" to model:
+
+1. *Reflexivity*: any bundle is at least as preferred as itself:
+$$a \succeq a$$
+
+2. *Completeness*: any two bundles can be ranked:
+$$a \succeq b \text{ or } a \preceq b \text{ or } a \sim b \; \forall (a,b) \in \mathbb{R}^+$$
+
+3. *Transitivity*: rankings are logically consistent:
+  - If $a \succ b$ and $b \succ c$, then $a \succ c$
+
+- Are these good assumptions? As usual in economics: *very very often yes, sometimes no!*<sup>.red[1]</sup>
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+.footnote[<sup>.red[1]</sup> See findings in ["Behavioral economics"](https://en.wikipedia.org/wiki/Behavioral_economics) for interesting "irrational" anomalies and paradoxes.]
+
+---
+
+class: inverse, center, middle
+# Indifference Curves
+
+---
+
+# Mapping Preferences Graphically I
+
+.pull-left[
+- For each bundle, we now have 3 pieces of information: 
+    - amount of $x$
+    - amount of $y$
+    - preference compared to other bundles
+    
+- How to represent this information graphically? 
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Mapping Preferences Graphically II
+
+.pull-left[
+
+- Cartographers have the answer for us
+
+- On a map, *contour lines* link areas of equal height
+
+- We will use .shout["indifference curves"] to link bundles of *equal preference*
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/n798vvnpcai8sm3/contourmap.jpg?raw=1)
+]
+]
+
+---
+
+# Mapping Preferences Graphically III
+
+.pull-left[
+
+.center[
+
+3-D "Mount Utility"
+```{r, fig.retina=3, fig.height=5.5}
+library("plotly")
+x_vec = seq(0,10,1)
+y_vec = seq(0,10,1)
+x_matrix = matrix(c(x_vec), nrow = 10, ncol = 1)
+y_matrix = matrix(c(y_vec), nrow = 1, ncol = 10)
+z_matrix = matrix(c(sqrt(x_matrix %*% y_matrix)),nrow=10,ncol=10)
+
+plot_ly(x = x_vec,
+           y = y_vec,
+           z = z_matrix) %>%
+  add_surface() %>%
+  layout(scene = list(xaxis = list(title="X"),
+                      yaxis = list(title="Y"),
+                      zaxis = list(title="Utility")))
+```
+]
+]
+.pull-right[
+.center[
+2-D Indifference Curve Contours
+
+```{r, fig.retina=3, fig.height=5.5}
+library("mosaic")
+library("viridis")
+
+IC_10=function(x){100/x}
+IC_9=function(x){81/x}
+IC_8=function(x){64/x}
+IC_7=function(x){49/x}
+IC_6=function(x){36/x}
+IC_5=function(x){25/x}
+IC_4=function(x){16/x}
+IC_3=function(x){9/x}
+IC_2=function(x){4/x}
+IC_1=function(x){1/x}
+
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_10, geom="line", size=2, color = "#FDE725FF")+
+  stat_function(fun=IC_9, geom="line", size=2, color = "#B8DE29FF")+
+  stat_function(fun=IC_8, geom="line", size=2, color = "#73D055FF")+
+  stat_function(fun=IC_7, geom="line", size=2, color = "#3CBB75FF")+
+  stat_function(fun=IC_6, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=IC_5, geom="line", size=2, color = "#238A8DFF")+
+  stat_function(fun=IC_4, geom="line", size=2, color = "#2D708EFF")+
+  stat_function(fun=IC_3, geom="line", size=2, color = "#39568CFF")+
+  stat_function(fun=IC_2, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=IC_1, geom="line", size=2, color = "#481567FF")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+]
+---
+
+# Indifference Curves: Example
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Suppose you are hunting for an apartment. You value *both* the size of the apartment and the number of friends that live nearby. 
+]
+]
+.pull-right[
+
+```{r IC-ex-0, fig.retina=3, fig.align="center", fig.width=6}
+IC=function(x){1200/x}
+line_colors <- c("IC" = "blue")
+
+apts<-tribble(
+  ~letter, ~x, ~y,
+  "A", 1, 1200,
+  "B", 3, 400,
+  "C", 6, 200,
+)
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  #geom_point(data = subset(apts, letter=="A"),
+  #           mapping=aes(x=x, y=y))+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,2000,200),
+                     limits=c(0,2000),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Friends Nearby",
+       y = expression(ft^2))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Indifference Curves: Example
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Suppose you are hunting for an apartment. You value *both* the size of the apartment and the number of friends that live nearby. 
+
+- Apartment $A$ has 1 friend nearby and is 1,200 $ft^2$
+]
+]
+.pull-right[
+
+```{r IC-ex-1, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_point(data = subset(apts, letter=="A"),
+             mapping=aes(x=x, y=y),
+             size = 2)+
+  geom_text_repel(data = subset(apts, letter=="A"),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 7)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,2000,200),
+                     limits=c(0,2000),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Friends Nearby",
+       y = expression(ft^2))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Indifference Curves: Example
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Suppose you are hunting for an apartment. You value *both* the size of the apartment and the number of friends that live nearby. 
+
+- Apartment $A$ has 1 friend nearby and is 1,200 $ft^2$
+    - Apartments that are larger and/or have more friends $\succ A$
+]
+]
+.pull-right[
+
+```{r IC-ex-2, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_point(data = subset(apts, letter=="A"),
+             mapping=aes(x=x, y=y),
+             size =2)+
+  geom_text_repel(data = subset(apts, letter=="A"),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  geom_rect(aes(xmin=1, xmax=10, ymin=1200, ymax=2000), fill="green", alpha=0.2)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,2000,200),
+                     limits=c(0,2000),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Friends Nearby",
+       y = expression(ft^2))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Indifference Curves: Example
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Suppose you are hunting for an apartment. You value *both* the size of the apartment and the number of friends that live nearby. 
+
+- Apartment $A$ has 1 friend nearby and is 1,200 $ft^2$
+    - Apartments that are larger and/or have more friends $\succ A$
+    - Apartments that are smaller and/or have fewer friends $\prec A$
+]
+]
+.pull-right[
+
+```{r IC-ex-3, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_point(data = subset(apts, letter=="A"),
+             mapping=aes(x=x, y=y),
+             size =2)+
+  geom_text_repel(data = subset(apts, letter=="A"),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size =6)+
+  geom_rect(aes(xmin=1, xmax=10, ymin=1200, ymax=2000), fill="green", alpha=0.2)+
+  geom_rect(aes(xmin=0, xmax=1, ymin=0, ymax=1200), fill="red", alpha=0.2)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,2000,200),
+                     limits=c(0,2000),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Friends Nearby",
+       y = expression(ft^2))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Indifference Curves: Example
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Suppose you are hunting for an apartment. You value *both* the size of the apartment and the number of friends that live nearby. 
+
+- Apartment $A$ has 1 friend nearby and is 1,200 $ft^2$
+
+- Apartment $B$ has *more* friends but *less* $ft^2$
+
+]
+]
+.pull-right[
+
+```{r IC-ex-4, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_point(data = subset(apts, letter %in% c("A","B")),
+             mapping=aes(x=x, y=y),
+             size =2)+
+  geom_text_repel(data = subset(apts, letter %in% c("A","B")),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size =6)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,2000,200),
+                     limits=c(0,2000),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Friends Nearby",
+       y = expression(ft^2))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Indifference Curves: Example
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Suppose you are hunting for an apartment. You value *both* the size of the apartment and the number of friends that live nearby. 
+
+- Apartment $A$ has 1 friend nearby and is 1,200 $ft^2$
+
+- Apartment $B$ has *more* friends but *less* $ft^2$
+
+- Apartment $C$ has *still more* friends but *less* $ft^2$
+
+]
+]
+.pull-right[
+
+```{r IC-ex-5, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_point(data = apts,
+             mapping=aes(x=x, y=y),
+             size =2)+
+  geom_text_repel(data = apts,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size =6)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,2000,200),
+                     limits=c(0,2000),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Friends Nearby",
+       y = expression(ft^2))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Indifference Curves: Example
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Suppose you are hunting for an apartment. You value *both* the size of the apartment and the number of friends that live nearby. 
+
+- Apartment $A$ has 1 friend nearby and is 1,200 $ft^2$
+
+- Apartment $B$ has *more* friends but *less* $ft^2$
+
+- Apartment $C$ has *still more* friends but *less* $ft^2$
+
+- If $A \sim B \sim C$, these apartments are on the same .shout[indifference curve]
+]
+]
+.pull-right[
+
+```{r IC-ex-6, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC, geom="line", size=2, aes(color="IC"))+
+  geom_point(data = apts,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = apts,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,2000,200),
+                     limits=c(0,2000),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Friends Nearby",
+       y = expression(ft^2))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Indifference Curves: Example
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Suppose you are hunting for an apartment. You value *both* the size of the apartment and the number of friends that live nearby. 
+
+- .blue[Indifferent] between all apartments on the same curve
+]
+]
+.pull-right[
+
+```{r IC-ex-8, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC, geom="line", size=2, aes(color="IC"))+
+  geom_point(data = apts,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = apts,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,2000,200),
+                     limits=c(0,2000),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Friends Nearby",
+       y = expression(ft^2))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Indifference Curves: Example
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Suppose you are hunting for an apartment. You value *both* the size of the apartment and the number of friends that live nearby. 
+
+- .blue[Indifferent] between all apts on the same curve
+
+- Apts above the curve are .green[preferred over] apts on the curve
+  - $D \succ A \sim B \sim C$
+  - On a .green[higher curve]
+]
+]
+.pull-right[
+
+```{r IC-ex-9, fig.retina=3, fig.align="center", fig.width=6}
+apts2<-tribble(
+  ~letter, ~x, ~y,
+  "A", 1, 1200,
+  "B", 3, 400,
+  "C", 6, 200,
+  "D", 3, 1200
+)
+
+
+fill<-tibble(fx=seq(0,10,0.1),
+             fymin=1200/fx,
+             ymax=rep(2000,length(fx))
+)
+
+IC2=function(x){3600/x}
+line_colors <- c("IC1" = "blue", "IC2" = "green")
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC, geom="line", size=2, aes(color="IC1"))+
+  stat_function(fun=IC2, geom="line", size=2, aes(color="IC2"))+
+  geom_ribbon(data=fill,aes(x=fx,ymin=fymin,ymax=ymax),fill="green", alpha=0.4)+
+  geom_point(data = apts2,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = apts2,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,2000,200),
+                     limits=c(0,2000),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Friends Nearby",
+       y = expression(ft^2))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Indifference Curves: Example
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Suppose you are hunting for an apartment. You value *both* the size of the apartment and the number of friends that live nearby. 
+
+- .blue[Indifferent] between all apts on the same curve
+
+- Apts *above* curve are .green[preferred over] apts *on* curve
+  - $D \succ A \sim B \sim C$
+  - Actually on a .green[higher curve]
+]
+]
+.pull-right[
+
+```{r IC-ex-10, fig.retina=3, fig.align="center", fig.width=6}
+apts2<-tribble(
+  ~letter, ~x, ~y,
+  "A", 1, 1200,
+  "B", 3, 400,
+  "C", 6, 200,
+  "D", 3, 1200
+)
+
+
+fill<-tibble(fx=seq(0,10,0.1),
+             fymin=1200/fx,
+             ymax=rep(2000,length(fx))
+)
+
+IC2=function(x){3600/x}
+line_colors <- c("IC1" = "blue", "IC2" = "green")
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC, geom="line", size=2, aes(color="IC1"))+
+  stat_function(fun=IC2, geom="line", size=2, aes(color="IC2"))+
+  geom_ribbon(data=fill,aes(x=fx,ymin=fymin,ymax=ymax),fill="green", alpha=0.4)+
+  geom_point(data = apts2,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = apts2,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,2000,200),
+                     limits=c(0,2000),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Friends Nearby",
+       y = expression(ft^2))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Indifference Curves: Example
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Suppose you are hunting for an apartment. You value *both* the size of the apartment and the number of friends that live nearby. 
+
+- .blue[Indifferent] between all apts on the same curve
+
+- Apts *above* curve are .green[preferred over] apts *on* curve
+  - $D \succ A \sim B \sim C$
+  - Actually on a .green[higher curve]
+  
+- Apts *below* curve are .red[preferred less] than apts *on* curve
+  - $E \prec A \sim B \sim C$
+  - Actually on a .red[lower curve]
+]
+]
+.pull-right[
+
+```{r IC-ex-11, fig.retina=3, fig.align="center", fig.width=6}
+apts3<-tribble(
+  ~letter, ~x, ~y,
+  "A", 1, 1200,
+  "B", 3, 400,
+  "C", 6, 200,
+  "D", 3, 1200,
+  "E", 1, 400
+)
+
+fill2<-tibble(fx=seq(0,10,0.1),
+             fymin=rep(0, length(fx)),
+             ymax=1200/fx
+)
+
+IC2=function(x){3600/x}
+IC3=function(x){800/x}
+
+line_colors <- c("IC1" = "blue", "IC2" = "green", "IC3" = "red")
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC, geom="line", size=2, aes(color="IC1"))+
+  stat_function(fun=IC2, geom="line", size=2, aes(color="IC2"))+
+  stat_function(fun=IC3, geom="line", size=2, aes(color="IC3"))+
+  geom_ribbon(data=fill,aes(x=fx,ymin=fymin,ymax=ymax),fill="green", alpha=0.4)+
+  geom_ribbon(data=fill2,aes(x=fx,ymin=fymin,ymax=ymax),fill="red", alpha=0.4)+
+  geom_rect(aes(xmin=0,xmax=0.6,ymin=0,ymax=2000), fill="red", alpha=0.2)+
+  geom_point(data = apts3,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = apts3,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,2000,200),
+                     limits=c(0,2000),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Friends Nearby",
+       y = expression(ft^2))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Assumptions About Indifference Curves
+
+.pull-left[
+
+- Like preferences, indifference curves are "**well-behaved**" when:
+
+1. *We can always draw indifference curves*: two bundles can always be ranked
+
+2. *Monotonic*: "more is preferred to less"
+
+3. *Convex*: "averages are preferred to extremes"
+
+4. *Indifference curves can never cross*: preferences are transitive
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Assumption 1: We Can Always Draw Them
+
+.pull-left[
+- *We can always draw indifference curves*: two bundles can always be ranked
+
+- Every possible bundle (point on graph) is on an indifference curve
+]
+
+.pull-right[
+
+```{r IC-ass-1, fig.retina=3, fig.align="center", fig.width=6}
+IC_100=function(x){100/x}
+IC_9=function(x){81/x}
+IC_8=function(x){64/x}
+IC_7=function(x){49/x}
+IC_6=function(x){36/x}
+IC_5=function(x){25/x}
+IC_4=function(x){16/x}
+IC_3=function(x){9/x}
+IC_2=function(x){4/x}
+IC_1=function(x){1/x}
+
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_10, geom="line", size=2)+
+  stat_function(fun=IC_9, geom="line", size=2)+
+  stat_function(fun=IC_8, geom="line", size=2)+
+  stat_function(fun=IC_7, geom="line", size=2)+
+  stat_function(fun=IC_6, geom="line", size=2)+
+  stat_function(fun=IC_5, geom="line", size=2)+
+  stat_function(fun=IC_4, geom="line", size=2)+
+  stat_function(fun=IC_3, geom="line", size=2)+
+  stat_function(fun=IC_2, geom="line", size=2)+
+  stat_function(fun=IC_1, geom="line", size=2)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_color_viridis_d(0,10)+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Assumption 1: We Can Always Draw Them
+
+.pull-left[
+- *We can always draw indifference curves*: two bundles can always be ranked
+
+- Every possible bundle (point on graph) is on an indifference curve
+]
+
+.pull-right[
+
+```{r IC-ass-1.1, fig.retina=3, fig.align="center", fig.width=6}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_rect(aes(xmin=0, xmax=10, ymin=0, ymax=10))+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_color_viridis_d(0,10)+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Assumption 2: Monotonicity
+
+.pull-left[
+- *Monotonic*: "more is preferred to less"
+
+- For any bundle $b$ with more of at least one good than bundle $a \implies a \prec b$
+
+- Moves to NE always preferable
+
+- Moves to SW always unpreferable
+
+]
+
+.pull-right[
+
+```{r IC-ass-2, fig.retina=3, fig.align="center", fig.width=6}
+points<-tribble(
+  ~letter, ~x, ~y,
+  "A", 2, 2,
+)
+
+asfill<-tibble(fx=seq(0,10,0.1),
+               fymin=4/fx,
+             fymax=rep(10, length(fx))
+)
+
+asfill2<-tibble(fx=seq(0,10,0.1),
+             fymin=rep(0, length(fx)),
+             fymax=4/fx
+)
+
+IC_as=function(x){4/x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_as, geom="line", size=2, color="blue")+
+  geom_ribbon(data=asfill,aes(x=fx,ymin=fymin,ymax=fymax),fill="green", alpha=0.4)+
+  geom_ribbon(data=asfill2,aes(x=fx,ymin=fymin,ymax=fymax),fill="red", alpha=0.4)+
+  geom_rect(aes(xmin=0,xmax=0.4,ymin=0,ymax=10), fill="red", alpha=0.2)+
+  geom_point(data = points,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Assumption 2: Monotonicity - Application
+
+.context-box-blue[
+.green[**Application**]: What do indifference curves look like for bads?
+]
+
+---
+
+# Assumption 3: Convexity
+
+.pull-left[
+
+- *Convex*: "averages are preferred to extremes"
+
+- Take a (weighted) average of any two apartments on curve
+
+- Any apt that provides a "balance" of the two desired goods (e.g. $C) \prec$ "unbalanced" $(A$ or $B)$
+
+- Observation: people prefer variety in consumption
+
+- Mathematically:<sup>.red[1]</sup> **convex** $\implies$ a line connecting two points on function lies *above* the function
+
+]
+.pull-right[
+
+```{r IC-as-3, fig.retina=3, fig.align="center", fig.width=6}
+apts4<-tribble(
+  ~letter, ~x, ~y,
+  "A", 1, 1200,
+  "B", 6, 200,
+  "C", 3, 800
+)
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC, geom="line", size=2, color="blue")+
+  geom_point(data = apts4,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = apts4,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  geom_segment(aes(x=1, xend=6, y=1200, yend=200), linetype="dashed", color="red", size=2)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,2000,200),
+                     limits=c(0,2000),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual(guide=F)+
+  labs(x = "Friends Nearby",
+       y = expression(ft^2))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+.footnote[<sup>.red[1]</sup> `\\(f\left(w x_1+(1-w) x_2\right) < wf(x_1)+(1-w)f(x_2) \, \forall x_1, x_2 \in X, \forall w \in [0,1]\\)`]
+
+---
+
+# Assumption 3: Convexity - Application
+
+.context-box-blue[
+.green[**Application**]: What do non-convex (e.g. concave) indifference curves look like? What kinds of preferences does this imply?
+]
+
+---
+
+# Assumption 4: Curves Never Cross
+
+.pull-left[
+
+- *Indifference curves can never cross*: preferences are transitive
+
+- Suppose two curves crossed:
+
+- .blue[`\\(A \sim B\\)`]
+
+- .orange[`\\(B \sim C\\)`]
+
+- But .orange[`\\(C\\)`] $\sim$ .blue[`\\(A\\)`]!
+
+- Preferences are not transitive!
+
+]
+.pull-right[
+
+```{r IC-as-4, fig.retina=3, fig.align="center", fig.width=6}
+
+points_as4<-tribble(
+  ~letter, ~x, ~y,
+  "A", 2.125, 570,
+  "B", 6, 200,
+  "C", 8, 425
+)
+
+IC_as4=function(x){(400/x)+375}
+
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC, geom="line", size=2, color="blue")+
+  stat_function(fun=IC_as4, geom="line", size=2, color="orange")+
+  geom_point(data = points_as4,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_as4,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,2000,200),
+                     limits=c(0,2000),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual(guide=F)+
+  labs(x = "Friends Nearby",
+       y = expression(ft^2))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+class: inverse, center, middle
+# Marginal Rate of Substitution
+
+---
+
+# Marginal Rate of Substitution I
+
+.pull-left[
+- If I take away one friend nearby, how many more $ft^2$ would you need to keep you indifferent?
+
+- .shout[Marginal Rate of Substitution (MRS)]: rate at which you trade off one good for the other and *stay satisfied* (remain indifferent)
+
+- Think of this as the **opportunity cost**: # of units of $y$ you need to give up to acquire 1 more $x$
+
+- Recall, **budget constraint** measures market-valued trade off between $x$ and $y$
+
+- **MRS** measures your *personal* evaluation of $x$ vs. $y$ based on your preferences
+    - **Foreshadowing**: what if they are *different*? Are you truly maximizing your preferences?
+]
+
+.pull-right[
+.center[
+![:scale 80%](https://www.dropbox.com/s/9e7tx7dj47bsscz/scale.png?raw=1)
+]
+]
+
+---
+
+# Marginal Rate of Substitution II
+
+.pull-left[
+
+- MRS is the slope of the indifference curve
+$$MRS_{x,y}=-\frac{\Delta y}{\Delta x} = \frac{rise}{run}$$
+
+- Amount of $y$ given up for 1 more $x$
+
+- Note: slope (MRS) changes along the curve!
+
+]
+.pull-right[
+
+```{r MRS, fig.retina=3, fig.align="center", fig.width=6}
+
+IC_mrs=function(x){10/x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_mrs, geom="line", size=2, color="blue")+
+  geom_segment(aes(x=1, xend=1, y=5, yend=9), linetype="dashed", color="red", size=2)+
+  geom_segment(aes(x=1, xend=2, y=5, yend=5), linetype="dashed", color="red", size=2)+
+  geom_segment(aes(x=5, xend=5, y=2, yend=1), linetype="dashed", color="red", size=2)+
+  geom_segment(aes(x=5, xend=9, y=1, yend=1), linetype="dashed", color="red", size=2)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+class: inverse, center, middle
+# Utility
+
+---
+
+# So Where are the Numbers?
+
+.pull-left[
+- Long ago (1890s), utility considered a real, measurable, cardinal scale<sup>.red[1]</sup>
+
+- Utility thought to be lurking in people's brains
+    - - Could be understood from first principles: calories, water, warmth, etc
+    
+- Obvious problems
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/j0kwzqb2ptusckt/madlaboratory.jpg?raw=1)
+]
+]
+
+.footnote[<sup>.red[1]</sup> "Neuroeconomics" & cognitive scientists are re-attempting a scientific approach to measure utility]
+
+---
+
+# Utility Functions?
+
+.pull-left[
+
+- 20<sup>th</sup> century innovation: .shout[preferences] as the objects of maximization 
+
+- We can plausibly *measure* preferences via implications of peoples' actions!
+
+- .whisper[Principle of Revealed Preference]: if $x$ and $y$ are both feasible, and if $x$ is chosen over $y$, then the person must (weakly) prefer $x \succeq y$
+		- Flawless? Of course not. But extremely useful! 
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Utility Functions! I
+
+.pull-left[
+
+- So how can we build a function to "maximize preferences"?
+
+- Construct a .shout[utility function] $u(\cdot)$} that *represents* preference relations ($\succ , \prec , \sim$)<sup>.red[1]</sup>
+
+- Assign utility numbers to bundles, such that, for any bundles $a$ and $b$:
+$$a \succ b \iff u(a)>u(b)$$
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+.footnote[<sup>.red[1]</sup> The $\cdot$ is a placeholder for whatever goods we are considering (e.g. $x$, $y$, $burritos$, $lattes$, etc)]
+
+---
+
+# Utility Functions! II
+
+.pull-left[
+
+- We can model "as if" the consumer is maximizing utility/preferences by maximizing the utility function:
+
+- *"Maximizing preferences"*: choosing $a$ such that $a \succ b$ for all available $b$
+
+- *"Maximizing utility"*: choosing $a$ such that $u(a) > u(b)$ for all available $b$
+
+- Identical if they contain the same information
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+.footnote[<sup>.red[1]</sup> The $\cdot$ is a placeholder for whatever goods we are considering (e.g. $x$, $y$, $burritos$, $lattes$, etc)]
+
+---
+
+# Utility Functions, Pural I
+
+.pull-left[
+- Imagine three alternative bundles of $(x, y)$:
+$$\begin{aligned}
+a&=(1,2)\\
+b&=(2,2)\\
+c&=(4,3)\\
+\end{aligned}$$
+
+- Create a utility function $u(\cdot)$ that assigns each bundle a utility level of 
+| $u(\cdot)$ |
+|------------|
+| $u(a)=1$   | 
+| $u(b)=2$   |
+| $u(c)=3$   |
+
+- Does it mean that bundle $c$ is 3 times the utility of $a$? 
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Utility Functions, Pural II
+
+.pull-left[
+- Imagine three alternative bundles of $(x, y)$:
+$$\begin{aligned}
+a&=(1,2)\\
+b&=(2,2)\\
+c&=(4,3)\\
+\end{aligned}$$
+
+- Now consider $u(\dot)$ and a *second* utility function $v(\cdot)$: 
+
+| $u(\cdot)$ | $v(\cdot)$ |
+|------------|------------|
+| $u(a)=1$   | $v(a)=3$   |
+| $u(b)=2$   | $v(b)=5$   |
+| $u(c)=3$   | $v(c)=7$   |
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Utility Functions, Pural III
+
+.pull-left[
+- Utility numbers have an **ordinal** meaning only, not *cardinal*
+
+- Only the preference *ordering* of $a, b, c$ matters! 
+
+- $u(c)>u(b)>u(a)$ & $w(c)>w(b)>w(a)$ since $c \succ b \succ a$
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]

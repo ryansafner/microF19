@@ -19,14 +19,19 @@ lessons:
     practice: "03-practice"
     reading: "03-reading"
     
-  - title: "1.4 Preferences and Utility"
+  - title: "1.4 Preferences I: Indifference Curves"
+    class: "04-class"
+    slides: "04-slides"
+    practice: "04-practice"
     reading: "04-reading"
 
-  - title: "1.5 Solving the Consumer's Problem"
+  - title: "1.5 Preferences II: MRS and Utility Functions"
 
-  - title: "1.6 Building a Demand Function"
+  - title: "1.6 Solving the Consumer's Problem"
 
-  - title: "1.7 Price Elasticity"
+  - title: "1.7 Building a Demand Function"
+
+  - title: "1.8 Price Elasticity"
 
   - title: '<i class="fas fa-star"></i> **Exam 1**'
 

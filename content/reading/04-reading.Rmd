@@ -1,5 +1,5 @@
 ---
-title: "1.4 Preferences and Utility - Readings"
+title: "1.4 Preferences I: Indifference Curves - Readings"
 citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
