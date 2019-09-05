@@ -26,3 +26,31 @@ Today you will be working on [practice problems](/practice/04-practice.html). An
 # Math Survey
 
 "Answers" for the math survey have been posted.
+
+# Math Appendix
+
+## Utility Functions and PMTs
+
+Two utility functions $u(\cdot)$ and $w(\cdot)$ represent the same preferences iff there is a *strictly* increasing function} $f$ such that $w(\cdot)=f(u(\cdot))$
+
+$$\begin{aligned}
+a&=(1,2)\\
+b&=(2,2)\\
+c&=(4,3)\\
+\end{aligned}$$
+
+The following utility functions express the same preferences:
+
+| $u(\cdot)$ | $w(\cdot)$ |
+|------------|------------|
+| $u(a)=1$   | $v(a)=2$   |
+| $u(b)=2$   | $v(b)=4$   |
+| $u(c)=3$   | $v(c)=6$   |
+
+$$w(\cdot)=2\left[u(\cdot)\right]$$
+
+A **positive monotonic transformation (PMT)** transforms quantities such that the rank order of the quantities is preserved.
+
+- e.g. $w(u)=u+2; w(u)=4u; w(u)=u^3; w(u)=ln(u)$
+
+*Any PMT of a utility function contains the same preferences!*

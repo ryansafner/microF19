@@ -1323,6 +1323,58 @@ b&=(2,2)\\
 c&=(4,3)\\
 \end{aligned}$$
 
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Utility Functions, Pural I
+
+.pull-left[
+- Imagine three alternative bundles of $(x, y)$:
+$$\begin{aligned}
+a&=(1,2)\\
+b&=(2,2)\\
+c&=(4,3)\\
+\end{aligned}$$
+
+- Create a utility function $u(\cdot)$ that assigns each bundle a utility level of
+
+| $u(\cdot)$ |
+|------------|
+| $u(a)=1$   | 
+| $u(b)=2$   |
+| $u(c)=3$   |
+
+- Does it mean that bundle $c$ is 3 times the utility of $a$? 
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Utility Functions, Pural I
+
+.pull-left[
+- Imagine three alternative bundles of $(x, y)$:
+$$\begin{aligned}
+a&=(1,2)\\
+b&=(2,2)\\
+c&=(4,3)\\
+\end{aligned}$$
+
 - Create a utility function $u(\cdot)$ that assigns each bundle a utility level of
 
 | $u(\cdot)$ |
@@ -1380,9 +1432,11 @@ c&=(4,3)\\
 
 - Only the preference *ordering** of $a, b, c$ matters! 
 
-- $u(c)>u(b)>u(a)$ 
-- $w(c)>w(b)>w(a)$
-- $c \succ b \succ a$
+- Both are valid:<sup>.red[1]</sup>
+    - $u(c)>u(b)>u(a)$ 
+    - $w(c)>w(b)>w(a)$
+
+- Because $c \succ b \succ a$
 
 ]
 
@@ -1392,3 +1446,5 @@ c&=(4,3)\\
 ![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
 ]
 ]
+
+.footnote[<sup>.red[1]</sup> See the Mathematical Appendix in [Today's Class Page](http://microf19.classes.ryansafner.com/class/04-class) for why.]
