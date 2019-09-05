@@ -138,7 +138,7 @@ $$\text{Bundle }a=\begin{pmatrix}
 
 1. .blue[`\\(a \succ b\\)`: Strictly prefer `\\(a\\)` over `\\(b\\)`]
 
-2. .blue[`\\(a \precc b\\)`: Strictly prefer `\\(b\\)` over `\\(a\\)`]
+2. .blue[`\\(a \prec b\\)`: Strictly prefer `\\(b\\)` over `\\(a\\)`]
 
 ]
 
@@ -195,7 +195,7 @@ $$a \succeq b \text{ or } a \preceq b \text{ or } a \sim b \; \forall (a,b) \in 
 3. *Transitivity*: rankings are logically consistent:
   - If $a \succ b$ and $b \succ c$, then $a \succ c$
 
-- Are these good assumptions? As usual in economics: *very very often yes, sometimes no!*<sup>.red[1]</sup>
+- Are these good assumptions? As usual in economics: *very very often yes, sometimes no!*
 
 ]
 
@@ -204,8 +204,6 @@ $$a \succeq b \text{ or } a \preceq b \text{ or } a \sim b \; \forall (a,b) \in 
 ![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
 ]
 ]
-
-.footnote[<sup>.red[1]</sup> See findings in ["Behavioral economics"](https://en.wikipedia.org/wiki/Behavioral_economics) for interesting "irrational" anomalies and paradoxes.]
 
 ---
 
@@ -805,7 +803,7 @@ fill2<-tibble(fx=seq(0,10,0.1),
 )
 
 IC2=function(x){3600/x}
-IC3=function(x){800/x}
+IC3=function(x){400/x}
 
 line_colors <- c("IC1" = "blue", "IC2" = "green", "IC3" = "red")
 
@@ -845,13 +843,13 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 - Like preferences, indifference curves are "**well-behaved**" when:
 
-1. *We can always draw indifference curves*: two bundles can always be ranked
+1. .whisper[We can always draw indifference curves]: two bundles can always be ranked
 
-2. *Monotonic*: "more is preferred to less"
+2. .whisper[Monotonic]: "more is preferred to less"
 
-3. *Convex*: "averages are preferred to extremes"
+3. .whisper[Convex]: "averages are preferred to extremes"
 
-4. *Indifference curves can never cross*: preferences are transitive
+4. .whisper[Indifference curves can never cross]: preferences are transitive
 
 ]
 
@@ -866,7 +864,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 # Assumption 1: We Can Always Draw Them
 
 .pull-left[
-- *We can always draw indifference curves*: two bundles can always be ranked
+- .whisper[We can always draw indifference curves]: two bundles can always be ranked
 
 - Every possible bundle (point on graph) is on an indifference curve
 ]
@@ -917,7 +915,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 # Assumption 1: We Can Always Draw Them
 
 .pull-left[
-- *We can always draw indifference curves*: two bundles can always be ranked
+- .whisper[We can always draw indifference curves]: two bundles can always be ranked
 
 - Every possible bundle (point on graph) is on an indifference curve
 ]
@@ -948,7 +946,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 # Assumption 2: Monotonicity
 
 .pull-left[
-- *Monotonic*: "more is preferred to less"
+- .whisper[Monotonic]: "more is preferred to less"
 
 - For any bundle $b$ with more of at least one good than bundle $a \implies a \prec b$
 
@@ -1017,7 +1015,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 .pull-left[
 
-- *Convex*: "averages are preferred to extremes"
+- .whisper[Convex]: "averages are preferred to extremes"
 
 - Take a (weighted) average of any two apartments on curve
 
@@ -1062,7 +1060,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 ]
 
-.footnote[<sup>.red[1]</sup> `\\(f\left(w x_1+(1-w) x_2\right) < wf(x_1)+(1-w)f(x_2) \, \forall x_1, x_2 \in X, \forall w \in [0,1]\\)`]
+.footnote[<sup>.red[1]</sup> `\\(f\left(w x_1+(1-w) x_2\right) < wf(x_1)+(1-w)f(x_2) \, \forall w \in [0,1]\\)`]
 
 ---
 
@@ -1078,7 +1076,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 .pull-left[
 
-- *Indifference curves can never cross*: preferences are transitive
+- .whisper[Indifference curves can never cross]: preferences are transitive
 
 - Suppose two curves crossed:
 
@@ -1086,7 +1084,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 - .orange[`\\(B \sim C\\)`]
 
-- But .orange[`\\(C\\)`] $\sim$ .blue[`\\(A\\)`]!
+- But .orange[`\\(C\\)`] $\succ$ .blue[`\\(B\\)`]!
 
 - Preferences are not transitive!
 
@@ -1145,7 +1143,7 @@ class: inverse, center, middle
 
 - Think of this as the **opportunity cost**: # of units of $y$ you need to give up to acquire 1 more $x$
 
-- Recall, **budget constraint** measures market-valued trade off between $x$ and $y$
+- Recall, **budget constraint** measures *market*-valued trade off between $x$ and $y$
 
 - **MRS** measures your *personal* evaluation of $x$ vs. $y$ based on your preferences
     - **Foreshadowing**: what if they are *different*? Are you truly maximizing your preferences?
@@ -1159,6 +1157,28 @@ class: inverse, center, middle
 
 ---
 
+# Marginal Rate of Substitution I
+
+.pull-left[
+- If I take away one friend nearby, how many more $ft^2$ would you need to keep you indifferent?
+
+- .shout[Marginal Rate of Substitution (MRS)]: rate at which you trade off one good for the other and *stay satisfied* (remain indifferent)
+
+- Think of this as the **opportunity cost**: # of units of $y$ you need to give up to acquire 1 more $x$
+
+- Recall, **budget constraint** measures *market*-valued trade off between $x$ and $y$
+
+- **MRS** measures your *personal* evaluation of $x$ vs. $y$ based on your preferences
+    - **Foreshadowing**: what if they are *different*? Are you truly maximizing your preferences?
+]
+
+.pull-right[
+.center[
+![:scale 80%](https://www.dropbox.com/s/9e7tx7dj47bsscz/scale.png?raw=1)
+]
+]
+
+---
 # Marginal Rate of Substitution II
 
 .pull-left[
@@ -1209,7 +1229,7 @@ class: inverse, center, middle
 - Long ago (1890s), utility considered a real, measurable, cardinal scale<sup>.red[1]</sup>
 
 - Utility thought to be lurking in people's brains
-    - - Could be understood from first principles: calories, water, warmth, etc
+    - Could be understood from first principles: calories, water, warmth, etc
     
 - Obvious problems
 ]
@@ -1233,7 +1253,8 @@ class: inverse, center, middle
 - We can plausibly *measure* preferences via implications of peoples' actions!
 
 - .whisper[Principle of Revealed Preference]: if $x$ and $y$ are both feasible, and if $x$ is chosen over $y$, then the person must (weakly) prefer $x \succeq y$
-		- Flawless? Of course not. But extremely useful! 
+	
+- Flawless? Of course not. But extremely useful! 
 ]
 
 .pull-right[
@@ -1251,7 +1272,7 @@ class: inverse, center, middle
 
 - So how can we build a function to "maximize preferences"?
 
-- Construct a .shout[utility function] $u(\cdot)$} that *represents* preference relations ($\succ , \prec , \sim$)<sup>.red[1]</sup>
+- Construct a .shout[utility function] $u(\cdot)$<sup>.red[1]</sup> that *represents* preference relations $(\succ , \prec , \sim)$
 
 - Assign utility numbers to bundles, such that, for any bundles $a$ and $b$:
 $$a \succ b \iff u(a)>u(b)$$
@@ -1264,7 +1285,7 @@ $$a \succ b \iff u(a)>u(b)$$
 ]
 ]
 
-.footnote[<sup>.red[1]</sup> The $\cdot$ is a placeholder for whatever goods we are considering (e.g. $x$, $y$, $burritos$, $lattes$, etc)]
+.footnote[<sup>.red[1]</sup> The `\\(\cdot\\)` is a placeholder for whatever goods we are considering (e.g. `\\(x\\)`, `\\(y\\)`, burritos, lattes, etc)]
 
 ---
 
@@ -1272,11 +1293,11 @@ $$a \succ b \iff u(a)>u(b)$$
 
 .pull-left[
 
-- We can model "as if" the consumer is maximizing utility/preferences by maximizing the utility function:
+- We can model "as if" the consumer is maximizing utility/preferences by *maximizing the utility function*:
 
-- *"Maximizing preferences"*: choosing $a$ such that $a \succ b$ for all available $b$
+- *"Maximizing preferences"* : choosing $a$ such that $a \succ b$ for all available $b$
 
-- *"Maximizing utility"*: choosing $a$ such that $u(a) > u(b)$ for all available $b$
+- *"Maximizing utility"* : choosing $a$ such that $u(a) > u(b)$ for all available $b$
 
 - Identical if they contain the same information
 ]
@@ -1302,7 +1323,8 @@ b&=(2,2)\\
 c&=(4,3)\\
 \end{aligned}$$
 
-- Create a utility function $u(\cdot)$ that assigns each bundle a utility level of 
+- Create a utility function $u(\cdot)$ that assigns each bundle a utility level of
+
 | $u(\cdot)$ |
 |------------|
 | $u(a)=1$   | 
@@ -1332,7 +1354,7 @@ b&=(2,2)\\
 c&=(4,3)\\
 \end{aligned}$$
 
-- Now consider $u(\dot)$ and a *second* utility function $v(\cdot)$: 
+- Now consider $u(\cdot)$ and a *second* utility function $v(\cdot)$: 
 
 | $u(\cdot)$ | $v(\cdot)$ |
 |------------|------------|
@@ -1356,9 +1378,12 @@ c&=(4,3)\\
 .pull-left[
 - Utility numbers have an **ordinal** meaning only, not *cardinal*
 
-- Only the preference *ordering* of $a, b, c$ matters! 
+- Only the preference *ordering** of $a, b, c$ matters! 
 
-- $u(c)>u(b)>u(a)$ & $w(c)>w(b)>w(a)$ since $c \succ b \succ a$
+- $u(c)>u(b)>u(a)$ 
+- $w(c)>w(b)>w(a)$
+- $c \succ b \succ a$
+
 ]
 
 .pull-right[
