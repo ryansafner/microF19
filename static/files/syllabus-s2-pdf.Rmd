@@ -62,7 +62,7 @@ Given these objectives, this course fulfills all three of the learning outcomes 
 
 **Fair warning:** **Economics is hard.** *This, in particular, may be of the hardest courses that you will take, primarily due to the mathematical content.* Using the economic way of thinking is a skill, it is literally retraining your brain to interpret and analyze the world in a novel way, and is not something that can be memorized. I will do my best to make this class intuitive and helpful, if not interesting. If at any point you find yourself struggling in this course for any reason, please come see me. Do not suffer in silence! Coming to see me for help does not diminish my view of you, in fact I will hold you in *higher* regard for understanding your own needs and taking charge of your own learning. There are also a some fantastic resources on campus, such as the [Center for Academic Achievement and Retention (CAAR)](http://www.hood.edu/campus-services/academic-services/index.html) and the [Beneficial-Hodson Library](http://www.hood.edu/library/).  
 
-See my [tips for success in this course](/reference#tips). 
+See my [tips for success in this course](http://microf19.classes.ryansafner.com/reference#tips). 
 
 # Course materials
 
@@ -77,6 +77,8 @@ My lecture slides will be shared with you, and serve as your primary resource, b
 You are welcome to purchase the book by other means (e.g. Amazon, half.com, etc). I have no  financial stake in requiring you to purchase this book. You are welcome to use previous version of the book, but carefully verify the reading assignments, as the material may be different across versions. 
 
 # Assignments and grades
+
+**You can find descriptions** for all the assignments on the [assignments page](http://metricsf19.classes.ryansafner.com/assignments/).
 
 ```{r assignments-grades, include=FALSE}
 assignments <- tribble(
