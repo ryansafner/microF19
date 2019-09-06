@@ -12,10 +12,10 @@ output:
 geometry: margin=1in
 
 course: "Microeconomic Analysis"
-coursecode: "ECON 306"
+coursecode: "ECON 306 Fall 2019"
 section: "Section 2"
 author: Dr. Ryan Safner
-semester: "[microf19.classes.ryansafner.com](http://micro.classes.ryansafner.com)"
+semester: "[microf19.classes.ryansafner.com](http://microf19.classes.ryansafner.com)"
 
 email: "safner@hood.edu"
 web: "ryansafner.com"
