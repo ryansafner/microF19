@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{booktabs, graphicx, hyperref, fontspec}
+\usepackage{sectsty}
+\allsectionsfont{\sffamily}
+\usepackage[$geometry$]{geometry}
+\hypersetup{
+  colorlinks = true,
+  urlcolor = cyan,
+ }
+ \providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\newcommand*{\authorfont}{\fontfamily{phv}\selectfont}
+$if(fontfamily)$
+\usepackage[$fontfamilyoptions$]{$fontfamily$}
+$else$
+\usepackage{lmodern}
+$endif$
+
+\begin{document}
+
+\sffamily
+
+\centerline{\Huge $course$}
+
+\vspace{3 mm}
+
+\centerline{\large $author$}
+\vspace{2 mm}
+\centerline{\large $semester$}
+
+\vspace{5 mm}
+
+\begin{tabular}{@{}p{3.5in}p{3.5in}}           
+\textbf{Course}: $coursecode$ $section$ & \textbf{Email:}  $email$\\
+\textbf{Room}: $classroom$ & \textbf{Office:}  $office$\\
+\textbf{Meets}: $classhours$ & \textbf{Hours:} $officehours$\\ 
+\end{tabular}
+
+\vspace{5 mm}
+
+\hrule
+
+
+$body$
+
+\end{document}

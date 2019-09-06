@@ -1,9 +1,37 @@
 ---
-title: Syllabus
-slug: syllabus
-citeproc: false
-bibliography: ../static/bib/references.bib
-csl: ../static/bib/chicago-syllabus-no-bib.csl
+output: 
+  pdf_document:
+    number_sections: false
+    keep_tex: true
+    fig_caption: yes
+    df_print: kable
+    latex_engine: xelatex
+    template: template-syllabus.tex
+    includes:
+      in_header: 
+geometry: margin=1in
+
+course: "Microeconomic Analysis"
+coursecode: "ECON 306"
+section: "Section 1"
+author: Dr. Ryan Safner
+semester: "[microf19.classes.ryansafner.com](http://micro.classes.ryansafner.com)"
+
+email: "safner@hood.edu"
+web: "ryansafner.com"
+officehours: "TuTh 10:30--11:30 A.M."
+office: "Rosenstock 118"
+classroom: "Rosenstock 215"
+classhours: "TuTh 11:30--12:45 P.M."
+
+fontfamily: Fira Sans
+mainfont: Fira Sans
+fontsize: 12pt
+sansfont: "Yanone Kaffeesatz"
+monofont: "Fira Code"
+mathfont: "Fira Sans"
+
+bibliography: 306syllabus.bib
 ---
 
 ```{r load-libraries, message=FALSE, warning=FALSE, include=FALSE}
@@ -12,25 +40,15 @@ library(tibble)
 library(pander)
 ```
 
-- [<i class="fas fa-file-pdf"></i> `Download as PDF (Section 1 TuTh)`](/files/syllabus-s1-pdf.pdf)
-- [<i class="fas fa-file-pdf"></i> `Download as PDF (Section 2 MW)`](/files/syllabus-s2-pdf.pdf)
-
-- **Last Updated**: September 6, 2019
-
 > "The curious task of economics is to demonstrate to men how little they really know about what they imagine they can design." - F.A. Hayek, 1974 Economics Nobel Laureate
 
-<span class="newthought">Microeconomic Analysis</span> [^courseinfo] is a collection of analytical tools for modeling and understanding how decisions made by agents (individuals and firms) in a context of market institutions lead to social coordination and the creation of value. This toolkit is the analytical foundation for exploring *all* fields and applications of economics as a social science, has many practical applications in business, finance, politics, and insights into any realm of human endeavors. Economics, after all, is the study of human action. At the intermediate level, these concepts are made more rigorous through the use of mathematical models, but we will first and foremost lay the theoretical foundations with economic intuition. As such, this class assumes you have met the **required prerequisite courses** by taking introductory economics^[ECON 205, 206] and basic mathematics^[MATH 112].
-
-
-[^courseinfo]: {-}
-  `r blogdown::shortcode("courseinfo")`
-
+**Microeconomic Analysis** is a collection of analytical tools for modeling and understanding how decisions made by agents (individuals and firms) in a context of market institutions lead to social coordination and the creation of value. This toolkit is the analytical foundation for exploring *all* fields and applications of economics as a social science, has many practical applications in business, finance, politics, and insights into any realm of human endeavors. Economics, after all, is the study of human action. At the intermediate level, these concepts are made more rigorous through the use of mathematical models, but we will first and foremost lay the theoretical foundations with economic intuition. As such, this class assumes you have met the **required prerequisite courses** by taking introductory economics^[ECON 205, 206] and basic mathematics^[MATH 112].
 
 # Course objectives
 
 This class will add rigor to your thinking about the world by empowering you with the ability to model the choices and interactions of people and organizations in their economic capacities -- as consumers, producers, firms, voters, etc. 
 
-<span class="newthought">By the end of this course,</span> you will: 
+**By the end of this course,** you will: 
 
 1. apply the models of microeconomics (constrained optimization and equilibrium) towards explaining real world behavior of individuals, firms, and governments
 2. explore the effects of economic and political processes on market performance (competition, market prices, profits and losses, property rights, entrepreneurship, market power, market failures, public policy, government failures)
@@ -42,7 +60,7 @@ Given these objectives, this course fulfills all three of the learning outcomes 
 - Apply economic reasoning and models to understand and analyze problems of public policy [...]
 - Demonstrate effective oral and written communications skills for personal and professional success[...]
 
-<span class="newthought">Fair warning:</span> **Economics is hard.** *This, in particular, may be of the hardest courses that you will take, primarily due to the mathematical content.* Using the economic way of thinking is a skill, it is literally retraining your brain to interpret and analyze the world in a novel way, and is not something that can be memorized. I will do my best to make this class intuitive and helpful, if not interesting. If at any point you find yourself struggling in this course for any reason, please come see me. Do not suffer in silence! Coming to see me for help does not diminish my view of you, in fact I will hold you in *higher* regard for understanding your own needs and taking charge of your own learning. There are also a some fantastic resources on campus, such as the [Center for Academic Achievement and Retention (CAAR)](http://www.hood.edu/campus-services/academic-services/index.html) and the [Beneficial-Hodson Library](http://www.hood.edu/library/).  
+**Fair warning:** **Economics is hard.** *This, in particular, may be of the hardest courses that you will take, primarily due to the mathematical content.* Using the economic way of thinking is a skill, it is literally retraining your brain to interpret and analyze the world in a novel way, and is not something that can be memorized. I will do my best to make this class intuitive and helpful, if not interesting. If at any point you find yourself struggling in this course for any reason, please come see me. Do not suffer in silence! Coming to see me for help does not diminish my view of you, in fact I will hold you in *higher* regard for understanding your own needs and taking charge of your own learning. There are also a some fantastic resources on campus, such as the [Center for Academic Achievement and Retention (CAAR)](http://www.hood.edu/campus-services/academic-services/index.html) and the [Beneficial-Hodson Library](http://www.hood.edu/library/).  
 
 See my [tips for success in this course](/reference#tips). 
 
@@ -59,8 +77,6 @@ My lecture slides will be shared with you, and serve as your primary resource, b
 You are welcome to purchase the book by other means (e.g. Amazon, half.com, etc). I have no  financial stake in requiring you to purchase this book. You are welcome to use previous version of the book, but carefully verify the reading assignments, as the material may be different across versions. 
 
 # Assignments and grades
-
-<span class="newthought">You can find descriptions</span> for all the assignments on the [assignments page](/assignments/).
 
 ```{r assignments-grades, include=FALSE}
 assignments <- tribble(
@@ -80,11 +96,11 @@ grading <- tribble(
   "C+", "77–79%", "F",  "< 60%"
 )
 ```
-
-```{r, echo = F}
-knitr::kable(assignments)
+\begin{center}
+```{r, echo = F, results="asis"}
+knitr::kable(assignments, format="latex", booktabs=TRUE)
 ```
-
+\end{center}
 ```{r show-assignments-table, eval=F, echo=FALSE, results="asis"}
 assignments_total <- tibble(Assignment = "Total",
                             Points = sum(assignments$Points),
@@ -97,11 +113,12 @@ bind_rows(assignments, assignments_total) %>%
 
 All grades are based on the following traditional scale:
 
+\begin{center}
 ```{r show-grades-table, echo=FALSE, results="asis"}
 grading %>%
-  pandoc.table(justify = "lclc", 
-               col.names = c("Grade", "Range", "Grade", "Range"))
+  knitr::kable(., format="latex", booktabs=TRUE)
 ```
+\end{center}
 
 These grades are firm cutoffs, but I do of course round upwards ($\geq 0.5$) for final grades. A necessary reminder, as an academic, I am not in the business of *giving* out grades, I merely report the grade that you *earn*. I will not alter your grade unless you provide a reasonable argument that I am in error (which does happen from time to time). 
 
@@ -139,9 +156,7 @@ Students must regularly monitor their Hood email accounts to receive important c
 
 I am generally in my office Monday-Thursday during "normal business hours." You are always welcome to walk-in and chat about class, college, careers, or anything at all. Please do try to use the official office hours stated at the head of the syllabus if possible. If you need to meet at a different time, I request that you send me an email or let me know after class so I know when to expect you. If you want to go over material from class, please have *specific* questions you want help with. I am not in the business of giving private lectures (particularly if you missed class without a valid excuse).
 
-Watch this excellent and accurate video explaining office hours:
-
-<iframe src="https://player.vimeo.com/video/270014784" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+Watch the excellent and accurate video explaining office hours (on website syllabus page):
 
 ### Enrollment
 
@@ -165,4 +180,4 @@ This course is intended to be accessible for all students, including those with 
 
 # Schedule
 
-<span class="newthought">You can find a full schedule</span> with resources for each class meeting on the [schedule page](/schedule/).
+**You can find a full schedule** with resources for each class meeting on the [course website schedule page](http://microF19.classes.ryansafner.com/schedule/).
