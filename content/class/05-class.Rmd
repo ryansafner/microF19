@@ -1,0 +1,98 @@
+---
+title: "1.4 Preferences II: MRS and Marginal Utility - Class Notes"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# Overview
+
+We begin with an overview of constrained optimization models and our first application, how individuals choose. Our primary focus will be people as consumers - how do they choose to spend their money and how do those choices change? While we will focus extensively on consumers making purchasing choices, do not think this is the only use of this type of model! Today we will cover the *constraints* in the model.
+
+# Slides
+
+- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/04-slides.html)
+
+# Practice Problems
+
+Today you will be working on [practice problems](/practice/04-practice.html). Answers will be posted later.
+
+# Math Survey
+
+"Answers" for the math survey have been posted.
+
+# Math Appendix
+
+## Graphing Indifference Curves
+
+I will not ask you to formally graph indifference curves (just roughly sketch them where appropriate). If you wanted to graph them, and express them in a graphable (slope-intercept form) equation, simply solve for the good on the vertical axis. 
+
+**Example**: Suppose we have a typical^[Cobb-Douglas!] indifference curve for apples $(a)$ and bananas $(b)$: 
+$$u(a,b)=ab$$
+
+```{r, fig.retina=3, fig.height=5.5}
+library("plotly")
+x_vec = seq(0,10,1)
+y_vec = seq(0,10,1)
+x_matrix = matrix(c(x_vec), nrow = 10, ncol = 1)
+y_matrix = matrix(c(y_vec), nrow = 1, ncol = 10)
+z_matrix = matrix(c(x_matrix %*% y_matrix),nrow=10,ncol=10)
+
+plot_ly(x = x_vec,
+           y = y_vec,
+           z = z_matrix) %>%
+  add_surface() %>%
+  layout(scene = list(xaxis = list(title="a"),
+                      yaxis = list(title="b"),
+                      zaxis = list(title="Utility")))
+```
+
+Each indifference curve (or contour) is one level of utility (all points on the curve give a specific level of utility). So, set that level of utility equal to some constant, $k$. 
+
+$$ab=k$$
+
+Then, if we are putting $b$ on the vertical axis, we simply solve this for $b$:
+
+$$\begin{align*}
+ab&=k\\
+b&=\frac{k}{a}\\
+\end{align*}$$
+
+This is the general equation for all indifference curves of this utility function: each utility level (value of $k)$ can be graphed as an indifference curve with that equation. Thus, for example, for a utility level of $10$, the equation for that indifference curve is
+$$b=\frac{10}{a}$$.
+
+```{r, fig.retina=3, fig.height=5.5}
+library("mosaic")
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+
+IC_50=function(x){50/x}
+IC_25=function(x){25/x}
+IC_10=function(x){10/x}
+
+colors<-c("b=50/a" = "#20A387FF", "b=25/a" = "#39568CFF", "b=10/a" = "#481567FF")
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_50, geom="line", size=2, aes(color = "b=50/a"))+
+  stat_function(fun=IC_25, geom="line", size=2, aes(color = "b=25/a"))+
+  stat_function(fun=IC_10, geom="line", size=2, aes(color = "b=10/a"))+
+  geom_label(aes(x=9,y=IC_50(9), color = "b=50/a"), label="u=50", size = 6)+
+  geom_label(aes(x=9,y=IC_25(9), color = "b=25/a"), label="u=25", size = 6)+
+  geom_label(aes(x=9,y=IC_10(9), color = "b=10/a"), label="u=10", size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  labs(x = "a",
+       y = "b",
+       title = "Indifference curves for u(a,b)=ab")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```

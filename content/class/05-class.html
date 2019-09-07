@@ -1,0 +1,243 @@
+---
+title: "1.4 Preferences II: MRS and Marginal Utility - Class Notes"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+<!-- BLOGDOWN-HEAD -->
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+<!-- /BLOGDOWN-HEAD -->
+
+<h2>Contents</h2>
+<div id="TOC">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#slides">Slides</a></li>
+<li><a href="#practice-problems">Practice Problems</a></li>
+<li><a href="#math-survey">Math Survey</a></li>
+<li><a href="#math-appendix">Math Appendix</a><ul>
+<li><a href="#graphing-indifference-curves">Graphing Indifference Curves</a></li>
+</ul></li>
+</ul>
+</div>
+
+<h2 id="overview">Overview</h2>
+<p>We begin with an overview of constrained optimization models and our first application, how individuals choose. Our primary focus will be people as consumers - how do they choose to spend their money and how do those choices change? While we will focus extensively on consumers making purchasing choices, do not think this is the only use of this type of model! Today we will cover the <em>constraints</em> in the model.</p>
+<h2 id="slides">Slides</h2>
+<ul>
+<li><a href="/slides/04-slides.html"><i class="fas fa-external-link-square-alt"></i> Lecture Slides</a></li>
+</ul>
+<h2 id="practice-problems">Practice Problems</h2>
+<p>Today you will be working on <a href="/practice/04-practice.html">practice problems</a>. Answers will be posted later.</p>
+<h2 id="math-survey">Math Survey</h2>
+<p>“Answers” for the math survey have been posted.</p>
+<h2 id="math-appendix">Math Appendix</h2>
+<h3 id="graphing-indifference-curves">Graphing Indifference Curves</h3>
+<p>I will not ask you to formally graph indifference curves (just roughly sketch them where appropriate). If you wanted to graph them, and express them in a graphable (slope-intercept form) equation, simply solve for the good on the vertical axis.</p>
+<p><strong>Example</strong>: Suppose we have a typical<span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">Cobb-Douglas!<br />
+<br />
+</span></span> indifference curve for apples <span class="math inline">\((a)\)</span> and bananas <span class="math inline">\((b)\)</span>:
+<span class="math display">\[u(a,b)=ab\]</span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(<span class="st">&quot;plotly&quot;</span>)</span></code></pre></div>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>x_vec =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">1</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>y_vec =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">1</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a>x_matrix =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(x_vec), <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## Warning in matrix(c(x_vec), nrow = 10, ncol = 1): data length [11] is not a
+## sub-multiple or multiple of the number of rows [10]</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>y_matrix =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(y_vec), <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## Warning in matrix(c(y_vec), nrow = 1, ncol = 10): data length [11] is not a
+## sub-multiple or multiple of the number of columns [10]</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>z_matrix =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(x_matrix <span class="op">%*%</span><span class="st"> </span>y_matrix),<span class="dt">nrow=</span><span class="dv">10</span>,<span class="dt">ncol=</span><span class="dv">10</span>)</span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="kw">plot_ly</span>(<span class="dt">x =</span> x_vec,</span>
+<span id="cb11-4"><a href="#cb11-4"></a>           <span class="dt">y =</span> y_vec,</span>
+<span id="cb11-5"><a href="#cb11-5"></a>           <span class="dt">z =</span> z_matrix) <span class="op">%&gt;%</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="st">  </span><span class="kw">add_surface</span>() <span class="op">%&gt;%</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="st">  </span><span class="kw">layout</span>(<span class="dt">scene =</span> <span class="kw">list</span>(<span class="dt">xaxis =</span> <span class="kw">list</span>(<span class="dt">title=</span><span class="st">&quot;a&quot;</span>),</span>
+<span id="cb11-8"><a href="#cb11-8"></a>                      <span class="dt">yaxis =</span> <span class="kw">list</span>(<span class="dt">title=</span><span class="st">&quot;b&quot;</span>),</span>
+<span id="cb11-9"><a href="#cb11-9"></a>                      <span class="dt">zaxis =</span> <span class="kw">list</span>(<span class="dt">title=</span><span class="st">&quot;Utility&quot;</span>)))</span></code></pre></div>
+<div id="htmlwidget-1" style="width:672px;height:528px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"7c604477eeb1":["function () ","plotlyVisDat"]},"cur_data":"7c604477eeb1","attrs":{"7c604477eeb1":{"x":[0,1,2,3,4,5,6,7,8,9,10],"y":[0,1,2,3,4,5,6,7,8,9,10],"z":[[0,0,0,0,0,0,0,0,0,0],[0,1,2,3,4,5,6,7,8,9],[0,2,4,6,8,10,12,14,16,18],[0,3,6,9,12,15,18,21,24,27],[0,4,8,12,16,20,24,28,32,36],[0,5,10,15,20,25,30,35,40,45],[0,6,12,18,24,30,36,42,48,54],[0,7,14,21,28,35,42,49,56,63],[0,8,16,24,32,40,48,56,64,72],[0,9,18,27,36,45,54,63,72,81]],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"surface","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"a"},"yaxis":{"title":"b"},"zaxis":{"title":"Utility"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"showSendToCloud":false},"data":[{"colorbar":{"title":"","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"x":[0,1,2,3,4,5,6,7,8,9,10],"y":[0,1,2,3,4,5,6,7,8,9,10],"z":[[0,0,0,0,0,0,0,0,0,0],[0,1,2,3,4,5,6,7,8,9],[0,2,4,6,8,10,12,14,16,18],[0,3,6,9,12,15,18,21,24,27],[0,4,8,12,16,20,24,28,32,36],[0,5,10,15,20,25,30,35,40,45],[0,6,12,18,24,30,36,42,48,54],[0,7,14,21,28,35,42,49,56,63],[0,8,16,24,32,40,48,56,64,72],[0,9,18,27,36,45,54,63,72,81]],"type":"surface","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>Each indifference curve (or contour) is one level of utility (all points on the curve give a specific level of utility). So, set that level of utility equal to some constant, <span class="math inline">\(k\)</span>.</p>
+<p><span class="math display">\[ab=k\]</span></p>
+<p>Then, if we are putting <span class="math inline">\(b\)</span> on the vertical axis, we simply solve this for <span class="math inline">\(b\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+ab&amp;=k\\
+b&amp;=\frac{k}{a}\\
+\end{align*}\]</span></p>
+<p>This is the general equation for all indifference curves of this utility function: each utility level (value of <span class="math inline">\(k)\)</span> can be graphed as an indifference curve with that equation. Thus, for example, for a utility level of <span class="math inline">\(10\)</span>, the equation for that indifference curve is
+<span class="math display">\[b=\frac{10}{a}\]</span>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">library</span>(<span class="st">&quot;mosaic&quot;</span>)</span></code></pre></div>
+<pre><code>## Loading required package: dplyr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre><code>## Loading required package: lattice</code></pre>
+<pre><code>## Loading required package: ggformula</code></pre>
+<pre><code>## Loading required package: ggstance</code></pre>
+<pre><code>## 
+## Attaching package: &#39;ggstance&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:ggplot2&#39;:
+## 
+##     geom_errorbarh, GeomErrorbarh</code></pre>
+<pre><code>## 
+## New to ggformula?  Try the tutorials: 
+##  learnr::run_tutorial(&quot;introduction&quot;, package = &quot;ggformula&quot;)
+##  learnr::run_tutorial(&quot;refining&quot;, package = &quot;ggformula&quot;)</code></pre>
+<pre><code>## Loading required package: mosaicData</code></pre>
+<pre><code>## Loading required package: Matrix</code></pre>
+<pre><code>## Registered S3 method overwritten by &#39;mosaic&#39;:
+##   method                           from   
+##   fortify.SpatialPolygonsDataFrame ggplot2</code></pre>
+<pre><code>## 
+## The &#39;mosaic&#39; package masks several functions from core packages in order to add 
+## additional features.  The original behavior of these functions should not be affected by this.
+## 
+## Note: If you use the Matrix package, be sure to load it BEFORE loading mosaic.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;mosaic&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:Matrix&#39;:
+## 
+##     mean</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     count, do, tally</code></pre>
+<pre><code>## The following object is masked from &#39;package:plotly&#39;:
+## 
+##     do</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     stat</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     binom.test, cor, cor.test, cov, fivenum, IQR, median,
+##     prop.test, quantile, sd, t.test, var</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     max, mean, min, prod, range, sample, sum</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">update_geom_defaults</span>(<span class="st">&quot;label&quot;</span>, <span class="kw">list</span>(<span class="dt">family =</span> <span class="st">&quot;Fira Sans Condensed&quot;</span>))</span>
+<span id="cb34-2"><a href="#cb34-2"></a></span>
+<span id="cb34-3"><a href="#cb34-3"></a>IC_<span class="dv">50</span>=<span class="cf">function</span>(x){<span class="dv">50</span><span class="op">/</span>x}</span>
+<span id="cb34-4"><a href="#cb34-4"></a>IC_<span class="dv">25</span>=<span class="cf">function</span>(x){<span class="dv">25</span><span class="op">/</span>x}</span>
+<span id="cb34-5"><a href="#cb34-5"></a>IC_<span class="dv">10</span>=<span class="cf">function</span>(x){<span class="dv">10</span><span class="op">/</span>x}</span>
+<span id="cb34-6"><a href="#cb34-6"></a></span>
+<span id="cb34-7"><a href="#cb34-7"></a>colors&lt;-<span class="kw">c</span>(<span class="st">&quot;b=50/a&quot;</span> =<span class="st"> &quot;#20A387FF&quot;</span>, <span class="st">&quot;b=25/a&quot;</span> =<span class="st"> &quot;#39568CFF&quot;</span>, <span class="st">&quot;b=10/a&quot;</span> =<span class="st"> &quot;#481567FF&quot;</span>)</span>
+<span id="cb34-8"><a href="#cb34-8"></a></span>
+<span id="cb34-9"><a href="#cb34-9"></a><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>)), <span class="kw">aes</span>(<span class="dt">x=</span>x))<span class="op">+</span></span>
+<span id="cb34-10"><a href="#cb34-10"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun=</span>IC_<span class="dv">50</span>, <span class="dt">geom=</span><span class="st">&quot;line&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>, <span class="kw">aes</span>(<span class="dt">color =</span> <span class="st">&quot;b=50/a&quot;</span>))<span class="op">+</span></span>
+<span id="cb34-11"><a href="#cb34-11"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun=</span>IC_<span class="dv">25</span>, <span class="dt">geom=</span><span class="st">&quot;line&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>, <span class="kw">aes</span>(<span class="dt">color =</span> <span class="st">&quot;b=25/a&quot;</span>))<span class="op">+</span></span>
+<span id="cb34-12"><a href="#cb34-12"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun=</span>IC_<span class="dv">10</span>, <span class="dt">geom=</span><span class="st">&quot;line&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>, <span class="kw">aes</span>(<span class="dt">color =</span> <span class="st">&quot;b=10/a&quot;</span>))<span class="op">+</span></span>
+<span id="cb34-13"><a href="#cb34-13"></a><span class="st">  </span><span class="kw">geom_label</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="dv">9</span>,<span class="dt">y=</span><span class="kw">IC_50</span>(<span class="dv">9</span>), <span class="dt">color =</span> <span class="st">&quot;b=50/a&quot;</span>), <span class="dt">label=</span><span class="st">&quot;u=50&quot;</span>, <span class="dt">size =</span> <span class="dv">6</span>)<span class="op">+</span></span>
+<span id="cb34-14"><a href="#cb34-14"></a><span class="st">  </span><span class="kw">geom_label</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="dv">9</span>,<span class="dt">y=</span><span class="kw">IC_25</span>(<span class="dv">9</span>), <span class="dt">color =</span> <span class="st">&quot;b=25/a&quot;</span>), <span class="dt">label=</span><span class="st">&quot;u=25&quot;</span>, <span class="dt">size =</span> <span class="dv">6</span>)<span class="op">+</span></span>
+<span id="cb34-15"><a href="#cb34-15"></a><span class="st">  </span><span class="kw">geom_label</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="dv">9</span>,<span class="dt">y=</span><span class="kw">IC_10</span>(<span class="dv">9</span>), <span class="dt">color =</span> <span class="st">&quot;b=10/a&quot;</span>), <span class="dt">label=</span><span class="st">&quot;u=10&quot;</span>, <span class="dt">size =</span> <span class="dv">6</span>)<span class="op">+</span></span>
+<span id="cb34-16"><a href="#cb34-16"></a><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">1</span>),</span>
+<span id="cb34-17"><a href="#cb34-17"></a>                     <span class="dt">limits=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),</span>
+<span id="cb34-18"><a href="#cb34-18"></a>                     <span class="dt">expand=</span><span class="kw">expand_scale</span>(<span class="dt">mult=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.1</span>)))<span class="op">+</span></span>
+<span id="cb34-19"><a href="#cb34-19"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">1</span>),</span>
+<span id="cb34-20"><a href="#cb34-20"></a>                     <span class="dt">limits=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),</span>
+<span id="cb34-21"><a href="#cb34-21"></a>                     <span class="dt">expand=</span><span class="kw">expand_scale</span>(<span class="dt">mult=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.1</span>)))<span class="op">+</span></span>
+<span id="cb34-22"><a href="#cb34-22"></a><span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="st">&quot;I.C. equations&quot;</span>, <span class="dt">values =</span> colors)<span class="op">+</span></span>
+<span id="cb34-23"><a href="#cb34-23"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;a&quot;</span>,</span>
+<span id="cb34-24"><a href="#cb34-24"></a>       <span class="dt">y =</span> <span class="st">&quot;b&quot;</span>,</span>
+<span id="cb34-25"><a href="#cb34-25"></a>       <span class="dt">title =</span> <span class="st">&quot;Indifference curves for u(a,b)=ab&quot;</span>)<span class="op">+</span></span>
+<span id="cb34-26"><a href="#cb34-26"></a><span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_family =</span> <span class="st">&quot;Fira Sans Condensed&quot;</span>, <span class="dt">base_size=</span><span class="dv">20</span>)</span></code></pre></div>
+<p><img src="/class/05-class_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
