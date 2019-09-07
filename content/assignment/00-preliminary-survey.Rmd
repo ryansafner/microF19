@@ -13,6 +13,7 @@ source(file.path(here::here(), "lib", "graphics.R"))
 *Due by Monday/Tuesday, September 2/3, 2019* (depending on section)
 
 - [<i class="fas fa-file-pdf"></i> `Download as PDF`](/homeworks/00-preliminary-survey.pdf)
+- [<i class="far fa-life-ring"></i> `Answer Key`](/homeworks/00-preliminary-survey-answers.html)
 
 This is an *ungraded* and *anonymous* survey for me to evaluate the distribution of your math and statistics backgrounds. Please write your answers the the following questions on a piece of paper, or download and print a PDF copy (link above) to write on. You do not need to write your name on it. Please complete all problems to the best of your ability. Your responses will help me craft the course to see which material we need to focus on at greater length, especially review material.
 

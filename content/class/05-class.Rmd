@@ -11,6 +11,12 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
 # Overview
 
 We begin with an overview of constrained optimization models and our first application, how individuals choose. Our primary focus will be people as consumers - how do they choose to spend their money and how do those choices change? While we will focus extensively on consumers making purchasing choices, do not think this is the only use of this type of model! Today we will cover the *constraints* in the model.

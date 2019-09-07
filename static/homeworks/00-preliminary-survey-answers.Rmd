@@ -1,0 +1,310 @@
+---
+title: "Preliminary Survey on Math Background (Answers)"
+author: "Ryan Safner"
+date: "ECON 306 - Fall 2019"
+output:
+  html_document:
+    df_print: paged
+    theme: simplex
+    toc: true 
+    toc_depth: 3
+    toc_float: true
+    code_folding: show
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+library("tidyverse")
+library("mosaic")
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+```
+
+## 1
+
+#### Draw a graph of the following equation, $R=4-\frac{1}{2}W$. Plot $W$ on the vertical axis and $R$ on the horizontal axis.
+
+First, we must recognize that to plot a function, the vertical axis variable ($W$) must be alone on one side of the equation. Here, we have the horizontal axis variable ($R$) alone. Thus, we must solve for $W$:
+$$\begin{align*}R&=4-\frac{1}{2}W & & \text{Original function}\\
+R-4&=-\frac{1}{2}W & & \text{Subtract 4 from both sides}\\
+8-2R&=W & & \text{Multiply both sides by }-2\\ \end{align*}$$	
+
+```{r, echo=F, fig.retina=3, fig.height=5.5}
+library("mosaic")
+
+line=function(x){8-2*x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=line, geom="line", size=2, color="blue")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  labs(x = "R",
+       y = "W")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+
+```
+
+## 2
+
+#### Draw a continuous function which begins at the origin, increases at a decreasing rate, reaches an inflection point, and then increases at an increasing rate. Show where each part of the function is concave and/or convex.
+
+```{r, echo=F, fig.retina=3, fig.height=5.5}
+library("ggrepel")
+line=function(x){(0.5*x-1.5)^3+3}
+
+points <-tribble(
+  ~letter, ~x, ~y,
+  "A", 0.25, line(0.25),
+  "B", 3, line(3),
+  "C", 6, line(6)
+)
+
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=line, geom="line", size=2, color="blue")+
+  geom_segment(aes(x=0.25, xend=3, y=line(0.25), yend=line(3)), color="red", size = 1, linetype = "dashed")+
+  geom_segment(aes(x=3, xend=6, y=line(3), yend=line(6)), color="red", size = 1, linetype = "dashed")+
+    geom_point(data = points,
+             mapping=aes(x=x, y=y),
+             size =3)+
+  geom_text_repel(data = points,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size =6,
+             text.padding = 2)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+
+```
+
+The function is **concave** from A to B, since a secant line between two points (red) lies *under* the function.
+
+The function is **convex** from B to C, since a secant line between two points (blue) lies *above* the function.
+
+The inflection point is at B, since the curvature of the function switches from concave to convex. 
+
+## 3
+
+#### Solve the system of equations for $x$ and $y$: 
+
+$$\begin{align*}
+2x+y&=20\\
+4x-3y&=10\\
+\end{align*}$$
+
+We can use either the substitution or elimination methods. Here, I use substitution. Pick one equation and isolate one variable. Here, I pick the first equation and isolate $x$ to one side: 
+$$\begin{align*}
+2x+y&=20 & & \text{Original equation}\\
+2x&=20-y & & \text{Subtracting } y \text{ from both sides}\\
+x&=10-\frac{1}{2}y & & \text{Dividing both sides by 2}\\ \end{align*}$$
+
+Now, substitute this in for $x$ in the other equation, and solve for $y$:
+
+$$\begin{align*}
+4(10-\frac{1}{2}y)-3y&=10 && \text{Substituting } 10-\frac{1}{2}y \text{ in for x}\\
+40-2y-3y&=10 && \text{Distributing the 4}\\
+-2y-3y&=-30 && \text{Subtracting 40 from both sides}\\
+-5y&=-30 && \text{Simplifying }y \text{'s}\\
+y&= 6 && \text{Dividing both sides by }-5\\ \end{align*}$$
+
+Now, substitute this into the first equation.
+
+$$\begin{align*}
+2x+(6)&=20 && \text{Substituting in 6 for }y\\
+2x&=14 && \text{Subtracting 6 from both sides}\\
+x&=7 && Dividing both sides by 2\\ \end{align*}$$ 
+
+Now to double check, pick an equation and substitute both $x$ and $y$ to make sure the equation is true.
+
+$$\begin{align*}
+2(7)+(6)&=20 && \text{Substituting in 7 for }x \text{and 6 for }y\\
+14+6&=20 && \text{Simplifying}\\ \end{align*}$$
+
+We'll verify again by checking the other equation is true.
+
+$$\begin{align*}
+4(7)-3(6)&=10 && \text{Substituting in 7 for }x \text{and 6 for }y\\
+28-18&=10 && \text{Simplifying}\\ \end{align*}$$
+
+## 4 
+
+#### Simplify the following equation: 
+
+$$Z=\frac{0.5X^{-0.5} Y^{0.5}}{0.5X^{0.5}Y^{-0.5}}$$
+
+By the exponent rule for division $\left(\frac{X^a}{X^b}=X^{a-b}\right)$ for $X$ and for $Y$:
+
+$$\begin{align*}
+Z&=\frac{0.5}{0.5}X^{[-0.5-0.5]}Y^{[0.5-(-0.5)]}\\
+Z&=(1)X^{-1}Y^{1}\\ 
+\end{align*}$$
+
+By the rule for negative exponents ($X^{-a}=\frac{1}{X^a}$):
+
+$$\begin{align*}
+Z&=\frac{Y^1}{X^1}\\	
+Z&=\frac{Y}{X}\\	
+\end{align*}$$
+
+## 5 
+
+#### For the function $f(x) = 3x^2+2x-7$: 
+
+### a. 
+#### Take the derivative of $f(x)$, $f'(x)$. 
+
+Use the power functions rule: Where $f(x) = ax^n$, $f'(x) = (an)x^{(n-1)}$. So for $f(x) = 3x^2+2x-7$, the derivative is $(2*3)x^{(2-1)}+(1*2)x^{(1-1)}$ or $6x+2$.
+
+### b. 
+#### In English, describe what the derivative of $f(x)$ means
+
+The function $f'(x)$ is the derivative of function $f(x)$, and it represents the rate of change (i.e. the slope) at every point defined on the function $f(x)$. 
+
+### c. 
+#### Evaluate $f'(4)$. In English, describe what this means. 
+
+Simply plug the value $x=4$ into the derivative function $f'(4)$: $6(4)+2 = 26$. The slope of the function $f(x)$ at $x=4$ is 26.
+
+## 6
+#### Find the maximum value of:
+
+$$f(x)=-2x^2+16x$$
+
+This is an unconstrained optimization problem for a single variable, so the maximum of the function occurs when its first derivative is equal to zero:
+
+$$\frac{d f(x)}{d x}=0$$
+
+So, by taking the first derivative, and setting it equal to zero, and solving for $x$:
+
+$$\begin{align*}
+\frac{d f(x)}{d x}=-4x+16&=0 \\
+16&=4x\\
+4&=x\\
+\end{align*}$$
+
+Going back to the original function, we find the maximum value of $f(x)$ by plugging in $x=4$
+
+$$\begin{align*}
+f(4)&=-2(4)^2+16(4) \\
+f(4)&=-2(16)+64\\
+f(4)&=-32+64\\
+f(4)&=32\\
+\end{align*}$$
+
+
+```{r}
+curve=function(x){-2*x^2+16*x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=curve, geom="line", size=2, color="blue")+
+  geom_segment(aes(x=4, xend=4, y=0, yend=curve(4)), color="red", size = 1, linetype = "dashed")+
+  geom_segment(aes(x=0, xend=4, y=curve(4), yend=curve(4)), color="red", size = 1, linetype = "dashed")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,40,4),
+                     limits=c(0,40),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+
+```
+
+## 7 
+
+### a.
+#### On a scale of 1 (worst) to 10 (best), rate your algebra skills (i.e. solving equations, graphing lines, working with fractions, etc.). 
+
+```{r, echo=F}
+responses<-tibble(algebra_skills = c(6,7,6,9,6,2,9,7,7,3,7,4),
+                 calculus = factor(c("Yes","Yes", "Yes","Yes","No","Yes","Yes","No","Yes","No", "Yes", "No"), levels = c("Yes", "No")),
+                 calc_spec = factor(c("Calc I", "Calc I", "Calc I", "Calc II", "Pre-Calc", "Calc I", "Calc I", "Pre-Calc", "Calc I", "Unknown", "Calc I", "None")),
+                 anxiety = c(5,8,7,3,7,10,2,7,5,8,9,6))
+```
+
+```{r, fig.retina=3}
+responses %>%
+  count(algebra_skills) %>%
+  mutate(percent = (n/sum(n)*100)) %>%
+ggplot(.,
+       aes(x = algebra_skills,
+       y = percent))+
+  geom_col(fill="blue")+
+  scale_x_continuous(breaks=seq(1,10,1), limits = c(0,10))+
+  scale_y_continuous(breaks=seq(0,100,10),labels=function(x) paste0(x, "%"))+
+  labs(x = "Algebra Skills (1: worst, 10: best)",
+       y = "Percent")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+### b.
+#### Have you had any experience with calculus?
+
+```{r, fig.retina=3}
+responses %>%
+  count(calculus) %>%
+  mutate(percent = (n/sum(n)*100)) %>%
+ggplot(.,
+       aes(x = calculus,
+       y = percent))+
+  geom_col(aes(fill=calculus))+
+  scale_x_discrete()+
+  scale_y_continuous(breaks=seq(0,100,10),labels=function(x) paste0(x, "%"))+
+  labs(x = '"Have you had any experience with calculus?"',
+       y = "Percent")+
+  scale_fill_viridis_d()+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)+
+  theme(legend.position="none")
+```
+
+```{r, fig.retina=3}
+responses %>%
+  count(calc_spec) %>%
+  mutate(percent = (n/sum(n)*100)) %>%
+ggplot(.,
+       aes(x = reorder(calc_spec, -percent),
+       y = percent))+
+  geom_col(fill="green")+
+  scale_x_discrete()+
+  scale_y_continuous(breaks=seq(0,100,10),labels=function(x) paste0(x, "%"))+
+  labs(x = "Calculus Experience (by highest level taken)",
+       y = "Percent")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+
+## 8
+
+#### On a scale of 1 (least) to 10 (most), how anxious are you about this class? Feel free to elaborate any specific anxieties -- it will make it more likely that I can speifically address them!
+
+```{r, fig.retina=3}
+responses %>%
+  count(anxiety) %>%
+  mutate(percent = (n/sum(n)*100)) %>%
+ggplot(.,
+       aes(x = anxiety,
+       y = percent))+
+  geom_col(fill="red")+
+  scale_x_continuous(breaks=seq(1,10,1), limits=c(0,10))+
+  scale_y_continuous(breaks=seq(0,100,10),labels=function(x) paste0(x, "%"))+
+  labs(x = '"How anxious are you?" (1: least, 10: most)',
+       y = "Percent")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```

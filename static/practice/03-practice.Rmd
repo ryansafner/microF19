@@ -19,4 +19,4 @@ You can get music via downloads ($d$) or concert tickets ($t$). You have $60 to 
 
 ### 4. Now suppose your income temporarily decreases to $30. Find the new equation of the budget constraint and graph it.
 
-### 5. Now return to your original income ($30) but suppose the price of downloads increases to $6. Find the new equation of the budget constraint and graph it.
+### 5. Now return to your original income ($60) but suppose the price of downloads increases to $6. Find the new equation of the budget constraint and graph it.
