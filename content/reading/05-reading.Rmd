@@ -1,0 +1,12 @@
+---
+title: "1.5 Preferences II: Indifference Curves - MRS and Utility Functions"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Recommended
+
+- <i class="fas fas fa-book"></i> Ch. 4.1-4.2 in @textbook
+
+This is the same reading as last class (we are taking two class periods to cover preferences).

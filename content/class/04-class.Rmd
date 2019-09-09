@@ -19,11 +19,14 @@ We continue with our model of how individuals choose. Our focus for this class, 
 
 - [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/04-slides.html)
 
+
+# Practice Problems
+
+[Answers](/practice/03-practice-answers.pdf) to the practice problems from the previous class (on budget constraints) have been posted. 
+
 # Math Survey "Answers"
 
 ["Answers"](/homeworks/00-preliminary-survey-answers.html) for the math survey have been posted, including some summaries of how your classmates feel.
-
-![]
 
 # Math Appendix
 
