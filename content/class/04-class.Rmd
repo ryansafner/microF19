@@ -13,19 +13,17 @@ editor_options:
 
 # Overview
 
-We begin with an overview of constrained optimization models and our first application, how individuals choose. Our primary focus will be people as consumers - how do they choose to spend their money and how do those choices change? While we will focus extensively on consumers making purchasing choices, do not think this is the only use of this type of model! Today we will cover the *constraints* in the model.
+We continue with our model of how individuals choose. Our focus for this class, and next, is what are people's *objectives*? How can we operationalize their preferences in a meaningful way? Today we will discuss one tool - indifference curves - and start an explanation of *utility* and how we can model people as trying to "maximize" it (we will wrap that up in the next class). 
 
 # Slides
 
 - [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/04-slides.html)
 
-# Practice Problems
+# Math Survey "Answers"
 
-Today you will be working on [practice problems](/practice/04-practice.html). Answers will be posted later.
+["Answers"](/homeworks/00-preliminary-survey-answers.html) for the math survey have been posted, including some summaries of how your classmates feel.
 
-# Math Survey
-
-"Answers" for the math survey have been posted.
+![]
 
 # Math Appendix
 

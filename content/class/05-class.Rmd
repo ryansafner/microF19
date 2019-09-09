@@ -1,5 +1,5 @@
 ---
-title: "1.4 Preferences II: MRS and Marginal Utility - Class Notes"
+title: "1.5 Preferences II: MRS and Marginal Utility - Class Notes"
 citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-syllabus-no-bib.csl
@@ -87,9 +87,9 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   stat_function(fun=IC_50, geom="line", size=2, aes(color = "b=50/a"))+
   stat_function(fun=IC_25, geom="line", size=2, aes(color = "b=25/a"))+
   stat_function(fun=IC_10, geom="line", size=2, aes(color = "b=10/a"))+
-  geom_label(aes(x=9,y=IC_50(9), color = "b=50/a"), label="u=50", size = 6)+
-  geom_label(aes(x=9,y=IC_25(9), color = "b=25/a"), label="u=25", size = 6)+
-  geom_label(aes(x=9,y=IC_10(9), color = "b=10/a"), label="u=10", size = 6)+
+  geom_label(aes(x=9,y=IC_50(9)), color = "#20A387FF", label="u=50", size = 6)+
+  geom_label(aes(x=9,y=IC_25(9)), color = "#39568CFF", label="u=25", size = 6)+
+  geom_label(aes(x=9,y=IC_10(9)), color = "#481567FF", label="u=10", size = 6)+
     scale_x_continuous(breaks=seq(0,10,1),
                      limits=c(0,10),
                      expand=expand_scale(mult=c(0,0.1)))+
