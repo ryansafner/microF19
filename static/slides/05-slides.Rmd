@@ -380,7 +380,7 @@ p
 $$\begin{align*}
 MU_x \Delta x+MU_y\Delta y&= \Delta u\\
 MU_x \Delta x+MU_y \Delta y &=0\\
--MU_{x} \Delta x &= MU_y \Delta y\\ \end{align*}$$
+MU_y \Delta y&= -MU_{x} \Delta x \\ \end{align*}$$
 
 ]
 .pull-right[
@@ -407,7 +407,7 @@ p
 $$\begin{align*}
 MU_x \Delta x+MU_y\Delta y&= \Delta u\\
 MU_x \Delta x+MU_y \Delta y &=0\\
--MU_{x} \Delta x &= MU_y \Delta y\\
+MU_y \Delta y&= -MU_{x} \Delta x \\
 \underbrace{\frac{\Delta y}{\Delta x}}_{MRS} &= -\frac{MU_{x}}{MU_{y}}\\ \end{align*}$$
 
 ]
@@ -522,8 +522,7 @@ ggplot(data.frame(x=c(0,5)), aes(x=x))+
 .font90[
 - Horizontal curves $\implies$ indifference between having more or less Tickets
 - Tickets are a .shout[neutral] (neither good nor bad)
-- $MRS_{T,D}=0$
-- $MRS_{T,D}=0$; give up $0$ Downloads to get more Tickets
+- $MRS_{T,D}=0$;  give up $0$ Downloads to get more Tickets
 ]
 ]
 ---
@@ -698,7 +697,7 @@ p
 
 - .shout[Perfect substitutes]: goods that can be substituted at same fixed rate and yield same utility
 
-- $MRS_{1L, 2L}=-0.5$ (a constant!)
+- $MRS_{1L,2L}=-0.5$ (a constant!)
 
 ]
 
