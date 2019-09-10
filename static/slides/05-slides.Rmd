@@ -1,0 +1,969 @@
+---
+title: "1.5: Preferences II: MRS and Utility Functions"
+subtitle: "ECON 306 · Microeconomic Analysis · Fall 2019"
+author: 'Ryan Safner<br> Assistant Professor of Economics <br> <a href="mailto:safner@hood.edu"><i class="fa fa-paper-plane fa-fw"></i> safner@hood.edu</a> <br> <a href="https://github.com/ryansafner/microf19"><i class="fa fa-github fa-fw"></i> ryansafner/microf19</a><br> <a href="https://microF19.classes.ryansafner.com"> <i class="fa fa-globe fa-fw"></i> microF19.classes.ryansafner.com</a><br>'
+#date:
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML" # rescales math with css changes https://github.com/yihui/xaringan/issues/143
+    lib_dir: libs
+    #seal: false
+    css: [custom.css, custom-fonts.css, "hygge"] #, metropolis, metropolis-fonts
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"] # first is for rescaling images , second is for embedding tweets, https://github.com/yihui/xaringan/issues/100
+      highlightStyle: ocean #rainbow #monokai rainbow solarized-light #tomorrow-night -blue -eighties zenburn
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+    includes:
+      in_header: header.html # for font awesome, used in title  
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo=F,
+                      message=F,
+                      warning=F)
+library("tidyverse")
+library("mosaic")
+library("ggrepel")
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+set.seed(256)
+```
+
+
+# Utility Functions and Indifference Curves I
+
+.pull-left[
+- Two tools to represent preferences: indifference curves and utility functions
+
+- Indifference curve: all equally preferred bundles $\iff$ same utility level
+
+- Each indifference curve represents one level (or contour) of utility surface (function)
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# Utility Functions and Indifference Curves II
+
+.pull-left[
+
+.center[
+
+3-D Utility Function: $u(x,y)=\sqrt{xy}$
+```{r, fig.retina=3, fig.height=5.5}
+library("plotly")
+x_vec = seq(0,10,1)
+y_vec = seq(0,10,1)
+x_matrix = matrix(c(x_vec), nrow = 10, ncol = 1)
+y_matrix = matrix(c(y_vec), nrow = 1, ncol = 10)
+z_matrix = matrix(c(sqrt(x_matrix %*% y_matrix)),nrow=10,ncol=10)
+
+plot_ly(x = x_vec,
+           y = y_vec,
+           z = z_matrix) %>%
+  add_surface() %>%
+  layout(scene = list(xaxis = list(title="X"),
+                      yaxis = list(title="Y"),
+                      zaxis = list(title="Utility")))
+```
+]
+]
+.pull-right[
+.center[
+2-D Indifference Curve Contours: $y=\frac{u^2}{x}$
+
+```{r, fig.retina=3, fig.height=5.5}
+library("mosaic")
+library("viridis")
+
+IC_10=function(x){100/x}
+IC_9=function(x){81/x}
+IC_8=function(x){64/x}
+IC_7=function(x){49/x}
+IC_6=function(x){36/x}
+IC_5=function(x){25/x}
+IC_4=function(x){16/x}
+IC_3=function(x){9/x}
+IC_2=function(x){4/x}
+IC_1=function(x){1/x}
+
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_10, geom="line", size=2, color = "#FDE725FF")+
+  stat_function(fun=IC_9, geom="line", size=2, color = "#B8DE29FF")+
+  stat_function(fun=IC_8, geom="line", size=2, color = "#73D055FF")+
+  stat_function(fun=IC_7, geom="line", size=2, color = "#3CBB75FF")+
+  stat_function(fun=IC_6, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=IC_5, geom="line", size=2, color = "#238A8DFF")+
+  stat_function(fun=IC_4, geom="line", size=2, color = "#2D708EFF")+
+  stat_function(fun=IC_3, geom="line", size=2, color = "#39568CFF")+
+  stat_function(fun=IC_2, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=IC_1, geom="line", size=2, color = "#481567FF")+
+    geom_label(aes(x=9,y=IC_10(9)), color = "#FDE725FF", label="u=10", size = 6)+
+    geom_label(aes(x=9,y=IC_9(9)), color = "#B8DE29FF", label="u=9", size = 6)+
+    geom_label(aes(x=9,y=IC_8(9)), color = "#73D055FF", label="u=8", size = 6)+
+    geom_label(aes(x=9,y=IC_7(9)), color = "#3CBB75FF", label="u=7", size = 6)+
+    geom_label(aes(x=9,y=IC_6(9)), color = "#20A387FF", label="u=6", size = 6)+
+    geom_label(aes(x=9,y=IC_5(9)), color = "#238A8DFF", label="u=5", size = 6)+
+    geom_label(aes(x=9,y=IC_4(9)), color = "#2D708EFF", label="u=4", size = 6)+
+    geom_label(aes(x=9,y=IC_3(9)), color = "#39568CFF", label="u=3", size = 6)+
+    geom_label(aes(x=9,y=IC_2(9)), color = "#453781FF", label="u=2", size = 6)+
+    geom_label(aes(x=9,y=IC_1(9)), color = "#481567FF", label="u=1", size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+]
+
+---
+
+class: inverse, center, middle
+# Marginal Utility
+
+---
+
+# MRS and Marginal Utility I
+
+.pull-left[
+
+- Recall: .shout[marginal rate of substitution `\\(MRS_{x,y}\\)`] is the slope of the indifference curve
+    - Rate at which $y$ is given up for 1 more $x$
+
+- It would be handy to be able to calculate MRS
+    - Recall it changes (a curve, not a straxfight line)!
+    - We can calculate it using something from the **utility function**
+
+]
+.pull-right[
+
+```{r, echo=F}
+IC_mrs=function(x){10/x}
+
+p<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_mrs, geom="line", size=2, color="blue")+
+  geom_segment(aes(x=1, xend=1, y=5, yend=9), linetype="dashed", color="red", size=2)+
+  geom_segment(aes(x=1, xend=2, y=5, yend=5), linetype="dashed", color="red", size=2)+
+  geom_segment(aes(x=5, xend=5, y=2, yend=1), linetype="dashed", color="red", size=2)+
+  geom_segment(aes(x=5, xend=9, y=1, yend=1), linetype="dashed", color="red", size=2)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# MRS and Marginal Utility II
+
+.pull-left[
+
+- .shout[Marginal utility]: change in (total) utility from a one-unit increase in consumption of a good
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# MRS and Marginal Utility II
+
+.pull-left[
+
+- .shout[Marginal utility]: change in (total) utility from a one-unit increase in consumption of a good
+
+.content-box-green[
+.green[**Marginal utility of `\\(x\\)`**]: $MU_x = \frac{\Delta u(x,y)}{\Delta x}$
+]
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# MRS and Marginal Utility II
+
+.pull-left[
+
+- .shout[Marginal utility]: change in (total) utility from a one-unit increase in consumption of a good
+
+.content-box-green[
+.green[**Marginal utility of `\\(x\\)`**]: $MU_x = \frac{\Delta u(x,y)}{\Delta x}$
+]
+
+.content-box-green[
+.green[**Marginal utility of `\\(y\\)`**]: $MU_y = \frac{\Delta u(x,y)}{\Delta y}$
+]
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# MRS and Marginal Utility II
+
+.pull-left[
+
+- .shout[Marginal utility]: change in (total) utility from a one-unit increase in consumption of a good
+
+.content-box-green[
+.green[**Marginal utility of `\\(x\\)`**]: $MU_x = \frac{\Delta u(x,y)}{\Delta x}$
+]
+
+.content-box-green[
+.green[**Marginal utility of `\\(y\\)`**]: $MU_y = \frac{\Delta u(x,y)}{\Delta y}$
+]
+
+- Math (calculus): "*marginal*" means "*derivative with respect to*"
+- I will always derive marginal utility functions for you
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# MRS and Marginal Utility: Example
+
+.content-box-green[
+.green[**Example**:] For an example utility function
+
+$$u(x,y) = x^2+y^3$$
+
+- Marginal utility of x: $\quad MU_x = 2x$
+- Marginal utlity of y: $\quad MU_y = 3y$
+
+]
+
+---
+
+# MRS and Marginal Utility III
+
+.pull-left[
+
+- How to relate $MU$ and $MRS$?
+
+- Moving along an indifference curve
+    - $X$ and $Y$ will change
+    - $MU_x$ and $MU_y$ will change
+    - *Utility is constant* $(\Delta u=0)$
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# MRS and Marginal Utility IV
+
+.pull-left[
+
+- How to relate $MU$ and $MRS$?
+
+- Moving along an indifference curve
+    - $X$ and $Y$ will change
+    - $MU_x$ and $MU_y$ will change
+    - *Utility is constant* $(\Delta u=0)$
+
+$$\begin{align*}
+MU_x \Delta x+MU_y\Delta y&= \Delta u\\
+\end{align*}$$
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# MRS and Marginal Utility IV
+
+.pull-left[
+
+- How to relate $MU$ and $MRS$?
+
+- Moving along an indifference curve
+    - $X$ and $Y$ will change
+    - $MU_x$ and $MU_y$ will change
+    - *Utility is constant* $(\Delta u=0)$
+
+$$\begin{align*}
+MU_x \Delta x+MU_y\Delta y&= \Delta u\\
+MU_x \Delta x+MU_y \Delta y &=0\\ \end{align*}$$
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# MRS and Marginal Utility IV
+
+.pull-left[
+
+- How to relate $MU$ and $MRS$?
+
+- Moving along an indifference curve
+    - $X$ and $Y$ will change
+    - $MU_x$ and $MU_y$ will change
+    - *Utility is constant* $(\Delta u=0)$
+
+$$\begin{align*}
+MU_x \Delta x+MU_y\Delta y&= \Delta u\\
+MU_x \Delta x+MU_y \Delta y &=0\\
+-MU_{x} \Delta x &= MU_y \Delta y\\ \end{align*}$$
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# MRS and Marginal Utility IV
+
+.pull-left[
+
+- How to relate $MU$ and $MRS$?
+
+- Moving along an indifference curve
+    - $X$ and $Y$ will change
+    - $MU_x$ and $MU_y$ will change
+    - *Utility is constant* $(\Delta u=0)$
+
+$$\begin{align*}
+MU_x \Delta x+MU_y\Delta y&= \Delta u\\
+MU_x \Delta x+MU_y \Delta y &=0\\
+-MU_{x} \Delta x &= MU_y \Delta y\\
+\underbrace{\frac{\Delta y}{\Delta x}}_{MRS} &= -\frac{MU_{x}}{MU_{y}}\\ \end{align*}$$
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+class: inverse, center, middle
+# MRS and Preferences
+
+---
+
+# MRS and Preferences
+
+.pull-left[
+
+$$MRS=\underbrace{\frac{ \Delta y}{\Delta x}}_{slope} = -\frac{MU_{x}}{MU_{y}}$$
+
+- Observing the choices that consumers make, given their options, give us insight into their preferences
+
+- Represented in indifference curves and MRS
+
+- .whisper[Steepness] of indifference curves tells us how consumers trade off between goods
+
+- Let's look at extremes first
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# MRS and Preferences: Steepness I
+
+.pull-left[
+```{r, echo=F, fig.retina=3, fig.height=5, fig.align="center"}
+points_1<-tribble(
+  ~letter, ~x, ~y,
+  "A", 2, 2,
+  "B", 2, 4
+)
+
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  geom_segment(aes(x=2, xend=2, y=0, yend=5), color="blue", size=2)+
+  geom_segment(aes(x=4, xend=4, y=0, yend=5), color="green", size=2)+
+  geom_point(data = points_1,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_1,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Movie Tickets",
+       y = "Movie Downloads")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+.font90[
+- Vertical curves $\implies$ indifference between having more or less Downloads
+- Downloads are a .shout[neutral] (neither good nor bad)
+- $MRS_{T,D}=\infty$; give up $\infty$ (or undefined) Downloads to get more Tickets
+]
+]
+--
+
+.pull-right[
+```{r, echo=F, fig.retina=3, fig.height=5, fig.align="center"}
+points_2<-tribble(
+  ~letter, ~x, ~y,
+  "A", 2, 2,
+  "B", 4, 2
+)
+
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  geom_segment(aes(x=0, xend=5, y=2, yend=2), color="blue", size=2)+
+  geom_segment(aes(x=0, xend=5, y=4, yend=4), color="green", size=2)+
+  geom_point(data = points_2,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_2,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Movie Tickets",
+       y = "Movie Downloads")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+.font90[
+- Horizontal curves $\implies$ indifference between having more or less Tickets
+- Tickets are a .shout[neutral] (neither good nor bad)
+- $MRS_{T,D}=0$
+- $MRS_{T,D}=0$; give up $0$ Downloads to get more Tickets
+]
+]
+---
+
+# MRS and Preferences: Steepness II
+
+.pull-left[
+```{r, echo=F, fig.retina=3, fig.height=5, fig.align="center"}
+IC_flat_1<-function(x){2/x+1}
+IC_flat_2<-function(x){2/x+2}
+IC_flat_3<-function(x){2/x+3}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  stat_function(fun=IC_flat_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=IC_flat_2, geom="line", size=2, color = "#2D708EFF")+
+  stat_function(fun=IC_flat_3, geom="line", size=2, color = "#20A387FF")+
+  geom_segment(aes(x=1, xend=1, y=3, yend=2), size=1, linetype="dashed", color="red")+
+  geom_segment(aes(x=1, xend=2, y=2, yend=2), size=1, linetype="dashed", color="red")+
+  geom_text(aes(x=1.5, y=1.75), color="red", size=6, label=expression(paste(Delta, "T")))+
+  geom_text(aes(x=0.75, y=2.5), color="red", size=6, label=expression(paste(Delta, "D")))+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Movie Tickets",
+       y = "Movie Downloads")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+
+- Flatter $\rightarrow$ willing to give up *few* Downloads per Ticket (and vice versa)
+- $MRS_{T,D}$ is small
+
+]
+
+--
+
+.pull-right[
+```{r, echo=F, fig.retina=3, fig.height=5, fig.align="center"}
+IC_steep_1<-function(x){4/x}
+IC_steep_2<-function(x){4/x+1}
+IC_steep_3<-function(x){4/x+2}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  stat_function(fun=IC_steep_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=IC_steep_2, geom="line", size=2, color = "#2D708EFF")+
+  stat_function(fun=IC_steep_3, geom="line", size=2, color = "#20A387FF")+
+  geom_segment(aes(x=1, xend=1, y=4, yend=2), size=1, linetype="dashed", color="red")+
+  geom_segment(aes(x=1, xend=2, y=2, yend=2), size=1, linetype="dashed", color="red")+
+  geom_text(aes(x=1.5, y=1.75), color="red", size=6, label=expression(paste(Delta, "T")))+
+  geom_text(aes(x=0.75, y=3), color="red", size=6, label=expression(paste(Delta, "D")))+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Movie Tickets",
+       y = "Movie Downloads")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+- Steeper $\rightarrow$ willing to give up *more* Downloads per Ticket (and vice versa)
+- $MRS_{T,D}$ is large
+
+]
+
+---
+
+# MRS and Preferences: Goods, Bads, Neutrals
+
+.pull-left[
+
+- Now we have better ways to classify objects:
+
+- A .shout[good] enters utility function positively
+    - $\uparrow$ good $\implies$ $\uparrow$ utility (and vice versa)
+    - Willing to pay (give up other goods) to *acquire more* (monotonic)
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/2lz1f7uurlotvpg/goodandbad.jpeg?raw=1)
+]
+]
+
+---
+
+# MRS and Preferences: Goods, Bads, Neutrals
+
+.pull-left[
+
+- Now we have better ways to classify objects:
+
+- A .shout[good] enters utility function positively
+    - $\uparrow$ good $\implies$ $\uparrow$ utility (and vice versa)
+    - Willing to pay (give up other goods) to *acquire more* (monotonic)
+    
+- A .shout[bad] enters utility function negatively
+    - $\uparrow$ good $\implies$ $\downarrow$ utility (and vice versa)
+    - Willing to pay (give up other goods) to *get rid of*
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/2lz1f7uurlotvpg/goodandbad.jpeg?raw=1)
+]
+]
+
+---
+
+# MRS and Preferences: Goods, Bads, Neutrals
+
+.pull-left[
+
+- Now we have better ways to classify objects:
+
+- A .shout[good] enters utility function positively
+    - $\uparrow$ good $\implies$ $\uparrow$ utility (and vice versa)
+    - Willing to pay (give up other goods) to *acquire more* (monotonic)
+    
+- A .shout[bad] enters utility function negatively
+    - $\uparrow$ good $\implies$ $\downarrow$ utility (and vice versa)
+    - Willing to pay (give up other goods) to *get rid of*
+    
+- A .shout[neutral] does not enter utility function at all
+    - $\uparrow, \downarrow$ has no effect on utility
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/2lz1f7uurlotvpg/goodandbad.jpeg?raw=1)
+]
+]
+
+---
+
+# MRS and Preferences: Curvature
+
+.pull-left[
+
+$$MRS=\underbrace{\frac{ \Delta y}{\Delta x}}_{slope} = -\frac{MU_{x}}{MU_{y}}$$
+
+- .whisper[Curvature] of indifference curves tells us how goods are related
+
+- Relatively **straight** curves: goods are more .shout[substitutable] for one another
+
+- Relatively **bent** curves: goods are more .shout[complementary] with one another
+
+- Look at extreme cases first to get the idea
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# MRS and Preferences: Curvature II
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Consider 1-Liter bottles of coke and 2-Liter bottles of coke 
+]
+
+- Always willing to substitute Two 1-Ls:One 2-L
+
+- .shout[Perfect substitutes]: goods that can be substituted at same fixed rate and yield same utility
+
+- $MRS_{1L, 2L}=-0.5$ (a constant!)
+
+]
+
+.pull-right[
+```{r, echo=F, fig.retina=3, fig.align="center"}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  geom_segment(aes(x=0, xend=2, y=1, yend=0), size=1, color="#453781FF")+
+  geom_segment(aes(x=0, xend=4, y=2, yend=0), size=1, color="#20A387FF")+
+  geom_label(aes(x=1, y=0.5), size=6, color="#453781FF", label="u=1")+
+  geom_label(aes(x=1, y=1.5), size=6, color="#20A387FF", label="u=2")+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "1-Liter Bottles",
+       y = "2-Liter Bottles")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# MRS and Preferences: Curvature III
+
+.pull-left[
+
+.content-box-red[
+.red[**Math FYI: Utility functions for substitutes**]
+
+$$u(x,y)=w_xx+w_yy$$
+
+- $w_i$: relative weight (intensity of relative preference)
+
+- Known as **linear preferences**
+]
+
+.content-box-green[
+.green[**Example**]
+$$u_{L_{1},L_{2}}=1L_{1}+2L_{2}$$
+
+- $MRS_{L_{1},L_{2}}=-\frac{w_x}{w_y} = -\frac{1}{2}$
+]
+]
+
+.pull-right[
+```{r, echo=F, fig.retina=3, fig.align="center"}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  geom_segment(aes(x=0, xend=2, y=1, yend=0), size=1, color="#453781FF")+
+  geom_segment(aes(x=0, xend=4, y=2, yend=0), size=1, color="#20A387FF")+
+  geom_label(aes(x=1, y=0.5), size=6, color="#453781FF", label="u=1")+
+  geom_label(aes(x=1, y=1.5), size=6, color="#20A387FF", label="u=2")+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "1-Liter Bottles",
+       y = "2-Liter Bottles")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# MRS and Preferences: Curvature IV
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Consider hot dogs and hot dog buns 
+]
+
+- Always consume together in fixed proportions (1:1)
+
+- .shout[Perfect complements]: goods that can be consumed together in same fixed proportion and yield same utility
+
+- MRS: ?
+
+]
+
+.pull-right[
+```{r, echo=F, fig.retina=3, fig.align="center"}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  geom_segment(aes(x=1, xend=1, y=5, yend=1), size=1, color="#453781FF")+
+  geom_segment(aes(x=1, xend=5, y=1, yend=1), size=1, color="#453781FF")+
+  geom_segment(aes(x=2, xend=2, y=5, yend=2), size=1, color="#20A387FF")+
+  geom_segment(aes(x=2, xend=5, y=2, yend=2), size=1, color="#20A387FF")+
+  geom_label(aes(x=4, y=1), size=6, color="#453781FF", label="u=1")+
+  geom_label(aes(x=4, y=2), size=6, color="#20A387FF", label="u=2")+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Hot Dogs",
+       y = "Buns")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# MRS and Preferences: Curvature V
+
+.pull-left[
+
+.content-box-red[
+.red[**Math FYI: Utility functions for complements**]
+
+$$u(x,y)=min\{w_xx,w_yy\}$$
+
+- $w_i$: relative weight (intensity of relative preference)
+
+- MRS $=0, \infty$, or undefined
+
+- Known as **Leontief preferences**
+]
+
+.content-box-green[
+.green[**Example**]
+$$u(H,B)=min\{H,B\}$$
+
+]
+]
+
+.pull-right[
+```{r, echo=F, fig.retina=3, fig.align="center"}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  geom_segment(aes(x=1, xend=1, y=5, yend=1), size=1, color="#453781FF")+
+  geom_segment(aes(x=1, xend=5, y=1, yend=1), size=1, color="#453781FF")+
+  geom_segment(aes(x=2, xend=2, y=5, yend=2), size=1, color="#20A387FF")+
+  geom_segment(aes(x=2, xend=5, y=2, yend=2), size=1, color="#20A387FF")+
+  geom_label(aes(x=4, y=1), size=6, color="#453781FF", label="u=1")+
+  geom_label(aes(x=4, y=2), size=6, color="#20A387FF", label="u=2")+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Hot Dogs",
+       y = "Buns")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# MRS and Preferences: Curvature VI
+
+.pull-left[
+```{r, echo=F, fig.retina=3, fig.height=5, fig.align="center"}
+IC_straighter_1<-function(x){3-log(x)-0.25}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  stat_function(fun=IC_straighter_1, geom="line", size=2, color = "#453781FF")+
+  geom_segment(aes(x=0, xend=4, y=4, yend=0), size=1, linetype="dashed", color="red")+
+  geom_segment(aes(x=2, xend=2, y=5, yend=2), size=1, linetype="dashed", color="green")+
+  geom_segment(aes(x=2, xend=5, y=2, yend=2), size=1, linetype="dashed", color="green")+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Pens",
+       y = "Pencils")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+- Straighter $\rightarrow$ more substitutable
+
+]
+--
+
+.pull-right[
+```{r, echo=F, fig.retina=3, fig.height=5, fig.align="center"}
+IC_steep_1<-function(x){4/x}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  stat_function(fun=IC_steep_1, geom="line", size=2, color = "#453781FF")+
+  geom_segment(aes(x=0, xend=4, y=4, yend=0), size=1, linetype="dashed", color="red")+
+  geom_segment(aes(x=2, xend=2, y=5, yend=2), size=1, linetype="dashed", color="green")+
+  geom_segment(aes(x=2, xend=5, y=2, yend=2), size=1, linetype="dashed", color="green")+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Chips",
+       y = "Guac")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+- Curved $\rightarrow$ more complementary
+
+]
+
+---
+
+# Cobb-Douglas Utility Functions
+
+.pull-left[
+
+- A very common functional form in economics is .shout[Cobb-Douglas]
+
+$$u(x,y)=x^ay^b$$
+
+- Where $a, b >0$ (and very often $a+b=1$)
+- Extremely useful, you will see it often!
+    - Strictly convex and monotonic indifference curves
+    - Other nice properties (we'll see later)
+    - See the appendix in [today's class page](http://microf19.classes.ryansafner.com/class/05-class)
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=5.5}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_8, geom="line", size=2, color = "#73D055FF")+
+  stat_function(fun=IC_6, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=IC_4, geom="line", size=2, color = "#2D708EFF")+
+  stat_function(fun=IC_2, geom="line", size=2, color = "#453781FF")+
+    geom_label(aes(x=9,y=IC_8(9)), color = "#73D055FF", label="u=64/x", size = 6)+
+    geom_label(aes(x=9,y=IC_6(9)), color = "#20A387FF", label="u=36/x", size = 6)+
+    geom_label(aes(x=9,y=IC_4(9)), color = "#2D708EFF", label="u=16/x", size = 6)+
+    geom_label(aes(x=9,y=IC_2(9)), color = "#453781FF", label="y=4/x", size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "x",
+       y = "y",
+       title = "Indifference curves for u(x,y)=xy")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+
+---
+
+# Practice
+
+.content-box-green[
+.green[**Example**]: Suppose you can consume apples $(a)$ and broccoli $(b)$, and earn utility according to the utility function:
+$$u(a,b)=2ab$$
+
+Where your marginal utilities are:
+
+$$\begin{align*}
+MU_a&=2b\\
+MU_b&=2a\\
+\end{align*}$$
+
+1. Put $a$ on the horizontal axis and $b$ on the vertical axis. Write an equation for $MRS_{a,b}$.
+
+2. Would bundles of $(1, 4)$ and $(2, 2)$ be on the same indifference curve?
+
+3. Sketch a graph of the indifference curve from part 2. (Bonus: find the equation of this indifference curve. See the appendix in [today's class page](http://microf19.classes.ryansafner.com/class/05-class).)
+
+4. Is this curve convex? Hint: Does $MRS_{a,b} \downarrow$ as $a \uparrow$?
+]
