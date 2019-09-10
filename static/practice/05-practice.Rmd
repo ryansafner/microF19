@@ -1,0 +1,38 @@
+---
+title: "1.5 Preferences II: MRS and Utility Functions - Practice Problems"
+author: "Ryan Safner"
+date: "ECON 306 - Fall 2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### 1. For each question, draw an indifference curve relating the two objects (label it $I_1$). Draw and label a *second* curve that gives *higher* utility (label it $I_2$), and a *third* curve that gives *lower* utility (label it $I_0$).
+
+#### a. *Oranges* (a good) on the horizontal axis and *Pollution* (a bad) on the vertical axis.
+
+#### b. *Pollution* (a bad) on the horizontal axis and *Oranges* (a good) on the vertical axis.
+
+#### c. *Pollution* (a bad) on the horizontal axis and *Garbage* (a bad) on the vertical axis.
+
+#### d. *Butter* on the horizontal axis and *Margarine* on the vertical axis. Both are goods, and you are always willing to trade between them at a 1:1 rate.
+
+#### e. *Cars* on the horizontal axis and *Tires* on the vertical axis. Both are goods, and you are always want to consume them at a 1:4 proportion. (Draw these carefully!)
+
+### 2. Suppose you can watch movies in the theater ($t$) and streaming at home ($s$), and earn utility according to the utility function: 
+$$u(t,s)=4ts$$
+
+Where your marginal utilities are: 
+$$\begin{aligned}
+MU_t&=4s\\
+MU_s&=4t\\ \end{aligned}$$
+
+#### a. Put $t$ on the horizontal axis and $s$ on the vertical axis. Write an equation for $MRS_{t,s}$ 
+
+#### b. Would bundles of $(2,2)$ and $(1,4)$ be on the same indifference curve?
+
+#### c. Is this curve convex? Hint: Does $MRS_{t,s} \downarrow$ as $t \uparrow$? 
+
+#### d. Sketch this indifference curve. 

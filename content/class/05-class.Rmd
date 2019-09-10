@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE,
 
 # Overview
 
-We continue with our model of how individuals choose. Our focus for this class is to wrap up what we mean by "maximizing utility" as a person's objective. We will do some practice problems on understanding indifference curves and utility functions. Then we will finally be ready to put our tools together next class to solve the consumer's problem.
+We continue with our model of how individuals choose. Our focus for this class is to wrap up what we mean by "maximizing utility" as a person's *objective.* We will do some practice problems on understanding indifference curves and utility functions. Then we will finally be ready to put our tools together next class to solve the consumer's problem.
 
 # Slides
 
@@ -103,7 +103,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 Cobb-Douglas functions (both for utility and production) are one of the most common functional forms in economics. Despite their somewhat frightening presence on the surface, they have very neat mathematical properties, and have been empirically useful as well. A Cobb-Douglas function (for utility) looks like: 
 
-$$u(x, y)=x^c y^d$$
+$$u(x, y)=x^a y^b$$
 		
 ### MRS and Positive Monotonic Transformations
 
@@ -111,26 +111,26 @@ The marginal rate of substitution, using the above equation is:
 $$\begin{align*}
 	MRS_{x, y}	&=\frac{MU_{x}}{MU_{y}} && \text{The definition of MRS}\\
 	&= \cfrac{\big(\frac{\partial }{\partial x}\big)}{\big(\frac{\partial}{\partial y}\big)} && \text{Using the definition of marginal utility as partial derivative}\\
-	&= \frac{c x^{c-1}y^d}{d x^c y^{d-1}} && \text{Differentiating }u \text{ w.r.t }x \text{ on top and }y \text{ on bottom}\\
-	&=\frac{c}{d} x^{(c-1)-c}y^{d-(d-1)} && \text{Using exponent rules for division}\\
-	&= \frac{c}{d} x^{-1}y^{1} && \text{Simplifying exponents}\\
-	&=\frac{c}{d} \frac{y}{x} && \text{Using exponent rules for negative exponents}\\ \end{align*}$$
+	&= \frac{a x^{a-1}y^b}{b x^a y^{b-1}} && \text{Differentiating }u \text{ w.r.t }x \text{ on top and }y \text{ on bottom}\\
+	&=\frac{a}{b} x^{(a-1)-a}y^{b-(b-1)} && \text{Using exponent rules for division}\\
+	&= \frac{a}{b} x^{-1}y^{1} && \text{Simplifying exponents}\\
+	&=\frac{a}{b} \frac{y}{x} && \text{Using exponent rules for negative exponents}\\ \end{align*}$$
 
-Using logarithms, we can take a positive monotonic transformation of $u$ 
+Using logarithms, we can take a positive monotonic transformation of the original utility function $u$:
 
-$$v(x, y)=c \: ln \: x + d \: ln \: y$$
+$$v(x, y)=a \: ln \: x + b \: ln \: y$$
 
 The MRS using the logarithmic form is:
 
 $$\begin{align*}
 	MRS_{x, y}	&=\frac{MU_{x}}{MU_{y}} && \text{The definition of MRS}\\
 	&= \cfrac{\big(\frac{\partial }{\partial x}\big)}{\big(\frac{\partial}{\partial y}\big)} && \text{Using the definition of marginal utility as partial derivative}\\
-	&= \cfrac{\big(\frac{c}{x}\big)}{\big(\frac{d}{y}\big)} && \text{Differentiating }u \text{ w.r.t }x \text{ on top and }y \text{ on bottom}\\
-	&=\frac{c}{d} \frac{y}{x} && \text{Multiplying the righthand side by the reciprocal of the denominator,} \frac{y}{d}\\ \end{align*}$$
+	&= \cfrac{\big(\frac{a}{x}\big)}{\big(\frac{b}{y}\big)} && \text{Differentiating }u \text{ w.r.t }x \text{ on top and }y \text{ on bottom}\\
+	&=\frac{a}{b} \frac{y}{x} && \text{Multiplying the righthand side by the reciprocal of the denominator,} \frac{y}{b}\\ \end{align*}$$
 	
 Which of course, is the same, because we know any positive monotonic transformation of a utility function preserves the same preferences! 
 
-### Example
+### EXAMPLE
 
 Find the marginal rate of substitution for the utility function: 
 
