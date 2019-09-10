@@ -19,19 +19,15 @@ knitr::opts_chunk$set(echo = FALSE,
 
 # Overview
 
-We begin with an overview of constrained optimization models and our first application, how individuals choose. Our primary focus will be people as consumers - how do they choose to spend their money and how do those choices change? While we will focus extensively on consumers making purchasing choices, do not think this is the only use of this type of model! Today we will cover the *constraints* in the model.
+We continue with our model of how individuals choose. Our focus for this class is to wrap up what we mean by "maximizing utility" as a person's objective. We will do some practice problems on understanding indifference curves and utility functions. Then we will finally be ready to put our tools together next class to solve the consumer's problem.
 
 # Slides
 
-- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/04-slides.html)
+- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/05-slides.html)
 
 # Practice Problems
 
-Today you will be working on [practice problems](/practice/04-practice.html). Answers will be posted later.
-
-# Math Survey
-
-"Answers" for the math survey have been posted.
+Today you will be working on [practice problems](/practice/05-practice.html). Answers will be posted later.
 
 # Math Appendix
 
@@ -102,3 +98,63 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
        title = "Indifference curves for u(a,b)=ab")+
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
+
+## Cobb-Douglas Functions
+
+Cobb-Douglas functions (both for utility and production) are one of the most common functional forms in economics. Despite their somewhat frightening presence on the surface, they have very neat mathematical properties, and have been empirically useful as well. A Cobb-Douglas function (for utility) looks like: 
+
+$$u(x, y)=x^c y^d$$
+		
+### MRS and Positive Monotonic Transformations
+
+The marginal rate of substitution, using the above equation is: 
+$$\begin{align*}
+	MRS_{x, y}	&=\frac{MU_{x}}{MU_{y}} && \text{The definition of MRS}\\
+	&= \cfrac{\big(\frac{\partial }{\partial x}\big)}{\big(\frac{\partial}{\partial y}\big)} && \text{Using the definition of marginal utility as partial derivative}\\
+	&= \frac{c x^{c-1}y^d}{d x^c y^{d-1}} && \text{Differentiating }u \text{ w.r.t }x \text{ on top and }y \text{ on bottom}\\
+	&=\frac{c}{d} x^{(c-1)-c}y^{d-(d-1)} && \text{Using exponent rules for division}\\
+	&= \frac{c}{d} x^{-1}y^{1} && \text{Simplifying exponents}\\
+	&=\frac{c}{d} \frac{y}{x} && \text{Using exponent rules for negative exponents}\\ \end{align*}$$
+
+Using logarithms, we can take a positive monotonic transformation of $u$ 
+
+$$v(x, y)=c \: ln \: x + d \: ln \: y$$
+
+The MRS using the logarithmic form is:
+
+$$\begin{align*}
+	MRS_{x, y}	&=\frac{MU_{x}}{MU_{y}} && \text{The definition of MRS}\\
+	&= \cfrac{\big(\frac{\partial }{\partial x}\big)}{\big(\frac{\partial}{\partial y}\big)} && \text{Using the definition of marginal utility as partial derivative}\\
+	&= \cfrac{\big(\frac{c}{x}\big)}{\big(\frac{d}{y}\big)} && \text{Differentiating }u \text{ w.r.t }x \text{ on top and }y \text{ on bottom}\\
+	&=\frac{c}{d} \frac{y}{x} && \text{Multiplying the righthand side by the reciprocal of the denominator,} \frac{y}{d}\\ \end{align*}$$
+	
+Which of course, is the same, because we know any positive monotonic transformation of a utility function preserves the same preferences! 
+
+### Example
+
+Find the marginal rate of substitution for the utility function: 
+
+$$u(x, y) = \sqrt{x, y}$$
+
+First, recognize that square roots are equivalent to saying $x^{0.5} y^{0.5}$. The marginal rate of substitution would be: 
+
+$$\begin{align*}
+		MRS_{x, y}	&=\frac{MU_{x}}{MU_{y}} && \text{The definition of MRS}\\
+	&= \cfrac{\big(\frac{\partial }{\partial x}\big)}{\big(\frac{\partial}{\partial y}\big)} && \text{Using the definition of marginal utility as partial derivative}\\
+	&= \frac{0.5 x^{-0.5}y^{0.5}}{0.5x^{0.5}y^{-0.5}} && \text{Differentiating }u \text{ w.r.t }x \text{ on top and }y \text{ on bottom}\\
+	&=\frac{0.5}{0.5} x^{0.5-0.5}y^{0.5-(-0.5)} && \text{Using exponent rules for division}\\
+	&=  x^{-1}y^{1} && \text{Simplifying exponents, and cancelling} \frac{0.5}{0.5}\\
+	&=\frac{y}{x} && \text{Using exponent rules for negative exponents}\\ \end{align*}$$
+
+Note we could find this equivalently again by taking logs of the original utility function. 
+
+$$v(x,y)=0.5 \: ln \: x+0.5\: ln\: y$$
+ 	
+$$\begin{align*}
+		MRS_{x, y}	&=\frac{MU_{x}}{MU_{y}} && \text{The definition of MRS}\\
+	&= \cfrac{\big(\frac{\partial }{\partial x}\big)}{\big(\frac{\partial}{\partial y}\big)} && \text{Using the definition of marginal utility as partial derivative}\\
+	&= \cfrac{\big(\frac{0.5}{x}\big)}{\big(\frac{0.5}{y}\big)} && \text{Differentiating }u \text{ w.r.t }x \text{ on top and }y \text{ on bottom}\\
+	&=\frac{y}{x} && \text{Multiplying the righthand side by the reciprocal of the denominator,} \frac{y}{0.5}\\ \end{align*}$$
+
+Which again, gives us the same marginal rate of substitution.
+
