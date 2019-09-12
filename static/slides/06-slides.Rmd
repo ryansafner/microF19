@@ -262,9 +262,9 @@ $$\begin{align*}
 | \frac{MU_x}{MU_y} | &> | \frac{p_x}{p_y} | \\
 | -2 | &> | -0.5 | \\\end{align*}$$
 
-- *Consumer* would exchange at **2Y:1X**
+- *Consumer* would exchange at $2Y:1X$
 
-- *Market* exchange rate is **0.5Y:1X**
+- *Market* exchange rate is $0.5Y:1X$
 
 - Can **spend less on y**, **more on x** and get **more utility!**
 
@@ -358,9 +358,9 @@ $$\begin{align*}
 | \frac{MU_x}{MU_y} | &< | \frac{p_x}{p_y} | \\
 | -0.125 | &< | -0.5 | \\\end{align*}$$
 
-- *Consumer* would exchange at **0.125Y:1X**
+- *Consumer* would exchange at $0.125Y:1X$
 
-- *Market* exchange rate is **0.5Y:1X**
+- *Market* exchange rate is $0.5Y:1X$
 
 ]
 
@@ -406,9 +406,9 @@ $$\begin{align*}
 | \frac{MU_x}{MU_y} | &< | \frac{p_x}{p_y} | \\
 | -0.125 | &< | -0.5 | \\\end{align*}$$
 
-- *Consumer* would exchange at **0.125Y:1X**
+- *Consumer* would exchange at $0.125Y:1X$
 
-- *Market* exchange rate is **0.5Y:1X**
+- *Market* exchange rate is $0.5Y:1X$
 
 - Can **spend less on x**, **more on y** and get **more utility!**
 
@@ -597,9 +597,58 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 .pull-left[
 
+## Rule 1
+
 $$\frac{MU_x}{MU_y}  =  \frac{p_x}{p_y}$$
 
 - Easier for solving math problems (slope of each curve)
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_7, geom="line", size=2, color = "#3CBB75FF")+
+  stat_function(fun=BC, geom="line", size=2, color = "red")+
+    geom_label(aes(x=2,y=BC(2)), color = "red", label="BC", size = 6)+
+    geom_label(aes(x=3.5,y=IC_7(3.5)), color = "#3CBB75FF", label=expression(u==sqrt(50)), size = 6)+
+  geom_point(data = subset(points, letter=="A"),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points, letter=="A"),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  geom_segment(aes(x = 0, xend = 10, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 5, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste(u(x,y)== sqrt(xy), ", ", m, " = $20, ", p[x]," = $1, ", p[y]," = $2", sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# The Consumer's Optimum: Two Equivalent Rules
+
+.pull-left[
+
+## Rule 1
+
+$$\frac{MU_x}{MU_y}  =  \frac{p_x}{p_y}$$
+
+- Easier for solving math problems (slope of each curve)
+
+## Rule 2
 
 $$\frac{MU_x}{p_x}  =  \frac{MU_y}{p_y}$$
 
@@ -713,7 +762,7 @@ $$\frac{MU_x}{p_x}  =  \frac{MU_y}{p_y} = \cdots = \frac{MU_n}{p_n}$$
 # Markets Equalize Everyone's MRS II
 
 .content-box-green[
-.green[**Example**:] Two people will very different income and preferences face the same market prices, and choose optimal consumption (points A and A') at an exchange rate of **0.5Y : 1X**
+.green[**Example**:] Two people will very different income and preferences face the same market prices, and choose optimal consumption (points A and A') at an exchange rate of $0.5Y:1X$
 ]
 
 .pull-left[
