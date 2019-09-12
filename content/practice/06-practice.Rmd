@@ -12,20 +12,20 @@ source(file.path(here::here(), "lib", "graphics.R"))
 
 - [<i class="fas fa-file-pdf"></i> `Download as PDF`](/practice/06-practice.pdf)
 
-You can get utility from consuming Burgers $(b)$ and Fries $(f)$, according to the utility function:
+You can get utility from consuming Soda $(s)$ and Hot dogs $(h)$, according to the utility function:
 
-$$u(b,f)=\sqrt{bf}$$
+$$u(s,h)=\sqrt{sh}$$
 
 The marginal utilities are:
 
 $$\begin{align*}
-MU_b&=0.5b^{-0.5}f^{0.5}	\\
-MU_f&=0.5b^{0.5}f^{-0.5} \\ \end{align*}$$
+MU_s&=0.5s^{-0.5}h^{0.5}	\\
+MU_h&=0.5s^{0.5}h^{-0.5} \\ \end{align*}$$
 
-You have an income of $20, the price of Burgers is $5, and the price of Fries is $2. Put Burgers on the horizontal axis and Fries on the vertical axis.
+You have an income of $12, the price of Soda is $2, and the price of a Hot dog is $3. Put Soda on the horizontal axis and Hot dogs on the vertical axis.
 
 ## 1. 
-#### What is your utility-maximizing bundle of Burgers and Fries?
+#### What is your utility-maximizing bundle of Soda and Hot dogs?
 
 ## 2. 
 #### How much utility does this provide?
