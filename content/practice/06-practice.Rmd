@@ -1,0 +1,31 @@
+---
+title: "1.6 Solving the Consumer's Problem - Practice Problems"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(pander)
+source(file.path(here::here(), "lib", "graphics.R"))
+```
+
+- [<i class="fas fa-file-pdf"></i> `Download as PDF`](/practice/06-practice.pdf)
+
+You can get utility from consuming Burgers $(b)$ and Fries $(f)$, according to the utility function:
+
+$$u(b,f)=\sqrt{bf}$$
+
+The marginal utilities are:
+
+$$\begin{align*}
+MU_b&=0.5b^{-0.5}f^{0.5}	\\
+MU_f&=0.5b^{0.5}f^{-0.5} \\ \end{align*}$$
+
+You have an income of $20, the price of Burgers is $5, and the price of Fries is $2. Put Burgers on the horizontal axis and Fries on the vertical axis.
+
+## 1. 
+#### What is your utility-maximizing bundle of Burgers and Fries?
+
+## 2. 
+#### How much utility does this provide?

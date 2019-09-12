@@ -1,0 +1,26 @@
+---
+title: "1.6 Solving the Consumer's Problem - Practice Problems"
+author: "Ryan Safner"
+date: "ECON 306 - Fall 2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+You can get utility from consuming Burgers $(b)$ and Fries $(f)$, according to the utility function:
+
+$$u(b,f)=\sqrt{bf}$$
+
+The marginal utilities are:
+
+$$\begin{aligned}
+MU_b&=0.5b^{-0.5}f^{0.5}	\\
+MU_f&=0.5b^{0.5}f^{-0.5} \\ \end{aligned}$$
+
+You have an income of $20, the price of Burgers is $5, and the price of Fries is $2. Put Burgers on the horizontal axis and Fries on the vertical axis.
+
+### 1. What is your utility-maximizing bundle of Burgers and Fries?
+
+### 2. How much utility does this provide?

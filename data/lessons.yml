@@ -31,6 +31,10 @@ lessons:
     reading: "05-reading"
     
   - title: "1.6 Solving the Consumer's Problem"
+    class: "06-class"
+    slides: "06-slides"
+    practice: "06-practice"
+    reading: "06-reading"
 
   - title: '<i class="fas fa-laptop-code"></i> **Problem Set 1**'
 
