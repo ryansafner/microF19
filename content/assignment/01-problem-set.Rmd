@@ -1,0 +1,201 @@
+---
+title: "Preliminary Survey on Math Background"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(pander)
+source(file.path(here::here(), "lib", "graphics.R"))
+```
+
+*Due by Thursday, September 19, 2019* (Section 1 - TuTh)
+*Due by Monday, September 23, 2019* (Section 2 - MW)
+
+
+- [<i class="fas fa-file-pdf"></i> `Download as PDF`](/homeworks/00-preliminary-survey.pdf)
+
+Please write your answers to the following questions on a piece of paper, or download and print a PDF copy (link above) to write on. You may also type your answers and print out a hard copy.
+
+You may work together (and I highly encourage that) but you must turn in your own answers. Your TA, under my supervision, will grade homeworks 70% for completion, and for the remaining 30%, pick one question to grade for accuracy - so it is best that you try every problem, even if you are unsure how to complete it accurately.
+
+# Concepts and Critical Thinking
+
+## 1.
+
+How can we use utility functions, which have actual numbers that can be measured and compared, to model preferences and still say with a straight face that preferences are subjective? Hint: what does it mean for a utility function to be *ordinal* or *cardinal*? Why can multiple utility functions describe the same preferences?
+
+## 2.
+
+Describe, in your own words, what happens at the optimum consumption point. Why is it the optimum? What does the equality of the slope of the indifference curve and the slope of the budget constraint *mean*, in English?
+
+## 3.
+
+Sketch *two* indifference curves for each of the following pairs of goods. Indicate which one has higher utility (call it $U_2$) and which one has lower utility (call it $U_1$). Put the first good on the horizontal axis and the second good on the vertical axis.
+
+### a. 
+
+Carlene likes both pizza and shoes.
+
+### b.
+
+Paul likes pencils and pens, but views each as equally useful for writing.
+
+### c.
+
+Rhonda likes carrots and hates broccoli.
+
+### d.
+
+Michael only likes wearing 2 cuff links with every dress shirt.
+
+### e.
+
+Emile hates both sauerkraut and anchovies.
+
+### f.
+
+Kendra likes food and, as a non-smoker, is completely indifferent towards cigarettes.
+
+### g.
+
+Li likes spending time with his girlfriend and his mother, but never at the same time!
+
+## 4. Juan enjoys both music and fireworks. His income is $240 per week. Music streaming costs $12 per month, and fireworks cost $8 per bag.
+
+### a. 
+
+Graph the budget constraint Juan faces, with music on the vertical axis and fireworks on the horizontal axis.
+
+### b. 
+
+If Juan spends all his income on music, how much music can he afford? Plot a point that illustrates this scenario.
+
+### c.
+
+If Juan spends all his income on fireworks, how many bags of  reworks can he afford? Plot a point that illustrates this scenario.
+
+### d.
+
+If Juan spends half his income on fireworks and half his income on music, how much of each can he afford? Plot a point that illustrates this scenario.
+
+### e.
+
+Connect the dots to create Juan's budget constraint. What is the slope of the budget constraint?
+
+### f.
+
+Suppose that a holiday bonus raises Juan's income temporarily to $360. Draw Juan's new budget constraint.
+
+### g.
+
+Now suppose that during the holiday, with his holiday bonus, the price of fireworks increases to $12 and the price of CDs increases to 18. If he spends all of his income on fireworks, how many can Juan buy?  How about CDs? What happens to his budget constraint, and why?
+
+## 5.
+
+Kelly's utility function for drinking Coke ($c$) and Pepsi ($p$) is given by:
+
+$$\begin{align*}
+	u(c,p) &= 5c + 2p\\
+	MU_c &= 5\\
+	MU_p &= 2\\
+\end{align*}$$
+Put Coke on the horizontal axis and Pepsi on the vertical axis. 
+
+### a.
+
+Can Kelly get utility by consuming *only* Coke or *only* Pepsi?
+
+### b.
+
+Write an equation for $MRS_{c,p}$.^[Hint: think about the relationship between these goods. It may not be a "typical" equation.]
+
+### c.
+
+Are the bundles $(c=2, p=5)$ and $(c=4,p=0)$ on the same indifference curve? 
+
+### d.
+
+What is $MRS_{c,p}$ when $c=1$ and $y=5$?
+
+### e.
+
+Given your answers, what is the relationship between Coke and Pepsi for Kelly?
+
+### f.
+
+Sketch a few indifference curves.
+
+## 6.
+
+A consumer has the following utility function:
+
+$$u(x,y)=\sqrt{xy}$$
+
+## a. Fill in the following table by calculating the utility for each bundle of $X$ and $Y$. Round to two decimal places.
+
+
+```{r, echo=F}
+library(tidyverse)
+library(kableExtra)
+
+empty<-tribble(
+   ~"", ~"0", ~"1", ~"2", ~"3",
+  "x", "0", "   ", "   ", "   ",
+  "x", "1", "   ", "   ", "   ",
+  "x", "2", "   ", "   ", "   ",
+  "x", "3", "   ", "   ", "   "
+)
+
+kable(empty, format="html") %>%
+  kable_styling(full_width=F) %>%
+  add_header_above(c(" " = 2, "y" = 3)) %>%
+  column_spec(c(1,2), bold=T) %>%
+  collapse_rows(columns = 1, latex_hline = "major", valign = "middle")
+```
+
+## b.
+
+Graph three indifference curves on the same graph below: the first showing the bundle(s) that yield a utility level of 1; the second showing the bundle(s) that yield a utility level of 2; the third showing the bundle(s) that yield a utility level of 3.
+
+```{r}
+library("mosaic")
+IC_1=function(x){1/x}
+
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_1, geom="line", size=2, color = "#481567FF", alpha=0)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "x",
+       y = "y")+
+  theme_bw(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+## c.
+
+The marginal utilities are given by: 
+
+$$\begin{align*}
+MU_x&=0.5x^{-0.5}y^{0.5}\\
+MU_y&=0.5x^{0.5}y^{-0.5}\\
+\end{align*}$$
+
+write an equation for $MRS_{x,y}$. 
+
+## d.
+
+Suppose this consumer has an income of $10, the price of $x$ is $2.50, and the price of $y$ is also $2.50. Write an equation for the budget constraint (in graphable form, in terms of $y$), and put it on the same graph above.
+
+## e.
+
+Find the optimal combination of $x$ and $y$ where the consumer maximizes utility subject to income. Label this point $A$ on the graph.
+
+## f.
+
+How much utility does the consumer earn at the optimum?

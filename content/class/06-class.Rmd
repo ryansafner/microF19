@@ -63,17 +63,17 @@ x&=10-2y && \text{Dividing both sides by 5}\\
 Now we can plug this in for $x$ in the utility function to get an *unconstrained* maximization problem:
 
 $$\begin{align*}
-\max_{y} u&=(10-2y)y && \text{Plugging into the original utility function}\\
-\max_{y} u&=10y-2y^2 && \text{Distributing the }y\\
+\max_{y} (10-2y)y && \text{Plugging into the original utility function}\\
+\max_{y} 10y-2y^2 && \text{Distributing the }y\\
 \end{align*}$$
 
-Then we take the derivative with respect to $y$ and set it equal to zero to find the maximum value of $x$ in the function.
+Then we take the derivative with respect to $y$ and set it equal to zero to find the maximum value of $y$ in the function.
 
 $$\begin{align*}
 	u&=10y-2y^2 && \text{The new utility function}\\
 	\frac{d u}{d y} = 10-4y&=0 && \text{Taking the first derivative} \\
 	10&=4y && \text{Adding } 4y \text{ to both sides}\\
-	2.5&=y && \text{Dividing both sides by} 4\\
+	2.5&=y && \text{Dividing both sides by } 4\\
 \end{align*}$$
 
 Now that we know $y$ is 2.5. To find $x$, plug 2.5 in for $y$ in the first equation we found from the budget constraint: 
@@ -117,7 +117,7 @@ So the consumer will buy twice the amount of $y$ as $x$ (note this should be int
 
 $$\begin{align*}
 5(2y)+10y&=50	\\
-20y=&50	\\
+20y&=50	\\
 y&=2.5	\\
 \end{align*}$$
 
@@ -128,7 +128,7 @@ x&=2y\\
 x&=2(2.5)=5	\\
 \end{align*}$$
 
-So the **optimum consumption bundle ($x^*, y^*$) is (2.5,5).**
+So the **optimum consumption bundle ($x^*, y^*$) again is (5,2.5).**
 
 You may be asking: *so what in the world is $\lambda$?* Besides being instrumental in solving constrained optimization problems, the Lagrangian multiplier $\lambda$ does have some economic interpretation. First, let's return to the FOCs, knowing $x$ and $y$, to solve for $\lambda$:
 

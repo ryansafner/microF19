@@ -37,7 +37,8 @@ lessons:
     reading: "06-reading"
 
   - title: '<i class="fas fa-laptop-code"></i> **Problem Set 1**'
-
+    assignment: "01-problem-set"
+    
   - title: "1.7 Building a Demand Function"
 
   - title: "1.8 Price Elasticity"
