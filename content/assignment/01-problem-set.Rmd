@@ -23,51 +23,79 @@ You may work together (and I highly encourage that) but you must turn in your ow
 
 # Concepts and Critical Thinking
 
-## 1. How can we use utility functions, which have actual numbers that can be measured and compared, to model preferences and still say with a straight face that preferences are subjective? Hint: what does it mean for a utility function to be *ordinal* or *cardinal*? Why can multiple utility functions describe the same preferences?
+## Question 1
 
-## 2. Describe, in your own words, what happens at the optimum consumption point. Why is it the optimum? What does the equality of the slope of the indifference curve and the slope of the budget constraint *mean*, in English?
+How can we use utility functions, which have actual numbers that can be measured and compared, to model preferences and still say with a straight face that preferences are subjective? Hint: what does it mean for a utility function to be *ordinal* or *cardinal*? Why can multiple utility functions describe the same preferences?
 
-## 3.Sketch *two* indifference curves for each of the following pairs of goods. Indicate which one has higher utility (call it $U_2$) and which one has lower utility (call it $U_1$). Put the first good on the horizontal axis and the second good on the vertical axis.
+## Question 2
 
-### a. Carlene likes both pizza and shoes.
+Describe, in your own words, what happens at the optimum consumption point. Why is it the optimum? What does the equality of the slope of the indifference curve and the slope of the budget constraint *mean*, in English?
 
-### b. Paul likes pencils and pens, but views each as equally useful for writing.
+## Question 3
 
-### c. Rhonda likes carrots and hates broccoli.
+Sketch *two* indifference curves for each of the following pairs of goods. Indicate which one has higher utility (call it $U_2$) and which one has lower utility (call it $U_1$). Put the first good on the horizontal axis and the second good on the vertical axis.
 
-### d. Michael only likes wearing 2 cuff links with every dress shirt.
+### Part A 
 
-### e. Emile hates both sauerkraut and anchovies.
+Carlene likes both pizza and shoes.
 
-### f. Kendra likes food and, as a non-smoker, is completely indifferent towards cigarettes.
+### Part B 
 
-### g. Li likes spending time with his girlfriend and his mother, but never at the same time!
+Paul likes pencils and pens, but views each as equally useful for writing.
 
-4. Juan enjoys both music and fireworks. His income is $240 per week. Music streaming costs $12 per month, and fireworks cost $8 per bag.
+### Part C
 
-**a. Graph the budget constraint Juan faces, with music on the vertical axis and fireworks on the horizontal axis.**
+Rhonda likes carrots and hates broccoli.
 
-b. If Juan spends all his income on music, how much music can he afford? Plot a point that illustrates this scenario.
+### Part D
 
-c. If Juan spends all his income on fireworks, how many bags of  reworks can he afford? Plot a point that illustrates this scenario.
+Michael only likes wearing 2 cuff links with every dress shirt.
 
-### d.
+### Part E
+
+Emile hates both sauerkraut and anchovies.
+
+### Part F 
+
+Kendra likes food and, as a non-smoker, is completely indifferent towards cigarettes.
+
+### Part G
+
+Li likes spending time with his girlfriend and his mother, but never at the same time!
+
+## Question 4
+
+Juan enjoys both music and fireworks. His income is $240 per week. Music streaming costs $12 per month, and fireworks cost $8 per bag.
+
+### Part A
+
+Graph the budget constraint Juan faces, with music on the vertical axis and fireworks on the horizontal axis.
+
+### Part B
+
+If Juan spends all his income on music, how much music can he afford? Plot a point that illustrates this scenario.
+
+### Part C
+
+If Juan spends all his income on fireworks, how many bags of  reworks can he afford? Plot a point that illustrates this scenario.
+
+### Part D
 
 If Juan spends half his income on fireworks and half his income on music, how much of each can he afford? Plot a point that illustrates this scenario.
 
-### e.
+### Part E
 
 Connect the dots to create Juan's budget constraint. What is the slope of the budget constraint?
 
-### f.
+### Part F
 
 Suppose that a holiday bonus raises Juan's income temporarily to $360. Draw Juan's new budget constraint.
 
-### g.
+### Part G
 
 Now suppose that during the holiday, with his holiday bonus, the price of fireworks increases to $12 and the price of CDs increases to 18. If he spends all of his income on fireworks, how many can Juan buy?  How about CDs? What happens to his budget constraint, and why?
 
-## 5.
+## Question 5
 
 Kelly's utility function for drinking Coke ($c$) and Pepsi ($p$) is given by:
 
@@ -78,37 +106,37 @@ $$\begin{align*}
 \end{align*}$$
 Put Coke on the horizontal axis and Pepsi on the vertical axis. 
 
-### a.
+### Part A
 
 Can Kelly get utility by consuming *only* Coke or *only* Pepsi?
 
-### b.
+### Part B
 
 Write an equation for $MRS_{c,p}$.^[Hint: think about the relationship between these goods. It may not be a "typical" equation.]
 
-### c.
+### Part C
 
 Are the bundles $(c=2, p=5)$ and $(c=4,p=0)$ on the same indifference curve? 
 
-### d.
+### Part D
 
 What is $MRS_{c,p}$ when $c=1$ and $y=5$?
 
-### e.
+### Part E
 
 Given your answers, what is the relationship between Coke and Pepsi for Kelly?
 
-### f.
+### Part F
 
 Sketch a few indifference curves.
 
-## 6.
+## Question 6
 
 A consumer has the following utility function:
 
 $$u(x,y)=\sqrt{xy}$$
 
-## a. Fill in the following table by calculating the utility for each bundle of $X$ and $Y$. Round to two decimal places.
+### Part A Fill in the following table by calculating the utility for each bundle of $X$ and $Y$. Round to two decimal places.
 
 
 ```{r, warning = F, message = F, echo = F}
@@ -130,7 +158,7 @@ kable(empty, format="html") %>%
   collapse_rows(columns = 1, latex_hline = "major", valign = "middle")
 ```
 
-## b.
+### Part B
 
 Graph three indifference curves on the same graph below: the first showing the bundle(s) that yield a utility level of 1; the second showing the bundle(s) that yield a utility level of 2; the third showing the bundle(s) that yield a utility level of 3.
 
@@ -152,7 +180,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   theme_bw(base_family = "Fira Sans Condensed", base_size=20)
 ```
 
-## c.
+### Part C
 
 The marginal utilities are given by: 
 
@@ -163,14 +191,14 @@ MU_y&=0.5x^{0.5}y^{-0.5}\\
 
 write an equation for $MRS_{x,y}$. 
 
-## d.
+### Part D
 
 Suppose this consumer has an income of $10, the price of $x$ is $2.50, and the price of $y$ is also $2.50. Write an equation for the budget constraint (in graphable form, in terms of $y$), and put it on the same graph above.
 
-## e.
+### Part E
 
 Find the optimal combination of $x$ and $y$ where the consumer maximizes utility subject to income. Label this point $A$ on the graph.
 
-## f.
+## Part F
 
 How much utility does the consumer earn at the optimum?
