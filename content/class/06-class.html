@@ -21,7 +21,9 @@ editor_options:
 <li><a href="#slides">Slides</a></li>
 <li><a href="#practice-problems">Practice Problems</a></li>
 <li><a href="#assignment-problem-set-1">Assignment: Problem Set 1</a></li>
-<li><a href="#math-appendix">Math Appendix</a></li>
+<li><a href="#math-appendix">Math Appendix</a><ul>
+<li><a href="#solving-the-constrained-optimization-problem-with-calculus">Solving the Constrained Optimization Problem with Calculus</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -39,3 +41,86 @@ editor_options:
 </span></span></p>
 <h2 id="math-appendix">Math Appendix</h2>
 <p>Check back here later for an example of how to solve the constrained optimization problem using calculus methods.</p>
+<h3 id="solving-the-constrained-optimization-problem-with-calculus">Solving the Constrained Optimization Problem with Calculus</h3>
+<h4 id="example">Example</h4>
+<p>A consumer has a utility function of
+<span class="math display">\[u(x, y) = xy\]</span>
+and faces prices of <span class="math inline">\(p_x = 5\)</span>, <span class="math inline">\(p_y = 10\)</span>, and has an income of <span class="math inline">\(m = 50\)</span>. Find the consumer’s optimum consumption bundle.</p>
+<p>The problem can be expressed as</p>
+<p><span class="math display">\[\max_{x,y} xy\]</span>
+<span class="math display">\[s. t. 5x+10y=50\]</span></p>
+<p>There are a few strategies you can use to solve this problem using calculus.</p>
+<p><strong>Substitution Method</strong>: take the budget constraint and solve it for one good in terms of the other good and income. Let’s solve for <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+5x+10y&amp;=50 &amp;&amp; \text{The budget constraint}\\
+5x&amp;=50-10y &amp;&amp; \text{Subtracting     } 10y \text{ from both sides}\\
+x&amp;=10-2y &amp;&amp; \text{Dividing both sides by 5}\\
+\end{align*}\]</span></p>
+<p>Now we can plug this in for <span class="math inline">\(x\)</span> in the utility function to get an <em>unconstrained</em> maximization problem:</p>
+<p><span class="math display">\[\begin{align*}
+\max_{y} u&amp;=(10-2y)y &amp;&amp; \text{Plugging into the original utility function}\\
+\max_{y} u&amp;=10y-2y^2 &amp;&amp; \text{Distributing the }y\\
+\end{align*}\]</span></p>
+<p>Then we take the derivative with respect to <span class="math inline">\(y\)</span> and set it equal to zero to find the maximum value of <span class="math inline">\(x\)</span> in the function.</p>
+<p><span class="math display">\[\begin{align*}
+    u&amp;=10y-2y^2 &amp;&amp; \text{The new utility function}\\
+    \frac{d u}{d y} = 10-4y&amp;=0 &amp;&amp; \text{Taking the first derivative} \\
+    10&amp;=4y &amp;&amp; \text{Adding } 4y \text{ to both sides}\\
+    2.5&amp;=y &amp;&amp; \text{Dividing both sides by} 4\\
+\end{align*}\]</span></p>
+<p>Now that we know <span class="math inline">\(y\)</span> is 2.5. To find <span class="math inline">\(x\)</span>, plug 2.5 in for <span class="math inline">\(y\)</span> in the first equation we found from the budget constraint:</p>
+<p><span class="math display">\[\begin{align*}
+x&amp;=10-2y &amp;&amp; \text{The equation}\\   
+x&amp;=10-2(2.5) &amp;&amp; \text{Plugging in 2.5}\\
+x&amp;=10-5 &amp;&amp; \text{Distributing the -2}\\
+x&amp;=5 &amp;&amp; \text{Simplifying}\\
+\end{align*}\]</span></p>
+<p>So we’ve found the <strong>optimal bundle is 5 of <span class="math inline">\(x\)</span> and 2.5 of <span class="math inline">\(y\)</span>, or (<span class="math inline">\(x^*,y^*)=(5,2.5)\)</span>.</strong></p>
+<p><strong>Lagrangian Method</strong>: Recall the Lagrangian adds the objective function and the Lagrange multiplier <span class="math inline">\((\lambda)\)</span> times the constraint set equal to 0:</p>
+<p><span class="math display">\[\max_{x, y, \lambda} \Lambda(x, y, \lambda)=xy+\lambda(5x+10y-50)\]</span></p>
+<p>Solving for the First Order Conditions (setting all partial derivatives to 0):</p>
+<p><span class="math display">\[\begin{align*}
+\frac{\partial \Lambda}{\partial x} &amp;= y+5\lambda &amp;= 0  \\
+\frac{\partial \Lambda}{\partial y} &amp;= x+10\lambda &amp;= 0 \\
+\frac{\partial \Lambda}{\partial \lambda} &amp;= 5x+10y-50 &amp;= 0 \\
+\end{align*}\]</span></p>
+<p>Taking the first two equations, and rearranging each to equal <span class="math inline">\(\lambda\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+\frac{y}{5}&amp;=\lambda \\
+\frac{x}{10}&amp;=\lambda   \\
+\end{align*}\]</span></p>
+<p>Setting them equal to one another, and solving for <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+ \frac{y}{5}&amp;=\frac{x}{10}  \\
+2y&amp;=x   \\
+\end{align*}\]</span></p>
+<p>So the consumer will buy twice the amount of <span class="math inline">\(y\)</span> as <span class="math inline">\(x\)</span> (note this should be intuitive as <span class="math inline">\(y\)</span> costs twice as much as <span class="math inline">\(x\)</span>!). To find the exact amounts of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> she will buy, plug what we just found into the budget constraint:</p>
+<p><span class="math display">\[\begin{align*}
+5(2y)+10y&amp;=50   \\
+20y=&amp;50 \\
+y&amp;=2.5  \\
+\end{align*}\]</span></p>
+<p>Since we now know <span class="math inline">\(y^*\)</span>, we can find <span class="math inline">\(x^*\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+x&amp;=2y\\
+x&amp;=2(2.5)=5 \\
+\end{align*}\]</span></p>
+<p>So the <strong>optimum consumption bundle (<span class="math inline">\(x^*, y^*\)</span>) is (2.5,5).</strong></p>
+<p>You may be asking: <em>so what in the world is <span class="math inline">\(\lambda\)</span>?</em> Besides being instrumental in solving constrained optimization problems, the Lagrangian multiplier <span class="math inline">\(\lambda\)</span> does have some economic interpretation. First, let’s return to the FOCs, knowing <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, to solve for <span class="math inline">\(\lambda\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+    y+5\lambda &amp;=0\\
+    2.5+5\lambda &amp;=0\\
+\lambda &amp;=0.5   \\
+\end{align*}\]</span></p>
+<p>Mathematically, it can be proved that <span class="math inline">\(\lambda=\displaystyle \frac{\partial u(x,y)}{\partial m}\)</span>: the rate of instantaneous change in your objective function with respect to your constraint (i.e. your income). That is, if you were to change your constraint (i.e. your income) by one unit, <span class="math inline">\(\lambda\)</span> tells us how much your objective function would increase (in units of the objective function).</p>
+<p>Economically, it is known as the “shadow price,” or sometimes the “marginal utility of wealth.” It tells us how much your utility would increase if you were able to increase your constraint (income) by one unit (e.g. $1). Alternatively, we can think of it as the marginal benefit of relaxing the constraint (having $1 more to spend), or the marginal cost of strengthening the constraint (having $1 less).</p>
+<p>In our example, <span class="math inline">\(\lambda=0.5\)</span>, so if we had one +(-)$1 in income to spend, utility would increase(decrease) by 0.5.</p>
+<p>Recall that since utility is <em>ordinal</em> and not <em>cardinal</em>, the number of “utils” your utility were to change by is meaningless. <span class="math inline">\(\lambda\)</span> does have meaningful quantitative interpretations when we use constrained optimization to talk about production, where units are dollars and output, rather than dollars and utility.</p>
+<p>Let’s lastly confirm that this is the optimum using the definition</p>
+<p><span class="math display">\[\begin{align*}
+|MRS| &amp;= |\frac{p_x}{p_y}| &amp;&amp; \text{At the optimum, slopes of I.C. and B.C. are equal}\\
+\frac{MU_{x}}{MU_{y}}&amp;=\frac{p_x}{p_y} &amp;&amp; \text{Definition of each slope}\\
+    \frac{y}{x} &amp;= \frac{p_x}{p_y} &amp;&amp; \text{MU&#39;s for this specific utility function}\\
+    \frac{(2.5)}{(5)} &amp;= \frac{5}{10} &amp;&amp; \text{At optimum, } y=2.5, x=5\\ 
+    \frac{1}{2} &amp;= \frac{1}{2} &amp;&amp; \checkmark 
+\end{align*}\]</span></p>

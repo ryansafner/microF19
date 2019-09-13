@@ -36,3 +36,124 @@ Problem set 1 (will be) posted shortly, and is due by Thursday September 19 (for
 # Math Appendix
 
 Check back here later for an example of how to solve the constrained optimization problem using calculus methods.
+
+## Solving the Constrained Optimization Problem with Calculus
+
+### Example
+
+A consumer has a utility function of
+$$u(x, y) = xy$$
+and faces prices of $p_x = 5$, $p_y = 10$, and has an income of $m = 50$. Find the consumer’s optimum consumption bundle.
+
+The problem can be expressed as
+
+$$\max_{x,y} xy$$
+$$s. t. 5x+10y=50$$
+
+There are a few strategies you can use to solve this problem using calculus. 
+
+**Substitution Method**: take the budget constraint and solve it for one good in terms of the other good and income. Let's solve for $x$:
+
+$$\begin{align*}
+5x+10y&=50 && \text{The budget constraint}\\
+5x&=50-10y && \text{Subtracting 	} 10y \text{ from both sides}\\
+x&=10-2y && \text{Dividing both sides by 5}\\
+\end{align*}$$
+
+Now we can plug this in for $x$ in the utility function to get an *unconstrained* maximization problem:
+
+$$\begin{align*}
+\max_{y} u&=(10-2y)y && \text{Plugging into the original utility function}\\
+\max_{y} u&=10y-2y^2 && \text{Distributing the }y\\
+\end{align*}$$
+
+Then we take the derivative with respect to $y$ and set it equal to zero to find the maximum value of $x$ in the function.
+
+$$\begin{align*}
+	u&=10y-2y^2 && \text{The new utility function}\\
+	\frac{d u}{d y} = 10-4y&=0 && \text{Taking the first derivative} \\
+	10&=4y && \text{Adding } 4y \text{ to both sides}\\
+	2.5&=y && \text{Dividing both sides by} 4\\
+\end{align*}$$
+
+Now that we know $y$ is 2.5. To find $x$, plug 2.5 in for $y$ in the first equation we found from the budget constraint: 
+
+$$\begin{align*}
+x&=10-2y && \text{The equation}\\	
+x&=10-2(2.5) && \text{Plugging in 2.5}\\
+x&=10-5 && \text{Distributing the -2}\\
+x&=5 && \text{Simplifying}\\
+\end{align*}$$
+
+So we've found the **optimal bundle is 5 of $x$ and 2.5 of $y$, or ($x^*,y^*)=(5,2.5)$.**
+
+**Lagrangian Method**: Recall the Lagrangian adds the objective function and the Lagrange multiplier $(\lambda)$ times the constraint set equal to 0:
+
+$$\max_{x, y, \lambda} \Lambda(x, y, \lambda)=xy+\lambda(5x+10y-50)$$
+
+Solving for the First Order Conditions (setting all partial derivatives to 0):
+
+$$\begin{align*}
+\frac{\partial \Lambda}{\partial x} &= y+5\lambda &= 0 	\\
+\frac{\partial \Lambda}{\partial y} &= x+10\lambda &= 0 \\
+\frac{\partial \Lambda}{\partial \lambda} &= 5x+10y-50 &= 0 \\
+\end{align*}$$
+
+Taking the first two equations, and rearranging each to equal $\lambda$:
+
+$$\begin{align*}
+\frac{y}{5}&=\lambda \\
+\frac{x}{10}&=\lambda	\\
+\end{align*}$$
+
+Setting them equal to one another, and solving for $x$:
+
+$$\begin{align*}
+ \frac{y}{5}&=\frac{x}{10}	\\
+2y&=x	\\
+\end{align*}$$
+
+So the consumer will buy twice the amount of $y$ as $x$ (note this should be intuitive as $y$ costs twice as much as $x$!). To find the exact amounts of $x$ and $y$ she will buy, plug what we just found into the budget constraint:
+
+$$\begin{align*}
+5(2y)+10y&=50	\\
+20y=&50	\\
+y&=2.5	\\
+\end{align*}$$
+
+Since we now know $y^*$, we can find $x^*$: 
+
+$$\begin{align*}
+x&=2y\\
+x&=2(2.5)=5	\\
+\end{align*}$$
+
+So the **optimum consumption bundle ($x^*, y^*$) is (2.5,5).**
+
+You may be asking: *so what in the world is $\lambda$?* Besides being instrumental in solving constrained optimization problems, the Lagrangian multiplier $\lambda$ does have some economic interpretation. First, let's return to the FOCs, knowing $x$ and $y$, to solve for $\lambda$:
+
+$$\begin{align*}
+	y+5\lambda &=0\\
+	2.5+5\lambda &=0\\
+\lambda &=0.5	\\
+\end{align*}$$
+
+Mathematically, it can be proved that $\lambda=\displaystyle \frac{\partial u(x,y)}{\partial m}$: the rate of instantaneous change in your objective function with respect to your constraint (i.e. your income). That is, if you were to change your constraint (i.e. your income) by one unit, $\lambda$ tells us how much your objective function would increase (in units of the objective function). 
+
+Economically, it is known as the "shadow price," or sometimes the "marginal utility of wealth." It tells us how much your utility would increase if you were able to increase your constraint (income) by one unit (e.g. $1). Alternatively, we can think of it as the marginal benefit of relaxing the constraint (having $1 more to spend), or the marginal cost of strengthening the constraint (having $1 less). 
+
+In our example, $\lambda=0.5$, so if we had one +(-)\$1 in income to spend, utility would increase(decrease) by 0.5. 
+
+Recall that since utility is *ordinal* and not *cardinal*, the number of "utils" your utility were to change by is meaningless.  $\lambda$ does have meaningful quantitative interpretations when we use constrained optimization to talk about production, where units are dollars and output, rather than dollars and utility. 
+
+Let's lastly confirm that this is the optimum using the definition
+
+$$\begin{align*}
+|MRS| &= |\frac{p_x}{p_y}| && \text{At the optimum, slopes of I.C. and B.C. are equal}\\
+\frac{MU_{x}}{MU_{y}}&=\frac{p_x}{p_y} && \text{Definition of each slope}\\
+	\frac{y}{x} &= \frac{p_x}{p_y} && \text{MU's for this specific utility function}\\
+	\frac{(2.5)}{(5)} &= \frac{5}{10} && \text{At optimum, } y=2.5, x=5\\ 
+	\frac{1}{2} &= \frac{1}{2} && \checkmark 
+\end{align*}$$
+
+
