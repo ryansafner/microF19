@@ -1,5 +1,5 @@
 ---
-title: "Preliminary Survey on Math Background"
+title: "Problem Set 1"
 editor_options: 
   chunk_output_type: console
 ---
@@ -11,6 +11,7 @@ source(file.path(here::here(), "lib", "graphics.R"))
 ```
 
 *Due by Thursday, September 19, 2019* (Section 1 - TuTh)
+
 *Due by Monday, September 23, 2019* (Section 2 - MW)
 
 
@@ -22,59 +23,33 @@ You may work together (and I highly encourage that) but you must turn in your ow
 
 # Concepts and Critical Thinking
 
-## 1.
+## 1. How can we use utility functions, which have actual numbers that can be measured and compared, to model preferences and still say with a straight face that preferences are subjective? Hint: what does it mean for a utility function to be *ordinal* or *cardinal*? Why can multiple utility functions describe the same preferences?
 
-How can we use utility functions, which have actual numbers that can be measured and compared, to model preferences and still say with a straight face that preferences are subjective? Hint: what does it mean for a utility function to be *ordinal* or *cardinal*? Why can multiple utility functions describe the same preferences?
+## 2. Describe, in your own words, what happens at the optimum consumption point. Why is it the optimum? What does the equality of the slope of the indifference curve and the slope of the budget constraint *mean*, in English?
 
-## 2.
+## 3.Sketch *two* indifference curves for each of the following pairs of goods. Indicate which one has higher utility (call it $U_2$) and which one has lower utility (call it $U_1$). Put the first good on the horizontal axis and the second good on the vertical axis.
 
-Describe, in your own words, what happens at the optimum consumption point. Why is it the optimum? What does the equality of the slope of the indifference curve and the slope of the budget constraint *mean*, in English?
+### a. Carlene likes both pizza and shoes.
 
-## 3.
+### b. Paul likes pencils and pens, but views each as equally useful for writing.
 
-Sketch *two* indifference curves for each of the following pairs of goods. Indicate which one has higher utility (call it $U_2$) and which one has lower utility (call it $U_1$). Put the first good on the horizontal axis and the second good on the vertical axis.
+### c. Rhonda likes carrots and hates broccoli.
 
-### a. 
+### d. Michael only likes wearing 2 cuff links with every dress shirt.
 
-Carlene likes both pizza and shoes.
+### e. Emile hates both sauerkraut and anchovies.
 
-### b.
+### f. Kendra likes food and, as a non-smoker, is completely indifferent towards cigarettes.
 
-Paul likes pencils and pens, but views each as equally useful for writing.
+### g. Li likes spending time with his girlfriend and his mother, but never at the same time!
 
-### c.
+4. Juan enjoys both music and fireworks. His income is $240 per week. Music streaming costs $12 per month, and fireworks cost $8 per bag.
 
-Rhonda likes carrots and hates broccoli.
+**a. Graph the budget constraint Juan faces, with music on the vertical axis and fireworks on the horizontal axis.**
 
-### d.
+b. If Juan spends all his income on music, how much music can he afford? Plot a point that illustrates this scenario.
 
-Michael only likes wearing 2 cuff links with every dress shirt.
-
-### e.
-
-Emile hates both sauerkraut and anchovies.
-
-### f.
-
-Kendra likes food and, as a non-smoker, is completely indifferent towards cigarettes.
-
-### g.
-
-Li likes spending time with his girlfriend and his mother, but never at the same time!
-
-## 4. Juan enjoys both music and fireworks. His income is $240 per week. Music streaming costs $12 per month, and fireworks cost $8 per bag.
-
-### a. 
-
-Graph the budget constraint Juan faces, with music on the vertical axis and fireworks on the horizontal axis.
-
-### b. 
-
-If Juan spends all his income on music, how much music can he afford? Plot a point that illustrates this scenario.
-
-### c.
-
-If Juan spends all his income on fireworks, how many bags of  reworks can he afford? Plot a point that illustrates this scenario.
+c. If Juan spends all his income on fireworks, how many bags of  reworks can he afford? Plot a point that illustrates this scenario.
 
 ### d.
 
@@ -136,7 +111,7 @@ $$u(x,y)=\sqrt{xy}$$
 ## a. Fill in the following table by calculating the utility for each bundle of $X$ and $Y$. Round to two decimal places.
 
 
-```{r, echo=F}
+```{r, warning = F, message = F, echo = F}
 library(tidyverse)
 library(kableExtra)
 
@@ -159,7 +134,7 @@ kable(empty, format="html") %>%
 
 Graph three indifference curves on the same graph below: the first showing the bundle(s) that yield a utility level of 1; the second showing the bundle(s) that yield a utility level of 2; the third showing the bundle(s) that yield a utility level of 3.
 
-```{r}
+```{r, warning = F, message = F, echo = F, fig.retina = 3}
 library("mosaic")
 IC_1=function(x){1/x}
 
