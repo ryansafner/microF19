@@ -15,7 +15,7 @@ source(file.path(here::here(), "lib", "graphics.R"))
 *Due by Monday, September 23, 2019* (Section 2 - MW)
 
 
-- [<i class="fas fa-file-pdf"></i> `Download as PDF`](/homeworks/00-preliminary-survey.pdf)
+- [<i class="fas fa-file-pdf"></i> `Download as PDF`](/homeworks/01-problem-set.pdf)
 
 Please write your answers to the following questions on a piece of paper, or download and print a PDF copy (link above) to write on. You may also type your answers and print out a hard copy.
 
@@ -29,9 +29,13 @@ How can we use utility functions, which have actual numbers that can be measured
 
 ## Question 2
 
-Describe, in your own words, what happens at the optimum consumption point. Why is it the optimum? What does the equality of the slope of the indifference curve and the slope of the budget constraint *mean*, in English?
+Describe, in your own words, what the *marginal rate of substitution* between two goods means. How is it different from the slope of the budget constraint? 
 
 ## Question 3
+
+Describe, in your own words, what happens at the optimum consumption point. Why is it the optimum? What does the equality of the slope of the indifference curve and the slope of the budget constraint *mean*, in English?
+
+## Question 4
 
 Sketch *two* indifference curves for each of the following pairs of goods. Indicate which one has higher utility (call it $U_2$) and which one has lower utility (call it $U_1$). Put the first good on the horizontal axis and the second good on the vertical axis.
 
@@ -63,7 +67,9 @@ Kendra likes food and, as a non-smoker, is completely indifferent towards cigare
 
 Li likes spending time with his girlfriend and his mother, but never at the same time!
 
-## Question 4
+# Problems
+
+## Question 5
 
 Juan enjoys both music and fireworks. His income is $240 per week. Music streaming costs $12 per month, and fireworks cost $8 per bag.
 
@@ -95,7 +101,7 @@ Suppose that a holiday bonus raises Juan's income temporarily to $360. Draw Juan
 
 Now suppose that during the holiday, with his holiday bonus, the price of fireworks increases to $12 and the price of CDs increases to 18. If he spends all of his income on fireworks, how many can Juan buy?  How about CDs? What happens to his budget constraint, and why?
 
-## Question 5
+## Question 6
 
 Kelly's utility function for drinking Coke ($c$) and Pepsi ($p$) is given by:
 
@@ -130,7 +136,7 @@ Given your answers, what is the relationship between Coke and Pepsi for Kelly?
 
 Sketch a few indifference curves.
 
-## Question 6
+## Question 7
 
 A consumer has the following utility function:
 
