@@ -1,0 +1,179 @@
+---
+title: "1.6 Solving the Consumer's Problem - Class Notes"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+<!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<h2>Contents</h2>
+<div id="TOC">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#slides">Slides</a></li>
+<li><a href="#practice-problems">Practice Problems</a></li>
+<li><a href="#assignment-problem-set-1">Assignment: Problem Set 1</a></li>
+<li><a href="#math-appendix">Math Appendix</a><ul>
+<li><a href="#example-demand-functions">Example Demand Functions</a></li>
+<li><a href="#cobb-douglas">Cobb-Douglas</a></li>
+</ul></li>
+</ul>
+</div>
+
+<h2 id="overview">Overview</h2>
+<p>Solving a single constrained optimum problem might be useful in certain contexts, but the <em>dynamics</em> of change are more interesting: how do people optimally respond to changes in constraints? The remaining few classes before Exam 1 are about how people respond to changes in prices and income. If we can describe this set of behaviors in an equation and graphically, it is the origin of a demand curve.</p>
+<h2 id="slides">Slides</h2>
+<ul>
+<li><a href="/slides/06-slides.html"><i class="fas fa-external-link-square-alt"></i> Lecture Slides</a></li>
+</ul>
+<h2 id="practice-problems">Practice Problems</h2>
+<p>Today you will be working on <a href="/practice/065-practice.html">practice problems</a>. Answers will be posted later today (along with last classes’ problems answers).</p>
+<h2 id="assignment-problem-set-1">Assignment: Problem Set 1</h2>
+<p>Problem set 1 (will be) posted shortly, and is due by Thursday September 19 (for section 1 - TuTh) or Monday September 23 (for section 2 - MW)<span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">Section 1 is one full class ahead of Section 2 due to Labor Day, sorry!<br />
+<br />
+</span></span></p>
+<h2 id="math-appendix">Math Appendix</h2>
+<p>Check back here later for an example of how to solve the constrained optimization problem using calculus methods.</p>
+<h3 id="example-demand-functions">Example Demand Functions</h3>
+<h4 id="perfect-substitutes">Perfect Substitutes</h4>
+<p>Recall that perfect substitutes have indifference curves that are straight lines (constant MRS), and have a utility function of:
+<span class="math display">\[u(x,y)=w_1x+w_2y\]</span></p>
+<p>Since both the budget constraint and the indifference curves are straight lines, we will not have a point of <strong>tangency</strong> between them, but a point(s) where the lines <strong>intersect</strong>.</p>
+<p><img src="/class/07-class_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>There are three possible cases,</p>
+<ol style="list-style-type: decimal">
+<li>if <span class="math inline">\(p_x&gt;p_y\)</span>, the slope of the budget constraint is flatter than the slope of the indifference “curves.” The optimal bundle is spending <em>all</em> income on good <span class="math inline">\(x\)</span>.</li>
+<li>if <span class="math inline">\(p_x&lt;p_y\)</span>, the slope of the budget constraint is steeper than the slope of the indifference “curves.” The optimal bundle is spending <em>all</em> income on good <span class="math inline">\(y\)</span>.</li>
+<li>if <span class="math inline">\(p_x=p_y\)</span>, the budget constraint and indifference “curves” are <em>the same line</em>, so <em>any point</em> on the lines is optimal!</li>
+</ol>
+<p>The first two cases are known as “<strong>corner solutions</strong>,” where a consumer chooses all of one good, and none of another. Note perfect substitutes are <em>not convex</em>, and violate the assumption that “averages are preferred to extremes.”</p>
+<p>We can therefore write the <strong>demand function for good x</strong> (and similarly for y):</p>
+<p><span class="math display">\[q_d^x = \begin{cases} \frac{m}{p_x} &amp; \text{When } p_x &lt; p_y\\
+\text{any number between 0 and } \frac{m}{p_x} &amp; \text{When } p_x=p_y\\
+0 &amp; \text{When } p_x &gt; p_y\\ \end{cases}\]</span></p>
+<h4 id="perfect-complements">Perfect Complements</h4>
+<p>Recall that perfect complements have indifference curves that are right angles, and have a utility function of:
+<span class="math display">\[u(x,y)=\min \{w_1x,w_2y\}\]</span></p>
+<p>The optimal choice must always be at the <strong>corner</strong> of the indifference “curves.”</p>
+<p><img src="/class/07-class_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>The consumer is purchasing equal amounts of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in this example, no matter what the prices are of either, so <span class="math inline">\(x=y\)</span>. We must satisfy the budget constraint, that <span class="math inline">\(p_xx+p_yx=m\)</span> (recall <span class="math inline">\(y=x\)</span>). Solving this for <span class="math inline">\(x\)</span> gives us the <strong>demand function for good x</strong>:</p>
+<p><span class="math display">\[q_D^x=q_D^y=\frac{m}{p_x+p_y}\]</span></p>
+<p>This should be intuitive: the consumer must always purchase equal amounts of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, so it’s as if the consumer was spending all of their income on a single good <span class="math inline">\((x+y)\)</span> that has a price of <span class="math inline">\((p_x+p_y)\)</span>.</p>
+<h3 id="cobb-douglas">Cobb-Douglas</h3>
+<p>Now we come to a more realistic demand function. If a consumer has a Cobb-Douglas utility function<span><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">Note: Natural logs <a href="https://microf19.classes.ryansafner.com/class/05-class/#cobb-douglas-functions">are easier to work with</a>, this function is equivalent to <span class="math inline">\(u(x,y)=x^ay^b\)</span>.<br />
+<br />
+</span></span>
+<span class="math display">\[u(x,y)= a \ln x+ b \ln y\]</span></p>
+<p>Then we are solving the following constrained optimization problem:</p>
+<p><span class="math display">\[\max_{x,y} a \ln x + b \ln y\]</span>
+<span class="math display">\[\text{subject to } p_xx+p_yy=m\]</span></p>
+<p>I will solve this using the Lagrangian method.<span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">Note you could solve this by substitution. Use the definition of the optimum, that <span class="math inline">\(\frac{MU_x}{MU_y}=\frac{p_x}{p_y}\)</span>, plug in, and solving carefully for <span class="math inline">\(x\)</span>.<br />
+<br />
+</span></span></p>
+<p><span class="math display">\[\mathbb{L}=a \: ln \: x + b \: ln \: y - \lambda(p_x x + p_y y - m)\]</span></p>
+<p>The First Order Conditions are:</p>
+<p><span class="math display">\[\begin{align*}
+\frac{\partial \mathbb{L}}{\partial x} = \frac{a}{x}-\lambda p_x &amp;= 0\\
+\frac{\partial \mathbb{L}}{\partial y} = \frac{b}{y}-\lambda p_y &amp;= 0\\
+\frac{\partial \mathbb{L}}{\partial \lambda} = p_xx+p_yy-m &amp;= 0\\ \end{align*}\]</span></p>
+<p>Rearranging the first two FOCs:</p>
+<p><span class="math display">\[\begin{align*}
+a&amp;=\lambda p_x x\\
+b&amp;=\lambda p_y y\\
+\end{align*}\]</span></p>
+<p>Adding them together:</p>
+<p><span class="math display">\[\begin{align*}
+a+b&amp;=\lambda(p_xx+p_yy)\\
+a+b&amp;=\lambda m\\ \end{align*}\]</span></p>
+<p>Solving for <span class="math inline">\(\lambda\)</span>:</p>
+<p><span class="math display">\[\lambda=\frac{a+b}{m}\]</span></p>
+<p>Substitute this back into each of the first two FOCs and solve for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, respectively, to get:</p>
+<p><span class="math display">\[\begin{align*}
+x&amp;=\frac{a}{a+b}\frac{m}{p_x}\\
+y&amp;=\frac{b}{a+b} \frac{m}{p_y}\\
+\end{align*}\]</span></p>
+<p>These are the <strong>demand functions</strong> for goods <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. One of the <strong>convenient properties</strong> of Cobb-Douglas preferences is that a consumer <em>spends a constant fraction of income</em> <span class="math inline">\((\frac{a}{a+b})\)</span> <em>on good <span class="math inline">\(x\)</span></em>, and <em>the complement fraction</em> <span class="math inline">\((\frac{b}{a+b})\)</span> <em>on good <span class="math inline">\(y\)</span></em>!</p>
+<p>This becomes especially simple when the exponents <span class="math inline">\(a+b=1\)</span>, as in:</p>
+<p><span class="math display">\[u(x,y)=x^ab^{(1-a)} \quad \quad \text{where 0 &lt; a &lt; 1}\]</span></p>
+<p>For a constant value of <span class="math inline">\(p_x\)</span>, this is a linear function of <span class="math inline">\(m\)</span>. So doubling, tripling, etc. <span class="math inline">\(m\)</span> will double, triple, etc. quantity demanded for <span class="math inline">\(x\)</span>. So the income expansion path (<a href="/class/08-class">see next class</a>) is a straight line through the origin with a slope <span class="math inline">\(\frac{a}{p_x}\)</span>.</p>
+<h4 id="example">Example</h4>
+<p>Suppose a consumer has a utility function</p>
+<p><span class="math display">\[u(x,y)=x^{0.5}y^{0.5}\]</span></p>
+<p>and faces an income of <span class="math inline">\(50\)</span>, <span class="math inline">\(p_a=10\)</span>, <span class="math inline">\(p_b=5\)</span>.</p>
+<p><span class="math display">\[\max_{x,y} x^{0.5}y^{0.5}\]</span>
+<span class="math display">\[\text{subject to } 10x+5y=50\]</span></p>
+<p>Write the Lagrangian (and taking logs of the objective function, for simplicity):</p>
+<p><span class="math display">\[\mathbb{L} = 0.5 \: ln \: x+0.5 \: ln \: y-\lambda(10x+5y-50)\]</span></p>
+<p>FOCs are:</p>
+<p><span class="math display">\[\begin{align*}
+\frac{\partial \mathbb{L}}{\partial x} = \frac{0.5}{x}-10\lambda &amp;= 0 \\
+\frac{\partial \mathbb{L}}{\partial y} = \frac{0.5}{y}-5\lambda &amp;= 0 \\
+\frac{\partial \mathbb{L}}{\partial \lambda} = 10x+5y-50 &amp;= 0\\
+\end{align*}\]</span></p>
+<p>Rearrange the first two FOCs:</p>
+<p><span class="math display">\[\begin{align*}
+0.5&amp;=10 \lambda a\\
+0.5&amp;=5 \lambda y\\
+\end{align*}\]</span></p>
+<p>Add then together, and solve for <span class="math inline">\(\lambda\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+1&amp;=\lambda(10x+5y)\\
+1&amp;=\lambda(50)\\
+\frac{1}{50}&amp;=\lambda\\
+\end{align*}\]</span></p>
+<p>Now substitute lambda into each of the first two FOCs, solving for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, respectively:</p>
+<p><span class="math display">\[\begin{align*}
+\frac{0.5}{x}&amp;=10(\frac{1}{50})\\
+10x&amp;=0.5(50)\\
+x&amp;=2.5\\
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+\frac{0.5}{y}&amp;=5(\frac{1}{50})\\
+10x&amp;=0.5(50)\\
+y&amp;=5\\
+\end{align*}\]</span></p>
+<p>This consumer buys 2.5 units of <span class="math inline">\(x\)</span> at $10/each ($25) and 5 units of <span class="math inline">\(y\)</span> at $5/each ($25), spending all $50.</p>
+<p>Recall the utility function is</p>
+<p><span class="math display">\[u(x, y)=\sqrt{xy}=x^{0.5}y^{0.5}\]</span></p>
+<p>Note the Cobb-Douglas exponents on <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are equal and sum to 1 <span class="math inline">\(a\)</span> and <span class="math inline">\(1-a=0.5)\)</span>. So the consumer spends <span class="math inline">\(a=50\%\)</span> of her income on <span class="math inline">\(x\)</span>, and <span class="math inline">\(1-a=50\%\)</span> on <span class="math inline">\(y\)</span>.</p>
+<p>To get the <strong>demand functions</strong> for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, go back to the FOCs, and keep all budget constraint terms as variables <span class="math inline">\((p_x, p_y, m)\)</span>.</p>
+<p><span class="math display">\[\begin{align*}
+\frac{\partial \mathbb{L}}{\partial x} = \frac{0.5}{x}-p_x\lambda &amp;= 0 \\
+\frac{\partial \mathbb{L}}{\partial y} = \frac{0.5}{y}-p_y\lambda &amp;= 0 \\
+\frac{\partial \mathbb{L}}{\partial \lambda} = p_xx+p_yy-m &amp;= 0\\
+\end{align*}\]</span></p>
+<p>Rearrange the first two FOCs:</p>
+<p><span class="math display">\[\begin{align*}
+0.5&amp;=p_x \lambda a\\
+0.5&amp;=p_y \lambda y\\
+\end{align*}\]</span></p>
+<p>Add then together, and solve for <span class="math inline">\(\lambda\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+1&amp;=\lambda(p_xx+p_yy)\\
+1&amp;=\lambda(m)\\
+\frac{1}{m}&amp;=\lambda\\
+\end{align*}\]</span></p>
+<p>Substitute this back into each of the first two FOCs and solve for <span class="math inline">\(x\)</span>, and <span class="math inline">\(y\)</span>, respectively, to get:</p>
+<p><span class="math display">\[\begin{align*}
+\frac{0.5}{x}-p_x\lambda&amp;=0\\
+\frac{0.5}{x}-p_x \left(\frac{1}{m}\right)&amp;=0\\
+\frac{0.5}{x}&amp;=\frac{p_x}{m}\\
+p_xx&amp;=0.5m\\
+x&amp;=0.5\frac{m}{p_x}\\
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+\frac{0.5}{y}-p_y\lambda&amp;=0\\
+\frac{0.5}{y}-p_y \left(\frac{1}{m}\right)&amp;=0\\
+\frac{0.5}{y}&amp;=\frac{p_y}{m}\\
+p_yy&amp;=0.5m\\
+y&amp;=0.5\frac{m}{p_y}\\
+\end{align*}\]</span></p>
+<p>These are the <strong>demand functions</strong> for <span class="math inline">\(x\)</span> and for <span class="math inline">\(y\)</span>.</p>

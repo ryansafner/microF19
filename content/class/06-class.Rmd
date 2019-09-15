@@ -27,7 +27,7 @@ Today we put all of our tools together thus far to solve the consumer's constrai
 
 # Practice Problems
 
-Today you will be working on [practice problems](/practice/065-practice.html). Answers will be posted later today (along with last classes' problems answers).
+Today you will be working on [practice problems](/practice/06-practice.html). Answers are posted on that page. 
 
 # Assignment: Problem Set 1
 
