@@ -100,14 +100,14 @@ a+b&amp;=\lambda m\\ \end{align*}\]</span></p>
 x&amp;=\frac{a}{a+b}\frac{m}{p_x}\\
 y&amp;=\frac{b}{a+b} \frac{m}{p_y}\\
 \end{align*}\]</span></p>
-<p>These are the <strong>demand functions</strong> for goods <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. One of the <strong>convenient properties</strong> of Cobb-Douglas preferences is that a consumer <em>spends a constant fraction of income</em> <span class="math inline">\((\frac{a}{a+b})\)</span> <em>on good <span class="math inline">\(x\)</span></em>, and <em>the complement fraction</em> <span class="math inline">\((\frac{b}{a+b})\)</span> <em>on good <span class="math inline">\(y\)</span></em>!</p>
-<p>This becomes especially simple when the exponents <span class="math inline">\(a+b=1\)</span>, as in:</p>
-<p><span class="math display">\[u(x,y)=x^ab^{(1-a)} \quad \quad \text{where 0 &lt; a &lt; 1}\]</span></p>
+<p>These are the <strong>demand functions</strong> for goods <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. One of the <strong>convenient properties</strong> of Cobb-Douglas preferences is that a consumer <em>spends a constant fraction of income</em> <span class="math inline">\((\frac{a}{a+b})\)</span> <em>on good <span class="math inline">\(x\)</span></em>, and <em>the complement fraction</em> <span class="math inline">\((\frac{b}{a+b})\)</span> <em>on good <span class="math inline">\(y\)</span></em>!^This becomes especially simple when the exponents <span class="math inline">\(a+b=1\)</span>, as in:</p>
+<p><span class="math display">\[u(x,y)=x^ay^{(1-a)} \quad \quad \text{where 0 &lt; a &lt; 1}\]</span></p>
+<p>So <span class="math inline">\(a\)</span> and <span class="math inline">\(1-a\)</span> are proportions of <span class="math inline">\(m\)</span>!]</p>
 <p>For a constant value of <span class="math inline">\(p_x\)</span>, this is a linear function of <span class="math inline">\(m\)</span>. So doubling, tripling, etc. <span class="math inline">\(m\)</span> will double, triple, etc. quantity demanded for <span class="math inline">\(x\)</span>. So the income expansion path (<a href="/class/08-class">see next class</a>) is a straight line through the origin with a slope <span class="math inline">\(\frac{a}{p_x}\)</span>.</p>
-<h4 id="example">Example</h4>
+<h4 id="example">EXAMPLE</h4>
 <p>Suppose a consumer has a utility function</p>
 <p><span class="math display">\[u(x,y)=x^{0.5}y^{0.5}\]</span></p>
-<p>and faces an income of <span class="math inline">\(50\)</span>, <span class="math inline">\(p_a=10\)</span>, <span class="math inline">\(p_b=5\)</span>.</p>
+<p>and faces constraints of <span class="math inline">\(m=50\)</span>, <span class="math inline">\(p_a=10\)</span>, <span class="math inline">\(p_b=5\)</span>.</p>
 <p><span class="math display">\[\max_{x,y} x^{0.5}y^{0.5}\]</span>
 <span class="math display">\[\text{subject to } 10x+5y=50\]</span></p>
 <p>Write the Lagrangian (and taking logs of the objective function, for simplicity):</p>
@@ -120,7 +120,7 @@ y&amp;=\frac{b}{a+b} \frac{m}{p_y}\\
 \end{align*}\]</span></p>
 <p>Rearrange the first two FOCs:</p>
 <p><span class="math display">\[\begin{align*}
-0.5&amp;=10 \lambda a\\
+0.5&amp;=10 \lambda x\\
 0.5&amp;=5 \lambda y\\
 \end{align*}\]</span></p>
 <p>Add then together, and solve for <span class="math inline">\(\lambda\)</span>:</p>
@@ -143,7 +143,7 @@ y&amp;=5\\
 <p>This consumer buys 2.5 units of <span class="math inline">\(x\)</span> at $10/each ($25) and 5 units of <span class="math inline">\(y\)</span> at $5/each ($25), spending all $50.</p>
 <p>Recall the utility function is</p>
 <p><span class="math display">\[u(x, y)=\sqrt{xy}=x^{0.5}y^{0.5}\]</span></p>
-<p>Note the Cobb-Douglas exponents on <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are equal and sum to 1 <span class="math inline">\(a\)</span> and <span class="math inline">\(1-a=0.5)\)</span>. So the consumer spends <span class="math inline">\(a=50\%\)</span> of her income on <span class="math inline">\(x\)</span>, and <span class="math inline">\(1-a=50\%\)</span> on <span class="math inline">\(y\)</span>.</p>
+<p>Note the Cobb-Douglas exponents on <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are equal and sum to 1: <span class="math inline">\((a\)</span> and <span class="math inline">\(1-a=0.5)\)</span>. So the consumer spends <span class="math inline">\(a=50\%\)</span> of her income on <span class="math inline">\(x\)</span>, and <span class="math inline">\(1-a=50\%\)</span> on <span class="math inline">\(y\)</span>.</p>
 <p>To get the <strong>demand functions</strong> for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, go back to the FOCs, and keep all budget constraint terms as variables <span class="math inline">\((p_x, p_y, m)\)</span>.</p>
 <p><span class="math display">\[\begin{align*}
 \frac{\partial \mathbb{L}}{\partial x} = \frac{0.5}{x}-p_x\lambda &amp;= 0 \\
@@ -176,4 +176,14 @@ x&amp;=0.5\frac{m}{p_x}\\
 p_yy&amp;=0.5m\\
 y&amp;=0.5\frac{m}{p_y}\\
 \end{align*}\]</span></p>
-<p>These are the <strong>demand functions</strong> for <span class="math inline">\(x\)</span> and for <span class="math inline">\(y\)</span>.</p>
+<p>These are the <strong>demand functions</strong> for <span class="math inline">\(x\)</span> and for <span class="math inline">\(y\)</span>.<span><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">Note you can just take the rule learned above, that <span class="math inline">\(x=a\frac{m}{p_x}\)</span> and <span class="math inline">\(y=b\frac{m}{p_y}\)</span> and plug in <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.<br />
+<br />
+</span></span></p>
+<p>Note if we want to <em>graph</em> this, we need to find the <strong>inverse demand function</strong> by solving for <span class="math inline">\(p_x\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+x&amp;=0.5\frac{m}{p_x} \\
+p_xx&amp;=0.5m\\
+p_x&amp;=0.5\frac{m}{x} \\
+\end{align*}\]</span></p>
+<p>Now we can graph a demand function for a given amount of income. As income changes, the demand curve shifts. Here are two examples, one where <span class="math inline">\(m=20\)</span> and another where <span class="math inline">\(m=40\)</span>:</p>
+<p><img src="/class/07-class_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>

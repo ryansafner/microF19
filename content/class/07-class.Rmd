@@ -205,21 +205,21 @@ x&=\frac{a}{a+b}\frac{m}{p_x}\\
 y&=\frac{b}{a+b} \frac{m}{p_y}\\
 \end{align*}$$
 
-These are the **demand functions** for goods $x$ and $y$. One of the **convenient properties** of Cobb-Douglas preferences is that a consumer *spends a constant fraction of income* $(\frac{a}{a+b})$ *on good $x$*, and *the complement fraction* $(\frac{b}{a+b})$ *on good $y$*!
+These are the **demand functions** for goods $x$ and $y$. One of the **convenient properties** of Cobb-Douglas preferences is that a consumer *spends a constant fraction of income* $(\frac{a}{a+b})$ *on good $x$*, and *the complement fraction* $(\frac{b}{a+b})$ *on good $y$*!^This becomes especially simple when the exponents $a+b=1$, as in:
 
-This becomes especially simple when the exponents $a+b=1$, as in:
+$$u(x,y)=x^ay^{(1-a)} \quad \quad \text{where 0 < a < 1}$$
 
-$$u(x,y)=x^ab^{(1-a)} \quad \quad \text{where 0 < a < 1}$$
+So $a$ and $1-a$ are proportions of $m$!]
 
 For a constant value of $p_x$, this is a linear function of $m$. So doubling, tripling, etc. $m$ will double, triple, etc. quantity demanded for $x$. So the income expansion path ([see next class](/class/08-class)) is a straight line through the origin with a slope $\frac{a}{p_x}$.
 
-### Example
+### EXAMPLE
 
 Suppose a consumer has a utility function
 
 $$u(x,y)=x^{0.5}y^{0.5}$$
 
-and faces an income of $50$, $p_a=10$, $p_b=5$.
+and faces constraints of $m=50$, $p_a=10$, $p_b=5$.
 
 $$\max_{x,y} x^{0.5}y^{0.5}$$
 $$\text{subject to } 10x+5y=50$$
@@ -239,7 +239,7 @@ $$\begin{align*}
 Rearrange the first two FOCs:
 
 $$\begin{align*}
-0.5&=10 \lambda a\\
+0.5&=10 \lambda x\\
 0.5&=5 \lambda y\\
 \end{align*}$$
 
@@ -271,7 +271,7 @@ Recall the utility function is
 
 $$u(x, y)=\sqrt{xy}=x^{0.5}y^{0.5}$$
 
-Note the Cobb-Douglas exponents on $x$ and $y$ are equal and sum to 1 $a$ and $1-a=0.5)$. So the consumer spends $a=50\%$ of her income on $x$, and $1-a=50\%$ on $y$. 
+Note the Cobb-Douglas exponents on $x$ and $y$ are equal and sum to 1: $(a$ and $1-a=0.5)$. So the consumer spends $a=50\%$ of her income on $x$, and $1-a=50\%$ on $y$. 
 
 To get the **demand functions** for $x$ and $y$, go back to the FOCs, and keep all budget constraint terms as variables $(p_x, p_y, m)$.
 
@@ -314,4 +314,47 @@ p_yy&=0.5m\\
 y&=0.5\frac{m}{p_y}\\
 \end{align*}$$
 
-These are the **demand functions** for $x$ and for $y$. 
+These are the **demand functions** for $x$ and for $y$.^[Note you can just take the rule learned above, that $x=a\frac{m}{p_x}$ and $y=b\frac{m}{p_y}$ and plug in $a$ and $b$.]
+
+
+Note if we want to *graph* this, we need to find the **inverse demand function** by solving for $p_x$:
+
+$$\begin{align*}
+x&=0.5\frac{m}{p_x} \\
+p_xx&=0.5m\\
+p_x&=0.5\frac{m}{x} \\
+\end{align*}$$
+
+Now we can graph a demand function for a given amount of income. As income changes, the demand curve shifts. Here are two examples, one where $m=20$ and another where $m=40$: 
+
+```{r, fig.retina=3, fig.height=5.5}
+library("mosaic")
+library("ggrepel")
+
+cd1=function(x){0.5*20/x}
+cd2=function(x){0.5*40/x}
+
+point_sub<-tribble(
+  ~letter, ~x, ~y,
+  "A", 8, 0
+)
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=cd1, geom="line", size=2, color = "blue")+
+  stat_function(fun=cd2, geom="line", size=2, color = "blue", linetype="dashed")+
+  geom_label(aes(x=3,y=cd1(3)), color = "blue", label="Demand: m=20", size = 6)+
+  geom_label(aes(x=6,y=cd2(6)), color = "blue", label="Demand: m=40", size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x",
+       title = "Demand Curve",
+      caption = expression(p_x==0.5*m/x))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
