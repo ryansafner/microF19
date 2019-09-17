@@ -70,7 +70,7 @@ set.seed(256)
 
 $$q_x^D = D(m, p_x, p_y)$$
 
-- We now want to examine how **quantity demanded fox x** changes as each of these parameters change
+- We now want to examine how **quantity demanded for x** changes as each of these parameters change:
 ]
 
 .pull-right[
@@ -89,9 +89,9 @@ $$q_x^D = D(m, p_x, p_y)$$
 
 $$q_x^D = D(m, p_x, p_y)$$
 
-- We now want to examine how **quantity demanded fox x** changes as each of these parameters change
+- We now want to examine how **quantity demanded for x** changes as each of these parameters change:
 
-1. .whisper[Income effects] $\left(\frac{\Delta q_D}{\Delta m}\right)$: how $q_D$ changes with changes in income
+1. .whisper[Income effects] $\left(\frac{\Delta q_x^D}{\Delta m}\right)$: how $q_x^D$ changes with changes in income
 ]
 
 .pull-right[
@@ -110,10 +110,10 @@ $$q_x^D = D(m, p_x, p_y)$$
 
 $$q_x^D = D(m, p_x, p_y)$$
 
-- We now want to examine how **quantity demanded fox x** changes as each of these parameters change
+- We now want to examine how **quantity demanded for x** changes as each of these parameters change:
 
-1. .whisper[Income effects] $\left(\frac{\Delta q_D}{\Delta m}\right)$: how $q_D$ changes with changes in income
-2. .whisper[Cross-price effects] $\left(\frac{\Delta q_D}{\Delta p_y}\right)$: how $q_D$ changes with changes in prices of *other* goods (e.g. $y)$
+1. .whisper[Income effects] $\left(\frac{\Delta q_x^D}{\Delta m}\right)$: how $q_x^D$ changes with changes in income
+2. .whisper[Cross-price effects] $\left(\frac{\Delta q_x^D}{\Delta p_y}\right)$: how $q_x^D$ changes with changes in prices of *other* goods (e.g. $y)$
 
 ]
 
@@ -133,11 +133,11 @@ $$q_x^D = D(m, p_x, p_y)$$
 
 $$q_x^D = D(m, p_x, p_y)$$
 
-- We now want to examine how **quantity demanded fox x** changes as each of these parameters change
+- We now want to examine how **quantity demanded for x** changes as each of these parameters change:
 
-1. .whisper[Income effects] $\left(\frac{\Delta q_D}{\Delta m}\right)$: how $q_D$ changes with changes in income
-2. .whisper[Cross-price effects] $\left(\frac{\Delta q_D}{\Delta p_y}\right)$: how $q_D$ changes with changes in prices of *other* goods (e.g. $y)$
-3. .whisper[(Own) Price effects] $\left(\frac{\Delta q_D}{\Delta p_x}\right)$: how $q_D$ changes with changes in price (of $x)$
+1. .whisper[Income effects] $\left(\frac{\Delta q_x^D}{\Delta m}\right)$: how $q_x^D$ changes with changes in income
+2. .whisper[Cross-price effects] $\left(\frac{\Delta q_x^D}{\Delta p_y}\right)$: how $q_x^D$ changes with changes in prices of *other* goods (e.g. $y)$
+3. .whisper[(Own) Price effects] $\left(\frac{\Delta q_x^D}{\Delta p_x}\right)$: how $q_x^D$ changes with changes in price (of $x)$
 ]
 
 .pull-right[
@@ -428,7 +428,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 - At new optimum $(B)$, consumes more steak, less ramen
 
-- Steak is a .shout[normal good], ramen  goods are .shout[normal goods]
+- Steak is a .shout[normal good], ramen is an .shout[inferior good]
 
 ]
 
@@ -631,10 +631,11 @@ $$\epsilon_{q,m}= \frac{\% \Delta q_D}{\% \Delta m}$$
 
 # Income Elasticity of Demand II
 
-- To put it in the simple elasticity formula we used for price elasticity of demand, we'd need the partial derivative of demand with respect to income ("slope")
-- A simpler way that we will use is just to calculate the relative changes: 
+- For now, we can calculate the income elasticity of demand simply by calculating the relative changes: 
 
 $$\frac{\% \Delta q}{\% \Delta m}= \cfrac{\frac{\Delta q}{q_1}}{\frac{\Delta m}{m_1}}$$
+
+- We'll use some fancier methods when we talk about the only elasticity you've probably seen before: *price* elasticity of demand
 
 ---
 
@@ -816,7 +817,7 @@ $$\epsilon_{q_x,p_y}= \frac{\% \Delta q_x}{\% \Delta p_y}$$
 # Cross-Price Elasticity: Example I
 
 .content-box-green[
-.green[**Example**]: You can travel into the city every week on Lyft rides and Uber rides. When Lyft is $20/ride, you ride 10 Uber rides. When Lyft raises prices to \25/ride, you ride 15 Uber rides.
+.green[**Example**]: You can travel into the city every week on Lyft rides and Uber rides. When Lyft is $20/ride, you ride 10 Uber rides. When Lyft raises prices to $25/ride, you ride 15 Uber rides.
 
 1. What is the relationship between these two goods?
 
@@ -838,11 +839,12 @@ class: inverse, center, middle
 - .shout[Price effect]: change in optimal consumption of a good associated with a change in its price, holding income and other prices constant
 
 $$\frac{\Delta q_x^D}{\Delta p_x} < 0$$
+
+
+.whisper[The law of demand]: as the price of a good rises, people will tend to buy less of that good (and vice versa)
+  - i.e. the price effect is negative!
+
 ]
-
-. whisper[The law of demand]: as the price of a good rises, people will tend to buy less of that good (and vice versa)
-    - i.e. the price effect is negative!
-
 .pull-right[
 .center[
 ![](https://www.dropbox.com/s/o6l11dlc5ntiveq/pricetag.jpg?raw=1)
@@ -855,15 +857,16 @@ $$\frac{\Delta q_x^D}{\Delta p_x} < 0$$
 
 .pull-left[
 
-- .shout[Demand schedule] expresses the quantity of good a person would be willing to buy ($q_D$) at any given price ($p$)
-    - Note: .onfire[each of these is a consumer's optimum at a given price!]
+- .shout[Demand schedule] expresses the quantity of good a person would be willing to buy $(q_D)$ at any given price $(p_x)$
+
+- Note: .onfire[each of these is a consumer's optimum at a given price!]
 ]
 
 .pull-right[
 
 ```{r, echo=F, results="asis"}
 tribble(
-  ~"price", "quantity",
+  ~"price", ~"quantity",
   10, 0,
   9, 1,
   8, 2,
@@ -968,7 +971,7 @@ d
 
 .content-box-green[
 .green[**Example**]: 
-$$p=10-1$$
+$$p=10-q$$
 ]
 - Graphable (price on vertical axis)!
 
@@ -1369,10 +1372,10 @@ $$q_x=0.5\frac{m}{p_x}$$
 - Always spend 50% $(a)$ of income on $x$
 
 - With an income of $m=10$
-$$\text{Demand: }q_x=\frac{5}{p_x} \quad \text{Inverse demand: } p_x=\frac{5}{q_x}$$
+$$\text{Demand: }q_x=\frac{5}{p_x} \quad \text{Inv. demand: } p_x=\frac{5}{q_x}$$
 
 - With an income of $m=50$
-$$\text{Demand: }q_x=\frac{25}{p_x} \quad \text{Inverse demand: } p_x=\frac{25}{q_x}$$
+$$\text{Demand: }q_x=\frac{25}{p_x} \quad \text{Inv. demand: } p_x=\frac{25}{q_x}$$
 ]
 ]
 
