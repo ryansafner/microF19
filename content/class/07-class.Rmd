@@ -1,5 +1,5 @@
 ---
-title: "1.6 Solving the Consumer's Problem - Class Notes"
+title: "1.7 Building a Demand Function - Class Notes"
 citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-syllabus-no-bib.csl
@@ -21,23 +21,32 @@ knitr::opts_chunk$set(echo = FALSE,
 
 Solving a single constrained optimum problem might be useful in certain contexts, but the *dynamics* of change are more interesting: how do people optimally respond to changes in constraints? The remaining few classes before Exam 1 are about how people respond to changes in prices and income. If we can describe this set of behaviors in an equation and graphically, it is the origin of a demand curve.
 
+Today, we look at how changes in *income* or changes in the prices of *other* goods can affect your quantity demanded for a good. If there is time, we may cover how changes in a good's (own) price may affect quantity demanded for that good. We introduce the idea of demand functions, inverse demand functions, and a demand curve.
+
+In doing so, we also introduce a major empirical tool that we will return to many times: an *elasticity.* You've seen one elasticity before: the price elasticity of demand, and probably calculated it using the "midpoint formula." There's a lot more to elasticity (and a lot of other kinds of elasticities!) than that. We will see two varieties today, and will spend most of a lecture on price elasticity, two class periods from now.
+
+
 # Slides
 
-- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/06-slides.html)
+- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/07-slides.html)
 
 # Practice Problems
 
-Today you will be working on [practice problems](/practice/065-practice.html). Answers will be posted later today (along with last classes' problems answers).
+Today you will be working on [practice problems](/practice/07-practice.html). Answers will be posted later today (along with last classes' problems answers).
 
-# Assignment: Problem Set 1
+# Assignments: Problem Sets 1 and 2
 
-Problem set 1 (will be) posted shortly, and is due by Thursday September 19 (for section 1 - TuTh) or Monday September 23 (for section 2 - MW)^[Section 1 is one full class ahead of Section 2 due to Labor Day, sorry!]
+[Problem set 1](/assignment/01-problem-set) is due by Thursday September 19 (for section 1 - TuTh) or Monday September 23 (for section 2 - MW)
+
+Problem set 2 (on classes 1.7-1.9) will be posted shortly, and is due by Thursday September 26 (for section 1 - TuTh) or Monday September 30 (for section 2 - MW).
 
 # Math Appendix
 
-Check back here later for an example of how to solve the constrained optimization problem using calculus methods.
+## Elasticity
 
 ## Example Demand Functions
+
+The examples below show how we can take a utility function and derive a demand function.
 
 ### Perfect Substitutes
 

@@ -1,5 +1,5 @@
 ---
-title: "1.6 Solving the Consumer's Problem - Class Notes"
+title: "1.7 Building a Demand Function - Class Notes"
 citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-syllabus-no-bib.csl
@@ -20,8 +20,9 @@ editor_options:
 <li><a href="#overview">Overview</a></li>
 <li><a href="#slides">Slides</a></li>
 <li><a href="#practice-problems">Practice Problems</a></li>
-<li><a href="#assignment-problem-set-1">Assignment: Problem Set 1</a></li>
+<li><a href="#assignments-problem-sets-1-and-2">Assignments: Problem Sets 1 and 2</a></li>
 <li><a href="#math-appendix">Math Appendix</a><ul>
+<li><a href="#elasticity">Elasticity</a></li>
 <li><a href="#example-demand-functions">Example Demand Functions</a></li>
 <li><a href="#cobb-douglas">Cobb-Douglas</a></li>
 </ul></li>
@@ -30,19 +31,21 @@ editor_options:
 
 <h2 id="overview">Overview</h2>
 <p>Solving a single constrained optimum problem might be useful in certain contexts, but the <em>dynamics</em> of change are more interesting: how do people optimally respond to changes in constraints? The remaining few classes before Exam 1 are about how people respond to changes in prices and income. If we can describe this set of behaviors in an equation and graphically, it is the origin of a demand curve.</p>
+<p>Today, we look at how changes in <em>income</em> or changes in the prices of <em>other</em> goods can affect your quantity demanded for a good. If there is time, we may cover how changes in a good’s (own) price may affect quantity demanded for that good. We introduce the idea of demand functions, inverse demand functions, and a demand curve.</p>
+<p>In doing so, we also introduce a major empirical tool that we will return to many times: an <em>elasticity.</em> You’ve seen one elasticity before: the price elasticity of demand, and probably calculated it using the “midpoint formula.” There’s a lot more to elasticity (and a lot of other kinds of elasticities!) than that. We will see two varieties today, and will spend most of a lecture on price elasticity, two class periods from now.</p>
 <h2 id="slides">Slides</h2>
 <ul>
-<li><a href="/slides/06-slides.html"><i class="fas fa-external-link-square-alt"></i> Lecture Slides</a></li>
+<li><a href="/slides/07-slides.html"><i class="fas fa-external-link-square-alt"></i> Lecture Slides</a></li>
 </ul>
 <h2 id="practice-problems">Practice Problems</h2>
-<p>Today you will be working on <a href="/practice/065-practice.html">practice problems</a>. Answers will be posted later today (along with last classes’ problems answers).</p>
-<h2 id="assignment-problem-set-1">Assignment: Problem Set 1</h2>
-<p>Problem set 1 (will be) posted shortly, and is due by Thursday September 19 (for section 1 - TuTh) or Monday September 23 (for section 2 - MW)<span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">Section 1 is one full class ahead of Section 2 due to Labor Day, sorry!<br />
-<br />
-</span></span></p>
+<p>Today you will be working on <a href="/practice/07-practice.html">practice problems</a>. Answers will be posted later today (along with last classes’ problems answers).</p>
+<h2 id="assignments-problem-sets-1-and-2">Assignments: Problem Sets 1 and 2</h2>
+<p><a href="/assignment/01-problem-set">Problem set 1</a> is due by Thursday September 19 (for section 1 - TuTh) or Monday September 23 (for section 2 - MW)</p>
+<p>Problem set 2 (on classes 1.7-1.9) will be posted shortly, and is due by Thursday September 26 (for section 1 - TuTh) or Monday September 30 (for section 2 - MW).</p>
 <h2 id="math-appendix">Math Appendix</h2>
-<p>Check back here later for an example of how to solve the constrained optimization problem using calculus methods.</p>
+<h3 id="elasticity">Elasticity</h3>
 <h3 id="example-demand-functions">Example Demand Functions</h3>
+<p>The examples below show how we can take a utility function and derive a demand function.</p>
 <h4 id="perfect-substitutes">Perfect Substitutes</h4>
 <p>Recall that perfect substitutes have indifference curves that are straight lines (constant MRS), and have a utility function of:
 <span class="math display">\[u(x,y)=w_1x+w_2y\]</span></p>
@@ -68,14 +71,14 @@ editor_options:
 <p><span class="math display">\[q_D^x=q_D^y=\frac{m}{p_x+p_y}\]</span></p>
 <p>This should be intuitive: the consumer must always purchase equal amounts of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, so it’s as if the consumer was spending all of their income on a single good <span class="math inline">\((x+y)\)</span> that has a price of <span class="math inline">\((p_x+p_y)\)</span>.</p>
 <h3 id="cobb-douglas">Cobb-Douglas</h3>
-<p>Now we come to a more realistic demand function. If a consumer has a Cobb-Douglas utility function<span><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">Note: Natural logs <a href="https://microf19.classes.ryansafner.com/class/05-class/#cobb-douglas-functions">are easier to work with</a>, this function is equivalent to <span class="math inline">\(u(x,y)=x^ay^b\)</span>.<br />
+<p>Now we come to a more realistic demand function. If a consumer has a Cobb-Douglas utility function<span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">Note: Natural logs <a href="https://microf19.classes.ryansafner.com/class/05-class/#cobb-douglas-functions">are easier to work with</a>, this function is equivalent to <span class="math inline">\(u(x,y)=x^ay^b\)</span>.<br />
 <br />
 </span></span>
 <span class="math display">\[u(x,y)= a \ln x+ b \ln y\]</span></p>
 <p>Then we are solving the following constrained optimization problem:</p>
 <p><span class="math display">\[\max_{x,y} a \ln x + b \ln y\]</span>
 <span class="math display">\[\text{subject to } p_xx+p_yy=m\]</span></p>
-<p>I will solve this using the Lagrangian method.<span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">Note you could solve this by substitution. Use the definition of the optimum, that <span class="math inline">\(\frac{MU_x}{MU_y}=\frac{p_x}{p_y}\)</span>, plug in, and solving carefully for <span class="math inline">\(x\)</span>.<br />
+<p>I will solve this using the Lagrangian method.<span><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">Note you could solve this by substitution. Use the definition of the optimum, that <span class="math inline">\(\frac{MU_x}{MU_y}=\frac{p_x}{p_y}\)</span>, plug in, and solving carefully for <span class="math inline">\(x\)</span>.<br />
 <br />
 </span></span></p>
 <p><span class="math display">\[\mathbb{L}=a \: ln \: x + b \: ln \: y - \lambda(p_x x + p_y y - m)\]</span></p>
@@ -176,7 +179,7 @@ x&amp;=0.5\frac{m}{p_x}\\
 p_yy&amp;=0.5m\\
 y&amp;=0.5\frac{m}{p_y}\\
 \end{align*}\]</span></p>
-<p>These are the <strong>demand functions</strong> for <span class="math inline">\(x\)</span> and for <span class="math inline">\(y\)</span>.<span><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">Note you can just take the rule learned above, that <span class="math inline">\(x=a\frac{m}{p_x}\)</span> and <span class="math inline">\(y=b\frac{m}{p_y}\)</span> and plug in <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.<br />
+<p>These are the <strong>demand functions</strong> for <span class="math inline">\(x\)</span> and for <span class="math inline">\(y\)</span>.<span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">Note you can just take the rule learned above, that <span class="math inline">\(x=a\frac{m}{p_x}\)</span> and <span class="math inline">\(y=b\frac{m}{p_y}\)</span> and plug in <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.<br />
 <br />
 </span></span></p>
 <p>Note if we want to <em>graph</em> this, we need to find the <strong>inverse demand function</strong> by solving for <span class="math inline">\(p_x\)</span>:</p>

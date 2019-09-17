@@ -40,10 +40,16 @@ lessons:
     assignment: "01-problem-set"
     
   - title: "1.7 Building a Demand Function"
+    class: "07-class"
+    slides: "07-slides"
+    practice: "07-practice"
+    reading: "07-reading"
 
   - title: "1.8 Income and Substitution Effects"
-  
+    reading: "08-reading"
+    
   - title: "1.9 Price Elasticity"
+    reading: "09-reading"
 
   - title: '<i class="fas fa-laptop-code"></i> **Problem Set 2**'
 

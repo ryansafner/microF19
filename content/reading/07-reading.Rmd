@@ -1,0 +1,10 @@
+---
+title: "1.7 Building a Demand Function - Readings"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Recommended
+
+- <i class="fas fas fa-book"></i> Ch. 5.1, 5.2, 5.4 in @textbook

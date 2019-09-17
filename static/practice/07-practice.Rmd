@@ -1,0 +1,22 @@
+---
+title: "1.7 Building a Demand Function - Practice Problems"
+author: "Ryan Safner"
+date: "ECON 306 - Fall 2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+You can spend your income on apples and oranges. Apples currently cost $0.25 and oranges cost $0.50. When your income is $40, you buy 10 apples and 8 oranges. When your income increases to $80, you buy 12 apples and 6 oranges
+
+### 1. What type of good are apples (inferior, necessity, luxury)?
+
+### 2. What type of good are oranges (inferior, necessity, or luxury)?
+
+You can can have cereal and milk for breakfast. When milk is $2/gallon, you consume 5 bowls of cereal per week. When milk increases to $4/gallon, you consume 4 bowls of cereal per week.
+
+#### 3. What is the relationship between these two goods?
+
+#### 4. What is the cross-price elasticity? 

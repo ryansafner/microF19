@@ -66,9 +66,9 @@ set.seed(256)
 
 .pull-left[
 
-- A consumer's .shout[quantity demanded] (of good x), $q_D^x$ is a function of their .shout[demand for good x], which depends on current market prices and their income
+- A consumer's .shout[quantity demanded] (of good x), $q_x^D$ is a function of their .shout[demand for good x], which depends on current market prices and their income
 
-$$q_D^x = D(m, p_x, p_y)$$
+$$q_x^D = D(m, p_x, p_y)$$
 
 - We now want to examine how **quantity demanded fox x** changes as each of these parameters change
 ]
@@ -85,9 +85,9 @@ $$q_D^x = D(m, p_x, p_y)$$
 
 .pull-left[
 
-- A consumer's .shout[quantity demanded] (of good x), $q_D^x$ is a function of their .shout[demand for good x], which depends on current market prices and their income
+- A consumer's .shout[quantity demanded] (of good x), $q_x^D$ is a function of their .shout[demand for good x], which depends on current market prices and their income
 
-$$q_D^x = D(m, p_x, p_y)$$
+$$q_x^D = D(m, p_x, p_y)$$
 
 - We now want to examine how **quantity demanded fox x** changes as each of these parameters change
 
@@ -106,9 +106,9 @@ $$q_D^x = D(m, p_x, p_y)$$
 
 .pull-left[
 
-- A consumer's .shout[quantity demanded] (of good x), $q_D^x$ is a function of their .shout[demand for good x], which depends on current market prices and their income
+- A consumer's .shout[quantity demanded] (of good x), $q_x^D$ is a function of their .shout[demand for good x], which depends on current market prices and their income
 
-$$q_D^x = D(m, p_x, p_y)$$
+$$q_x^D = D(m, p_x, p_y)$$
 
 - We now want to examine how **quantity demanded fox x** changes as each of these parameters change
 
@@ -129,9 +129,9 @@ $$q_D^x = D(m, p_x, p_y)$$
 
 .pull-left[
 
-- A consumer's .shout[quantity demanded] (of good x), $q_D^x$ is a function of their .shout[demand for good x], which depends on current market prices and their income
+- A consumer's .shout[quantity demanded] (of good x), $q_x^D$ is a function of their .shout[demand for good x], which depends on current market prices and their income
 
-$$q_D^x = D(m, p_x, p_y)$$
+$$q_x^D = D(m, p_x, p_y)$$
 
 - We now want to examine how **quantity demanded fox x** changes as each of these parameters change
 
@@ -570,7 +570,7 @@ $$\epsilon_{y,x} = \frac{\% \Delta y}{\% \Delta x}=\cfrac{\frac{\Delta y}{y}\tim
 
 ---
 
-# Income Elasticity of Demand
+# Income Elasticity of Demand I
 
 - The .shout[income elasticity of demand] measures how much quantity demanded $(q_D)$ changes in response to a change in income $(m)$
 
@@ -578,51 +578,834 @@ $$\epsilon_{q,m}= \frac{\% \Delta q_D}{\% \Delta m}$$
 
 ---
 
-# Income Elasticity of Demand 
+# Income Elasticity of Demand I
 
 - The .shout[income elasticity of demand] measures how much quantity demanded $(q_D)$ changes in response to a change in income $(m)$
 
 $$\epsilon_{q,m}= \frac{\% \Delta q_D}{\% \Delta m}$$
 
-- If $\epsilon_{q,m}$ is *negative*: an .shout[inferior] good
+- If $\epsilon_{q,m}$ is *negative*: an .onfire[inferior] good
 
 ---
 
-# Income Elasticity of Demand 
+# Income Elasticity of Demand I
 
 - The .shout[income elasticity of demand] measures how much quantity demanded $(q_D)$ changes in response to a change in income $(m)$
 
 $$\epsilon_{q,m}= \frac{\% \Delta q_D}{\% \Delta m}$$
 
-- If $\epsilon_{q,m}$ is *negative*: an .shout[inferior] good
-- If $\epsilon_{q,m}$ is *positive*: a .shout[normal] good
+- If $\epsilon_{q,m}$ is *negative*: an .onfire[inferior] good
+- If $\epsilon_{q,m}$ is *positive*: a .onfire[normal] good
 
 ---
 
-# Income Elasticity of Demand 
+# Income Elasticity of Demand I
 
 - The .shout[income elasticity of demand] measures how much quantity demanded $(q_D)$ changes in response to a change in income $(m)$
 
 $$\epsilon_{q,m}= \frac{\% \Delta q_D}{\% \Delta m}$$
 
-- If $\epsilon_{q,m}$ is *negative*: an .shout[inferior] good
-- If $\epsilon_{q,m}$ is *positive*: a .shout[normal] good
+- If $\epsilon_{q,m}$ is *negative*: an .onfire[inferior] good
+- If $\epsilon_{q,m}$ is *positive*: a .onfire[normal] good
 - Two subtypes of normal goods:
     - **Necessity**: $0 \leq \epsilon_{q,m} \leq 1$
-        - $\uparrow$ quantity demanded as $\uparrow$ income (water, clothing)
+        - $\uparrow$ quantity demanded as $\uparrow \uparrow$ income (water, clothing)
 
 ---
 
-# Income Elasticity of Demand 
+# Income Elasticity of Demand I
 
 - The .shout[income elasticity of demand] measures how much quantity demanded $(q_D)$ changes in response to a change in income $(m)$
 
 $$\epsilon_{q,m}= \frac{\% \Delta q_D}{\% \Delta m}$$
 
-- If $\epsilon_{q,m}$ is *negative*: an .shout[inferior] good
-- If $\epsilon_{q,m}$ is *positive*: a .shout[normal] good
+- If $\epsilon_{q,m}$ is *negative*: an .onfire[inferior] good
+- If $\epsilon_{q,m}$ is *positive*: a .onfire[normal] good
 - Two subtypes of normal goods:
     - **Necessity**: $0 \leq \epsilon_{q,m} \leq 1$
         - $\uparrow$ quantity demanded as $\uparrow \uparrow$ income (water, clothing)
     - **Luxury**: $\epsilon_{q,m} > 1$
         - $\uparrow \uparrow$ quantity demanded as $\uparrow$ income (jewelry, vacations)
+
+---
+
+# Income Elasticity of Demand II
+
+- To put it in the simple elasticity formula we used for price elasticity of demand, we'd need the partial derivative of demand with respect to income ("slope")
+- A simpler way that we will use is just to calculate the relative changes: 
+
+$$\frac{\% \Delta q}{\% \Delta m}= \cfrac{\frac{\Delta q}{q_1}}{\frac{\Delta m}{m_1}}$$
+
+---
+
+# Income Elasticity of Demand: Example
+
+.content-box-green[
+.green[**Example**]: You can spend your income on golf and pancakes. Green fees at a local golf course are $10 per round and pancake mix is $2 per box. When your income is $100, you buy 5 boxes of pancake mix and 9 rounds of golf. When your income increases to $120, you buy 10 boxes of pancake mix and 10 rounds of golf. 	
+
+1. What type of good is golf (inferior, necessity, luxury)?
+
+2. What type of good are pancakes (inferior, necessity, or luxury)?
+]
+
+---
+
+# Income Effects: Example
+
+.content-box-green[
+.green[**Example**]: Is the environment a normal good?
+
+]
+
+--
+
+.center[
+![](https://www.dropbox.com/s/3ng8zxknkuktmmr/environmentkuznetscurve.png?raw=1)
+]
+
+---
+
+# Income Effects: Example
+
+.content-box-green[
+.green[**Example**]: Is the environment a normal good?
+
+]
+
+.center[
+![](https://www.dropbox.com/s/2uof8o1c1sxi7ay/environmentkuznets2.png?raw=1)
+]
+
+---
+
+# Income Expansion Path
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/evog1wzluemmwth/incomeexpansion.png?raw=1)
+
+Goolsbee, et. al (2011: 169)
+]
+]
+
+.pull-right[
+
+- .shout[Income expansion path] describes how consumption of each good changes when income increases
+    - Traces a line between optimal consumption points as income increases (budget constraint shifts out)
+
+]
+
+---
+
+# Engel Curves
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/4266dn9d8xrljjc/engelcurves.png?raw=1)
+
+Goolsbee, et. al (2011: 171)
+]
+]
+
+.pull-right[
+
+- .shout[Engel curve] of each good is more helpful to visualize: shows how consumption of *one* good changes when income increases
+
+]
+
+---
+
+class: inverse, center, middle
+# Cross-Price Effects
+
+---
+
+# Cross-Price Effects
+
+.pull-left[
+
+- .shout[Cross-price effect]: change in optimal consumption of a good associated with a change in price of *another* good income, holding the good's *own* price (and income) constant
+
+$$\frac{\Delta q_x}{\Delta p_y}	>^?< 0$$
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/rzp2d2x8qqulk9h/appleorange.jpg?raw=1)
+]
+]
+
+---
+
+# Cross-Price Elasticity of Demand I
+
+.pull-left[
+
+- The .shout[cross-price elasticity of demand] measures how much quantity demanded of one good $(q_x)$ changes in response to a change in price of *another* good $(p_y)$
+
+$$\epsilon_{q_x,p_y}= \frac{\% \Delta q_x}{\% \Delta p_y}$$
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/rzp2d2x8qqulk9h/appleorange.jpg?raw=1)
+]
+]
+
+
+---
+
+# Cross-Price Elasticity of Demand I
+
+.pull-left[
+- The .shout[cross-price elasticity of demand] measures how much quantity demanded of one good $(q_x)$ changes in response to a change in price of *another* good $(p_y)$
+
+$$\epsilon_{q_x,p_y}= \frac{\% \Delta q_x}{\% \Delta p_y} = \cfrac{\frac{\Delta q_x}{q_x}}{\frac{\Delta p_y}{p_y}}$$
+]
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/rzp2d2x8qqulk9h/appleorange.jpg?raw=1)
+]
+]
+
+---
+
+# Cross-Price Elasticity of Demand II 
+
+.pull-left[
+
+$$\epsilon_{q_x,p_y}= \frac{\% \Delta q_x}{\% \Delta p_y}$$
+
+- If $\epsilon_{q_x,p_y}$ is *positive*: goods $x$ and $y$ are .shout[substitutes]
+
+- An rise (fall) in price of $y$ causes more (less) consumption of $x$
+    - Consumption of $x$ moves in same direction as price of $y$
+
+]
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/zotlo62afrp7q8m/pepsicoke.jpg?raw=1)
+]
+]
+
+---
+
+# Cross-Price Elasticity of Demand III
+
+.pull-left[
+
+$$\epsilon_{q_x,p_y}= \frac{\% \Delta q_x}{\% \Delta p_y}$$
+
+- If $\epsilon_{q_x,p_y}$ is *negative*: goods $x$ and $y$ are .shout[complements]
+
+- Goods $x$ and $y$ consumed together in a bundle, concern about overall price of bundle
+
+- An rise (fall) in price of $y$ causes less (more) consumption of $x$
+    - Consumption of $x$ moves in opposite direction as price of $y$
+
+]
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/2w0btbgwo37hrtq/cerealmilk.png?raw=1)
+]
+]
+
+---
+
+# Cross-Price Elasticity: Example I
+
+.content-box-green[
+.green[**Example**]: You can travel into the city every week on Lyft rides and Uber rides. When Lyft is $20/ride, you ride 10 Uber rides. When Lyft raises prices to \25/ride, you ride 15 Uber rides.
+
+1. What is the relationship between these two goods?
+
+2. What is the cross-price elasticity? 
+]
+
+---
+
+class: inverse, center, middle
+
+# The Price Effect
+
+---
+
+# The (Own) Price Effect
+
+.pull-left[
+
+- .shout[Price effect]: change in optimal consumption of a good associated with a change in its price, holding income and other prices constant
+
+$$\frac{\Delta q_x^D}{\Delta p_x} < 0$$
+]
+
+. whisper[The law of demand]: as the price of a good rises, people will tend to buy less of that good (and vice versa)
+    - i.e. the price effect is negative!
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/o6l11dlc5ntiveq/pricetag.jpg?raw=1)
+]
+]
+
+---
+
+# Demand Schedule
+
+.pull-left[
+
+- .shout[Demand schedule] expresses the quantity of good a person would be willing to buy ($q_D$) at any given price ($p$)
+    - Note: .onfire[each of these is a consumer's optimum at a given price!]
+]
+
+.pull-right[
+
+```{r, echo=F, results="asis"}
+tribble(
+  ~"price", "quantity",
+  10, 0,
+  9, 1,
+  8, 2,
+  7, 3,
+  6, 4,
+  5, 5,
+  4, 6,
+  3, 7,
+  8, 2,
+  9, 1,
+  10, 0
+) %>%
+  knitr::kable(., format="html")
+```
+]
+
+---
+
+# Demand Curve
+
+.pull-left[
+
+- .shout[Demand curve] graphically represents the demand schedule
+
+- Also measures a person's .onfire[maximum willingness to pay (WTP)] for a given quantity
+
+- Law of Demand (price effect) $\implies$ Demand curves always slope downwards
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+library("mosaic")
+demand=function(x){10-x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+  geom_label(aes(x=8,y=demand(8)), color = "blue", label="Demand", size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Demand Function
+
+.pull-left[
+
+- .shout[Demand function] relates quantity to price
+
+.content-box-green[
+.green[**Example**]: 
+$$q=10-p$$
+]
+- Not graphable (wrong axes)!
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+library("mosaic")
+demand=function(x){10-x}
+
+d<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+  geom_label(aes(x=8,y=demand(8)), color = "blue", label="Demand", size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+d
+```
+]
+
+---
+
+# Inverse Demand Function
+
+.pull-left[
+
+- .shout[*Inverse* demand function] relates price to quantity
+    - Find by taking demand function and solving for $p$
+
+.content-box-green[
+.green[**Example**]: 
+$$p=10-1$$
+]
+- Graphable (price on vertical axis)!
+
+]
+
+---
+
+# Inverse Demand Function
+
+.pull-left[
+
+- .shout[*Inverse* demand function] relates price to quantity
+    - Find by taking demand function and solving for $p$
+
+.content-box-green[
+.green[**Example**]: 
+$$p=10-1$$
+]
+- Graphable (price on vertical axis)!
+
+- .shout["Choke price"]: price where $q_D=0$ ($10), just high enough to discourage *any* purchases
+    - Quite useful later!
+
+]
+
+
+.pull-right[
+
+```{r, fig.retina=3}
+d
+```
+]
+
+---
+
+# Deriving a Demand Curve Graphically
+
+.pull-left[
+
+```{r}
+points_demand<-tribble(
+  ~letter, ~x, ~y,
+  "A", 2.5, 5,
+  "B", 5, 5,
+  "C", 10, 5
+)
+
+IC_demand_1=function(x){12.5/x}
+IC_demand_2=function(x){25/x}
+IC_demand_3=function(x){50/x}
+BC_demand_1=function(x){10-2*x}
+BC_demand_2=function(x){10-x}
+BC_demand_3=function(x){10-0.5*x}
+
+cd_demand=function(x){0.5*20/x}
+
+points_demand_2<-tribble(
+  ~letter, ~x, ~y,
+  "A", 2.5, 4,
+  "B", 5, 2,
+  "C", 10, 1
+)
+```
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_demand_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_demand_1, geom="line", size=2, color = "red")+
+    geom_label(aes(x=1,y=IC_demand_1(1)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=4,y=BC_demand_1(4)), color = "red", label=expression(paste(p[x],"=$4")), size = 6)+
+  geom_point(data = subset(points_demand, letter=="A"),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points_demand, letter=="A"),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 2.5, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 2.5, xend = 2.5, y = 5, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==20, ", ", p[y]==2, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_point(data = subset(points_demand_2, letter=="A"),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points_demand_2, letter=="A"),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x",
+      caption = expression(paste("Demand function: ", x=0.5*m/p[x], " ; Inverse Demand function: ", p[x]==0.5*m/x, sep="")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+- Demand curve for $x$ relates consumer's optimal consumption of $x$ ("quantity") as price of $x$ changes
+- At $p_x=4$, consumer buys 2 $x$
+
+
+---
+
+# Deriving a Demand Curve Graphically
+
+.pull-left[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_demand_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=IC_demand_2, geom="line", size=2, color = "#2D708EFF")+
+  stat_function(fun=BC_demand_1, geom="line", size=2, color = "red")+
+  stat_function(fun=BC_demand_2, geom="line", size=2, color = "red", linetype="dashed")+
+    geom_label(aes(x=1,y=IC_demand_1(1)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=1.75,y=IC_demand_2(1.75)), color = "#2D708EFF", label=expression(u[2]), size = 6)+
+    geom_label(aes(x=4,y=BC_demand_1(4)), color = "red", label=expression(paste(p[x],"=$4")), size = 6)+
+    geom_label(aes(x=8,y=BC_demand_2(8)), color = "red", label=expression(paste(p[x],"=$2")), size = 6)+
+  geom_point(data = subset(points_demand, letter %in% c("A","B")),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points_demand, letter %in% c("A","B")),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 2.5, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 2.5, xend = 2.5, y = 5, yend=0), linetype="dotted", size=1)+
+  
+  # B lines
+  geom_segment(aes(x = 2.5, xend = 5, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 5, xend = 5, y = 5, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==20, ", ", p[y]==2, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_point(data = subset(points_demand_2, letter %in% c("A","B")),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points_demand_2, letter %in% c("A","B")),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x",
+      caption = expression(paste("Demand function: ", x=0.5*m/p[x], " ; Inverse Demand function: ", p[x]==0.5*m/x, sep="")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+- Demand curve for $x$ relates consumer's optimal consumption of $x$ ("quantity") as price of $x$ changes
+- At $p_x=4$, consumer buys 2 $x$; at $p_x=2$, consumer buys 5 $x$
+
+---
+
+# Deriving a Demand Curve Graphically
+
+.pull-left[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_demand_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=IC_demand_2, geom="line", size=2, color = "#2D708EFF")+
+  stat_function(fun=IC_demand_3, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_demand_1, geom="line", size=2, color = "red")+
+  stat_function(fun=BC_demand_2, geom="line", size=2, color = "red", linetype="dashed")+
+  stat_function(fun=BC_demand_3, geom="line", size=2, color = "red", linetype="dashed")+
+    geom_label(aes(x=1,y=IC_demand_1(1)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=1.75,y=IC_demand_2(1.75)), color = "#2D708EFF", label=expression(u[2]), size = 6)+
+    geom_label(aes(x=3,y=IC_demand_3(3)), color = "#20A387FF", label=expression(u[3]), size = 6)+
+    geom_label(aes(x=4,y=BC_demand_1(4)), color = "red", label=expression(paste(p[x],"=$4")), size = 6)+
+    geom_label(aes(x=8,y=BC_demand_2(8)), color = "red", label=expression(paste(p[x],"=$2")), size = 6)+
+    geom_label(aes(x=15,y=BC_demand_3(15)), color = "red", label=expression(paste(p[x],"=$1")), size = 6)+
+  geom_point(data = points_demand,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_demand,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 2.5, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 2.5, xend = 2.5, y = 5, yend=0), linetype="dotted", size=1)+
+  
+  # B lines
+  geom_segment(aes(x = 2.5, xend = 5, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 5, xend = 5, y = 5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 5, xend = 10, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 5, yend=0), linetype="dotted", size=1)+
+  #annotate("segment", x = 20, xend = 10, y = 10, yend = 35, colour = "purple", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+    scale_x_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==20, ", ", p[y]==2, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_point(data = points_demand_2,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_demand_2,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x",
+      caption = expression(paste("Demand function: ", x=0.5*m/p[x], " ; Inverse Demand function: ", p[x]==0.5*m/x, sep="")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+- Demand curve for $x$ relates consumer's optimal consumption of $x$ ("quantity") as price of $x$ changes
+- At $p_x=4$, consumer buys 2 $x$; at $p_x=2$, consumer buys 5 $x$; at $p_x=1$, consumer buys 10 $x$
+
+
+---
+
+# Deriving a Demand Curve Graphically
+
+
+.pull-left[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_demand_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=IC_demand_2, geom="line", size=2, color = "#2D708EFF")+
+  stat_function(fun=IC_demand_3, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_demand_1, geom="line", size=2, color = "red")+
+  stat_function(fun=BC_demand_2, geom="line", size=2, color = "red", linetype="dashed")+
+  stat_function(fun=BC_demand_3, geom="line", size=2, color = "red", linetype="dashed")+
+    geom_label(aes(x=1,y=IC_demand_1(1)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=1.75,y=IC_demand_2(1.75)), color = "#2D708EFF", label=expression(u[2]), size = 6)+
+    geom_label(aes(x=3,y=IC_demand_3(3)), color = "#20A387FF", label=expression(u[3]), size = 6)+
+    geom_label(aes(x=4,y=BC_demand_1(4)), color = "red", label=expression(paste(p[x],"=$4")), size = 6)+
+    geom_label(aes(x=8,y=BC_demand_2(8)), color = "red", label=expression(paste(p[x],"=$2")), size = 6)+
+    geom_label(aes(x=15,y=BC_demand_3(15)), color = "red", label=expression(paste(p[x],"=$1")), size = 6)+
+  geom_point(data = points_demand,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_demand,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 2.5, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 2.5, xend = 2.5, y = 5, yend=0), linetype="dotted", size=1)+
+  
+  # B lines
+  geom_segment(aes(x = 2.5, xend = 5, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 5, xend = 5, y = 5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 5, xend = 10, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 5, yend=0), linetype="dotted", size=1)+
+  #annotate("segment", x = 20, xend = 10, y = 10, yend = 35, colour = "purple", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+    scale_x_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==20, ", ", p[y]==2, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=cd_demand, geom="line", size=2, color = "blue")+
+  geom_label(aes(x=8,y=cd_demand(8)), color = "blue", label="Demand", size = 6)+
+  geom_point(data = points_demand_2,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_demand_2,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x",
+      caption = expression(paste("Demand function: ", x=0.5*m/p[x], " ; Inverse Demand function: ", p[x]==0.5*m/x, sep="")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+- Demand curve for $x$ relates consumer's optimal consumption of $x$ ("quantity") as price of $x$ changes
+- At $p_x=4$, consumer buys 2 $x$; at $p_x=2$, consumer buys 5 $x$; at $p_x=1$, consumer buys 10 $x$
+
+---
+
+# Deriving a Demand *Function* I
+
+- I will always give you a (linear) demand function
+
+- Today's class notes page shows how you can derive actual demand functions from utility functions
+
+---
+
+# Deriving a Demand *Function* II
+
+.content-box-red[
+.red[**MATH FYI**]: for a Cobb-Douglas utility function (where the two exponents sum to 1):
+$$u(x,y)=x^ay^{(1-a)}$$
+
+the **demand function for $x$** is
+$$q_x=a\frac{m}{p_x}$$
+
+- Property 1: Consumer always spends proportion $a$ of their total income on $x$! 
+
+- Ptroperty 2: demand for $x$ is unaffected by prices of *other* goods (no $p_y$ anywhere)!
+
+- To get a demand function just in terms of price, input a given income. 
+
+]
+
+---
+
+# Deriving a Demand *Function* III
+
+.pull-left[
+.content-box-green[
+.green[**Example**]:
+$u(x,y)=x^{0.5}y^{0.5}$, demand function is
+
+$$q_x=0.5\frac{m}{p_x}$$
+
+- Always spend 50% $(a)$ of income on $x$
+
+- With an income of $m=10$
+$$\text{Demand: }q_x=\frac{5}{p_x} \quad \text{Inverse demand: } p_x=\frac{5}{q_x}$$
+
+- With an income of $m=50$
+$$\text{Demand: }q_x=\frac{25}{p_x} \quad \text{Inverse demand: } p_x=\frac{25}{q_x}$$
+]
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=5.5}
+library("mosaic")
+library("ggrepel")
+
+cd1=function(x){5/x}
+cd2=function(x){25/x}
+
+point_sub<-tribble(
+  ~letter, ~x, ~y,
+  "A", 8, 0
+)
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=cd1, geom="line", size=2, color = "blue")+
+  stat_function(fun=cd2, geom="line", size=2, color = "blue", linetype="dashed")+
+  geom_label(aes(x=2,y=cd1(2)), color = "blue", label="Demand: m=20", size = 6)+
+  geom_label(aes(x=8,y=cd2(8)), color = "blue", label="Demand: m=40", size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x",
+      caption = expression(p_x==0.5*m/x))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]

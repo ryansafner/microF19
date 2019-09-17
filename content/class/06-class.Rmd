@@ -31,11 +31,9 @@ Today you will be working on [practice problems](/practice/06-practice.html). An
 
 # Assignment: Problem Set 1
 
-Problem set 1 (will be) posted shortly, and is due by Thursday September 19 (for section 1 - TuTh) or Monday September 23 (for section 2 - MW)^[Section 1 is one full class ahead of Section 2 due to Labor Day, sorry!]
+[Problem set 1](/assignment/01-problem-set) is posted, and is due by Thursday September 19 (for section 1 - TuTh) or Monday September 23 (for section 2 - MW)^[Section 1 is one full class ahead of Section 2 due to Labor Day, sorry!]
 
 # Math Appendix
-
-Check back here later for an example of how to solve the constrained optimization problem using calculus methods.
 
 ## Solving the Constrained Optimization Problem with Calculus
 
