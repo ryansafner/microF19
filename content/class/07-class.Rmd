@@ -87,7 +87,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   coord_cartesian(clip="off")+
   labs(x = "a",
        y = "b",
-       title = "Optimal Consumption for Perfect Substitutes",
+       title = "Optimal Consumption for Substitutes",
       caption = expression(paste(u(x,y)==x+y, ", ", m, " = $20.00, ", p[x]," = $2.50, ", p[y]," = $5.00", sep=" ")))+
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
@@ -149,7 +149,7 @@ ggplot(data.frame(x=c(0,5)), aes(x=x))+
                      expand=expand_scale(mult=c(0,0.1)))+
   labs(x = "x",
        y = "y",
-       title = "Optimal Consumption for Perfect Complements",
+       title = "Optimal Consumption for Complements",
       caption = expression(paste(u(x,y)==min(x,y), ", ", m, " = $20.00, ", p[x]," = $2.50, ", p[u]," = $2.50", sep=" ")))+
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
