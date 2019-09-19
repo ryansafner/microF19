@@ -1,0 +1,2073 @@
+---
+title: "1.8: Income and Substitution Effects"
+subtitle: "ECON 306 · Microeconomic Analysis · Fall 2019"
+author: 'Ryan Safner<br> Assistant Professor of Economics <br> <a href="mailto:safner@hood.edu"><i class="fa fa-paper-plane fa-fw"></i> safner@hood.edu</a> <br> <a href="https://github.com/ryansafner/microf19"><i class="fa fa-github fa-fw"></i> ryansafner/microf19</a><br> <a href="https://microF19.classes.ryansafner.com"> <i class="fa fa-globe fa-fw"></i> microF19.classes.ryansafner.com</a><br>'
+#date:
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML" # rescales math with css changes https://github.com/yihui/xaringan/issues/143
+    lib_dir: libs
+    #seal: false
+    css: [custom.css, custom-fonts.css, "hygge"] #, metropolis, metropolis-fonts
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"] # first is for rescaling images , second is for embedding tweets, https://github.com/yihui/xaringan/issues/100
+      highlightStyle: ocean #rainbow #monokai rainbow solarized-light #tomorrow-night -blue -eighties zenburn
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+    includes:
+      in_header: header.html # for font awesome, used in title  
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo=F,
+                      message=F,
+                      warning=F)
+library("tidyverse")
+library("mosaic")
+library("ggrepel")
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+set.seed(256)
+```
+
+# A Demand Function (Again)
+
+.pull-left[
+
+- A consumer's .shout[quantity demanded] (of good x), $q_x^D$ is a function of their .shout[demand for good x], which depends on current market prices and their income
+
+$$q_x^D = D(m, p_x, p_y)$$
+
+- We now want to examine how **quantity demanded for x** changes as each of these parameters change:
+
+1. .whisper[Income effects] $\left(\frac{\Delta q_x^D}{\Delta m}\right)$: how $q_x^D$ changes with changes in income
+2. .whisper[Cross-price effects] $\left(\frac{\Delta q_x^D}{\Delta p_y}\right)$: how $q_x^D$ changes with changes in prices of *other* goods (e.g. $y)$
+3. .whisper[(Own) Price effects] $\left(\frac{\Delta q_x^D}{\Delta p_x}\right)$: how $q_x^D$ changes with changes in price (of $x)$
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+class: inverse, center, middle
+
+# The (Own) Price Effect
+
+---
+
+# The (Own) Price Effect
+
+.pull-left[
+
+- .shout[Price effect]: change in optimal consumption of a good associated with a change in its price, holding income and other prices constant
+
+$$\frac{\Delta q_x^D}{\Delta p_x} < 0$$
+
+
+.whisper[The law of demand]: as the price of a good rises, people will tend to buy less of that good (and vice versa)
+  - i.e. the price effect is negative!
+
+]
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/o6l11dlc5ntiveq/pricetag.jpg?raw=1)
+]
+]
+
+---
+
+# Decomposing the Price Effect
+
+- The price effect (law of demand) is actually the .onfire[net result of two effects]
+
+--
+
+- .shout[(Real) income effect]: change in consumption due to change in real purchasing power 
+
+--
+
+- .shout[Substitution effect]: change in consumption due to change in relative prices
+
+--
+
+$$\text{Price Effect} = \text{Real income effect} + \text{Substitution Effect}$$
+
+---
+
+class: inverse, center, middle
+# (Real) Income Effect
+
+---
+
+# (Real) Income Effect
+
+.pull-left[
+
+- Suppose there is only 1 good to consume, $x$. You have a $100 income, and the price of $x$ is $10. You consume 10 units of $x$
+
+- Suppose the price of $x$ falls to $5. Your now consume 20 units of $x$.
+
+- This is the .shout[real income effect]: a change in the price of $x$ changes your .onfire[real income] or .onfire[purchasing power], the amount of goods you can buy
+
+- Note your *actual* (nominal) income of $100 never changed!
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/f0pkglla38vsojx/flations.png?raw=1)
+]
+
+]
+
+---
+
+# (Real) Income Effect: Size
+
+
+.pull-left[
+
+- The *size* of the income effect depends on how large a *portion of your budget* you spend on the good
+
+- **Large-budget items**:
+    - e.g. Housing/apartment rent, car prices
+    - Price increase makes you much poorer
+    - Price decrease makes you much wealthier
+
+- **Small-budget items**:
+    - e.g. pencils, toothpicks, candy
+    - Price changes don't have much of an effect on your wealth or change your behavior much
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/s6ypeqyuyslpe6v/rentapartments.jpg?raw=1)
+
+![:scale 40%](https://www.dropbox.com/s/v1b3dbeom3k2hz8/pencil.png?raw=1)
+
+]
+]
+
+---
+
+class: inverse, center, middle
+# Substitution Effect
+
+---
+
+# Substitution Effect
+
+.pull-left[
+
+- Suppose there are 1000s of goods, none of them are a major fraction of your budget
+
+- Suppose the price of one good, $x$ increases
+
+- The **real income effect** for $x$ is tiny (and negative)
+
+- But you would consume *less* of $x$ relative to other goods because $x$ is now *relatively* more expensive
+
+- That's the .shout[substitution effect]: consumption changes because of a change in **relative prices**
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/dv8ce57s6azr8e8/groceryaisle.jpg?raw=1)
+
+]
+]
+
+---
+
+# Substitution Effect: Size
+
+
+- The *size* of the substitution effect depends on how substitutable two goods are 	
+.pull-left[
+```{r, echo=F, fig.retina=3, fig.height=5, fig.align="center"}
+IC_straighter_1<-function(x){3-log(x)-0.25}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  stat_function(fun=IC_straighter_1, geom="line", size=2, color = "#453781FF")+
+  geom_segment(aes(x=0, xend=4, y=4, yend=0), size=1, linetype="dashed", color="red")+
+  geom_segment(aes(x=2, xend=2, y=5, yend=2), size=1, linetype="dashed", color="green")+
+  geom_segment(aes(x=2, xend=5, y=2, yend=2), size=1, linetype="dashed", color="green")+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Pens",
+       y = "Pencils")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+- Straighter $\rightarrow$ more substitutable
+
+]
+--
+
+.pull-right[
+```{r, echo=F, fig.retina=3, fig.height=5, fig.align="center"}
+IC_steep_1<-function(x){4/x}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  stat_function(fun=IC_steep_1, geom="line", size=2, color = "#453781FF")+
+  geom_segment(aes(x=0, xend=4, y=4, yend=0), size=1, linetype="dashed", color="red")+
+  geom_segment(aes(x=2, xend=2, y=5, yend=2), size=1, linetype="dashed", color="green")+
+  geom_segment(aes(x=2, xend=5, y=2, yend=2), size=1, linetype="dashed", color="green")+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Chips",
+       y = "Guac")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+- Curved $\rightarrow$ more complementary
+
+]
+
+---
+
+class: inverse, center, middle
+# Putting the Effects Together
+
+---
+
+# Putting the Effects Together
+
+- .shout[Real income effect]: change in consumption due to change in real purchasing power
+    - Can be positive (**normal goods**) or negative (**inferior goods**)
+    - Lower price of $x$ means you can buy more $x$, $y$, or *both* (depending on your preferences between $x$ and $y$)
+
+--
+
+- .shout[Substitution effect]: change in consumption due to change in relative prices
+    - If $x$ gets cheaper relative to $y$, consume  $\downarrow y$ (and $\uparrow x$)
+    - This is always the same direction! $(\downarrow$ relatively expensive goods, $uparrow$ relatively cheaper goods)
+    - This is why demand curves slope downwards!
+    
+--
+
+$$\text{Price Effect} = \text{Real income effect} + \text{Substitution Effect}$$
+
+---
+
+# Real Income and Substitution Effects, Graphically I
+
+.pull-left[
+
+- Original optimal consumption $(A)$
+
+]
+
+.pull-right[
+
+```{r}
+points_pe<-tribble(
+  ~letter, ~x, ~y,
+  "A", 10, 15,
+  "B", 20, 7.5,
+  "C", 40, 15
+)
+
+IC_pe_1=function(x){150/x}
+IC_pe_2=function(x){600/x}
+BC_pe_subst=function(x){15-0.375*x}
+BC_pe_1=function(x){30-1.5*x}
+BC_pe_2=function(x){30-0.375*x}
+```
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+
+  geom_point(data = subset(points_pe, letter=="A"),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points_pe, letter=="A"),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects, Graphically I
+
+.pull-left[
+
+- Original optimal consumption $(A)$
+
+- .purple[**(Total) price effect:** `\\(A \rightarrow C\\)`]
+
+- Let's decompose this into the two effects
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_pe_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=11,y=IC_pe_2(11)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+  
+  # price effect arrow
+  annotate("segment", x = 10, xend = 40, y = 15, yend = 15, color = "purple", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  geom_point(data = subset(points_pe, letter %in% c("A","C")),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points_pe, letter %in% c("A","C")),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 40, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 40, xend = 40, y = 15, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects, Graphically II
+
+.pull-left[
+
+- .orange[**Substitution effect:**] what would have been chosen at the *new* price ratio to remain indifferent as *before*
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_pe_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=11,y=IC_pe_2(11)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+  
+  geom_point(data = subset(points_pe, letter %in% c("A","C")),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points_pe, letter %in% c("A","C")),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 40, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 40, xend = 40, y = 15, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects, Graphically II
+
+.pull-left[
+
+- .orange[**Substitution effect:**] what would have been chosen at the *new* price ratio to remain indifferent as *before*
+
+- Graphically: shift *new* budget constraint inwards until tangent with *old* indifference curve
+
+- $A \rightarrow B$ on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+    - Note it *must* be a different point on the original curve! 
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_pe_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+  # subst IC line
+  stat_function(fun=BC_pe_subst, geom="line", size=2, color = "red", linetype="dashed", alpha=0.5)+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=11,y=IC_pe_2(11)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+  
+  geom_point(data = points_pe,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_pe,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # B lines
+  geom_segment(aes(x = 0, xend = 20, y = 7.5, yend=7.5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 20, xend = 20, y = 7.5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 40, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 40, xend = 40, y = 15, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects, Graphically II
+
+.pull-left[
+
+- .orange[**Substitution effect:**] what would have been chosen at the *new* price ratio to remain indifferent as *before*
+
+- Graphically: shift *new* budget constraint inwards until tangent with *old* indifference curve
+
+- $A \rightarrow B$ on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+    - Note it *must* be a different point on the original curve! 
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_pe_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+  # subst IC line
+  stat_function(fun=BC_pe_subst, geom="line", size=2, color = "red", linetype="dashed", alpha=0.5)+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=11,y=IC_pe_2(11)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+  # substitution effect arrow
+  annotate("segment", x = 10, xend = 20, y = 15, yend = 7.5, color = "orange", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  geom_point(data = points_pe,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_pe,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # B lines
+  geom_segment(aes(x = 0, xend = 20, y = 7.5, yend=7.5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 20, xend = 20, y = 7.5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 40, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 40, xend = 40, y = 15, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects, Graphically III
+
+.pull-left[
+
+- .green[**(Real) income effect:**] change in quantities consumed due to the change in purchasing power *after* the change in price
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_pe_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+  # subst IC line
+  stat_function(fun=BC_pe_subst, geom="line", size=2, color = "red", linetype="dashed", alpha=0.5)+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=11,y=IC_pe_2(11)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+    geom_point(data = points_pe,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_pe,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # B lines
+  geom_segment(aes(x = 0, xend = 20, y = 7.5, yend=7.5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 20, xend = 20, y = 7.5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 40, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 40, xend = 40, y = 15, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects, Graphically III
+
+.pull-left[
+
+- .green[**(Real) income effect:**] change in quantities consumed due to the change in purchasing power *after* the change in price
+
+- $B \rightarrow C$ to new budget constraint (can buy more of $x$ and/or $y$)
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_pe_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+  # subst IC line
+  stat_function(fun=BC_pe_subst, geom="line", size=2, color = "red", linetype="dashed", alpha=0.5)+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=11,y=IC_pe_2(11)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+    geom_point(data = points_pe,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_pe,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # B lines
+  geom_segment(aes(x = 0, xend = 20, y = 7.5, yend=7.5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 20, xend = 20, y = 7.5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 40, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 40, xend = 40, y = 15, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects, Graphically III
+
+.pull-left[
+
+- .green[**(Real) income effect:**] change in quantities consumed due to the change in purchasing power *after* the change in price
+
+- $B \rightarrow C$ to new budget constraint (can buy more of $x$ and/or $y$)
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_pe_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+  # subst IC line
+  stat_function(fun=BC_pe_subst, geom="line", size=2, color = "red", linetype="dashed", alpha=0.5)+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=11,y=IC_pe_2(11)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+  # income effect arrow
+  annotate("segment", x = 20, xend = 40, y = 7.5, yend = 15, color = "green", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+    geom_point(data = points_pe,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_pe,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # B lines
+  geom_segment(aes(x = 0, xend = 20, y = 7.5, yend=7.5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 20, xend = 20, y = 7.5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 40, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 40, xend = 40, y = 15, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects, Graphically IV
+
+.pull-left[
+
+- Original optimal consumption $(A)$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+
+  geom_point(data = subset(points_pe, letter=="A"),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points_pe, letter=="A"),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects, Graphically IV
+
+.pull-left[
+
+- Original optimal consumption $(A)$
+
+- Price of $x$ falls, new optimal consumption at $(C)$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_pe_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+  # subst IC line
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=11,y=IC_pe_2(11)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+  geom_point(data = subset(points_pe, letter %in% c("A","C")),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points_pe, letter %in% c("A","C")),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # B lines
+  geom_segment(aes(x = 0, xend = 20, y = 7.5, yend=7.5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 20, xend = 20, y = 7.5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 40, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 40, xend = 40, y = 15, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects, Graphically IV
+
+.pull-left[
+
+- Original optimal consumption $(A)$
+
+- Price of $x$ falls, new optimal consumption at $(C)$
+
+- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $x$ and $\downarrow$ $y)$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_pe_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+  # subst IC line
+  stat_function(fun=BC_pe_subst, geom="line", size=2, color = "red", linetype="dashed", alpha=0.5)+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=11,y=IC_pe_2(11)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+  # substitution effect arrow
+  annotate("segment", x = 10, xend = 20, y = 15, yend = 7.5, color = "orange", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  geom_point(data = points_pe,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_pe,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # B lines
+  geom_segment(aes(x = 0, xend = 20, y = 7.5, yend=7.5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 20, xend = 20, y = 7.5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 40, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 40, xend = 40, y = 15, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects, Graphically IV
+
+.pull-left[
+
+- Original optimal consumption $(A)$
+
+- Price of $x$ falls, new optimal consumption at $(C)$
+
+- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+
+- .green[**(Real) income effect:** `\\(B \rightarrow C\\)`] to new budget constraint (can buy more of $x$ and/or $y$)
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_pe_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+  # subst IC line
+  stat_function(fun=BC_pe_subst, geom="line", size=2, color = "red", linetype="dashed", alpha=0.5)+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=11,y=IC_pe_2(11)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+  
+  # substitution effect arrow
+  annotate("segment", x = 10, xend = 20, y = 15, yend = 7.5, color = "orange", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  # income effect arrow
+  annotate("segment", x = 20, xend = 40, y = 7.5, yend = 15, color = "green", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  geom_point(data = points_pe,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_pe,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # B lines
+  geom_segment(aes(x = 0, xend = 20, y = 7.5, yend=7.5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 20, xend = 20, y = 7.5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 40, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 40, xend = 40, y = 15, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects, Graphically IV
+
+.pull-left[
+
+- Original optimal consumption $(A)$
+
+- Price of $x$ falls, new optimal consumption at $(C)$
+
+- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+
+- .green[**(Real) income effect:** `\\(B \rightarrow C\\)`] to new budget constraint (can buy more of $x$ and/or $y$)
+
+- .purple[**(Total) price effect:** `\\(A \rightarrow C\\)`]
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_pe_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+  # subst IC line
+  stat_function(fun=BC_pe_subst, geom="line", size=2, color = "red", linetype="dashed", alpha=0.5)+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=11,y=IC_pe_2(11)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+  
+  # price effect arrow
+  annotate("segment", x = 10, xend = 40, y = 15, yend = 15, color = "purple", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  # substitution effect arrow
+  annotate("segment", x = 10, xend = 20, y = 15, yend = 7.5, color = "orange", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  # income effect arrow
+  annotate("segment", x = 20, xend = 40, y = 7.5, yend = 15, color = "green", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  geom_point(data = points_pe,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_pe,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # B lines
+  geom_segment(aes(x = 0, xend = 20, y = 7.5, yend=7.5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 20, xend = 20, y = 7.5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 40, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 40, xend = 40, y = 15, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects: Inferior Good
+
+.pull-left[
+
+- What about for an *inferior* good (like Ramen)?
+
+]
+
+.pull-right[
+
+```{r}
+IC_inf_2=function(x){148/x+16}
+
+points_inf<-tribble(
+  ~letter, ~x, ~y,
+  "A", 10, 15,
+  "B", 20, 7.5,
+  "C", 15, 25
+)
+```
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_inf_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=70,y=IC_inf_2(70)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+  
+  geom_point(data = subset(points_inf, letter %in% c("A", "C")),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points_inf, letter %in% c("A", "C")),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  geom_segment(aes(x = 20, xend = 20, y = 7.5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 15, y = 25, yend=25), linetype="dotted", size=1)+
+  geom_segment(aes(x = 15, xend = 15, y = 25, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects: Inferior Good
+
+.pull-left[
+
+- What about for an *inferior* good (like Ramen)?
+
+- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_inf_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+  # subst IC line
+  stat_function(fun=BC_pe_subst, geom="line", size=2, color = "red", linetype="dashed", alpha=0.5)+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=70,y=IC_inf_2(70)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+  # substitution effect arrow
+  annotate("segment", x = 10, xend = 20, y = 15, yend = 7.5, color = "orange", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  geom_point(data = points_inf,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_inf,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # B lines
+  geom_segment(aes(x = 0, xend = 20, y = 7.5, yend=7.5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 20, xend = 20, y = 7.5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 15, y = 25, yend=25), linetype="dotted", size=1)+
+  geom_segment(aes(x = 15, xend = 15, y = 25, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects: Inferior Good
+
+.pull-left[
+
+- What about for an *inferior* good (like Ramen)?
+
+- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+
+- .green[**(Real) income effect:** `\\(B \rightarrow C\\)`] to new budget constraint (can buy more of $x$ and/or $y$)
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_inf_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+  # subst IC line
+  stat_function(fun=BC_pe_subst, geom="line", size=2, color = "red", linetype="dashed", alpha=0.5)+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=70,y=IC_inf_2(70)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+    # substitution effect arrow
+  annotate("segment", x = 10, xend = 20, y = 15, yend = 7.5, color = "orange", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  # income effect arrow
+  annotate("segment", x = 20, xend = 15, y = 7.5, yend = 25, color = "green", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  geom_point(data = points_inf,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_inf,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # B lines
+  geom_segment(aes(x = 0, xend = 20, y = 7.5, yend=7.5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 20, xend = 20, y = 7.5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 15, y = 25, yend=25), linetype="dotted", size=1)+
+  geom_segment(aes(x = 15, xend = 15, y = 25, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects: Inferior Good
+
+.pull-left[
+
+- What about for an *inferior* good (like Ramen)?
+
+- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+
+- .green[**(Real) income effect:** `\\(B \rightarrow C\\)`] to new budget constraint (can buy more of $x$ and/or $y$)
+
+- .purple[**(Total) price effect:** `\\(A \rightarrow C\\)`]
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_inf_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+  # subst IC line
+  stat_function(fun=BC_pe_subst, geom="line", size=2, color = "red", linetype="dashed", alpha=0.5)+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=70,y=IC_inf_2(70)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+  
+  # price effect arrow
+  annotate("segment", x = 10, xend = 15, y = 15, yend = 25, color = "purple", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  # substitution effect arrow
+  annotate("segment", x = 10, xend = 20, y = 15, yend = 7.5, color = "orange", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  # income effect arrow
+  annotate("segment", x = 20, xend = 15, y = 7.5, yend = 25, color = "green", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  geom_point(data = points_inf,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_inf,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # B lines
+  geom_segment(aes(x = 0, xend = 20, y = 7.5, yend=7.5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 20, xend = 20, y = 7.5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 15, y = 25, yend=25), linetype="dotted", size=1)+
+  geom_segment(aes(x = 15, xend = 15, y = 25, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Real Income and Substitution Effects: Inferior Good
+
+.pull-left[
+
+- What about for an *inferior* good (like Ramen)?
+
+- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+
+- .green[**(Real) income effect:** `\\(B \rightarrow C\\)`] to new budget constraint (can buy more of $x$ and/or $y$)
+
+- .purple[**(Total) price effect:** `\\(A \rightarrow C\\)`]
+
+- Price effect is *still* an $\uparrow x$ from a $\downarrow p_x$!
+    - Person would just prefer to spend more new purchasing power on other goods $(y)$!
+
+- .onfire[The law of demand holds, even for inferior goods!]
+    - Because subst. effect dominates real income effect
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_inf_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+  # subst IC line
+  stat_function(fun=BC_pe_subst, geom="line", size=2, color = "red", linetype="dashed", alpha=0.5)+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=7,y=BC_pe_1(7)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 5)+
+    geom_label(aes(x=60,y=BC_pe_2(60)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 5)+
+    geom_label(aes(x=70,y=IC_inf_2(70)), color = "#20A387FF", label=expression(u[2]), size = 6)+
+  
+  # price effect arrow
+  annotate("segment", x = 10, xend = 15, y = 15, yend = 25, color = "purple", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  # substitution effect arrow
+  annotate("segment", x = 10, xend = 20, y = 15, yend = 7.5, color = "orange", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  # income effect arrow
+  annotate("segment", x = 20, xend = 15, y = 7.5, yend = 25, color = "green", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  geom_point(data = points_inf,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_inf,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # B lines
+  geom_segment(aes(x = 0, xend = 20, y = 7.5, yend=7.5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 20, xend = 20, y = 7.5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 15, y = 25, yend=25), linetype="dotted", size=1)+
+  geom_segment(aes(x = 15, xend = 15, y = 25, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Violating the Law of Demand
+
+.content-box-green[
+.green[**Example**]: What would it take to violate the law of demand?
+]
+
+---
+
+# Recap: Real Income and Substitution Effects
+
+$$\text{Substitution Effect} + \text{Real Income Effect} = \text{Price Effect}$$
+
+- .orange[Substitution effect]: is always in the direction of the cheaper good
+
+- .green[Real Income effect]: can be positive (normal) or negative *inferior)
+
+- Law of Demand/Demand curves slope downwards (.purple[Price effect]) mostly because of the substitution effect
+    - Even (inferior) goods with negative real income effects overpowered by substitution effect
+
+- Exception in the theoretical .shout[Giffen good]: negative R.I.E. $>$ S.E.
+    - An upward sloping demand curve!
+
+
+---
+
+class: inverse, center, middle
+# From Optimal Consumption Points to Demand
+
+---
+
+# Demand Schedule
+
+.pull-left[
+
+- .shout[Demand schedule] expresses the quantity of good a person would be willing to buy $(q_D)$ at any given price $(p_x)$
+
+- Note: .onfire[each of these is a consumer's optimum at a given price!]
+]
+
+.pull-right[
+
+```{r, echo=F, results="asis"}
+tribble(
+  ~"price", ~"quantity",
+  10, 0,
+  9, 1,
+  8, 2,
+  7, 3,
+  6, 4,
+  5, 5,
+  4, 6,
+  3, 7,
+  8, 2,
+  9, 1,
+  10, 0
+) %>%
+  knitr::kable(., format="html")
+```
+]
+
+---
+
+# Demand Curve
+
+.pull-left[
+
+- .shout[Demand curve] graphically represents the demand schedule
+
+- Also measures a person's .onfire[maximum willingness to pay (WTP)] for a given quantity
+
+- Law of Demand (price effect) $\implies$ Demand curves always slope downwards
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+library("mosaic")
+demand=function(x){10-x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+  geom_label(aes(x=8,y=demand(8)), color = "blue", label="Demand", size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Demand Function
+
+.pull-left[
+
+- .shout[Demand function] relates quantity to price
+
+.content-box-green[
+.green[**Example**]: 
+$$q=10-p$$
+]
+- Not graphable (wrong axes)!
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+library("mosaic")
+demand=function(x){10-x}
+
+d<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+  geom_label(aes(x=8,y=demand(8)), color = "blue", label="Demand", size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+d
+```
+]
+
+---
+
+# Inverse Demand Function
+
+.pull-left[
+
+- .shout[*Inverse* demand function] relates price to quantity
+    - Find by taking demand function and solving for $p$
+
+.content-box-green[
+.green[**Example**]: 
+$$p=10-q$$
+]
+- Graphable (price on vertical axis)!
+
+]
+
+---
+
+# Inverse Demand Function
+
+.pull-left[
+
+- .shout[*Inverse* demand function] relates price to quantity
+    - Find by taking demand function and solving for $p$
+
+.content-box-green[
+.green[**Example**]: 
+$$p=10-q$$
+]
+- Graphable (price on vertical axis)!
+
+- Slope: $-1$
+
+- Vertical intercept called the .shout["Choke price"]: price where $q_D=0$ ($10), just high enough to discourage *any* purchases
+    - Quite useful later!
+
+]
+
+
+.pull-right[
+
+```{r, fig.retina=3}
+d
+```
+]
+
+---
+
+# Inverse Demand Function
+
+.pull-left[
+
+- .shout[*Inverse* demand function] relates price to quantity
+    - Find by taking demand function and solving for $p$
+
+.content-box-green[
+.green[**Example**]: 
+$$p=10-q$$
+]
+- Read two ways:
+
+- Horizontally: at any given price, how many units person wants to buy
+
+- Vertically: at any given quantity, the .shout[maximum willingness to pay (WTP)] for that quantity
+    - This way will be very useful later
+
+]
+
+
+.pull-right[
+
+```{r, fig.retina=3}
+d
+```
+]
+
+---
+
+# Deriving a Demand Curve Graphically
+
+.pull-left[
+
+```{r}
+points_demand<-tribble(
+  ~letter, ~x, ~y,
+  "A", 2.5, 5,
+  "B", 5, 5,
+  "C", 10, 5
+)
+
+IC_demand_1=function(x){12.5/x}
+IC_demand_2=function(x){25/x}
+IC_demand_3=function(x){50/x}
+BC_demand_1=function(x){10-2*x}
+BC_demand_2=function(x){10-x}
+BC_demand_3=function(x){10-0.5*x}
+
+cd_demand=function(x){0.5*20/x}
+
+points_demand_2<-tribble(
+  ~letter, ~x, ~y,
+  "A", 2.5, 4,
+  "B", 5, 2,
+  "C", 10, 1
+)
+```
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_demand_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_demand_1, geom="line", size=2, color = "red")+
+    geom_label(aes(x=1,y=IC_demand_1(1)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=4,y=BC_demand_1(4)), color = "red", label=expression(paste(p[x],"=$4")), size = 6)+
+  geom_point(data = subset(points_demand, letter=="A"),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points_demand, letter=="A"),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 2.5, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 2.5, xend = 2.5, y = 5, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==20, ", ", p[y]==2, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_point(data = subset(points_demand_2, letter=="A"),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points_demand_2, letter=="A"),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x",
+      caption = expression(paste("Demand function: ", x=0.5*m/p[x], " ; Inverse Demand function: ", p[x]==0.5*m/x, sep="")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+- Demand curve for $x$ relates consumer's optimal consumption of $x$ ("quantity") as price of $x$ changes
+- At $p_x=4$, consumer buys 2 $x$
+
+
+---
+
+# Deriving a Demand Curve Graphically
+
+.pull-left[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_demand_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=IC_demand_2, geom="line", size=2, color = "#2D708EFF")+
+  stat_function(fun=BC_demand_1, geom="line", size=2, color = "red")+
+  stat_function(fun=BC_demand_2, geom="line", size=2, color = "red", linetype="dashed")+
+    geom_label(aes(x=1,y=IC_demand_1(1)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=1.75,y=IC_demand_2(1.75)), color = "#2D708EFF", label=expression(u[2]), size = 6)+
+    geom_label(aes(x=4,y=BC_demand_1(4)), color = "red", label=expression(paste(p[x],"=$4")), size = 6)+
+    geom_label(aes(x=8,y=BC_demand_2(8)), color = "red", label=expression(paste(p[x],"=$2")), size = 6)+
+  geom_point(data = subset(points_demand, letter %in% c("A","B")),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points_demand, letter %in% c("A","B")),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 2.5, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 2.5, xend = 2.5, y = 5, yend=0), linetype="dotted", size=1)+
+  
+  # B lines
+  geom_segment(aes(x = 2.5, xend = 5, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 5, xend = 5, y = 5, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==20, ", ", p[y]==2, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_point(data = subset(points_demand_2, letter %in% c("A","B")),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points_demand_2, letter %in% c("A","B")),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x",
+      caption = expression(paste("Demand function: ", x=0.5*m/p[x], " ; Inverse Demand function: ", p[x]==0.5*m/x, sep="")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+- Demand curve for $x$ relates consumer's optimal consumption of $x$ ("quantity") as price of $x$ changes
+- At $p_x=4$, consumer buys 2 $x$; at $p_x=2$, consumer buys 5 $x$
+
+---
+
+# Deriving a Demand Curve Graphically
+
+.pull-left[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_demand_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=IC_demand_2, geom="line", size=2, color = "#2D708EFF")+
+  stat_function(fun=IC_demand_3, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_demand_1, geom="line", size=2, color = "red")+
+  stat_function(fun=BC_demand_2, geom="line", size=2, color = "red", linetype="dashed")+
+  stat_function(fun=BC_demand_3, geom="line", size=2, color = "red", linetype="dashed")+
+    geom_label(aes(x=1,y=IC_demand_1(1)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=1.75,y=IC_demand_2(1.75)), color = "#2D708EFF", label=expression(u[2]), size = 6)+
+    geom_label(aes(x=3,y=IC_demand_3(3)), color = "#20A387FF", label=expression(u[3]), size = 6)+
+    geom_label(aes(x=4,y=BC_demand_1(4)), color = "red", label=expression(paste(p[x],"=$4")), size = 6)+
+    geom_label(aes(x=8,y=BC_demand_2(8)), color = "red", label=expression(paste(p[x],"=$2")), size = 6)+
+    geom_label(aes(x=15,y=BC_demand_3(15)), color = "red", label=expression(paste(p[x],"=$1")), size = 6)+
+  geom_point(data = points_demand,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_demand,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 2.5, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 2.5, xend = 2.5, y = 5, yend=0), linetype="dotted", size=1)+
+  
+  # B lines
+  geom_segment(aes(x = 2.5, xend = 5, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 5, xend = 5, y = 5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 5, xend = 10, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 5, yend=0), linetype="dotted", size=1)+
+  #annotate("segment", x = 20, xend = 10, y = 10, yend = 35, colour = "purple", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+    scale_x_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==20, ", ", p[y]==2, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_point(data = points_demand_2,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_demand_2,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x",
+      caption = expression(paste("Demand function: ", x=0.5*m/p[x], " ; Inverse Demand function: ", p[x]==0.5*m/x, sep="")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+- Demand curve for $x$ relates consumer's optimal consumption of $x$ ("quantity") as price of $x$ changes
+- At $p_x=4$, consumer buys 2 $x$; at $p_x=2$, consumer buys 5 $x$; at $p_x=1$, consumer buys 10 $x$
+
+
+---
+
+# Deriving a Demand Curve Graphically
+
+
+.pull-left[
+
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_demand_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=IC_demand_2, geom="line", size=2, color = "#2D708EFF")+
+  stat_function(fun=IC_demand_3, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_demand_1, geom="line", size=2, color = "red")+
+  stat_function(fun=BC_demand_2, geom="line", size=2, color = "red", linetype="dashed")+
+  stat_function(fun=BC_demand_3, geom="line", size=2, color = "red", linetype="dashed")+
+    geom_label(aes(x=1,y=IC_demand_1(1)), color = "#453781FF", label=expression(u[1]), size = 6)+
+    geom_label(aes(x=1.75,y=IC_demand_2(1.75)), color = "#2D708EFF", label=expression(u[2]), size = 6)+
+    geom_label(aes(x=3,y=IC_demand_3(3)), color = "#20A387FF", label=expression(u[3]), size = 6)+
+    geom_label(aes(x=4,y=BC_demand_1(4)), color = "red", label=expression(paste(p[x],"=$4")), size = 6)+
+    geom_label(aes(x=8,y=BC_demand_2(8)), color = "red", label=expression(paste(p[x],"=$2")), size = 6)+
+    geom_label(aes(x=15,y=BC_demand_3(15)), color = "red", label=expression(paste(p[x],"=$1")), size = 6)+
+  geom_point(data = points_demand,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_demand,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 2.5, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 2.5, xend = 2.5, y = 5, yend=0), linetype="dotted", size=1)+
+  
+  # B lines
+  geom_segment(aes(x = 2.5, xend = 5, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 5, xend = 5, y = 5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 5, xend = 10, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 5, yend=0), linetype="dotted", size=1)+
+  #annotate("segment", x = 20, xend = 10, y = 10, yend = 35, colour = "purple", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+    scale_x_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==20, ", ", p[y]==2, sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=cd_demand, geom="line", size=2, color = "blue")+
+  geom_label(aes(x=8,y=cd_demand(8)), color = "blue", label="Demand", size = 6)+
+  geom_point(data = points_demand_2,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_demand_2,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x",
+      caption = expression(paste("Demand function: ", x=0.5*m/p[x], " ; Inverse Demand function: ", p[x]==0.5*m/x, sep="")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+- Demand curve for $x$ relates consumer's optimal consumption of $x$ ("quantity") as price of $x$ changes
+- At $p_x=4$, consumer buys 2 $x$; at $p_x=2$, consumer buys 5 $x$; at $p_x=1$, consumer buys 10 $x$
+
+---
+
+# Deriving a Demand *Function* I
+
+- I will always give you a (linear) demand function
+
+- Today's class notes page shows how you can derive actual demand functions from utility functions
+
+---
+
+# Deriving a Demand *Function* II
+
+.content-box-red[
+.red[**MATH FYI**]: for a Cobb-Douglas utility function (where the two exponents sum to 1):
+$$u(x,y)=x^ay^{(1-a)}$$
+
+the **demand function for $x$** is
+$$q_x=a\frac{m}{p_x}$$
+
+- Property 1: Consumer always spends proportion $a$ of their total income on $x$! 
+
+- Ptroperty 2: demand for $x$ is unaffected by prices of *other* goods (no $p_y$ anywhere)!
+
+- To get a demand function just in terms of price, input a given income. 
+
+]
+
+---
+
+# Deriving a Demand *Function* III
+
+.pull-left[
+.content-box-green[
+.green[**Example**]:
+$u(x,y)=x^{0.5}y^{0.5}$, demand function is
+
+$$q_x=0.5\frac{m}{p_x}$$
+
+- Always spend 50% $(a)$ of income on $x$
+
+- With an income of $m=10$
+$$\text{Demand: }q_x=\frac{5}{p_x} \quad \text{Inv. demand: } p_x=\frac{5}{q_x}$$
+
+- With an income of $m=50$
+$$\text{Demand: }q_x=\frac{25}{p_x} \quad \text{Inv. demand: } p_x=\frac{25}{q_x}$$
+]
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=5.5}
+library("mosaic")
+library("ggrepel")
+
+cd1=function(x){5/x}
+cd2=function(x){25/x}
+
+point_sub<-tribble(
+  ~letter, ~x, ~y,
+  "A", 8, 0
+)
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=cd1, geom="line", size=2, color = "blue")+
+  stat_function(fun=cd2, geom="line", size=2, color = "blue", linetype="dashed")+
+  geom_label(aes(x=2,y=cd1(2)), color = "blue", label="Demand: m=20", size = 6)+
+  geom_label(aes(x=8,y=cd2(8)), color = "blue", label="Demand: m=40", size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x",
+      caption = expression(p_x==0.5*m/x))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Shifts in Demand I
+
+.pull-left[
+
+- Note a  simple (inverse) demand function only relates (own) **price** and **quantity**
+
+.content-box-green[
+.green[**Example**]: $q=10-p$ or $p=10-q$
+]
+
+- What about all the other .onfire["determinants of demand"] like income and other prices?
+
+- They are captured in the vertical intercept (choke price)! 
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+d
+```
+
+]
+
+---
+
+# Shifts in Demand I
+
+.pull-left[
+
+- Note a  simple (inverse) demand function only relates (own) **price** and **quantity**
+
+.content-box-green[
+.green[**Example**]: $q=10-p$ or $p=10-q$
+]
+
+- What about all the other .onfire["determinants of demand"] like income and other prices?
+
+- They are captured in the vertical intercept (choke price)! 
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+d
+
+```
+
+]
+
+---
+
+# Shifts in Demand II
+
+.pull-left[
+
+- A change in one of the .onfire["determinants of demand"] (or "shifters") will shift the demand curve
+    - Change in income $m$
+    - Change in price of other goods $p_y$ (substitutes or complements)
+    - Change in preferences or expectations about good $x$ (show up in utility function)
+    - Change in number of buyers in market
+
+- Shows up in (inverse) demand function by a **change in the intercept (choke price)**! 
+
+- See my [Visualizing Demand Shifters](https://ryansafner.shinyapps.io/Demand/)
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+demand_2=function(x){8-x}
+
+d+stat_function(fun=demand_2, geom="line", size=2, color = "blue", linetype="dashed")+
+  geom_label(aes(x=2,y=demand_2(2)), color = "blue", label="Demand'", size = 6)
+
+```
+
+]
