@@ -446,7 +446,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 - Graphically: shift *new* budget constraint inwards until tangent with *old* indifference curve
 
-- $A \rightarrow B$ on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+- $A \rightarrow B$ on same I.C. $(\uparrow$ cheaper $x$ and $\downarrow$ $y)$
     - Note it *must* be a different point on the original curve! 
 
 ]
@@ -508,7 +508,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 - Graphically: shift *new* budget constraint inwards until tangent with *old* indifference curve
 
-- $A \rightarrow B$ on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+- $A \rightarrow B$ on same I.C. $(\uparrow$ cheaper $x$ and $\downarrow$ $y)$
     - Note it *must* be a different point on the original curve! 
 
 ]
@@ -906,7 +906,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 - Price of $x$ falls, new optimal consumption at $(C)$
 
-- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $x$ and $\downarrow$ $y)$
 
 - .green[**(Real) income effect:** `\\(B \rightarrow C\\)`] to new budget constraint (can buy more of $x$ and/or $y$)
 
@@ -973,7 +973,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 - Price of $x$ falls, new optimal consumption at $(C)$
 
-- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $x$ and $\downarrow$ $y)$
 
 - .green[**(Real) income effect:** `\\(B \rightarrow C\\)`] to new budget constraint (can buy more of $x$ and/or $y$)
 
@@ -1106,7 +1106,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 - What about for an *inferior* good (like Ramen)?
 
-- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $x$ and $\downarrow$ $y)$
 
 ]
 
@@ -1166,7 +1166,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 - What about for an *inferior* good (like Ramen)?
 
-- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $x$ and $\downarrow$ $y)$
 
 - .green[**(Real) income effect:** `\\(B \rightarrow C\\)`] to new budget constraint (can buy more of $x$ and/or $y$)
 
@@ -1230,7 +1230,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 - What about for an *inferior* good (like Ramen)?
 
-- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $x$ and $\downarrow$ $y)$
 
 - .green[**(Real) income effect:** `\\(B \rightarrow C\\)`] to new budget constraint (can buy more of $x$ and/or $y$)
 
@@ -1299,7 +1299,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 - What about for an *inferior* good (like Ramen)?
 
-- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $y$ and $\downarrow$ expensive $x)$
+- .orange[**Substitution effect:** `\\(A \rightarrow B\\)`] on same I.C. $(\uparrow$ cheaper $x$ and $\downarrow$ $y)$
 
 - .green[**(Real) income effect:** `\\(B \rightarrow C\\)`] to new budget constraint (can buy more of $x$ and/or $y$)
 
@@ -1539,7 +1539,6 @@ $$p=10-q$$
 - Slope: $-1$
 
 - Vertical intercept called the .shout["Choke price"]: price where $q_D=0$ ($10), just high enough to discourage *any* purchases
-    - Quite useful later!
 
 ]
 
