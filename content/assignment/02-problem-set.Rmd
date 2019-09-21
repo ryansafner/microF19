@@ -52,19 +52,19 @@ Demand for insulin vs. demand for vitamins
 
 Suppose that, holding prices constant, Alice has preferences over the number of books she purchases, illustrated in the table below.
 
-```{r}
+```{r, echo = F, message = F, warning = F}
 engel<-tribble(
   ~Income, ~Books,
-  5, 5,
-  10, 6,
-  15, 20,
-  20, 25,
-  25, 26,
-  30, 10,
-  35, 9,
-  40, 8,
-  45, 7,
-  50, 6
+  "$5", 5,
+  "$10", 6,
+  "$15", 20,
+  "$20", 25,
+  "$25", 26,
+  "$30", 10,
+  "$35", 9,
+  "$40", 8,
+  "$45", 7,
+  "$50", 6
 )
 
 engel %>%
