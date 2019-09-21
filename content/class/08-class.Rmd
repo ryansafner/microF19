@@ -45,13 +45,13 @@ I hope some time to clean these up and make a few more, such as "Visualizing the
 
 # Practice Problems
 
-There are no official practice problems for today, but you should try to draw the full (real) income and substitution effects graph for a price change (for a normal good) on your own!
+Answers to last class' practice problems (on elasticities) are [posted on that page](/practice/07-practice). There are no official practice problems for today, but you should try to draw the full (real) income and substitution effects graph for a price change (for a normal good) on your own!
 
 # Assignments: Problem Set 1 is DUE and Problem Set 2
 
 [Problem set 1](/assignment/01-problem-set) is DUE!
 
-Problem set 2 (on classes 1.7-1.9) will be posted shortly, and is due by Thursday September 26 (for section 1 - TuTh) or Monday September 30 (for section 2 - MW).
+[Problem set 2](/assignment/02-problem-set) (on classes 1.7-1.9) is due by Thursday September 26 (for section 1 - TuTh) or Monday September 30 (for section 2 - MW).
 
 # Math Appendix
 
