@@ -57,7 +57,8 @@ lessons:
     assignment: "02-problem-set"
 
   - title: '<i class="fas fa-star"></i> **Exam 1**'
-
+    assignment: "01-exam"
+    
   - title: '<span class="fake-header-table">2. Production Theory</span>'
     header: True
 

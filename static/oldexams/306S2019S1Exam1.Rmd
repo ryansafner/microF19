@@ -1,0 +1,205 @@
+---
+output:
+  pdf_document:
+    includes:
+      in_header: ../../../templates/examtemplate.tex
+      before_body: 306exam1cover.tex 
+      #after_body: Metrics2018finalformulas.tex
+    latex_engine: pdflatex #required for Fira Sans font to render properly 
+
+class: "Microeconomic Analysis"
+examnum: "Exam 1"
+coursecode: "ECON 306"
+semester: "Spring 2019"
+section: "Section 1"
+---
+
+## True/False/Uncertain and \emph{Explain} (2.5 points each)
+
+Choose any **four (4)** of the following questions. Indicate whether the following statements are **True**, **False**, or **Uncertain** (0.5 point), and give a short (2-3 sentences) **explanation** (2 points).
+
+1. The hit musical *Hamilton* will perform at Washington D.C.'s Kennedy Center. The theater allows thousands of participants to enter a lottery for the chance to buy tickets that are priced at \$200. All 3,000 tickets sell out in a matter of minutes. This implies that the market-clearing price is \$200. 
+
+\vspace{2in}
+
+2. If a government wants to use a tax to primarily raise revenue, it should tax products with a *large price elasticity of demand*, wheras if it primarily wants to discourage behavior, it should tax products with a *small price elasticity of demand*.
+
+\vspace{2in}
+
+3. The State of Maryland is considering adding additional lanes on I-270. All else equal, in the long run, this will decrease driving times around the area. 
+
+\clearpage
+
+4. All else equal, we would expect a person travelling alone to have a *higher* price elasticity of demand for air travel than a family traveling together. 
+
+\vspace{2in}
+
+5. An innovative new startup enters a market, driving down prices, and causing inefficient firms to go out of business. This is a Pareto improvement but not a Kaldor-Hicks improvement.  
+
+\vspace{2in}
+
+6. A market reaches equilibrium at a price of \$100 and a quantity of 100 units. If the elasticity of supply at equilibrium is twice as large as the elasticity of demand at equilibrium, then the supply curve is twice as steep as the demand curve. 
+
+\clearpage
+
+## Short Answer (5 points each)
+
+Choose any \textbf{four (4)} questions to answer concisely (2-3 sentences). If applicable, show all work and clearly label all graphs.
+
+7. Over the last few years, the supply of rental housing has increased, and yet the price of housing on the market has risen. Draw a graph that illustrates this new equilibrium in the market for rental housing.
+
+\vspace{3in}
+
+8. A recent Vox article's headline reads *"Restricting demand for fossil fuels means costs to consumers. It's time to reconsider restricting supply."* Explain the basic economic error in this statement. (Hint: it has nothing to do with the actual issue of climate change or energy efficiency.) 
+
+\clearpage
+
+9. Explain why markets with less elastic demand generate more consumer surplus than markets with more elastic demand. 
+
+\vspace{3in}
+
+10. Explain verbally, and with a graph, the difference between a change in demand and a change in quantity demanded. 
+
+\vspace{3in}
+
+11. Kemba has won a free all-expenses paid vacation to Key West for Spring Break. If it wasn't for this lucky break, he was planning to spend up to \$1,000 to vacation in Barcelona instead. The best deal he had found for his trip to Barcelona costs a total of \$600 (but he has not yet booked it). If he cannot resell his prize, what is Kemba's opportunity cost (in dollars) of going to Key West?
+
+\vspace{3in}
+
+12. Refer to the graph below that describes a market.
+
+\begin{center}
+\begin{tikzpicture}[scale=.5]
+  \draw[->] (0,0) -- (11,0) coordinate (x axis) node[right]{$q$};
+  \draw[->] (0,0) -- (0,11) coordinate (y axis) node[above]{$p$};	
+	\draw[very thick,black] (0,2) -- (10,10)node[above]{Supply};
+	\draw[very thick,black] (0,5) --(10,5)node[above]{Demand};
+	\draw[very thick, dashed] (0,5)node[left]{$p^*$};
+	\draw[very thick, dashed] (3.875,0)node[below]{$q^*$}--(3.875,5);
+\end{tikzpicture}
+\end{center}
+
+Suppose the government levies a tax on *consumers* of this good. Describe how the burden of the tax would be distributed between consumers and suppliers.
+
+\clearpage
+
+## Problem (25 points)
+
+Choose **one (1)** out of the 2 problems to work on. Show all work. You may *not* earn full credit if you only write the answer, even if correct.
+
+13. Suppose your monthly demand for (medium sized) pizzas can be written as: 
+$$q_D=12-\frac{1}{2}p$$
+
+a. Write the inverse demand function. (2 points)
+
+b. At a price of \$18/pizza, calculate the price elasticity of demand. Is it elastic or inelastic?  (3 points)
+
+c. Calculate the total revenue at \$18. If pizza sellers wished to increase revenues, would they want to raise or lower the price of pizza, and why? (3 points)
+
+d. At a price of \$6/pizza, calculate the price elasticity of demand. Is it elastic or inelastic? (3 points)
+
+e. Calculate the total revenue at \$6. If pizza sellers wished to increase revenues, would they want to raise or lower the price of pizza, and why? (3 points)
+
+f. What price maximizes pizza sellers' total revenue? (5 points)
+
+g. Calculate the total revenue at the price you found in part (f). (1 point)
+
+h. Sketch a graph of the demand curve below. Label the prices, quantities, elasticities, and revenues you found in each part of this question. (5 points)
+
+\begin{figure}[h!]
+	\centering 
+			\begin{tikzpicture} 
+	\begin{axis}[%clip=false,
+		axis lines=middle, 
+		enlarge x limits={rel=0.1, upper},
+		enlarge y limits={rel=0.1, upper},
+		every axis y label/.style={at={(axis description cs:-0.2,0.5)},rotate=90,anchor=north},
+		every axis x label/.style={at={(axis description cs:0.5,-0.1)},anchor=north},
+	%legend pos=outer north east,
+	xlabel=Pizzas,
+	ylabel=Price,
+	shader=flat,
+	xtick={0,3,...,27},
+	ytick={0,3,...,27},
+	grid=major,
+	ymin=0,
+	xmin=0,
+	ymax=27,
+	xmax=27,
+]
+	\addplot[very thick, color=blue, domain=0:6, opacity=0]{18-3*x};
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\clearpage 
+
+\newpage
+\thispagestyle{plain}
+\mbox{}
+\clearpage 
+
+14. The supply and demand for monthly cell phone plans are given by: 
+\begin{align*}
+q_D&= 50-0.5p\\
+ q_S &= p-10\\
+\end{align*}
+
+a. Calculate the equilibrium quantity and price ($q^*, p^*$) (4 points)
+
+b. Calculate the price elasticity of demand and the price elasticity of supply at equilibrium. (5 points)
+    i. Is demand elastic or inelastic?
+    ii. Is supply elastic or inelastic?
+    iii. Which is *more* elastic, demand or supply?
+
+c. Sketch a graph of this market. It need not be perfectly drawn to scale, but label key points. (4 points)
+
+d. Now suppose the government places a \$24 tax on *suppliers*. Calculate the new post-tax price that buyers pay and price that sellers receive. Add these to your graph. (3 points)
+
+e. Calculate the new post-tax equilibrium quantity. Add this to your graph.  (1 point)
+
+f. Shade in the *post-tax* consumer and producer surpluses on the graph (no need to calculate them). Based on your answer from part (b), who bears more of the tax --- producers or consumers --- and why?  (4 points)
+
+g. Calculate the amount of tax revenue raised for the government. Label this area on the graph. (2 points)
+
+h. Calculate the deadweight loss generated by this tax. Label this area on the graph. (2 points)
+
+\newpage
+\thispagestyle{plain}
+\mbox{}
+\clearpage 
+
+## Long Answer (15 points each)
+
+Choose any \textbf{three (3)} of the following questions to answer. Please answer clearly and concisely (2-5 sentences is sufficient). If applicable, show all work and clearly label all graphs.
+
+15. In 1790, 90\% of American workers were farmers. Today, less than 3\% of Americans work on farms. Describe (at a very broad level) the economic process that explains why 87\% of Americans are not unemployed today.   
+
+16. Explain the tragedy of the commons. In your answer, describe what *specifically* the cause of the problem is, give an example, and a potential solution. 
+
+17. Based (only) on what we discussed about the efficiency of markets in class, outline a theory of when government intervention in the economy may be warranted.
+
+18. Suppose someone argues that although a hurricane hitting an area is a terrible tragedy, it is an economic blessing in disguise. After a hurricane has ravaged an area, all of the homes and businesses need to be rebuilt. This will create new demand for construction, homebuilding, and restocking the stores in the area, which will lead to new jobs to help with the rebuilding and restoring all of the businesses in the area. All of this will stimulate the economy and create jobs in a way that would not happen had it not been for the hurricane. Respond to this argument.
+
+\newpage
+\thispagestyle{plain}
+\mbox{}
+\clearpage 
+
+## Bonus
+
+19. (5 points) When the British Empire governed India, they wished to reduce the cobra population. The government passed a law that promised to pay any citizen in India good money (say, the equivalent of \$1,000) for every cobra skin they turned in to the government, to indicate that a cobra was killed. Thinking like an economist, comment on the expected consequences of this policy. 
+
+20. (5 points) Technology enthusiasts in Silicon Valley talk about *Amara's Law*, which says that we tend to overestimate the effects of a new technology in the short-run and under estimate the effects of a technology in the long-run. In what sense is this just the second law of demand? 
+
+\clearpage 
+
+## Formulas
+
+- Elasticity: $\epsilon=\frac{1}{slope}\times \frac{p}{q}$
+- Elasticity (general): $\epsilon_{y,x}=\frac{\% \Delta y}{\% \Delta x}$
+- Area
+    - Rectangle: $A=b \times h$
+    - Triangle: $A=\frac{1}{2}b \times h$
+    - where $b$ is the base, and $h$ is the height
+- Tax: $p_B=p_S+\tau$

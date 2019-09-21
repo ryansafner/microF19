@@ -1,0 +1,39 @@
+---
+title: "Exam 1 Information"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(pander)
+source(file.path(here::here(), "lib", "graphics.R"))
+```
+
+*Tuesday, October 1, 2019* (Section 1 - TuTh)
+
+*Wednesday, October 2, 2019* (Section 2 - MW)
+
+# Concepts Study Guide
+
+- [<i class="fas fa-file-pdf"></i> `Download PDF`](/oldexams/exam_1_study_guide.pdf)
+
+# Practice Exam
+
+- [<i class="fas fa-file-pdf"></i> `Download Old Exam 1`](/oldexams/Exam1.pdf)
+
+Above, you have last semester's actual exam.^[Note: because this semester I am changing the order of content, this is not the *actual* exam given last Spring. I have taken that semester's "Exam 2" (which was on consumer theory) and replaced a few questions with relevant questions from that semester's "Exam 1" (which was about supply and demand). Regardless, **all questions were actual exam questions.**] Use it to get a sense of what questions are asked, the format, and how many. Questions draw from topics in Unit 1, and note that **just because a topic or questions was not in the practice exam does not mean it may not show up on your exam.**^[I hope that this is obvious. I write this to ensure there is no misunderstanding.] Aside from minor extensions, no mathematical problem on any exam should be something you have not seen in some form before. 
+
+Look at the exam *before* our Review day. After each class has had its review day, I will post the answer key to the *mathematical problems* only.
+
+# Exam Information
+
+**The exact number and type of questions may change.** Since there are two sections of this course taking the exam on multiple days, **there will be different questions.**
+
+You may not have anything with you for the exam (no notes, etc) except a calculator.I write questions such that you can get a perfect score without a calculator, and answers should typically be simple whole numbers. However, I understand that if nothing else, calculators are moral support and you can use them. I will provide simple calculators if you need to borrow one, as well as extra paper. 
+
+Students that require accommodations and students that know they will be absent must confirm with me any arrangements at least a week *in advance* of the Exam.
+
+# My Advice
+
+Make sure you do all of the homework problems and learn from the answer keys to the homeworks, as well as the in-class practice problems. All of the math problems are largely in the style of the homework questions. While some of the questions should be novel applications, conceptual questions on homeworks will get you in the right headspace to think about answering a question on an exam.^[The point of exams is to *apply* what you've learned, not to literally regurgitate it! Or, at least, it should be.]
