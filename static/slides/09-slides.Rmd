@@ -417,9 +417,9 @@ $$q=1000-50p$$
 
 1. Find the inverse demand function.
 
-2. What is the price elasticity of demand when $p=\$5$?
+2. What is the price elasticity of demand at a price of $5.00?
 
-3. What is the price elasticity of demand when $p=\$12$?
+3. What is the price elasticity of demand at a price of $12.00?
 
 4. At what price is demand unit elastic (i.e. $\epsilon{q,p=-1})$?
 
@@ -444,7 +444,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   geom_segment(aes(x=0,xend=5, y=5, yend=5), linetype="dashed")+
   geom_segment(aes(x=5,xend=5, y=5, yend=0), linetype="dashed")+
   
-  geom_label_repel(aes(x=0, y=10), color="purple", label=expression(epsilon == -infinity))+
+  geom_label_repel(aes(x=0, y=10), color="purple", label=expression(epsilon == infinity))+
   geom_label_repel(aes(x=2.5, y=7.5), color="purple", label=expression(paste(epsilon > 1, ": Elastic")))+
   geom_label_repel(aes(x=5, y=5), color="purple", label=expression(paste(epsilon == 1, ": Unit Elastic")))+
   geom_label_repel(aes(x=7.5, y=2.5), color="purple", label=expression(paste(epsilon < 1, ": Inelastic")))+
@@ -601,6 +601,8 @@ r1
 ```
 
 
+---
+
 # Revenues: Example I
 
 ```{r, fig.retina=3, fig.align="center"}
@@ -635,6 +637,8 @@ r2<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
 r2
 ```
 
+
+---
 
 # Revenues: Example II
 
