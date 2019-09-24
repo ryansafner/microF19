@@ -1,0 +1,39 @@
+---
+title: "1.9 Price Elasticity - Class Notes"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+# Overview
+
+Today we cover the third effect: the (own) price effect, aka the law of demand: how changes in a good's (own) price affect quantity demanded for that good. We introduce the idea of demand functions, inverse demand functions, and a demand curve. I will also show you examples of how we derive demand functions and curves.
+
+The other major concept today is breaking apart the law of demand into two effects: the (real) income effect, and the substitution effect. We considering them conceptually and graphically. These can be a difficult concept for students to grasp.
+
+# Slides
+
+- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/09-slides.html)
+
+# Practice Problems
+
+Today we will doing some [practice problems](/practice/09-practice). Answers will be posted later.
+
+# Assignments: Problem Set 1 is DUE and Problem Set 2
+
+[Problem set 1](/assignment/01-problem-set) answers will be posted shortly, and the graded assignment returned back to you (with grades posted on Blackboard).
+
+[Problem set 2](/assignment/02-problem-set) (on classes 1.7-1.9) is due by Thursday September 26 (for section 1 - TuTh) or Monday September 30 (for section 2 - MW).
+

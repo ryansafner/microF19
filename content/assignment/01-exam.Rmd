@@ -18,19 +18,19 @@ source(file.path(here::here(), "lib", "graphics.R"))
 
 - [<i class="fas fa-file-pdf"></i> `Download PDF`](/oldexams/exam_1_study_guide.pdf)
 
-# Practice Exam
+# "Practice" Exam
 
 - [<i class="fas fa-file-pdf"></i> `Download Old Exam 1`](/oldexams/Exam1.pdf)
 
-Above, you have last semester's actual exam.^[Note: because this semester I am changing the order of content, this is not the *actual* exam given last Spring. I have taken that semester's "Exam 2" (which was on consumer theory) and replaced a few questions with relevant questions from that semester's "Exam 1" (which was about supply and demand). Regardless, **all questions were actual exam questions.**] Use it to get a sense of what questions are asked, the format, and how many. Questions draw from topics in Unit 1, and note that **just because a topic or questions was not in the practice exam does not mean it may not show up on your exam.**^[I hope that this is obvious. I write this to ensure there is no misunderstanding.] Aside from minor extensions, no mathematical problem on any exam should be something you have not seen in some form before. 
+Above, you have last semester's actual exam.^[Note: because this semester I am changing the order of content, this is not the *actual* exam given last Spring. I have taken that semester's "Exam 2" (which was on consumer theory) and replaced a few questions with relevant questions from that semester's "Exam 1" (which was about supply and demand). Regardless, **all questions were actual exam questions.**] Use it to get a sense of what questions are asked, the format, and how many. Questions draw from topics in Unit 1, and note that **just because topics or questions were not in the practice exam does NOT mean they may not show up on your exam.**^[I hope that this is obvious. I write this to ensure there is no misunderstanding.] Aside from minor extensions, no mathematical problem on any exam should be something you have not seen in some form before. 
 
-Look at the exam *before* our Review day. After each class has had its review day, I will post the answer key to the *mathematical problems* only.
+Look at the practice exam *before* our Review day. After each class has had its review day, I will post the answer key to its *mathematical problems* only. I am happy to discuss other individual answers and strategies during Office Hours.
 
 # Exam Information
 
-**The exact number and type of questions may change.** Since there are two sections of this course taking the exam on multiple days, **there will be different questions.**
+**The exact number and type of questions may change.** Since there are two sections of this course taking the exam on multiple days, **there will be different exam questions.**
 
-You may not have anything with you for the exam (no notes, etc) except a calculator.I write questions such that you can get a perfect score without a calculator, and answers should typically be simple whole numbers. However, I understand that if nothing else, calculators are moral support and you can use them. I will provide simple calculators if you need to borrow one, as well as extra paper. 
+**You may not have anything with you** for the exam (no notes, etc) **except a calculator.** I write questions such that you can get a perfect score without a calculator, and answers should typically be simple whole numbers. However, I understand that if nothing else, calculators are moral support and you can use them. I will provide simple calculators if you need to borrow one, as well as extra paper. 
 
 Students that require accommodations and students that know they will be absent must confirm with me any arrangements at least a week *in advance* of the Exam.
 

@@ -1,0 +1,687 @@
+---
+title: "Problem Set 1 (Solutions)"
+author: "Ryan Safner"
+date: "ECON 306 Fall 2019"
+output: pdf_document
+header-includes:
+- \usepackage{amsmath}
+- \usepackage{multirow, multicol, booktabs}
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F,
+                      message =F,
+                      warning =F,
+                      fig.height=3)
+library("tidyverse")
+library("mosaic")
+#update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+```
+
+**Note:** Answers may be longer than I would deem sufficient on an exam. Some might vary slightly based on points of interest, examples, or personal experience. These suggested answers are designed to give you both the answer and a short explanation of why it is the answer.
+
+# Concepts and Critical Thinking
+
+1. **How can we use utility functions, which have actual numbers that can be measured and compared, to model preferences and still say with a straight face that preferences are subjective? Hint: what does it mean for a utility function to be *ordinal* or *cardinal*? Why can multiple utility functions describe the same preferences?**
+
+---
+
+Utility functions represent preferences, which themselves are simply rankings bundles against other bundles--any two bundles must have 1 bundle preferred to the other, or indifference between the two. So, utility functions are ordinal in that the numbers outputted by a utility function $u(x)$ for a particular bundle have no meaning in and of themselves, and there can be no meaningful mathematical operation done on them. Their only interpretation is for comparison: if bundle $x$ is preferred to bundle $y$, then the utility of bundle $x$ is higher than the utility of bundle $y$.
+
+Since we only care about ordinal ranking, that is $u(x)>u(y)$, we can have multiple utility functions (e.g. $v$) that validly represent the same preferences, so long as $v(x)>v(y)$ also. To be technical, this only works for positive monotonic transformations of utility functions, like adding a constant, multiplying by a constant, cubing, taking logs, etc. 
+
+---
+
+2. **Describe, in your own words, what the *marginal rate of substitution* between two goods means. How is it different from the slope of the budget constraint?**
+
+---
+
+The marginal rate of substitution (MRS) is the *subjective* tradeoff (or exchange rate) between two goods in the mind of a consumer (based on their *preferences*). The number literally means the amount of good $y$ the consumer is willing to give up (rate of substitution) to get 1 more (marginal) unit of $x$.
+
+The $MRS=\frac{MU_x}{MU_y}$ is the slope of the *indifference curves*, which express one level of utility of a consumer's utility function given their preferences. The slope of the *budget* constraint $\frac{p_x}{p_y}$ is the rate at which the *market* trades off (or exchange rate) between $x$ and $y$, based on relative prices.
+
+---
+
+\clearpage
+
+3. **Describe, in your own words, what happens at the optimum consumption point. Why is it the optimum? What does the equality of the slope of the indifference curve and the slope of the budget constraint *mean*, in English?**
+
+---
+
+At the optimum consumption point, the consumer maximizes their utility (reaches the highest possible indifference curve) subject to their income (they spend all of their money) -- thus their optimum is at a point where the their utility function and budget constraint are tangent. At a tangency, the slopes between the budget constraint and the indifference curve are the same. 
+
+$$\begin{aligned}
+	|\text{Slope of Indifference Curve}| &= |\text{Slope of Budget Constraint}|\\	
+	\frac{MU_x}{MU_y}&=\frac{p_x}{p_y}\\
+\end{aligned}$$
+
+
+We have seen equivalently that at this point: 
+
+$$\frac{MU_x}{p_x}=\frac{MU_y}{p_y}$$
+
+This means intuitively that at the optimum, the marginal utility (value) earned for every additional dollar spent on either $x$ or $y$ is the same. That is, you can get no more utility by spending a dollar more on $x$, or by spending a dollar more on $y$. This combination is the best that you can possibly do. 
+	
+	If this was not true, for example if you could get more utility by spending more money on $x$, then $\frac{MU_x}{p_x} > \frac{MU_y}{p_y}$ and you would continue to buy more $x$ (it's a better value!) until your utility is maximized and you are at the optimum.
+
+---
+
+4. **Sketch *two* indifference curves for each of the following pairs of goods. Indicate which one has higher utility (call it $U_2$) and which one has lower utility (call it $U_1$). Put the first good on the horizontal axis and the second good on the vertical axis.**
+
+a. **Carlene likes both pizza and shoes.**
+
+---
+
+```{r}
+IC_a1=function(x){10/x}
+IC_a2=function(x){20/x}
+IC_a3=function(x){30/x}
+
+line_colors <- c("IC_a1" = "red", "IC_a2" = "blue", "IC_a3" = "green")
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_a1, geom="line", size=2, aes(color="IC_a1"))+
+  geom_label(aes(x=8, y=IC_a1(8), color="IC_a1"), label=expression(IC[1]))+
+  stat_function(fun=IC_a2, geom="line", size=2, aes(color="IC_a2"))+
+  geom_label(aes(x=8, y=IC_a2(8), color="IC_a2"), label=expression(IC[2]))+
+  stat_function(fun=IC_a3, geom="line", size=2, aes(color="IC_a3"))+
+  geom_label(aes(x=8, y=IC_a3(8), color="IC_a3"), label=expression(IC[3]))+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Pizza",
+       y = "Shoes")+
+  theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
+```
+
+No special relationship, just two goods with no more information given. Example utility function [not required for question]: 
+$$u(p,s)=ps$$
+
+---
+
+b. **Paul likes pencils and pens, but views each as equally useful for writing.**
+
+---
+
+```{r}
+IC_b1=function(x){6-x}
+IC_b2=function(x){8-x}
+IC_b3=function(x){10-x}
+
+line_colors <- c("IC_b1" = "red", "IC_b2" = "blue", "IC_b3" = "green")
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_b1, geom="line", size=2, aes(color="IC_b1"))+
+  geom_label(aes(x=5, y=IC_b1(5), color="IC_b1"), label=expression(IC[1]))+
+  stat_function(fun=IC_b2, geom="line", size=2, aes(color="IC_b2"))+
+  geom_label(aes(x=6, y=IC_b2(6), color="IC_b2"), label=expression(IC[2]))+
+  stat_function(fun=IC_b3, geom="line", size=2, aes(color="IC_b3"))+
+  geom_label(aes(x=7, y=IC_b3(7), color="IC_b3"), label=expression(IC[3]))+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Pencils",
+       y = "Pens")+
+  theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
+```
+
+Pens and Pencils are perfect substitutes.  He could use all pens, all pencils, or some combination of the two, always at the same 1:1 rate. Example utility function:
+
+$$u(n,p)=n+p$$
+
+Note how he can get utility from having one of the goods be 0!
+
+---
+
+c. **Rhonda likes carrots and hates broccoli.**
+
+---
+
+```{r}
+IC_c1=function(x){log(x)+2}
+IC_c2=function(x){log(x)+4}
+IC_c3=function(x){log(x)+6}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_c1, geom="line", size=2, aes(color="IC_a1"))+
+  geom_label(aes(x=8, y=IC_c1(8), color="IC_a1"), label=expression(IC[1]))+
+  stat_function(fun=IC_c2, geom="line", size=2, aes(color="IC_a2"))+
+  geom_label(aes(x=8, y=IC_c2(8), color="IC_a2"), label=expression(IC[2]))+
+  stat_function(fun=IC_c3, geom="line", size=2, aes(color="IC_a3"))+
+  geom_label(aes(x=8, y=IC_c3(8), color="IC_a3"), label=expression(IC[3]))+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Carrots (Good)",
+       y = "Broccoli (Bad)")+
+  theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
+```
+
+Carrots are a good, broccoli is a bad.
+
+---
+
+d. **Michael only likes wearing 2 cuff links with every dress shirt.**
+
+---
+
+```{r}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_segment(aes(x=2, xend=2, y=10, yend=1, color="IC_a1"), size=1)+
+  geom_segment(aes(x=2, xend=10, y=1, yend=1, color="IC_a1"), size=1)+
+  geom_label(aes(x=8, y=1, color="IC_a1"), label=expression(IC[1]))+
+  geom_segment(aes(x=4, xend=4, y=10, yend=2, color="IC_a2"), size=1)+
+  geom_segment(aes(x=4, xend=10, y=2, yend=2, color="IC_a2"), size=1)+
+  geom_label(aes(x=8, y=2, color="IC_a2"), label=expression(IC[2]))+
+  geom_segment(aes(x=6, xend=6, y=10, yend=3, color="IC_a3"), size=1)+
+  geom_segment(aes(x=6, xend=10, y=3, yend=3, color="IC_a3"), size=1)+
+  geom_label(aes(x=8, y=3, color="IC_a3"), label=expression(IC[3]))+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Cuff Links",
+       y = "Dress Shirts")+
+  theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
+```
+
+Dress shirts and cuff links are perfect complements. To increase utility (move to higher curve) requires *both* +2 cuff links and +1 dress shirt. Example utility function (technically not a function):
+
+$$u(c,s)=min \{\frac{1}{2}c, s\}$$
+
+---
+
+e. **Emile hates both sauerkraut and anchovies.**
+
+---
+
+
+
+```{r}
+IC_e1=function(x){sqrt(36-x^2)}
+IC_e2=function(x){sqrt(16-x^2)}
+IC_e3=function(x){sqrt(4-x^2)}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_e1, geom="line", size=2, aes(color="IC_a1"))+
+  geom_label(aes(x=1, y=IC_e1(1), color="IC_a1"), label=expression(IC[1]))+
+  stat_function(fun=IC_e2, geom="line", size=2, aes(color="IC_a2"))+
+  geom_label(aes(x=1, y=IC_e2(1), color="IC_a2"), label=expression(IC[2]))+
+  stat_function(fun=IC_e3, geom="line", size=2, aes(color="IC_a3"))+
+  geom_label(aes(x=1, y=IC_e3(1), color="IC_a3"), label=expression(IC[3]))+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Sauerkraut",
+       y = "Anchovies")+
+  theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
+```
+
+Both sauerkraut and anchovies are bads. Note that the curve closer to the origin gives *higher* utility than the curve further from the origin.
+
+---
+
+f. **Kendra likes food and, as a non-smoker, is completely indifferent towards cigarettes.**
+
+```{r}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_segment(aes(x=2, xend=2, y=0, yend=10), color="red", size=2)+
+  geom_label(aes(x=2, y=8, color="IC_a1"), label=expression(IC[1]))+
+  geom_segment(aes(x=4, xend=4, y=0, yend=10), color="blue", size=2)+
+  geom_label(aes(x=4, y=8, color="IC_a2"), label=expression(IC[2]))+
+  geom_segment(aes(x=6, xend=6, y=0, yend=10), color="green", size=2)+
+  geom_label(aes(x=6, y=8, color="IC_a3"), label=expression(IC[3]))+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Food",
+       y = "Cigarettes")+
+  theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
+```
+
+Food is a good, and cigarettes are a neutral. Thus, we have vertical lines here, because Kendra is indifferent between having more or less (or any amount) of cigarettes for each unit of food she has. Only getting more food (moving to the right) increases her utility.
+
+---
+
+g. Li likes spending time with his girlfriend and his mother, but never at the same time!
+
+---
+
+```{r}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_e1, geom="line", size=2, aes(color="IC_a3"))+
+  geom_label(aes(x=1, y=IC_e1(1), color="IC_a3"), label=expression(IC[3]))+
+  stat_function(fun=IC_e2, geom="line", size=2, aes(color="IC_a2"))+
+  geom_label(aes(x=1, y=IC_e2(1), color="IC_a2"), label=expression(IC[2]))+
+  stat_function(fun=IC_e3, geom="line", size=2, aes(color="IC_a1"))+
+  geom_label(aes(x=1, y=IC_e3(1), color="IC_a1"), label=expression(IC[1]))+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Ice Cream",
+       y = "Anchovies")+
+  theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
+```
+
+Both ice cream and anchovies are goods, but preferences are concave, that is, Li would rather have a bundle that is *all* ice cream or *all* anchovies, rather than one that is a combination of the two. Note that the curve further from the origin gives *hogher* utility than the curve closer from the origin, like normal indifference curves (but the opposite of when we have two bads).
+ 
+ Imagine we draw a line between any two points on the original curve, e.g. $A$ and $B$. Taking a weighted average of these two bundles (point $C$) which is a combination of ice cream and anchovies puts us on a *lower* indifference curve (the lighter blue one) giving us less utility.
+
+\clearpage 
+
+# Problems
+
+5. Juan enjoys both music and fireworks. His income is $240 per week. Music streaming costs $12 per month, and fireworks cost $8 per bag.
+
+a. **Graph the budget constraint Juan faces, with music on the vertical axis and fireworks on the horizontal axis.**
+
+---
+
+```{r BC-setup}
+px<-8
+py<-12
+m<-240
+
+ends<-tribble(
+  ~x, ~y,
+  0, (m/py),
+  (m/px), 0
+)
+BC=function(x){(m/py)-(px/py)*x}
+line_colors <- c("BC" = "red")
+
+bc_points <- tribble(
+  ~x, ~y, ~letter,
+  0, 20, "A",
+  30, 0, "B",
+  15, 10, "C"
+)
+```
+
+```{r}
+library("ggrepel")
+ggplot(tibble(x=c(0,10)), aes(x=x))+
+  stat_function(fun=BC, geom="line", size=2, color="red")+
+  geom_point(data = bc_points, aes(x = x, y = y), size =3)+
+  geom_label_repel(data = bc_points, aes(x=x, y=y, label=letter), size=6)+
+  scale_x_continuous(breaks=seq(0,50,5),
+                     limits=c(0,50),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,50,5),
+                     limits=c(0,50),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Fireworks",
+       y = "Music")+
+  coord_cartesian(clip = "off")+
+    theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
+
+```
+
+
+---
+
+
+b. **If Juan spends all his income on music, how much music can he afford? Plot a point that illustrates this scenario.**
+
+---
+
+$$\frac{Income}{P_M}=\frac{\$240}{\$12}=20$$
+
+See point A on graph above.
+
+---
+
+c. **If Juan spends all his income on fireworks, how many bags of  reworks can he afford? Plot a point that illustrates this scenario.**
+
+---
+
+$$\frac{Income}{P_F}=\frac{\$240}{\$8}=30$$
+
+See point B on graph above.
+
+---
+
+d. **If Juan spends half his income on fireworks and half his income on music, how much of each can he afford? Plot a point that illustrates this scenario.**
+
+---
+
+If Juan spends half of his \$240 on music at \$12 per CD: he buys $\frac{\$120}{\$12}=10$ CDs.
+
+If Juan spends half of his \$240 on fireworks at \$8 per bag: he buys $\frac{\$120}{\$8}=15$ bags.
+
+This is point C on the graph above.
+
+---
+
+e. **Connect the dots to create Juan's budget constraint. What is the slope of the budget constraint?**
+
+---
+
+$$Slope=\frac{\Delta M}{\Delta F} = \frac{20}{30} = -\frac{2}{3}$$
+
+---
+
+f. **Suppose that a holiday bonus raises Juan's income temporarily to $360. Draw Juan's new budget constraint.**
+
+---
+
+```{r}
+m2<-360
+BC_2=function(x){(m2/py)-(px/py)*x}
+
+ggplot(tibble(x=c(0,10)), aes(x=x))+
+  stat_function(fun=BC, geom="line", size=2, color="red")+
+  stat_function(fun=BC_2, geom="line", size=2, color="red", linetype="dashed")+
+  #geom_point(data = bc_points, aes(x = x, y = y), size =3)+
+  #geom_label_repel(data = bc_points, aes(x=x, y=y, label=letter), size=6)+
+  scale_x_continuous(breaks=seq(0,50,5),
+                     limits=c(0,50),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,50,5),
+                     limits=c(0,50),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Fireworks",
+       y = "Music")+
+  coord_cartesian(clip = "off")+
+    theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
+
+```
+
+---
+
+g. **Now suppose that during the holiday, with his holiday bonus, the price of fireworks increases to $12 and the price of CDs increases to 18. If he spends all of his income on fireworks, how many can Juan buy?  How about CDs? What happens to his budget constraint, and why?**
+
+---
+
+$$\frac{m'}{p_F'}=\frac{\$360}{\$12}=30$$
+
+$$\frac{m'}{p_M'}=\frac{\$360}{\$18}=20$$
+
+This is the same budget constraint as *before* the income change, since income increased by 1.5x, and prices increased by 1.5x!
+
+\clearpage 
+
+## Question 6
+
+Kelly's utility function for drinking Coke ($c$) and Pepsi ($p$) is given by:
+
+$$\begin{aligned}
+	u(c,p) &= 5c + 2p\\
+	MU_c &= 5\\
+	MU_p &= 2\\
+\end{aligned}$$
+
+Put Coke on the horizontal axis and Pepsi on the vertical axis. 
+
+a. **Can Kelly get utility by consuming *only* Coke or *only* Pepsi?**
+
+---
+
+Yes, because Coke and Pepsi are related by addition in the utility function. If $c$ (or $p$) is 0, she can still get utility by consuming positive amounts of $p$ (or $c$).
+
+---
+
+b. **Write an equation for $MRS_{c,p}$.**^[Hint: think about the relationship between these goods. It may not be a "typical" equation.]
+
+---
+
+$$MRS_{C,P} = -\frac{MU_C}{MU_P} = -\frac{5}{2} = -2.5$$
+
+---
+
+c. **Are the bundles $(c=2, p=5)$ and $(c=4,p=0)$ on the same indifference curve?**
+
+---
+
+Check by plugging in each point into the utility function:
+
+$$u(c,p)=5c+2p$$
+
+For (2,5): 
+
+$$u(c,p)=5(2)+2(5)=20$$
+
+For (2,10)
+
+$$u(c,p)=5(4)+2(0)=	20$$
+
+Yes, because both bundles give the same utility (20).
+
+---
+
+d. **What is $MRS_{c,p}$ when $c=1$ and $y=5$?**
+
+---
+
+MRS is constant, always -2.5!
+
+---
+
+e. **Given your answers, what is the relationship between Coke and Pepsi for Kelly?**
+
+---
+
+Since MRS, the slope, is constant and unchanging, this is a straight line between the x-axis and y-axis. These goods are perfect substitutes: Kelly is always willing to trade 1 Coke for 2.5 Pepsi, or $\frac{2}{5}$ Pepsi for 1 Coke.
+
+---
+
+f. **Sketch a few indifference curves.**
+
+---
+
+```{r}
+IC_cp1=function(x){2.5-2.5*x}
+IC_cp2=function(x){5-2.5*x}
+IC_cp3=function(x){10-2.5*x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_cp1, geom="line", size=2, aes(color="IC_a1"))+
+  geom_label(aes(x=0.5, y=IC_cp1(0.5), color="IC_a1"), label=expression(IC[1]))+
+  stat_function(fun=IC_cp2, geom="line", size=2, aes(color="IC_a2"))+
+  geom_label(aes(x=1.5, y=IC_cp2(1.5), color="IC_a2"), label=expression(IC[2]))+
+  stat_function(fun=IC_cp3, geom="line", size=2, aes(color="IC_a3"))+
+  geom_label(aes(x=3, y=IC_cp3(3), color="IC_a3"), label=expression(IC[3]))+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(color=F)+
+  labs(x = "Coke",
+       y = "Pepsi")+
+  theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
+```
+
+\clearpage
+
+7. A consumer has the following utility function:
+
+$$u(x,y)=\sqrt{xy}$$
+
+a. **Fill in the following table by calculating the utility for each bundle of $X$ and $Y$. Round to two decimal places.**
+
+---
+
+\begin{table}[h!]
+		\centering 
+		\begin{tabular}{rrrrrr}
+		& \multicolumn{5}{c}{$Y$}\\
+		\parbox[t]{2mm}{\multirow{5}{*}{$X$}} & 0 & 1 & 2 & 3 & \\ \toprule 
+		& 0 &  &  &  \\
+		
+		& 1 & 0 & 1.00 & 1.41 & 1.73  \\ 
+		
+		& 2 & 0 & 1.41 & 2.00 & 2.45 \\
+		
+		& 3 & 0 & 1.73 & 2.45 & 3.00  \\ \bottomrule 
+		\end{tabular}
+\end{table}
+
+The idea is for you to see that there are multiple combinations of $x$ and $y$ that yield the same utility. These points are therefore on the same indifference curve.
+
+---
+
+b. **Graph three indifference curves on the same graph below: the first showing the bundle(s) that yield a utility level of 1; the second showing the bundle(s) that yield a utility level of 2; the third showing the bundle(s) that yield a utility level of 3.**
+
+```{r}
+
+u_points <-tribble(
+  ~x, ~y, ~letter,
+  1, 1, "1",
+  2, 2, "2",
+  1, 4, "2",
+  4, 1, "2",
+  3, 3, "3",
+)
+IC_11=function(x){1/x}
+IC_22=function(x){4/x}
+IC_33=function(x){9/x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_11, geom="line", size=2, color = "red", alpha=1)+
+  stat_function(fun=IC_22, geom="line", size=2, color = "blue", alpha=1)+
+  stat_function(fun=IC_33, geom="line", size=2, color = "green", alpha=1)+
+  geom_point(data = u_points, aes(x = x, y = y), size =3)+
+  geom_label_repel(data = u_points, aes(x=x, y=y, label=letter), size=5)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "x",
+       y = "y")+
+  theme_bw(base_size=16)
+```
+
+The idea is to plot the values (whole numbers, 1, 2, 3) that have multiple $(x,y)$ combinations, and connect those values on the same curve. 
+
+---
+
+c. **The marginal utilities are given by:** 
+
+$$\begin{aligned}
+MU_x&=0.5x^{-0.5}y^{0.5}\\
+MU_y&=0.5x^{0.5}y^{-0.5}\\
+\end{aligned}$$
+
+**write an equation for $MRS_{x,y}$.**
+
+---
+
+We are given $MU_X$ and $MU_Y$, so: 
+
+$$MRS_{X,Y}=\frac{MU_X}{MU_Y}=\frac{0.5X^{-0.5}Y^{0.5}}{0.5X^{0.5}Y^{-0.5}}$$
+
+
+Simplifying by exponent rules for division and for negative exponents:
+
+$$\frac{0.5X^{-0.5}Y^{0.5}}{0.5X^{0.5}Y^{-0.5}}=\frac{0.5}{0.5}X^{(-0.5-0.5)}Y^{(0.5-[-0.5])}=X^{-1}Y^{1}=\frac{Y}{X}$$
+
+---
+
+d. **Suppose this consumer has an income of $10, the price of $x$ is $2.50, and the price of $y$ is also $2.50. Write an equation for the budget constraint (in graphable form, in terms of $y$), and put it on the same graph above.**
+
+---
+
+$$\begin{aligned}
+m &= p_xx+p_yy \\
+10 &= 2.50x + 2.50y	\\
+	10-2.50x &= 2.50y \\
+	4-x &= y \\
+\end{aligned}$$
+
+Budget constraint is graphed in black below.
+
+```{r}
+budget = function(x){4-x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_11, geom="line", size=2, color = "red", alpha=1)+
+  stat_function(fun=IC_22, geom="line", size=2, color = "blue", alpha=1)+
+  stat_function(fun=IC_33, geom="line", size=2, color = "green", alpha=1)+
+  stat_function(fun=budget, size =2 , color="black")+
+  geom_point(x=2,y=2, size=3)+
+  geom_label_repel(x=2,y=2, label="A")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "x",
+       y = "y")+
+  theme_bw(base_size=16)
+```
+
+---
+
+e. **Find the optimal combination of $x$ and $y$ where the consumer maximizes utility subject to income. Label this point $A$ on the graph.**
+
+---
+
+At the optimum: 
+
+$$\frac{MU_x}{MU_y}=\frac{p_x}{p_y}$$
+
+We already solved for the lefthand side in part (c), and we know the prices, so: 
+
+$$\begin{aligned}
+\left(\frac{Y}{X}\right)&=\frac{(2.50)}{(2.50)}\\
+\frac{Y}{X}&=1\\
+Y&=X\\ \end{aligned}$$
+
+To find the exact quantities, plug this into the budget constraint:
+
+$$\begin{aligned}
+m&=p_xx+p_yy\\
+10&=2.50x+2.50(x)\\
+10&=5x\\
+x^*&=2\\
+\end{aligned}$$
+
+Since $y=x$, $y^*=2$ 
+
+The optimum is labeled $A$ on the graph above.
+
+---
+
+f. **How much utility does the consumer earn at the optimum?**
+
+---
+
+$$\begin{aligned}
+u(x,y)&=\sqrt{xy}\\	
+u(2,2)&=\sqrt{2*2}\\
+u(2,2)&=\sqrt{4}\\
+u(2,2)&=2\\
+\end{aligned}$$
