@@ -879,9 +879,147 @@ Cowen & Tabarrok (2014: p.75)
 
 ---
 
+# Price Elasticity and Automation I
+
+.pull-left[
+
+- Will capital and automation replace all jobs?
+
+.center[
+![](https://www.dropbox.com/s/hpixa8v13qjoje7/weaving.jpg?raw=1)
+
+Women in a flax mill in 1840 Leeds, England during the Industrial Revolution
+]
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.align="center"}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=demand_e, geom="line", size=2, color = "blue")+
+  geom_label(aes(x=2,y=demand_e(2)), color = "blue", label="'Elastic' Demand", size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                       labels=seq(0,1000,100),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  # line at 4,6 
+  geom_segment(aes(x=0,xend=4, y=6, yend=6), linetype="dashed")+
+  geom_segment(aes(x=4,xend=4, y=6, yend=0), linetype="dashed")+
+  
+  geom_rect(xmin=0, xmax=4, ymin=0, ymax=6, fill="blue", alpha=0.3)+
+  geom_text(x=2, y=4.5, color="white", label=expression(R[p==6]==2400), size=5)+
+
+  
+  # line at 10,3
+  geom_segment(aes(x=0,xend=10, y=3, yend=3), linetype="dashed")+
+  geom_segment(aes(x=10,xend=10, y=3, yend=0), linetype="dashed")+
+  
+  geom_rect(xmin=0, xmax=10, ymin=0, ymax=3, fill="purple", alpha=0.3)+
+  geom_text(x=7, y=2, color="white", label=expression(R[p==3]==3000), size=5)+
+  
+  #arrow down
+  annotate("segment", x = 2, xend = 2, y = 6, yend = 3, colour = "black", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="both", type="closed"))+
+
+  #arrow right
+  annotate("segment", x = 4, xend = 10, y = 1.5, yend = 1.5, colour = "black", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="both", type="closed"))+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Price Elasticity and Automation II
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/vkaid1s5gh9s6op/atm.jpg?raw=1)
+]
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/1rjy5sjjgmjzv5s/bankteller.jpg?raw=1)
+]
+]
+
+---
+
 class: inverse, center, middle
 
 # Summing Up Unit 1
 
 ---
 
+# Models of Individual Choice I
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/0lqg3hlsufnmv72/modelseconomics.jpg?raw=1)
+]
+]
+
+.pull-right[
+
+> "All models are lies. The art is telling useful lies." - George Box
+
+- Remember, we're not modelling the **process** by which people **actually** choose
+
+- We're **predicting consequences** (in people's choices) when **parameters change**
+
+
+]
+
+---
+
+# Models of Individual Choice II
+
+.pull-left[
+
+- Constrained optimization models are the **main** workhorse model in economics
+
+- All constrained optimization models have three moving parts: 
+
+1. **Choose:** .blue[ < some alternative >]
+
+2. **In order to maximize:** .green[< some objective >]
+
+3. **Subject to:** .red[< some constraints >]
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+---
+
+# Models of Individual Choice III
+
+.center[
+![:scale 82%](https://www.dropbox.com/s/bqb48eg20ld6li9/cooleconbooks.png?raw=1)
+]
+
+---
+
+# Applications of Consumer Theory
+
+- See today's [class notes page](/class/09-class) for some applications of consumer theory:
+
+
+1. **Uncertainty**: risky outcomes & insurance
+
+2. **Exchange**: two individuals trading their endowments, general equilibrium, & Pareto efficiency
+
+3. **Taxes**: Which is better for consumers, a consumption tax or a (revenue-equivalent) income tax? 
+
+4. **Intertemporal choice**: saving, borrowing, lending, & interest

@@ -52,6 +52,8 @@ lessons:
 
   - title: "1.9 Price Elasticity"
     reading: "09-reading"
+    slides: "09-slides"
+    class: "09-class"
 
   - title: '<i class="fas fa-laptop-code"></i> **Problem Set 2**'
     assignment: "02-problem-set"

@@ -19,9 +19,9 @@ knitr::opts_chunk$set(echo = FALSE,
 
 # Overview
 
-Today we cover the third effect: the (own) price effect, aka the law of demand: how changes in a good's (own) price affect quantity demanded for that good. We introduce the idea of demand functions, inverse demand functions, and a demand curve. I will also show you examples of how we derive demand functions and curves.
+Today we look at price elasticity of demand, and wrap up our Unit 1 on Consumer/Individual choice theory. 
 
-The other major concept today is breaking apart the law of demand into two effects: the (real) income effect, and the substitution effect. We considering them conceptually and graphically. These can be a difficult concept for students to grasp.
+A reminder, your second problem set is due next class; next class is our review session, and we will have Exam 1 on Tuesday October 1 (for Section 1 - TuTh) and Wednesday October 2 (for Section 2 - MW). See the [Exam 1 page](/assignments/01-exam) for more information and study tips.
 
 # Slides
 
@@ -31,7 +31,7 @@ The other major concept today is breaking apart the law of demand into two effec
 
 Today we will doing some [practice problems](/practice/09-practice). Answers will be posted later.
 
-# Assignments: Problem Set 1 is DUE and Problem Set 2
+# Assignments: Problem Set 1 Answers, Problem Set 2 Due Next Class
 
 [Problem set 1](/assignment/01-problem-set) answers will be posted shortly, and the graded assignment returned back to you (with grades posted on Blackboard).
 
