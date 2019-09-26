@@ -33,7 +33,7 @@ Today we will doing some [practice problems](/practice/09-practice). Answers wil
 
 # Assignments: Problem Set 1 Answers, Problem Set 2 Due Next Class
 
-[Problem set 1](/assignment/01-problem-set) answers will be posted shortly, and the graded assignment returned back to you (with grades posted on Blackboard).
+[Problem set 1](/assignment/01-problem-set) answers are posted, and the graded assignment returned back to you (with grades posted on Blackboard).
 
 [Problem set 2](/assignment/02-problem-set) (on classes 1.7-1.9) is due by Thursday September 26 (for section 1 - TuTh) or Monday September 30 (for section 2 - MW).
 

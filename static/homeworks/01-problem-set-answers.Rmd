@@ -1,12 +1,16 @@
 ---
-title: "Problem Set 1 (Solutions)"
+title: "Problem Set 1 (Answers)"
 author: "Ryan Safner"
-date: "ECON 306 Fall 2019"
-output: pdf_document
-header-includes:
-- \usepackage{amsmath}
-- \usepackage{multirow, multicol, booktabs}
-
+date: "ECON 480 - Fall 2019"
+output:
+  html_document:
+    df_print: paged
+    theme: simplex
+    toc: true 
+    toc_depth: 3
+    toc_float: true
+    code_folding: show
+    highlight: tango
 ---
 
 ```{r setup, include=FALSE}
@@ -21,9 +25,13 @@ library("mosaic")
 
 **Note:** Answers may be longer than I would deem sufficient on an exam. Some might vary slightly based on points of interest, examples, or personal experience. These suggested answers are designed to give you both the answer and a short explanation of why it is the answer.
 
+- [<i class="fas fa-file-pdf"></i> `Download Answers as PDF`](/homeworks/01-problem-set-answers-pdf.pdf)
+
 # Concepts and Critical Thinking
 
-1. **How can we use utility functions, which have actual numbers that can be measured and compared, to model preferences and still say with a straight face that preferences are subjective? Hint: what does it mean for a utility function to be *ordinal* or *cardinal*? Why can multiple utility functions describe the same preferences?**
+## Question 1
+
+**How can we use utility functions, which have actual numbers that can be measured and compared, to model preferences and still say with a straight face that preferences are subjective? Hint: what does it mean for a utility function to be *ordinal* or *cardinal*? Why can multiple utility functions describe the same preferences?**
 
 ---
 
@@ -31,23 +39,18 @@ Utility functions represent preferences, which themselves are simply rankings bu
 
 Since we only care about ordinal ranking, that is $u(x)>u(y)$, we can have multiple utility functions (e.g. $v$) that validly represent the same preferences, so long as $v(x)>v(y)$ also. To be technical, this only works for positive monotonic transformations of utility functions, like adding a constant, multiplying by a constant, cubing, taking logs, etc. 
 
----
 
-2. **Describe, in your own words, what the *marginal rate of substitution* between two goods means. How is it different from the slope of the budget constraint?**
+## Question 2
 
----
+**Describe, in your own words, what the *marginal rate of substitution* between two goods means. How is it different from the slope of the budget constraint?**
 
 The marginal rate of substitution (MRS) is the *subjective* tradeoff (or exchange rate) between two goods in the mind of a consumer (based on their *preferences*). The number literally means the amount of good $y$ the consumer is willing to give up (rate of substitution) to get 1 more (marginal) unit of $x$.
 
 The $MRS=\frac{MU_x}{MU_y}$ is the slope of the *indifference curves*, which express one level of utility of a consumer's utility function given their preferences. The slope of the *budget* constraint $\frac{p_x}{p_y}$ is the rate at which the *market* trades off (or exchange rate) between $x$ and $y$, based on relative prices.
 
----
+## Question 3
 
-\clearpage
-
-3. **Describe, in your own words, what happens at the optimum consumption point. Why is it the optimum? What does the equality of the slope of the indifference curve and the slope of the budget constraint *mean*, in English?**
-
----
+**Describe, in your own words, what happens at the optimum consumption point. Why is it the optimum? What does the equality of the slope of the indifference curve and the slope of the budget constraint *mean*, in English?**
 
 At the optimum consumption point, the consumer maximizes their utility (reaches the highest possible indifference curve) subject to their income (they spend all of their money) -- thus their optimum is at a point where the their utility function and budget constraint are tangent. At a tangency, the slopes between the budget constraint and the indifference curve are the same. 
 
@@ -55,7 +58,6 @@ $$\begin{aligned}
 	|\text{Slope of Indifference Curve}| &= |\text{Slope of Budget Constraint}|\\	
 	\frac{MU_x}{MU_y}&=\frac{p_x}{p_y}\\
 \end{aligned}$$
-
 
 We have seen equivalently that at this point: 
 
@@ -65,13 +67,13 @@ This means intuitively that at the optimum, the marginal utility (value) earned 
 	
 If this was not true, for example if you could get more utility by spending more money on $x$, then $\frac{MU_x}{p_x} > \frac{MU_y}{p_y}$ and you would continue to buy more $x$ (it's a better value!) until your utility is maximized and you are at the optimum.
 
-\clearpage 
 
-4. **Sketch *two* indifference curves for each of the following pairs of goods. Indicate which one has higher utility (call it $U_2$) and which one has lower utility (call it $U_1$). Put the first good on the horizontal axis and the second good on the vertical axis.**
+## Question 4
 
-a. **Carlene likes both pizza and shoes.**
+**Sketch *two* indifference curves for each of the following pairs of goods. Indicate which one has higher utility (call it $U_2$) and which one has lower utility (call it $U_1$). Put the first good on the horizontal axis and the second good on the vertical axis.**
 
----
+### Part A 
+**Carlene likes both pizza and shoes.**
 
 ```{r}
 IC_a1=function(x){10/x}
@@ -102,11 +104,8 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 No special relationship, just two goods with no more information given. Example utility function [not required for question]: 
 $$u(p,s)=ps$$
 
----
-
-b. **Paul likes pencils and pens, but views each as equally useful for writing.**
-
----
+### Part B 
+**Paul likes pencils and pens, but views each as equally useful for writing.**
 
 ```{r}
 IC_b1=function(x){6-x}
@@ -140,11 +139,9 @@ $$u(n,p)=n+p$$
 
 Note how he can get utility from having one of the goods be 0!
 
-\clearpage 
+### Part C
 
-c. **Rhonda likes carrots and hates broccoli.**
-
----
+**Rhonda likes carrots and hates broccoli.**
 
 ```{r}
 IC_c1=function(x){log(x)+2}
@@ -172,11 +169,8 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 Carrots are a good, broccoli is a bad.
 
----
-
-d. **Michael only likes wearing 2 cuff links with every dress shirt.**
-
----
+### Part D
+**Michael only likes wearing 2 cuff links with every dress shirt.**
 
 ```{r}
 ggplot(data.frame(x=c(0,10)), aes(x=x))+
@@ -205,13 +199,8 @@ Dress shirts and cuff links are perfect complements. To increase utility (move t
 
 $$u(c,s)=min \{\frac{1}{2}c, s\}$$
 
-\clearpage
-
-e. **Emile hates both sauerkraut and anchovies.**
-
----
-
-
+### Part E
+**Emile hates both sauerkraut and anchovies.**
 
 ```{r}
 IC_e1=function(x){sqrt(36-x^2)}
@@ -239,9 +228,8 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 Both sauerkraut and anchovies are bads. Note that the curve closer to the origin gives *higher* utility than the curve further from the origin.
 
----
-
-f. **Kendra likes food and, as a non-smoker, is completely indifferent towards cigarettes.**
+### Part F
+**Kendra likes food and, as a non-smoker, is completely indifferent towards cigarettes.**
 
 ```{r}
 ggplot(data.frame(x=c(0,10)), aes(x=x))+
@@ -265,11 +253,8 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 Food is a good, and cigarettes are a neutral. Thus, we have vertical lines here, because Kendra is indifferent between having more or less (or any amount) of cigarettes for each unit of food she has. Only getting more food (moving to the right) increases her utility.
 
-\clearpage 
-
-g. Li likes spending time with his girlfriend and his mother, but never at the same time!
-
----
+### Part G
+**Li likes spending time with his girlfriend and his mother, but never at the same time!**
 
 ```{r}
 ggplot(data.frame(x=c(0,10)), aes(x=x))+
@@ -295,15 +280,15 @@ Both ice cream and anchovies are goods, but preferences are concave, that is, Li
  
  Imagine we draw a line between any two points on the original curve, e.g. $A$ and $B$. Taking a weighted average of these two bundles (point $C$) which is a combination of ice cream and anchovies puts us on a *lower* indifference curve (the lighter blue one) giving us less utility.
 
-\clearpage 
-
 # Problems
 
-5. Juan enjoys both music and fireworks. His income is $240 per week. Music streaming costs $12 per month, and fireworks cost $8 per bag.
+## Question 5
 
-a. **Graph the budget constraint Juan faces, with music on the vertical axis and fireworks on the horizontal axis.**
+**Juan enjoys both music and fireworks. His income is $240 per week. Music streaming costs $12 per month, and fireworks cost $8 per bag.**
 
----
+### Part A
+**Graph the budget constraint Juan faces, with music on the vertical axis and fireworks on the horizontal axis.**
+
 
 ```{r BC-setup}
 px<-8
@@ -345,33 +330,23 @@ ggplot(tibble(x=c(0,10)), aes(x=x))+
 
 ```
 
-
----
-
-
-b. **If Juan spends all his income on music, how much music can he afford? Plot a point that illustrates this scenario.**
-
----
+### Part B
+**If Juan spends all his income on music, how much music can he afford? Plot a point that illustrates this scenario.**
 
 $$\frac{Income}{P_M}=\frac{\$240}{\$12}=20$$
 
 See point A on graph above.
 
----
 
-c. **If Juan spends all his income on fireworks, how many bags of  reworks can he afford? Plot a point that illustrates this scenario.**
-
----
+### Part C
+**If Juan spends all his income on fireworks, how many bags of  reworks can he afford? Plot a point that illustrates this scenario.**
 
 $$\frac{Income}{P_F}=\frac{\$240}{\$8}=30$$
 
 See point B on graph above.
 
----
-
-d. **If Juan spends half his income on fireworks and half his income on music, how much of each can he afford? Plot a point that illustrates this scenario.**
-
----
+### Part D
+**If Juan spends half his income on fireworks and half his income on music, how much of each can he afford? Plot a point that illustrates this scenario.**
 
 If Juan spends half of his \$240 on music at \$12 per CD: he buys $\frac{\$120}{\$12}=10$ CDs.
 
@@ -379,19 +354,13 @@ If Juan spends half of his \$240 on fireworks at \$8 per bag: he buys $\frac{\$1
 
 This is point C on the graph above.
 
----
-
-e. **Connect the dots to create Juan's budget constraint. What is the slope of the budget constraint?**
-
----
+### Part E
+**Connect the dots to create Juan's budget constraint. What is the slope of the budget constraint?**
 
 $$Slope=\frac{\Delta M}{\Delta F} = \frac{20}{30} = -\frac{2}{3}$$
 
----
-
-f. **Suppose that a holiday bonus raises Juan's income temporarily to $360. Draw Juan's new budget constraint.**
-
----
+### Part F
+**Suppose that a holiday bonus raises Juan's income temporarily to $360. Draw Juan's new budget constraint.**
 
 ```{r}
 m2<-360
@@ -415,11 +384,9 @@ ggplot(tibble(x=c(0,10)), aes(x=x))+
 
 ```
 
----
+### Part G
 
-g. **Now suppose that during the holiday, with his holiday bonus, the price of fireworks increases to $12 and the price of CDs increases to 18. If he spends all of his income on fireworks, how many can Juan buy?  How about CDs? What happens to his budget constraint, and why?**
-
----
+**Now suppose that during the holiday, with his holiday bonus, the price of fireworks increases to $12 and the price of CDs increases to 18. If he spends all of his income on fireworks, how many can Juan buy?  How about CDs? What happens to his budget constraint, and why?**
 
 $$\frac{m'}{p_F'}=\frac{\$360}{\$12}=30$$
 
@@ -427,11 +394,9 @@ $$\frac{m'}{p_M'}=\frac{\$360}{\$18}=20$$
 
 This is the same budget constraint as *before* the income change, since income increased by 1.5x, and prices increased by 1.5x!
 
-\clearpage 
-
 ## Question 6
 
-Kelly's utility function for drinking Coke ($c$) and Pepsi ($p$) is given by:
+**Kelly's utility function for drinking Coke ($c$) and Pepsi ($p$) is given by:**
 
 $$\begin{aligned}
 	u(c,p) &= 5c + 2p\\
@@ -439,27 +404,20 @@ $$\begin{aligned}
 	MU_p &= 2\\
 \end{aligned}$$
 
-Put Coke on the horizontal axis and Pepsi on the vertical axis. 
+**Put Coke on the horizontal axis and Pepsi on the vertical axis.**
 
-a. **Can Kelly get utility by consuming *only* Coke or *only* Pepsi?**
-
----
+### Part A
+**Can Kelly get utility by consuming *only* Coke or *only* Pepsi?**
 
 Yes, because Coke and Pepsi are related by addition in the utility function. If $c$ (or $p$) is 0, she can still get utility by consuming positive amounts of $p$ (or $c$).
 
----
-
-b. **Write an equation for $MRS_{c,p}$.**^[Hint: think about the relationship between these goods. It may not be a "typical" equation.]
-
----
+### Part B
+**Write an equation for $MRS_{c,p}$.**^[Hint: think about the relationship between these goods. It may not be a "typical" equation.]
 
 $$MRS_{C,P} = -\frac{MU_C}{MU_P} = -\frac{5}{2} = -2.5$$
 
----
-
-c. **Are the bundles $(c=2, p=5)$ and $(c=4,p=0)$ on the same indifference curve?**
-
----
+### Part C
+**Are the bundles $(c=2, p=5)$ and $(c=4,p=0)$ on the same indifference curve?**
 
 Check by plugging in each point into the utility function:
 
@@ -475,27 +433,18 @@ $$u(c,p)=5(4)+2(0)=	20$$
 
 Yes, because both bundles give the same utility (20).
 
----
-
-d. **What is $MRS_{c,p}$ when $c=1$ and $y=5$?**
-
----
+### Part D
+**What is $MRS_{c,p}$ when $c=1$ and $y=5$?**
 
 MRS is constant, always -2.5!
 
-\clearpage
-
-e. **Given your answers, what is the relationship between Coke and Pepsi for Kelly?**
-
----
+### Part E
+**Given your answers, what is the relationship between Coke and Pepsi for Kelly?**
 
 Since MRS, the slope, is constant and unchanging, this is a straight line between the x-axis and y-axis. These goods are perfect substitutes: Kelly is always willing to trade 1 Coke for 2.5 Pepsi, or $\frac{2}{5}$ Pepsi for 1 Coke.
 
----
-
-f. **Sketch a few indifference curves.**
-
----
+### Part F
+**Sketch a few indifference curves.**
 
 ```{r}
 IC_cp1=function(x){2.5-2.5*x}
@@ -521,36 +470,39 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
 ```
 
-\clearpage
+## Question 7
 
-7. A consumer has the following utility function:
+**A consumer has the following utility function:**
 
 $$u(x,y)=\sqrt{xy}$$
 
-a. **Fill in the following table by calculating the utility for each bundle of $X$ and $Y$. Round to two decimal places.**
+### Part A
+**Fill in the following table by calculating the utility for each bundle of $X$ and $Y$. Round to two decimal places.**
 
----
+```{r, warning = F, message = F, echo = F}
+library(tidyverse)
+library(kableExtra)
 
-\begin{table}[h!]
-		\centering 
-		\begin{tabular}{rrrrrr}
-		& \multicolumn{5}{c}{$Y$}\\
-		\parbox[t]{2mm}{\multirow{5}{*}{$X$}} & 0 & 1 & 2 & 3 & \\ \toprule 
-		& 0 & 0 & 0 & 0 \\
-		
-		& 1 & 0 & 1.00 & 1.41 & 1.73  \\ 
-		
-		& 2 & 0 & 1.41 & 2.00 & 2.45 \\
-		
-		& 3 & 0 & 1.73 & 2.45 & 3.00  \\ \bottomrule 
-		\end{tabular}
-\end{table}
+empty<-tribble(
+   ~"", ~"0", ~"1", ~"2", ~"3",
+  "x", "0", "0.00", "0.00", "0.00",
+  "x", "1", "1.00", "1.41", "1.73",
+  "x", "2", "1.41", "2.00", "2.45",
+  "x", "3", "1.73", "2.45", "3.00"
+)
+
+kable(empty, format="html") %>%
+  kable_styling(full_width=F) %>%
+  add_header_above(c(" " = 2, "y" = 3)) %>%
+  column_spec(c(1,2), bold=T) %>%
+  collapse_rows(columns = 1, latex_hline = "major", valign = "middle")
+```
 
 The idea is for you to see that there are multiple combinations of $x$ and $y$ that yield the same utility. These points are therefore on the same indifference curve.
 
----
+### Part B
 
-b. **Graph three indifference curves on the same graph below: the first showing the bundle(s) that yield a utility level of 1; the second showing the bundle(s) that yield a utility level of 2; the third showing the bundle(s) that yield a utility level of 3.**
+**Graph three indifference curves on the same graph below: the first showing the bundle(s) that yield a utility level of 1; the second showing the bundle(s) that yield a utility level of 2; the third showing the bundle(s) that yield a utility level of 3.**
 
 ```{r}
 
@@ -585,9 +537,8 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 The idea is to plot the values (whole numbers, 1, 2, 3) that have multiple $(x,y)$ combinations, and connect those values on the same curve. 
 
-\clearpage
-
-c. **The marginal utilities are given by:** 
+## Part C
+**The marginal utilities are given by:** 
 
 $$\begin{aligned}
 MU_x&=0.5x^{-0.5}y^{0.5}\\
@@ -595,8 +546,6 @@ MU_y&=0.5x^{0.5}y^{-0.5}\\
 \end{aligned}$$
 
 **write an equation for $MRS_{x,y}$.**
-
----
 
 We are given $MU_X$ and $MU_Y$, so: 
 
@@ -607,11 +556,8 @@ Simplifying by exponent rules for division and for negative exponents:
 
 $$\frac{0.5X^{-0.5}Y^{0.5}}{0.5X^{0.5}Y^{-0.5}}=\frac{0.5}{0.5}X^{(-0.5-0.5)}Y^{(0.5-[-0.5])}=X^{-1}Y^{1}=\frac{Y}{X}$$
 
----
-
-d. **Suppose this consumer has an income of $10, the price of $x$ is $2.50, and the price of $y$ is also $2.50. Write an equation for the budget constraint (in graphable form, in terms of $y$), and put it on the same graph above.**
-
----
+### Part D
+**Suppose this consumer has an income of $10, the price of $x$ is $2.50, and the price of $y$ is also $2.50. Write an equation for the budget constraint (in graphable form, in terms of $y$), and put it on the same graph above.**
 
 $$\begin{aligned}
 m &= p_xx+p_yy \\
@@ -643,11 +589,8 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   theme_bw(base_size=16)
 ```
 
----
-
-e. **Find the optimal combination of $x$ and $y$ where the consumer maximizes utility subject to income. Label this point $A$ on the graph.**
-
----
+### Part E
+**Find the optimal combination of $x$ and $y$ where the consumer maximizes utility subject to income. Label this point $A$ on the graph.**
 
 At the optimum: 
 
@@ -673,11 +616,8 @@ Since $y=x$, $y^*=2$
 
 The optimum is labeled $A$ on the graph above.
 
----
-
-f. **How much utility does the consumer earn at the optimum?**
-
----
+### Part F
+**How much utility does the consumer earn at the optimum?**
 
 $$\begin{aligned}
 u(x,y)&=\sqrt{xy}\\	
