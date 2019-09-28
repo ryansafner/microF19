@@ -1,0 +1,218 @@
+---
+title: "Practice Exam 1 Answer Key"
+author: "Ryan Safner"
+output:
+  pdf_document:
+    latex_engine: pdflatex #required for Fira Sans font to render properly 
+header-includes:
+  #- \usepackage{tikz, pgfplots, booktabs}
+---
+
+## Problem (30 points)
+
+Show all work. You may *not* earn full credit if you only write the answer, even if correct.
+
+11,. Suppose you can buy Drinks ($D$) and Wings ($W$) at a local bar.
+
+a. **Suppose you have a budget of \$120/month to spend, the price of a Drink is \$3.00, and the price of a plate of Wings is \$4.00. Write a *graphable* equation for the budget constraint, and graph it on the first graph below. (3 points)**
+
+---
+
+$$\begin{aligned}
+3D+4W&=120\\
+4W&=120-3D\\
+W&=30-0.75D\\
+\end{aligned}$$
+
+See original red line on first graph below.
+
+---
+
+b. **Suppose you earn utility according to the function:**
+
+$$\begin{aligned}
+u(D,W)&=DW\\
+MU_D&=W\\
+MU_W&=D\\
+\end{aligned}$$
+
+**Write an equation for your *marginal rate of substitution* between $D$ and $W$.  (3 points)**
+
+---
+
+$$\begin{aligned}
+MRS_{D,W} &=\frac{MU_D}{MU_W}\\
+MRS_{D,W} &=\frac{W}{D}\\
+\end{aligned}$$
+
+---
+
+c. **Calculate the *optimum* quantities of $D$ and $W$ that maximizes your utility subject to your constraints. Plot this point on the first graph below, (call it point *A*), and sketch an indifference curve through that point. (10 points)**
+
+---
+
+$$\begin{aligned}
+\frac{MU_D}{MU_W}&=\frac{p_D}{p_W}\\
+\frac{W}{D}&=\frac{3}{4}\\
+W&=\frac{3}{4}D\\
+\end{aligned}$$
+
+Plug this into the budget constraint:
+
+$$\begin{aligned}
+3D+4W&=120\\
+3D+4(\frac{3}{4}D)&=120\\
+3D+3D&=120\\
+6D&=120\\
+D^*&=20\\
+\end{aligned}$$
+
+Knowing $D^*=20$, we can find $W^*$: 
+
+$$\begin{aligned}
+W&=\frac{3}{4}D\\
+W&=\frac{3}{4}(20)\\
+W^*&=15\\
+\end{aligned}$$
+
+This point, $(D^*, W^*) = (20,15)$ is plotted as point $A$ on the first graph below.
+
+---
+
+d. **How much utility do you earn from the optimum bundle (point *A*)? (1 point)**
+
+---
+
+$$\begin{aligned}
+u(D,W)&=DW\\
+u(20,15)&=20*15\\
+u(20,15)&=300\\
+\end{aligned}$$
+
+---
+
+e. **Now suppose the price of Drinks ($D$) *rises* to \$4.00. Find the equation of the *new budget constraint* (in *graphable* form), and add it to the first graph below. (3 points)**
+
+---
+
+$$\begin{aligned}
+4D+4W&=120\\
+4W&=120-4D\\
+W&=30-D\\
+\end{aligned}$$
+
+See new dotted red line on first graph below.
+
+---
+
+f. **Calculate the *new optimum* quantities of $x$ and $y$ under this new price. Plot this point on the first graph below, (call it point *B*), and sketch an indifference curve through that point. Hint: the formula for MRS has not changed. (6 points)**
+
+---
+$$\begin{aligned}
+\frac{MU_D}{MU_W}&=\frac{p_D}{p_W}\\
+\frac{W}{D}&=\frac{4}{4}\\
+W&=D\\
+\end{aligned}$$
+Plug this into the (new!) budget constraint:
+
+$$\begin{aligned}
+4D+4W&=120\\
+4D+4(D)&=120\\
+4D+4D&=120\\
+8D&=120\\
+D^*_2&=15\\
+\end{aligned}$$
+
+Knowing $D^*_2=20$, we can find $W_2^*$: 
+
+$$\begin{aligned}
+W&=D\\
+W^*_2&=15\\
+\end{aligned}$$
+
+This point, $(D^*_2, W^*_2) = (15,15)$ is plotted as point $B$ on the first graph below.
+
+---
+
+g. **How much utility do you earn from the new optimum bundle (point *B*)? (1 point)**
+
+---
+
+$$\begin{aligned}
+u(D,W)&=DW\\
+u(15,15)&=15*15\\
+u(15,15)&=225\\
+\end{aligned}$$
+
+---
+
+h. **Plot the optima from parts c and f on the *second* graph below, describing the relationship between the price of Drinks and the optimal consumption of Drinks. Connect the points. What did you just draw? (3 points)**
+
+---
+
+```{r, echo=F, warning=F, message=F}
+library(tidyverse)
+library(ggrepel)
+points <-tribble(
+  ~x, ~y, ~letter,
+  20, 15, "A",
+  15, 15, "B"
+)
+IC_1=function(x){300/x}
+IC_2=function(x){225/x}
+
+budget_1 = function(x){30-0.75*x}
+budget_2 = function(x){30-x}
+
+ggplot(tibble(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_1, geom="line", size=2, color = "green")+
+  stat_function(fun=IC_2, geom="line", size=2, color = "blue")+
+  stat_function(fun=budget_1, geom="line", size=2, color = "red")+
+  stat_function(fun=budget_2, geom="line", size=2, color = "red", linetype="dashed")+
+  geom_segment(x=0, xend=20,y=15,yend=15, linetype="dotted")+
+  geom_segment(x=15, xend=15,y=15,yend=0, linetype="dotted")+
+  geom_segment(x=20, xend=20,y=15,yend=0, linetype="dotted")+
+  geom_point(data=points, aes(x=x,y=y), size=3)+
+  geom_label_repel(data=points, aes(x=x,y=y, label=letter), size=5)+
+    scale_x_continuous(breaks=seq(0,50,5),
+                     limits=c(0,50),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,50,5),
+                     limits=c(0,50),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Drinks (D)",
+       y = "Wings (W)")+
+  theme_bw(base_size=16)
+```
+
+```{r, echo=F, warning=F, message=F}
+library(tidyverse)
+library(ggrepel)
+points_2 <-tribble(
+  ~x, ~y, ~letter,
+  20, 3, "A",
+  15, 4, "B"
+)
+demand=function(x){7-0.2*x}
+
+ggplot(tibble(x=c(0,10)), aes(x=x))+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+  geom_label(aes(x=30, y=1),label = "Demand", color = "blue")+
+  geom_segment(x=0, xend=20,y=3,yend=3, linetype="dotted")+
+  geom_segment(x=20, xend=20,y=3,yend=0, linetype="dotted")+
+  geom_segment(x=0, xend=15,y=4,yend=4, linetype="dotted")+
+  geom_segment(x=15, xend=15,y=4,yend=0, linetype="dotted")+
+  geom_point(data=points_2, aes(x=x,y=y), size=3)+
+  geom_label_repel(data=points_2, aes(x=x,y=y, label=letter), size=5)+
+    scale_x_continuous(breaks=seq(0,50,5),
+                     limits=c(0,50),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Drinks (D)",
+       y = "Price per Drink (p)")+
+  theme_bw(base_size=16)
+```
+
+
