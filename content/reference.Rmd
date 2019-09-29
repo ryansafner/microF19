@@ -23,3 +23,22 @@ Look here over the course of the semester for resources, links, and tips on how 
 - [<i class="fas fa-file-pdf"></i> Math Review Guide](/files/math_review_guide.pdf)
 
 This is a review guide for all of the mathematical tools that are necessary for the class. It is fairly comprehensive, and in a more conceptual order than chronological order. You will not need to recall/understand everything right now, but it may be handy to consult over the semester as we introduce new economic concepts using different mathematical tools.
+
+# List of Math Appendices
+
+The following list contains links to all appendices spread across the Class Notes pages:
+
+- [Utility Functions and PMTs](https://microf19.classes.ryansafner.com/class/04-class/#utility-functions-and-pmts) (Class 1.4)
+- [Graphing Indifference Curves](https://microf19.classes.ryansafner.com/class/05-class/#graphing-indifference-curves) (Class 1.5)
+- [Cobb-Douglas Functions](https://microf19.classes.ryansafner.com/class/05-class/#cobb-douglas-functions) (Class 1.5)
+- [Solving the Constrained Optimization Problem with Calculus](https://microf19.classes.ryansafner.com/class/06-class/#solving-the-constrained-optimization-problem-with-calculus) (Class 1.6)
+- [Example Demand Functions](https://microf19.classes.ryansafner.com/class/08-class/#example-demand-functions) (Class 1.8)
+- [Cobb-Douglas Demand Function](https://microf19.classes.ryansafner.com/class/08-class/#cobb-douglas) (Class 1.8)
+
+# Interactive Examples
+
+- The following list contains links to all interactive R/Shiny apps that help visualize some of the math functions that we are manipulating. You can manipulate key parameters and see how it affects the outcome. For more descriptions of each, see its associated class page: 
+
+- [Visualizing the Consumer's Problem](https://ryansafner.shinyapps.io/Consumer/) ([Class 1.8](https://microf19.classes.ryansafner.com/class/08-class/#interactive-examples))
+- [Visualizing Changes in the Consumer's Problem](https://ryansafner.shinyapps.io/Consumer_changes/) ([Class 1.8](https://microf19.classes.ryansafner.com/class/08-class/#interactive-examples))
+- [Visualizing Demand Shifters](https://ryansafner.shinyapps.io/Demand/) ([Class 1.8](https://microf19.classes.ryansafner.com/class/08-class/#interactive-examples))
