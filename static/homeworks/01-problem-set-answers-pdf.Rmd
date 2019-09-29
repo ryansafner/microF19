@@ -152,12 +152,12 @@ IC_c2=function(x){log(x)+4}
 IC_c3=function(x){log(x)+6}
 
 ggplot(data.frame(x=c(0,10)), aes(x=x))+
-  stat_function(fun=IC_c1, geom="line", size=2, color="red")+
-  geom_label(aes(x=8, y=IC_c1(8)), color="red", label=expression(IC[1]))+
+  stat_function(fun=IC_c1, geom="line", size=2, color="green")+
+  geom_label(aes(x=8, y=IC_c1(8)), color="green", label=expression(IC[3]))+
   stat_function(fun=IC_c2, geom="line", size=2, color="blue")+
   geom_label(aes(x=8, y=IC_c2(8)), color="blue", label=expression(IC[2]))+
-  stat_function(fun=IC_c3, geom="line", size=2, color="green")+
-  geom_label(aes(x=8, y=IC_c3(8)), color="green", label=expression(IC[3]))+
+  stat_function(fun=IC_c3, geom="line", size=2, color="red")+
+  geom_label(aes(x=8, y=IC_c3(8)), color="red", label=expression(IC[1]))+
   scale_x_continuous(breaks=seq(0,10,1),
                      limits=c(0,10),
                      expand=expand_scale(mult=c(0,0.1)))+
@@ -214,17 +214,17 @@ e. **Emile hates both sauerkraut and anchovies.**
 
 
 ```{r}
-IC_e1=function(x){sqrt(36-x^2)}
+IC_e3=function(x){sqrt(36-x^2)}
 IC_e2=function(x){sqrt(16-x^2)}
-IC_e3=function(x){sqrt(4-x^2)}
+IC_e1=function(x){sqrt(4-x^2)}
 
 ggplot(data.frame(x=c(0,10)), aes(x=x))+
-  stat_function(fun=IC_e1, geom="line", size=2, color="red")+
-  geom_label(aes(x=1, y=IC_e1(1)), color="red", label=expression(IC[1]))+
+  stat_function(fun=IC_e1, geom="line", size=2, color="green")+
+  geom_label(aes(x=1, y=IC_e1(1)), color="green", label=expression(IC[3]))+
   stat_function(fun=IC_e2, geom="line", size=2, color="blue")+
   geom_label(aes(x=1, y=IC_e2(1)), color="blue", label=expression(IC[2]))+
-  stat_function(fun=IC_e3, geom="line", size=2, color="green")+
-  geom_label(aes(x=1, y=IC_e3(1)), color="green", label=expression(IC[3]))+
+  stat_function(fun=IC_e3, geom="line", size=2, color="red")+
+  geom_label(aes(x=1, y=IC_e3(1)), color="red", label=expression(IC[1]))+
   scale_x_continuous(breaks=seq(0,10,1),
                      limits=c(0,10),
                      expand=expand_scale(mult=c(0,0.1)))+
@@ -274,11 +274,11 @@ g. Li likes spending time with his girlfriend and his mother, but never at the s
 ```{r}
 ggplot(data.frame(x=c(0,10)), aes(x=x))+
   stat_function(fun=IC_e1, geom="line", size=2, color="red")+
-  geom_label(aes(x=1, y=IC_e1(1)), color="red", label=expression(IC[3]))+
+  geom_label(aes(x=1, y=IC_e1(1)), color="red", label=expression(IC[1]))+
   stat_function(fun=IC_e2, geom="line", size=2, color="blue")+
   geom_label(aes(x=1, y=IC_e2(1)), color="blue", label=expression(IC[2]))+
   stat_function(fun=IC_e3, geom="line", size=2, color="green")+
-  geom_label(aes(x=1, y=IC_e3(1)), color="green", label=expression(IC[1]))+
+  geom_label(aes(x=1, y=IC_e3(1)), color="green", label=expression(IC[3]))+
   scale_x_continuous(breaks=seq(0,10,1),
                      limits=c(0,10),
                      expand=expand_scale(mult=c(0,0.1)))+
@@ -286,8 +286,8 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
                      limits=c(0,10),
                      expand=expand_scale(mult=c(0,0.1)))+
   scale_colour_manual("Curves", values = line_colors, guide=F)+
-  labs(x = "Ice Cream",
-       y = "Anchovies")+
+  labs(x = "Hours with Girlfriend",
+       y = "Hours with Mother")+
   theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
 ```
 
