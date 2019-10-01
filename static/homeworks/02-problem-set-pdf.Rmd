@@ -1,5 +1,5 @@
 ---
-title: "Problem Set 1"
+title: "Problem Set 2"
 author: "Ryan Safner"
 date: "ECON 306 Fall 2019"
 output: pdf_document
@@ -17,7 +17,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 *Due by Monday, September 30, 2019* (Section 2 - MW)
 
-- [<i class="far fa-life-ring"></i> `Answer Key`](/homeworks/02-problem-set-answers.html)
 
 Please write your answers to the following questions on a piece of paper, or download and print a PDF copy (link above) to write on. You may also type your answers and print out a hard copy.
 

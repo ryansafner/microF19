@@ -16,6 +16,8 @@ source(file.path(here::here(), "lib", "graphics.R"))
 
 - [<i class="fas fa-file-pdf"></i> `Download as PDF`](/homeworks/02-problem-set-pdf.pdf)
 
+- [<i class="far fa-life-ring"></i> `Answer Key`](/homeworks/02-problem-set-answers.html)
+
 Please write your answers to the following questions on a piece of paper, or download and print a PDF copy (link above) to write on. You may also type your answers and print out a hard copy.
 
 You may work together (and I highly encourage that) but you must turn in your own answers. Your TA, under my supervision, will grade homeworks 70% for completion, and for the remaining 30%, pick one question to grade for accuracy - so it is best that you try every problem, even if you are unsure how to complete it accurately.
