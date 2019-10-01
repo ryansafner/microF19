@@ -1,0 +1,431 @@
+---
+title: "Problem Set 2 (Solutions)"
+author: "Ryan Safner"
+date: "ECON 306 Fall 2019"
+output: pdf_document
+header-includes:
+- \usepackage{amsmath}
+- \usepackage{multirow, multicol, booktabs}
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = F,
+                      message = F)
+```
+
+**Note:** Answers may be longer than I would deem sufficient on an exam. Some might vary slightly based on points of interest, examples, or personal experience. These suggested answers are designed to give you both the answer and a short explanation of why it is the answer.
+
+# Concepts and Critical Thinking
+
+1. **Describe, in your own words, the (i) price effect, (ii) real income effect, and (iii) substitution effect from a price change.**
+
+---
+
+The substitution effect is the change in consumption of a good due to a price change; the fact that a change in price causes consumers to substitute some of one good for another, specifically, they buy less of the good that has become relatively more expensive, and buy more of the good that has become relatively cheaper, and get the same utility. This is the classic cause of a downward sloping demand curve. 
+
+The "real" income effect is the change in consumption of a good due to a change in real purchasing power arising from a price change (now you can buy more goods in total because at least one good is cheaper). This may be positive or negative, depending on whether the good is a normal good (positive) or an inferior good (negative). 
+
+The price effect is the overall net effect, adding the income and substitution effects together to describe the change in consumption from a change in that good's price. 
+
+---
+
+2. **Under what conditions can the law of demand be violated (however theoretical)?**
+
+---
+
+A "Giffen good" violates the law of demand, that is, as price increases (decreases), the quantity demanded for the good also increases (decreases). The good must be (i) an inferior good (negative real income effect) and the (ii) real income effect must be larger than the substitution effect.
+
+\clearpage
+
+3. **For each of the following pairs, which of the two goods is more likely to have a *low* price elasticity of demand (less elastic) and why?**
+
+a. **Demand for tangerines vs. demand for fruit**
+
+---
+
+Fruit is more inelastically demanded because the overall category of fruit has fewer good substitutes than any one item in that category.
+
+---
+
+b. **Demand for beef next month vs. demand for beef over the next decade**
+
+---
+
+More inelastic over the next month because people are usually less flexible in their buying behavior in the short run.
+
+---
+
+c. **Demand for Exxon gasoline at the corner of 7th and Grand vs. demand for gasoline in the entire city**
+
+---
+
+Brand-named goods are more elastic than categories especially when there are very good substitutes for Exxon gasoline available at close distances.
+
+---
+
+d. **Demand for insulin vs. demand for vitamins**
+
+---
+
+Insulin is probably more of a necessity; thus, demand for insulin from buyers is more inelastic than demand for vitamins for buyers of vitamins.
+
+\clearpage
+
+4. **Suppose that, holding prices constant, Alice has preferences over the number of books she purchases, illustrated in the table below.**
+
+```{r, results="asis", echo=F, message = F, warning = F}
+library("tidyverse")
+engel<-tribble(
+  ~Income, ~Books,
+  5, 5,
+  10, 6,
+  15, 20,
+  20, 25,
+  25, 26,
+  30, 10,
+  35, 9,
+  40, 8,
+  45, 7,
+  50, 6
+)
+
+engel %>%
+  knitr::kable(., format="latex", booktabs=TRUE)
+```
+
+**Draw a smooth approximation of Alice's Engel curve for books, indicating the ranges over which books are inferior goods and over which they are normal goods.**^[This got cut off of the PDF, so we will not grade this question!]
+
+```{r}
+ggplot(data = engel, aes(x=Books,
+                         y=Income))+
+  geom_point(color="blue")+
+  geom_path(color="blue", size=2)+
+  geom_segment(x=25, xend=10, y=20, yend=30, size=2,color="blue")+
+  scale_x_continuous(breaks=seq(0,25,5),
+                     limits=c(0,25),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,50,5),
+                     limits=c(0,50),
+                     labels=scales::dollar,
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Books",
+       y = "Income")+
+  theme_classic(base_size=14) #base_family = "Fira Sans Condensed",
+```
+
+\clearpage
+
+# Quantitative Applications
+
+Show all work for calculations. You may lose points, even if correct, for missing work. Be sure to label graphs fully, if appropriate.
+
+5. **Steve spends his disposable income on meals at restaurants $(r)$ and paperback novels $(n)$. His usual restaurant meal costs $25, and paperback books cost $8. When Steve’s monthly income is $240, he goes out to eat 8 times and purchases 5 books. When his income rises to $282, he goes out to eat 10 times and purchases 4 books.**
+
+a. **Calculate the income elasticity for meals at restaurants $(r)$. Is this an inferior, necessity, or luxury good?**
+
+---
+
+We need to examine the income elasticity of each good. Let's start with restaurant meals: 
+	
+$$\begin{aligned}
+	\epsilon_{r,m}&=\cfrac{\frac{\Delta r}{r}}{\frac{\Delta m}{m}}\\
+	&=\cfrac{\frac{(10-8)}{8}}{\frac{(282-240)}{240}}\\
+	&=\cfrac{\frac{2}{8}}{\frac{42}{240}}\\
+	&=\frac{0.25}{0.175}\\
+	&\approx 1.43
+	\end{aligned}$$
+
+Since the elasticity is positive, they are normal goods. Since the elasticity is larger than 1, they are luxury goods. For every 1\% Steve's income increases (decreases), he buys 1.43\% more (fewer) meals.
+	
+---
+
+b. **Calculate the income elasticity for paperback novels $(n)$. Is this an inferior, necessity, or luxury good?**
+
+$$\begin{aligned}
+	\epsilon_{n,m}&=\cfrac{\frac{\Delta n}{n}}{\frac{\Delta m}{m}}\\
+	&=\cfrac{\frac{(4-5)}{5}}{\frac{(282-240)}{240}}\\
+	&=\cfrac{\frac{-1}{5}}{\frac{42}{240}}\\
+	&=\frac{-0.20}{0.175}\\
+	&\approx -1.14
+	\end{aligned}$$
+
+Since the elasticity is negative, they are inferior goods. For every 1\% income increases (decreases), Steve buys 1.14\% fewer (more) novels.
+
+\clearpage
+
+6. **Kendra buys eggs $(e)$, bagels $(b)$, and coffee $(c)$ for breakfast for the week.**
+
+a. **When eggs are $2/carton, she buys 5 bagels. When the price of eggs falls to $1/carton, she buys 4 bagels. Calculate the cross-price elasticity between eggs and bagels. Are they complements or substitutes for Kendra?**
+
+---
+
+$$\begin{aligned}
+	\epsilon_{b,p_e}&=\cfrac{\frac{\Delta b}{b}}{\frac{\Delta p_e}{p_e}}\\
+	&=\cfrac{\frac{(4-5)}{5}}{\frac{(1-2)}{2}}\\
+	&=\cfrac{\frac{-1}{5}}{\frac{-1}{2}}\\
+	&=\frac{0.2}{0.5}\\
+	&=0.4\\
+	\end{aligned}$$
+
+Since the cross-price elasticity is positive, they are substitutes. When the price of eggs increases (decreases) by 1\%, she buys 0.4\% more (fewer) bagels.
+
+---
+
+b. **When eggs are $2/carton, she buys 3 cups of coffee. When the price of eggs falls to $1/carton, she buys 6 cups of coffee. Calculate the cross-price elasticity between eggs and coffee. Are they complements or substitutes for Kendra?**
+
+---
+
+$$\begin{aligned}
+	\epsilon_{c,p_e}&=\cfrac{\frac{\Delta c}{c}}{\frac{\Delta p_e}{p_e}}\\
+	&=\cfrac{\frac{(6-3)}{3}}{\frac{(1-2)}{2}}\\
+	&=\cfrac{\frac{3}{3}}{\frac{-1}{2}}\\
+	&=\frac{1}{-0.5}\\
+	&=-2\\
+	\end{aligned}$$
+
+Since the cross-price elasticity is negative, they are complements. When the price of eggs increases (decreases) by 1\%, she buys 2\% fewer (more) cups of coffee.
+
+\clearpage
+
+7 **Sketch a graph showing a *decrease* in the price of a good (on the horizontal axis, e.g. $x$ if you want). Indicate the (real) income effect, substitution effect, and price effect on the graph. Labelling points and describing each effect as a movement between specific points is sufficient.**
+
+---
+
+```{r}
+library(ggrepel)
+points_pe<-tribble(
+  ~letter, ~x, ~y,
+  "A", 10, 15,
+  "B", 20, 7.5,
+  "C", 40, 15
+)
+
+IC_pe_1=function(x){150/x}
+IC_pe_2=function(x){600/x}
+BC_pe_subst=function(x){15-0.375*x}
+BC_pe_1=function(x){30-1.5*x}
+BC_pe_2=function(x){30-0.375*x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_pe_1, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=BC_pe_1, geom="line", size=2, color = "red")+
+  # new lines
+  stat_function(fun=IC_pe_2, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=BC_pe_2, geom="line", size=2, color = "red")+
+  # subst IC line
+  stat_function(fun=BC_pe_subst, geom="line", size=2, color = "red", linetype="dashed", alpha=0.5)+
+    geom_label(aes(x=3,y=IC_pe_1(3)), color = "#453781FF", label=expression(u[1]), size = 4)+
+    geom_label(aes(x=5,y=BC_pe_1(5)), color = "red", label=expression(paste(p[x],"=$5.00")), size = 4)+
+    geom_label(aes(x=12,y=BC_pe_2(12)), color = "red", label=expression(paste(p[x],"=$1.25")), size = 4)+
+    geom_label(aes(x=14,y=IC_pe_2(14)), color = "#20A387FF", label=expression(u[2]), size = 4)+
+  
+  # price effect arrow
+  annotate("segment", x = 10, xend = 40, y = 15, yend = 15, color = "purple", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  # substitution effect arrow
+  annotate("segment", x = 10, xend = 20, y = 15, yend = 7.5, color = "orange", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  # income effect arrow
+  annotate("segment", x = 20, xend = 40, y = 7.5, yend = 15, color = "green", size=2.5, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  geom_point(data = points_pe,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_label_repel(data = points_pe,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  # A lines
+  geom_segment(aes(x = 0, xend = 10, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 15, yend=0), linetype="dotted", size=1)+
+  # B lines
+  geom_segment(aes(x = 0, xend = 20, y = 7.5, yend=7.5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 20, xend = 20, y = 7.5, yend=0), linetype="dotted", size=1)+
+  # C lines
+  geom_segment(aes(x = 0, xend = 40, y = 15, yend=15), linetype="dotted", size=1)+
+  geom_segment(aes(x = 40, xend = 40, y = 15, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,50,5),
+                     limits=c(0,50),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,50,5),
+                     limits=c(0,50),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "x",
+       y = "y",
+       caption = expression(paste("Optima with ", u(x,y)==x^{0.5}*y^{0.5}, ", ", m==100, ", ", p[y]==3.33, sep=" ")))+
+  theme_bw(base_size=14) #base_family = "Fira Sans Condensed", base_size=20)
+```
+
+We begin with an original optimum at point $A$. Then the price of $x$ falls from $5.00$ to $1.25$: 
+
+The **substitution effect** (orange) is where we shift the new budget line $(p_x=1.25)$ (reflecting the new relative prices of $x$ and $y$) inwards until it is tangent to the original indifference curve $(u_1)$ at a different point, in this case, point B. This tells us, under the new prices, how much $x$ and $y$ the person would want to consume to enjoy the same level of utility (she substitutes more $x$ for less $y$). 
+	
+The **real income effect** (green) is where the change in price allows the consumer to purchase more goods than before, where she can move to a higher indifference curve $(u_2)$ at point C. From point B, she consumes more $x$ and more $y$.
+	
+Thus, the **total price effect** (purple), moving from A to C, when the price of $x$ falls, is for her to buy more $x$ (and no change in $y)$. 
+
+\clearpage
+
+8. **8. The demand for gym memberships is given by**
+$$q_D=500-5p$$
+
+a. **Write the inverse demand function.**
+
+---
+
+$$\begin{aligned}
+	q_D&=500-5p\\
+	q_D-500&=-5p\\
+	100-\frac{1}{5}&=p\\
+	\end{aligned}$$
+
+---
+
+b. **Calculate the price elasticity of demand at a price of \$80. Is this relatively elastic or relatively inelastic?**
+
+---
+
+First, we need to find the quantity demanded when price is \$80:
+
+$$\begin{aligned}
+	q_D&=500-5p\\
+	q_D&=500-5(80)\\
+	q_D&=500-400\\
+	q_D&=100\\
+	\end{aligned}$$
+
+We found the slope from the inverse demand curve, $-\frac{1}{5}$. 
+
+Now that we have the price (\$80), quantity demanded (100) and the slope $(-\frac{1}{5})$, we can plug these into the formula for point elasticity of demand:
+
+$$\begin{aligned}
+	\epsilon_D &= \frac{1}{slope} \times \frac{p}{q_D}\\
+	\epsilon_D &= \cfrac{1}{\left(-\frac{1}{5}\right)} \times \frac{80}{100}\\ 
+	\epsilon_D &= -5 \times 0.8 \\
+	\epsilon_D &= -4\\ 
+	\end{aligned}$$
+
+Since $|\epsilon_D| >1$, this is relatively elastic. For every 1\% price increases (decreases), quantity demanded decreases (increases) by 4\%.
+
+---
+
+c. **What is the total revenue at a price of \$80?**
+
+---
+
+$$\begin{aligned}
+	R&=pq	\\
+	R&=(\$80)(100)\\
+	R&=\$8,000	\\
+	\end{aligned}$$
+
+---
+
+d. **Calculate the price elasticity of demand at a price of \$10. Is this relatively elastic or relatively inelastic?**
+
+---
+
+Now we need the quantity demanded when price is \$10:
+
+$$\begin{aligned}
+	q_D&=500-5p\\
+	q_D&=500-5(10)\\
+	q_D&=500-50\\
+	q_D&=450	\\
+	\end{aligned}$$
+
+We have the price (\$10), quantity demanded (450) and the slope $(-\frac{1}{5})$, we can plug these into the formula for point elasticity of demand:
+
+$$\begin{aligned}
+	\epsilon_D &= \frac{1}{slope} \times \frac{p}{q_D}\\	
+	\epsilon_D &= \cfrac{1}{-\frac{1}{5}} \times \frac{10}{450}	\\
+	\epsilon_D &= -5 \times 0.02\\
+	\epsilon_D &\approx -0.11	\\
+	\end{aligned}$$
+
+Since $|\epsilon_D| < 1$, this is relatively inelastic. For every 1\% price increases (decreases), quantity demanded decreases (increases) by 0.11\%.
+
+---
+
+e. **What is the total revenue at \$10?**
+
+---
+
+$$\begin{aligned}
+	R&=pq	\\
+	R&=(\$10)(450)\\
+	R&=\$4,500	\\
+	\end{aligned}$$
+
+---
+
+f. **At what price is demand unit elastic, i.e. $\epsilon_D=-1$?**
+
+---
+
+We can solve for the price by using the elasticity of demand formula, setting it equal to -1, and plugging the righthand side of the demand equation in for $q_D$, since $q_D=500-5p$. 
+
+$$\begin{aligned}
+	\epsilon_D &= \frac{1}{slope} \times \frac{p}{q_D}\\ 
+	-1 &= -5 \times \frac{p}{(500-5p)}\\
+	-1(500-5p)&=-5p\\	
+	-500+5p&=-5p\\
+	-500&=-10p\\
+	50&=p\\
+	\end{aligned}$$
+
+---
+
+g. **What is the total revenue at the price you find in part (f)?**
+
+---
+
+We have the price, but we need to find the quantity demanded at \$50. 
+
+$$\begin{aligned}
+	q_D &= 500-5p\\
+	q_D&=500-5(50)\\
+	q_D&=500-250\\
+	q_D& = 250	\\
+	\end{aligned}$$
+
+Now we can calculate the total revenue. 
+
+$$\begin{aligned}
+	R&=pq	\\
+	R&=(\$50)(250)\\
+	R&=\$12,500	\\
+	\end{aligned}$$
+
+```{r}
+demand=function(x){100-0.2*x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+  geom_label(aes(x=50,y=demand(50)), color = "blue", label="Demand", size = 6)+
+    scale_x_continuous(breaks=seq(0,500,50),
+                     limits=c(0,500),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,100,10),
+                     limits=c(0,100),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  # line at 450,10 
+  geom_segment(aes(x=0,xend=450, y=10, yend=10), linetype="dashed")+
+  geom_segment(aes(x=450,xend=450, y=10, yend=0), linetype="dashed")+
+  geom_label(aes(x=450, y=10), color="purple", label=expression(paste(epsilon ==-0.11, ": Inelastic; ", R==4500)))+
+  
+  # line at 250,50 
+  geom_segment(aes(x=0,xend=250, y=50, yend=50), linetype="dashed")+
+  geom_segment(aes(x=250,xend=250, y=50, yend=0), linetype="dashed")+
+  geom_label(aes(x=250, y=50), color="purple", label=expression(paste(epsilon == -1, ": Unit Elastic; ", R==12500)))+
+
+  # line at 100,80 
+  geom_segment(aes(x=0,xend=100, y=80, yend=80), linetype="dashed")+
+  geom_segment(aes(x=100,xend=100, y=80, yend=0), linetype="dashed")+
+  geom_label(aes(x=100, y=80), color="purple", label=expression(paste(epsilon == -4, ": Inelastic; ", R==8000)))+
+  #coord_cartesian(clip="off")+
+  labs(x = "Quantity of Gym Memberships",
+       y = "Price of Gym Memberships")+
+  theme_bw(base_size=14) #base_family = "Fira Sans Condensed", base_size=20)
+```
