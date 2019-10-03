@@ -114,7 +114,7 @@ class: inverse, center, middle
 
 .pull-left[
 
-- We will assume that "the firm" is the agent we want to model
+- We'll assume "the firm" is the agent to model:
 
 - So what do firms do? 
 
@@ -241,11 +241,12 @@ tribble(
   "Land (t)", "Landowners", "Rent",
   "Labor (l)", "Laborers", "Wages",
   "Capital (k)", "Capitalists", "Interest",
-  "Entrepreneurship (e)", "Entrepreneurs", "Profit",
-  "Total Factor Productivity (a)", "?", "?"
+  "Entrepreneurship (e)", "Entrepreneurs", "Profit"
 ) %>%
   knitr::kable(., format="html")
 ```
+
+- $a$: "total factor productivity" (ideas/knowledge/institutions)
 
 ]
 
@@ -293,10 +294,10 @@ tribble(
 - We will assume firms .whisper[maximize profit `\\((\pi)\\)`]
 
 - Not true for all firms
-    - <span class="green">**Examples**:</span> non-profits, charities, civic associations, government agencies, criminal organizations, etcclass
+    - <span class="green">**Examples**: non-profits, charities, civic associations, government agencies, criminal organizations, etc</span>
 
 - Even profit-seeking firms may also want to maximize additional things
-    - <span color="green">**Examples**: goodwill, sustainability, social responsibility, etcclass
+    - <span class="green">**Examples**: goodwill, sustainability, social responsibility, etc </span>
 
 ]
 
@@ -383,6 +384,10 @@ tribble(
 
 - Suppose a firm sells output $q$ at a price $p$
 
+- It can buy each input $x_i$ at an associated price $p_i$
+    - labor $l$ at wage rate $w$
+    - capital $k$ at rental rate $r$
+
 - The profit of selling $q$ units and using inputs $l,k$ is:
 $$\pi=\underbrace{pq}_{revenues}-\underbrace{(wl+rk)}_{costs}$$
 
@@ -406,7 +411,7 @@ $$\pi=\underbrace{pq}_{revenues}-\underbrace{(wl+rk)}_{costs}$$
 
 - Profits are the .whisper[residual value] leftover after paying all factors
 
-- Profits are income for whomever is the .shout[residual claimant] of the production process (i.e. **owner/s** of a firm):
+- Profits are income for the .shout[residual claimant(s)] of the production process (i.e. **owner(s)** of a firm):
     - Entrepreneurs
     - Shareholders
 
@@ -425,10 +430,10 @@ $$\pi=\underbrace{pq}_{revenues}-\underbrace{(wl+rk)}_{costs}$$
 .pull-left[
 $$\pi=\underbrace{pq}_{revenues}-\underbrace{(wl+rk)}_{costs}$$
 
-- Residual claimants have incentives to maximize firm's profits, as this maximizes their own income
+- Residual claimants have incentives to maximize firm's profits, as this *maximizes their own income*
 
 - Entrepreneurs and shareholders are the only participants in production that are *not* guaranteed an income!
-    - Starting and owning a firm is inherently risky!
+    - Starting and owning a firm is inherently **risky**!
 
 ]
 
@@ -442,7 +447,7 @@ $$\pi=\underbrace{pq}_{revenues}-\underbrace{(wl+rk)}_{costs}$$
 # People Overestimate Profits
 
 .center[
-![](https://www.dropbox.com/s/957npa8nst030k7/profitmargins.png?raw=1)
+![:scale 55%](https://www.dropbox.com/s/957npa8nst030k7/profitmargins.png?raw=1)
 ]
 
 .source[Source: [American Enterprise Institute](https://www.aei.org/carpe-diem/the-public-thinks-the-average-company-makes-a-36-profit-margin-which-is-about-5x-too-high-part-ii/)]
@@ -474,7 +479,7 @@ $$\pi=\underbrace{pq}_{revenues}-\underbrace{(wl+rk)}_{costs}$$
 
 .pull-left[
 
-- .shout[Principal-Agent problems]: owners and agents may have different incentives
+- .shout[Principal-Agent problem]: owners and agents may have different incentives
 
 - Maximizing different things!
     - Shareholders: maximize profit
@@ -484,7 +489,7 @@ $$\pi=\underbrace{pq}_{revenues}-\underbrace{(wl+rk)}_{costs}$$
 .pull-right[
 
 .center[
-![](https://www.dropbox.com/s/3sh6rny8ofvtoik/shareholdervsmanagement.jpg?raw=1)
+![:scale 100%](https://www.dropbox.com/s/3sh6rny8ofvtoik/shareholdervsmanagement.jpg?raw=1)
 ]
 ]
 
@@ -494,8 +499,8 @@ $$\pi=\underbrace{pq}_{revenues}-\underbrace{(wl+rk)}_{costs}$$
 
 .pull-left[
 
-- In markets, production must face the .shout[profit test]
-    - **Is consumer's willingness to pay $>$ opportunity cost of inputs?**
+- In markets, production must face the .shout[profit test]:
+    - <span class="whisper">Is consumer's willingness to pay $>$ opportunity cost of inputs?</span>
 
 - Profits are an indication that **value is being created for society**
 
@@ -521,11 +526,11 @@ $$\pi=\underbrace{pq}_{revenues}-\underbrace{(wl+rk)}_{costs}$$
 
 1. **Choose:** .blue[ < some alternative >]
 
-2. **In order to maximize:** .green[< some objective >]
+2. **In order to maximize:** .green[< profits >]
 
-3. **Subject to:** .red[< some constraints >]
+3. **Subject to:** .red[< technology >]
 
-- We've so far assumed they maximize profits
+- We've so far assumed they maximize profits and they are limited by their technology
 
 ]
 
@@ -560,15 +565,26 @@ $$\pi=\underbrace{pq}_{revenues}-\underbrace{(wl+rk)}_{costs}$$
 
 # Industrial Organization: A Roadmap I
 
+.pull-left[
+
 - Begin with one extreme case: .shout["perfect competition"]
   - Firms can choose to sell as much $q^*$ as they want
   - Firms are constrained to sell at the (exogenous) market price $\bar{p}$
 
 - Appropriate for settings with *many* firms, each small relative to market
+]
 
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/hf8nqwitq7kypz3/commodities.png?raw=1)
+]
+]
 ---
 
 # Interlude
+
+.pull-left[
 
 - After we find firm's **optimal decisions** in this market (and have Exam 2), we will then finally look at **market equilibrium**
 
@@ -578,15 +594,80 @@ $$\pi=\underbrace{pq}_{revenues}-\underbrace{(wl+rk)}_{costs}$$
     - Finally we can explain these market changes with Supply and Demand models
 
 - Discuss how markets work, why they are good and efficient, and when they are not a good idea
+]
+
+.pull-right[
+
+```{r fig.retina=3}
+library(mosaic)
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+
+Demand=function(x){10-x}
+Supply=function(x){x}
+
+eq<-tribble(
+  ~letter, ~x, ~y,
+  "Eq.", 5, 5
+)
+
+CS<-tibble(x=c(0,0,5),
+           y=c(5,10,5))
+
+PS<-tibble(x=c(0,0,5),
+           y=c(0,5,5))
+
+p<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=Demand, geom="line", size=2, color = "blue")+
+  stat_function(fun=Supply, geom="line", size=2, color = "red")+
+  geom_label(aes(x=9,y=Demand(9)), color = "blue", label="Demand", size = 6)+
+  geom_label(aes(x=9,y=Supply(9)), color = "red", label="Supply", size = 6)+
+  geom_segment(aes(x=0, xend=5, y=5, yend=5),size=1, linetype="dotted")+
+  geom_segment(aes(x=5, xend=5, y=5, yend=0),size=1, linetype="dotted")+
+  geom_polygon(data=CS, aes(x=x,y=y), fill="blue", alpha=0.5)+ #CS
+  geom_polygon(data=PS, aes(x=x,y=y), fill="red", alpha=0.5)+ #PS
+  geom_label(aes(x=1.5, y= 3), label="PS", color="red", size =6)+
+  geom_label(aes(x=1.5, y= 7), label="CS", color="blue", size =6)+
+  geom_point(data = eq,
+             mapping=aes(x=x, y=y),
+             size = 4)+
+  geom_text_repel(data = eq,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity",
+       y = "Price")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+p
+
+```
+
+]
 
 ---
 
 # Industrial Organization: A Roadmap II
 
+.pull-left[
 - Examine another extreme case: .shout[monopoly] of a single seller
     - Appropriate for some markets
 
-- More realistic .shout["imperfect competition"]: models of .shout[monopolistic competition] and .shout[oligopoly]
-    - In latter case, firms can act **strategically**, so we will introduce <span class="shout">game theory</span>
+- More realistic .onfire["imperfect competition"]: models of .shout[monopolistic competition] and .shout[oligopoly]
+    - In latter case, firms can act **strategically**, so we will introduce <span class="onfire">game theory</span>
     
 - In all of these cases, firms can choose *both* output $q^*$ and price $p^*$ to maximize $\pi$
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/tymdsxbqaq2scxq/chessknights.jpg?raw=1)
+]
+]
