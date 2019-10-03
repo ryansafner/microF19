@@ -1,0 +1,592 @@
+---
+title: "2.1: Theory of the Firm"
+subtitle: "ECON 306 · Microeconomic Analysis · Fall 2019"
+author: 'Ryan Safner<br> Assistant Professor of Economics <br> <a href="mailto:safner@hood.edu"><i class="fa fa-paper-plane fa-fw"></i> safner@hood.edu</a> <br> <a href="https://github.com/ryansafner/microf19"><i class="fa fa-github fa-fw"></i> ryansafner/microf19</a><br> <a href="https://microF19.classes.ryansafner.com"> <i class="fa fa-globe fa-fw"></i> microF19.classes.ryansafner.com</a><br>'
+#date:
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML" # rescales math with css changes https://github.com/yihui/xaringan/issues/143
+    lib_dir: libs
+    #seal: false
+    css: [custom.css, custom-fonts.css, "hygge"] #, metropolis, metropolis-fonts
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"] # first is for rescaling images , second is for embedding tweets, https://github.com/yihui/xaringan/issues/100
+      highlightStyle: ocean #rainbow #monokai rainbow solarized-light #tomorrow-night -blue -eighties zenburn
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+    includes:
+      in_header: header.html # for font awesome, used in title  
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo=F,
+                      message=F,
+                      warning=F)
+library("tidyverse")
+library("mosaic")
+library("ggrepel")
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+set.seed(256)
+```
+
+# Producer Behavior
+
+.pull-left[
+
+- How do **producers** decide:
+    - which products to produce
+    - in what quantity
+    - using which resources
+    - and for what price? 
+
+- Answers to these questions are building blocks for **supply curves**	
+]
+
+.pull-right[
+
+.center[
+![:scale 100%](https://www.dropbox.com/s/dvoqzrrli9w3rpn/workshop.jpg?raw=1)
+]
+]
+
+---
+
+# The Basics of Production
+
+.pull-left[
+
+- Nearly all goods must be **produced** before we can exchange and consume them
+
+- .shout[Consumption] is the **destruction** of value to gain utility
+    - Consumption is the ultimate goal of all economic activity
+
+- .shout[Production] is the **creation** of value, by transforming *lower*-valued goods (resources, inputs, etc) into *higher*-valued goods (outputs, consumer products, etc)
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/nucmaubbeggp0mv/valueadd.jpg?raw=1)
+]
+]
+
+---
+
+# The Firm
+
+.pull-left[
+- In modern market economies, most production takes place in a legal organization known as .shout[the firm]
+
+- It does not *have* to be this way, and for most of history it was not this way
+    - Craft guilds
+    - Independent artisans
+    - Independent contractors
+
+- Firms exist in the way they do because they are an efficient response to particular problems of economic organization
+
+- For now, we'll sidestep this interesting issue, you can take my Industrial Organization course next semester to learn more!
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/usjcm7s1euszomm/firms.png?raw=1)
+]
+]
+
+---
+
+class: inverse, center, middle
+
+# What Do Firms Do?
+
+---
+
+# What Do Firms Do? I
+
+.pull-left[
+
+- We will assume that "the firm" is the agent we want to model
+
+- So what do firms do? 
+
+- How would we set up an optimization model:
+
+1. **Choose:** .blue[ < some alternative >]
+
+2. **In order to maximize:** .green[< some objective >]
+
+3. **Subject to:** .red[< some constraints >]
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/ibesms9662olrka/thefirm.JPG?raw=1)
+]
+]
+
+---
+
+# What Do Firms Do? II
+
+.pull-left[
+- Firms convert some goods to other goods: 
+
+]
+
+.pull-right[
+.center[
+![:scale 70%](https://www.dropbox.com/s/zu2c5ijzqvz5sbh/inputoutput.png?raw=1)
+]
+]
+
+---
+
+# What Do Firms Do? II
+
+.pull-left[
+- Firms convert some goods to other goods: 
+
+- **Inputs**: $x_1, x_2, \cdots, x_n$
+  - <span class="green">**Examples**: worker efforts, warehouse space, electricity, loans, gasoline, cardboard, fertilizer, computers, software programs, etc<span>
+  
+]
+
+.pull-right[
+.center[
+![:scale 70%](https://www.dropbox.com/s/zu2c5ijzqvz5sbh/inputoutput.png?raw=1)
+]
+]
+
+---
+# What Do Firms Do? II
+
+.pull-left[
+- Firms convert some goods to other goods: 
+
+- **Inputs**: $x_1, x_2, \cdots, x_n$
+  - <span class="green">**Examples**: worker efforts, warehouse space, electricity, loans, gasoline, cardboard, fertilizer, computers, software programs, etc<span>
+  
+- **Output**:<sup>.red[1]</sup> $q$
+  - <span class="green">**Examples**: oil, cars, legal services, mobile apps, vegetables, consulting advice, financial reports, etc<span>
+
+]
+
+.pull-right[
+.center[
+![:scale 70%](https://www.dropbox.com/s/zu2c5ijzqvz5sbh/inputoutput.png?raw=1)
+]
+]
+
+.footnote[<sup>.red[1]</sup> For simplicity, we assume a firm produces a single product.]
+
+---
+
+# What Do Firms Do? III
+
+.pull-left[
+- .shout[Technology] or a .shout[production function]: rate at which firm can convert specified inputs $(x_1, x_2, \cdots, x_n)$ into output $(q)$
+$$q=f(x_1, x_2, \cdots, x_n)$$
+
+]
+
+.pull-right[
+.center[
+![:scale 70%](https://www.dropbox.com/s/zu2c5ijzqvz5sbh/inputoutput.png?raw=1)
+]
+]
+
+---
+
+# Production Function as Recipe
+
+.pull-left[
+.center[The production function
+
+![](https://www.dropbox.com/s/0820xwecp9au978/recipe1.PNG?raw=1)
+]
+]
+
+.pull-right[
+.center[The production algorithm
+
+![](https://www.dropbox.com/s/7sbjwufc10xxalh/recipe2.PNG?raw=1)
+]
+
+]
+
+---
+
+# Factors of Production I
+
+$$q=f(t,l,k,e,a)$$
+
+.pull-left[
+
+- Economists typically classify inputs in categories, known as the .shout[factors of production (FOP)] or "the .shout[factors]"
+
+```{r,results="asis"}
+tribble(
+  ~"Factor", ~"Owned By", ~"Earns",
+  "Land (t)", "Landowners", "Rent",
+  "Labor (l)", "Laborers", "Wages",
+  "Capital (k)", "Capitalists", "Interest",
+  "Entrepreneurship (e)", "Entrepreneurs", "Profit",
+  "Total Factor Productivity (a)", "?", "?"
+) %>%
+  knitr::kable(., format="html")
+```
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/cg5lbqrxsjij5iu/factors.jpg?raw=1)
+]
+
+]
+
+---
+
+# Factors of Production II
+
+$$q=f(l,k)$$
+
+.pull-left[
+
+- We will assume just two inputs: labor $l$ and capital $k$
+
+```{r,results="asis"}
+tribble(
+  ~"Factor", ~"Owned By", ~"Earns",
+  "Labor (l)", "Laborers", "Wages",
+  "Capital (k)", "Capitalists", "Interest"
+) %>%
+  knitr::kable(., format="html")
+```
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/cg5lbqrxsjij5iu/factors.jpg?raw=1)
+]
+
+]
+
+---
+
+# What Does a Firm Maximize?
+
+.pull-left[
+
+- We will assume firms .whisper[maximize profit `\\((\pi)\\)`]
+
+- Not true for all firms
+    - <span class="green">**Examples**:</span> non-profits, charities, civic associations, government agencies, criminal organizations, etcclass
+
+- Even profit-seeking firms may also want to maximize additional things
+    - <span color="green">**Examples**: goodwill, sustainability, social responsibility, etcclass
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/70jnyywlc8z7u6r/gnomes.png?raw=1)
+]
+]
+
+---
+
+# Profits Have a Bad Rap These Days
+
+.center[
+![:scale 80%](https://www.dropbox.com/s/aubd9fo004avvau/peopleoverprofits.jpg?raw=1)
+]
+
+---
+
+# What is Profit?
+
+.pull-left[
+
+- In economics, profit is simply **benefits minus (opportunity) costs**
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/igyvlrzpb02f28n/profitloss2.jpg?raw=1)
+]
+]
+
+---
+
+# What is Profit?
+
+.pull-left[
+
+- In economics, profit is simply **benefits minus (opportunity) costs**
+
+- Suppose a firm sells output $q$ at a price $p$
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/igyvlrzpb02f28n/profitloss2.jpg?raw=1)
+]
+]
+
+
+---
+
+# What is Profit?
+
+.pull-left[
+
+- In economics, profit is simply **benefits minus (opportunity) costs**
+
+- Suppose a firm sells output $q$ at a price $p$
+
+
+- It can buy each input $x_i$ at an associated price $p_i$
+    - labor $l$ at wage rate $w$
+    - capital $k$ at rental rate $r$
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/igyvlrzpb02f28n/profitloss2.jpg?raw=1)
+]
+]
+
+---
+
+# What is Profit?
+
+.pull-left[
+
+- In economics, profit is simply **benefits minus (opportunity) costs**
+
+- Suppose a firm sells output $q$ at a price $p$
+
+- The profit of selling $q$ units and using inputs $l,k$ is:
+$$\pi=\underbrace{pq}_{revenues}-\underbrace{(wl+rk)}_{costs}$$
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/igyvlrzpb02f28n/profitloss2.jpg?raw=1)
+]
+]
+
+---
+
+# Who Gets the Profits? I
+
+.pull-left[
+$$\pi=\underbrace{pq}_{revenues}-\underbrace{(wl+rk)}_{costs}$$
+
+- .whisper[The firm's costs are all of the factor-owner's incomes!]
+    - Landowners, laborers, creditors are all paid rent, wages, and interest, respectively
+
+- Profits are the .whisper[residual value] leftover after paying all factors
+
+- Profits are income for whomever is the .shout[residual claimant] of the production process (i.e. **owner/s** of a firm):
+    - Entrepreneurs
+    - Shareholders
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/0s2tfmcugauyacz/riskprofit.jpg?raw=1)
+]
+]
+
+---
+
+# Who Gets the Profits? II
+
+.pull-left[
+$$\pi=\underbrace{pq}_{revenues}-\underbrace{(wl+rk)}_{costs}$$
+
+- Residual claimants have incentives to maximize firm's profits, as this maximizes their own income
+
+- Entrepreneurs and shareholders are the only participants in production that are *not* guaranteed an income!
+    - Starting and owning a firm is inherently risky!
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/45zx56p5a2srqib/tightrope.jpg?raw=1)
+]
+]
+---
+
+# People Overestimate Profits
+
+.center[
+![](https://www.dropbox.com/s/957npa8nst030k7/profitmargins.png?raw=1)
+]
+
+.source[Source: [American Enterprise Institute](https://www.aei.org/carpe-diem/the-public-thinks-the-average-company-makes-a-36-profit-margin-which-is-about-5x-too-high-part-ii/)]
+
+---
+
+
+# A Peek Inside the Corporate Veil I
+
+.pull-left[
+
+- While the largest category of firms have a *sole proprietor*, .shout[corporations] have many owners (shareholders)
+
+- Many owners cannot possibly coordinate production: choose .shout[managers] to run day-to-day production in exchange for a salary
+
+- One of the key differences in modern large firms is the **separation of ownership and control**
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/hmruo270o5k8cxy/givekeys.jpg?raw=1)
+]
+]
+
+---
+
+# A Peek Inside the Corporate Veil II
+
+.pull-left[
+
+- .shout[Principal-Agent problems]: owners and agents may have different incentives
+
+- Maximizing different things!
+    - Shareholders: maximize profit
+    - Management: maximize own salary
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/3sh6rny8ofvtoik/shareholdervsmanagement.jpg?raw=1)
+]
+]
+
+---
+
+# Profits and Entrepreneurship: A Preview
+
+.pull-left[
+
+- In markets, production must face the .shout[profit test]
+    - **Is consumer's willingness to pay $>$ opportunity cost of inputs?**
+
+- Profits are an indication that **value is being created for society**
+
+- Losses are an indication that **value is being destroyed for society**
+
+- Survival for sellers in markets *requires* firms continually create value and earn profits or die
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/b5qcs2cqjmhbqc0/feedback.png?raw=1)
+]
+]
+
+---
+
+# The Firm's Optimization Problem I
+
+.pull-left[
+
+- So what do firms do? 
+
+1. **Choose:** .blue[ < some alternative >]
+
+2. **In order to maximize:** .green[< some objective >]
+
+3. **Subject to:** .red[< some constraints >]
+
+- We've so far assumed they maximize profits
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/zwows56ydpqj9u6/management.jpg?raw=1)
+]
+]
+
+---
+
+# The Firm's Optimization Problem II
+
+.pull-left[
+- What do firms **choose**? (Not an easy answer)
+
+- Prices?
+    - Depends on the market the firm is operating in!
+    - Study of <span class="shout">industrial organization</span>
+    
+- Essential question: how competitive is a market? This will influence what firms (can) do
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/3h37ge5bmvety7y/marketpower.jpg?raw=1)
+]
+]
+
+---
+
+# Industrial Organization: A Roadmap I
+
+- Begin with one extreme case: .shout["perfect competition"]
+  - Firms can choose to sell as much $q^*$ as they want
+  - Firms are constrained to sell at the (exogenous) market price $\bar{p}$
+
+- Appropriate for settings with *many* firms, each small relative to market
+
+---
+
+# Interlude
+
+- After we find firm's **optimal decisions** in this market (and have Exam 2), we will then finally look at **market equilibrium**
+
+- Put Supply and Demand together
+    - We've started to see the origins of how consumers cause and respond to market changes (changes in $p_x$, $p_y$, $m$, etc.)
+    - We're about to explore how producers cause and respond to market changes
+    - Finally we can explain these market changes with Supply and Demand models
+
+- Discuss how markets work, why they are good and efficient, and when they are not a good idea
+
+---
+
+# Industrial Organization: A Roadmap II
+
+- Examine another extreme case: .shout[monopoly] of a single seller
+    - Appropriate for some markets
+
+- More realistic .shout["imperfect competition"]: models of .shout[monopolistic competition] and .shout[oligopoly]
+    - In latter case, firms can act **strategically**, so we will introduce <span class="shout">game theory</span>
+    
+- In all of these cases, firms can choose *both* output $q^*$ and price $p^*$ to maximize $\pi$
