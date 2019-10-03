@@ -659,7 +659,7 @@ p
     - Appropriate for some markets
 
 - More realistic .onfire["imperfect competition"]: models of .shout[monopolistic competition] and .shout[oligopoly]
-    - In latter case, firms can act **strategically**, so we will introduce <span class="onfire">game theory</span>
+    - In latter case, firms can act **strategically**, so we will introduce <span class="whisper">game theory</span>
     
 - In all of these cases, firms can choose *both* output $q^*$ and price $p^*$ to maximize $\pi$
 
