@@ -1,5 +1,5 @@
 ---
-title: "2.1 Theory of the Firm - Class Notes"
+title: "2.2 Short Run and Long Run - Class Notes"
 citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-syllabus-no-bib.csl
@@ -37,23 +37,168 @@ Traditionally, it is easier if we break the firm's profit maximization problem i
   - <span color="blue">**Choose**: $<$ Output: $q$ $>$</span>
   - <span color="green">**To Maximize**: $<$ Profit: $\pi=pq-C(q)$ $>$</span>
   - written mathematically:
-  $$\max_{\textcolor{blue}{q \geq 0}}\textcolor{green}{pq-C(q)}$$
+  $$\max_{q \geq 0}pq-C(q)$$
 2. The firm's **cost minimization problem**:
   - <span color="blue">**Choose**: $<$ Inputs: $l,k$ $>$</span>
   - <span color="green">**To Minimize**: $<$ Total cost: $C(q)=wl+rk$ $>$</span>
   - <span color="red">**Subject to**: $<$ Producing optimal output: $q^*=f(k,l)$ $>$</span>
   - written mathematically:
-  $$\min_{\textcolor{blue}{l,k \geq 0}}\textcolor{green}{pq-C(q)}$$
-  $$\textcolor{red}{s.t. y^*=f(k,l)}$$
+  $$\min_{l,k \geq 0}pq-C(q)$$
+  $$s.t. y^*=f(k,l)$$
 
 We proceed in class with the second stage first, and then the first stage. However, this appendix shows that the problem can be solved in a *single stage.* For simplicity, we look at the short run, where there is a single input $l$ that can be chosen $(\bar{k}$ is fixed). 
 
 The firm's **profit maximization problem**:
-  - <span color="blue">**Choose**: $<$ Input and Output: $l,y$ $>$</span>
-  - <span color="green">**To Maximize**: $<$ Profit: $\pi=py-wl$ $>$</span>
-  - <span color="red">**Subject to**: $<$ Technology: $q=f(\bar{k},l)$ $>$</span>
-  - Written mathematically:
+- <span color="blue">**Choose**: $<$ Input and Output: $l,y$ $>$</span>
+- <span color="green">**To Maximize**: $<$ Profit: $\pi=py-wl$ $>$</span>
+- <span color="red">**Subject to**: $<$ Technology: $q=f(\bar{k},l)$ $>$</span>
+- Written mathematically:
   $$\max_{\textcolor{blue}{l,y \geq 0}}\textcolor{green}{pq-wl}$$
   $$\textcolor{red}{s.t. y=f(\bar{k},l)}$$
 
+### Objective: Maximize Profits
 
+The objective function is trying to maximize profits. So we need to think about different levels ("contour lines") of profit that correspond to combinations of input and output (at constant prices).^[This is similar to finding indifference curves for consumers' attempting to maximize their utility function (by finding the highest indifference curve for their budget).]
+
+A firm earns profits ($\pi$) as revenues minus costs: 
+$$\pi=py-wl$$
+Where
+- $q$: quantity of output
+- $p$: price of output
+- $w$: price of input (wage)
+- $l$: quantity of input (labor) 	
+
+Imagine different amounts of input and output that would generate the same profit. We can think of an **isoprofit line** as having the equation above. 
+
+```{r, fig.retina=3, fig.height=5.5, eval=F}
+library("plotly")
+x_vec = seq(0,5,1)
+y_vec = seq(0,5,1)
+x_matrix = matrix(c(x_vec), nrow = 5, ncol = 1)
+y_matrix = matrix(c(y_vec), nrow = 1, ncol = 5)
+z_matrix = matrix(c(2*y_matrix - x_matrix),nrow=5,ncol=5)
+
+plot_ly(x = x_vec,
+           y = y_vec,
+           z = z_matrix) %>%
+  add_surface() %>%
+  layout(scene = list(xaxis = list(title="Input (l)"),
+                      yaxis = list(title="Output (q)"),
+                      zaxis = list(title="Profit (pi)")))
+```
+
+However, it's easier if we graph it as output in terms of input (our two axes for drawing the production function): 
+$$\begin{align*}
+\pi &=pq-wl\\
+\pi+wl&=py\\
+\frac{\pi}{p}+\frac{w}{p}l&=q\\
+\end{align*}$$
+
+```{r, fig.retina=3, fig.height=5.5}
+library("mosaic")
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+
+pi_0=function(x){0+0.5*x}
+pi_1=function(x){1+0.5*x}
+pi_2=function(x){2+0.5*x}
+
+colors<-c("pi_0" = "#20A387FF", "pi_1" = "#39568CFF", "pi_2" = "#481567FF")
+
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  stat_function(fun=pi_2, geom="line", size=2, linetype = "dashed", color="darkgreen")+
+  stat_function(fun=pi_1, geom="line", size=2, linetype = "dashed", color="green")+
+  stat_function(fun=pi_0, geom="line", size=2, linetype = "dashed", color="lightgreen")+
+  geom_label(aes(x=4,y=pi_2(4)), color = "darkgreen", label=expression(pi==2), size = 6)+
+  geom_label(aes(x=4,y=pi_1(4)), color = "green", label=expression(pi==1), size = 6)+
+  geom_label(aes(x=4,y=pi_0(4)), color = "lightgreen", label=expression(pi==0), size = 6)+
+    scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  guides(color = F)+
+  labs(x = "Input (l)",
+       y = "Output (q)",
+       title = expression(paste("Isoprofit Lines, ",slope==frac(w,p))),
+       caption = expression(paste("Technology: ", q(l,bar(k))==sqrt(l), ", Prices: ",w==1, ", ", p==2)))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+### Constraint: Technology
+
+The constraint is what is technologically feasible for the firm to produce, according to its production function. We need to make a few assumptions about production functions in order to get an optimum solution: 
+
+1. $q>0$: firms always produce a positive amount
+2. $\frac{dq}{d l}>0$: The more inputs used, the more output produced (the marginal product, i.e. the slope of production function, i.e. it's first derivative, is positive)
+3. $\frac{d^2q}{d l^2}<0$: Diminishing marginal productivity (production increases at a decreasing rate, i.e. the second derivative of the production function is negative)
+
+These assumptions generate *decreasing returns to scale* in production: doubling input produces less than double output. These assumptions give us a mathematically-easy answer to find, but not all production fits these assumptions. A production function that fits these assumptions would look like this: 
+
+```{r, fig.retina=3, fig.height=5.5}
+library("mosaic")
+prod_1=function(x){sqrt(x)}
+
+colors<-c("pi_0" = "#20A387FF", "pi_1" = "#39568CFF", "pi_2" = "#481567FF")
+
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  stat_function(fun=prod_1, geom="line", size=2, color="red")+
+  geom_label(aes(x=4,y=prod_1(4)), color = "red", label="Technology", size = 6)+
+    scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  guides(color = F)+
+  labs(x = "Input (l)",
+       y = "Output (q)",
+       title = "Production Function",
+       subtitle = "Diminishing returns: q increases with l at a decreasing rate",
+       caption = expression(paste("Technology: ", q(l,bar(k))==sqrt(l))))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+### Solving the Problem
+
+Essentially, we are trying to find the highest profit line tangent to our production function:
+
+```{r, fig.retina=3, fig.height=5.5}
+library("ggrepel")
+pi_05=function(x){0.5+0.5*x}
+
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  stat_function(fun=pi_1, geom="line", size=2, linetype = "dashed", color="darkgreen")+
+  stat_function(fun=pi_0, geom="line", size=2, linetype = "dashed", color="green")+
+  geom_label(aes(x=2.75,y=pi_1(2.75)), color = "darkgreen", label=expression(pi==1), size = 4)+
+  geom_label(aes(x=2.75,y=pi_0(2.75)), color = "green", label=expression(pi==0), size = 4)+
+  stat_function(fun=pi_05, geom="line", size=2, color = "lightgreen")+
+  geom_label(aes(x=2.75,y=pi_05(2.75)), color = "lightgreen", label=expression(pi==0.5), size = 4)+
+  stat_function(fun=prod_1, geom="line", size=2, color="red")+
+  geom_label(aes(x=2.75,y=prod_1(2.75)), color = "red", label="Technology", size = 4)+
+  geom_segment(aes(x=0,xend=1,y=1,yend=1), size=1, linetype="dotted")+
+  geom_segment(aes(x=1,xend=1,y=1,yend=0), size=1, linetype="dotted")+
+  geom_point(aes(x=1,y=1), size=3)+
+  geom_text(aes(x=1,y=1.125), label="A", size=6)+
+    scale_x_continuous(breaks=seq(0,3,1),
+                     limits=c(0,3),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,3,1),
+                     limits=c(0,3),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Input (l)",
+       y = "Output (q)",
+       title ="Isoprofit Lines",
+       caption = expression(paste("Technology: ", q(l,bar(k))==sqrt(l), ", Prices: ",w==1, ", ", p==2)))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+At a tangency, the slopes of the two functions are equal. The slope of the isoprofit lines we know are $\frac{w}{p}$. The slope of the production function is the marginal product (of labor). So at the point of tangency: 
+$$\begin{align*}
+	\text{Slope of production function} &= \text{Slope of Isoprofit line}\\
+	\mathbf{MP_l}&\mathbf{=\frac{w}{p}}\\
+\end{align*}$$
+
+## The Firm's Supply and Demand Functions

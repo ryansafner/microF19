@@ -1,5 +1,5 @@
 ---
-title: "2.1 Theory of the Firm - Class Notes"
+title: "2.2 Short Run and Long Run - Class Notes"
 citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-syllabus-no-bib.csl
@@ -21,6 +21,7 @@ editor_options:
 <li><a href="#slides">Slides</a></li>
 <li><a href="#appendix">Appendix</a><ul>
 <li><a href="#solving-the-firms-problem-in-one-step">Solving the Firm’s Problem in One Step</a></li>
+<li><a href="#the-firms-supply-and-demand-functions">The Firm’s Supply and Demand Functions</a></li>
 </ul></li>
 </ul>
 </div>
@@ -42,7 +43,7 @@ editor_options:
 <li><span color="blue"><strong>Choose</strong>: <span class="math inline">\(&lt;\)</span> Output: <span class="math inline">\(q\)</span> <span class="math inline">\(&gt;\)</span></span></li>
 <li><span color="green"><strong>To Maximize</strong>: <span class="math inline">\(&lt;\)</span> Profit: <span class="math inline">\(\pi=pq-C(q)\)</span> <span class="math inline">\(&gt;\)</span></span></li>
 <li>written mathematically:
-<span class="math display">\[\max_{\textcolor{blue}{q \geq 0}}\textcolor{green}{pq-C(q)}\]</span></li>
+<span class="math display">\[\max_{q \geq 0}pq-C(q)\]</span></li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
 <li>The firm’s <strong>cost minimization problem</strong>:</li>
@@ -52,8 +53,8 @@ editor_options:
 <li><span color="green"><strong>To Minimize</strong>: <span class="math inline">\(&lt;\)</span> Total cost: <span class="math inline">\(C(q)=wl+rk\)</span> <span class="math inline">\(&gt;\)</span></span></li>
 <li><span color="red"><strong>Subject to</strong>: <span class="math inline">\(&lt;\)</span> Producing optimal output: <span class="math inline">\(q^*=f(k,l)\)</span> <span class="math inline">\(&gt;\)</span></span></li>
 <li>written mathematically:
-<span class="math display">\[\min_{\textcolor{blue}{l,k \geq 0}}\textcolor{green}{pq-C(q)}\]</span>
-<span class="math display">\[\textcolor{red}{s.t. y^*=f(k,l)}\]</span></li>
+<span class="math display">\[\min_{l,k \geq 0}pq-C(q)\]</span>
+<span class="math display">\[s.t. y^*=f(k,l)\]</span></li>
 </ul>
 <p>We proceed in class with the second stage first, and then the first stage. However, this appendix shows that the problem can be solved in a <em>single stage.</em> For simplicity, we look at the short run, where there is a single input <span class="math inline">\(l\)</span> that can be chosen <span class="math inline">\((\bar{k}\)</span> is fixed).</p>
 <p>The firm’s <strong>profit maximization problem</strong>:
@@ -63,3 +64,40 @@ editor_options:
 - Written mathematically:
 <span class="math display">\[\max_{\textcolor{blue}{l,y \geq 0}}\textcolor{green}{pq-wl}\]</span>
 <span class="math display">\[\textcolor{red}{s.t. y=f(\bar{k},l)}\]</span></p>
+<h4 id="objective-maximize-profits">Objective: Maximize Profits</h4>
+<p>The objective function is trying to maximize profits. So we need to think about different levels (“contour lines”) of profit that correspond to combinations of input and output (at constant prices).<span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">This is similar to finding indifference curves for consumers’ attempting to maximize their utility function (by finding the highest indifference curve for their budget).<br />
+<br />
+</span></span></p>
+<p>A firm earns profits (<span class="math inline">\(\pi\)</span>) as revenues minus costs:
+<span class="math display">\[\pi=py-wl\]</span>
+Where
+- <span class="math inline">\(q\)</span>: quantity of output
+- <span class="math inline">\(p\)</span>: price of output
+- <span class="math inline">\(w\)</span>: price of input (wage)
+- <span class="math inline">\(l\)</span>: quantity of input (labor)</p>
+<p>Imagine different amounts of input and output that would generate the same profit. We can think of an <strong>isoprofit line</strong> as having the equation above.</p>
+<p>However, it’s easier if we graph it as output in terms of input (our two axes for drawing the production function):
+<span class="math display">\[\begin{align*}
+\pi &amp;=pq-wl\\
+\pi+wl&amp;=py\\
+\frac{\pi}{p}+\frac{w}{p}l&amp;=q\\
+\end{align*}\]</span></p>
+<p><img src="/class/11-class_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<h4 id="constraint-technology">Constraint: Technology</h4>
+<p>The constraint is what is technologically feasible for the firm to produce, according to its production function. We need to make a few assumptions about production functions in order to get an optimum solution:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(q&gt;0\)</span>: firms always produce a positive amount</li>
+<li><span class="math inline">\(\frac{dq}{d l}&gt;0\)</span>: The more inputs used, the more output produced (the marginal product, i.e. the slope of production function, i.e. it’s first derivative, is positive)</li>
+<li><span class="math inline">\(\frac{d^2q}{d l^2}&lt;0\)</span>: Diminishing marginal productivity (production increases at a decreasing rate, i.e. the second derivative of the production function is negative)</li>
+</ol>
+<p>These assumptions generate <em>decreasing returns to scale</em> in production: doubling input produces less than double output. These assumptions give us a mathematically-easy answer to find, but not all production fits these assumptions. A production function that fits these assumptions would look like this:</p>
+<p><img src="/class/11-class_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<h4 id="solving-the-problem">Solving the Problem</h4>
+<p>Essentially, we are trying to find the highest profit line tangent to our production function:</p>
+<p><img src="/class/11-class_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>At a tangency, the slopes of the two functions are equal. The slope of the isoprofit lines we know are <span class="math inline">\(\frac{w}{p}\)</span>. The slope of the production function is the marginal product (of labor). So at the point of tangency:
+<span class="math display">\[\begin{align*}
+    \text{Slope of production function} &amp;= \text{Slope of Isoprofit line}\\
+    \mathbf{MP_l}&amp;\mathbf{=\frac{w}{p}}\\
+\end{align*}\]</span></p>
+<h3 id="the-firms-supply-and-demand-functions">The Firm’s Supply and Demand Functions</h3>
