@@ -1,0 +1,65 @@
+---
+title: "2.1 Theory of the Firm - Class Notes"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+<!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<h2>Contents</h2>
+<div id="TOC">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#slides">Slides</a></li>
+<li><a href="#appendix">Appendix</a><ul>
+<li><a href="#solving-the-firms-problem-in-one-step">Solving the Firm’s Problem in One Step</a></li>
+</ul></li>
+</ul>
+</div>
+
+<h2 id="overview">Overview</h2>
+<p>Today we start looking on the supply side of the market for the next few weeks. You will ultimately see, we will use the same tools (and get basically the same results!) for studying producers (constrained optimization models) as we did for consumers. Sometimes, these models finally “click” for students the second time around, and production is often more intuitive than utility and consumption.</p>
+<p>Today we set up the problem, and discuss what it is that firms do. If you want to learn a lot more about the economics of organization and the firm, take my Industrial Organization class next semester.</p>
+<h2 id="slides">Slides</h2>
+<ul>
+<li><a href="/slides/10-slides.html"><i class="fas fa-external-link-square-alt"></i> Lecture Slides</a></li>
+</ul>
+<h2 id="appendix">Appendix</h2>
+<h3 id="solving-the-firms-problem-in-one-step">Solving the Firm’s Problem in One Step</h3>
+<p>Traditionally, it is easier if we break the firm’s profit maximization problem into two stages:</p>
+<ol style="list-style-type: decimal">
+<li>The firm’s <strong>profit maximization problem</strong>:</li>
+</ol>
+<ul>
+<li><span color="blue"><strong>Choose</strong>: <span class="math inline">\(&lt;\)</span> Output: <span class="math inline">\(q\)</span> <span class="math inline">\(&gt;\)</span></span></li>
+<li><span color="green"><strong>To Maximize</strong>: <span class="math inline">\(&lt;\)</span> Profit: <span class="math inline">\(\pi=pq-C(q)\)</span> <span class="math inline">\(&gt;\)</span></span></li>
+<li>written mathematically:
+<span class="math display">\[\max_{\textcolor{blue}{q \geq 0}}\textcolor{green}{pq-C(q)}\]</span></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>The firm’s <strong>cost minimization problem</strong>:</li>
+</ol>
+<ul>
+<li><span color="blue"><strong>Choose</strong>: <span class="math inline">\(&lt;\)</span> Inputs: <span class="math inline">\(l,k\)</span> <span class="math inline">\(&gt;\)</span></span></li>
+<li><span color="green"><strong>To Minimize</strong>: <span class="math inline">\(&lt;\)</span> Total cost: <span class="math inline">\(C(q)=wl+rk\)</span> <span class="math inline">\(&gt;\)</span></span></li>
+<li><span color="red"><strong>Subject to</strong>: <span class="math inline">\(&lt;\)</span> Producing optimal output: <span class="math inline">\(q^*=f(k,l)\)</span> <span class="math inline">\(&gt;\)</span></span></li>
+<li>written mathematically:
+<span class="math display">\[\min_{\textcolor{blue}{l,k \geq 0}}\textcolor{green}{pq-C(q)}\]</span>
+<span class="math display">\[\textcolor{red}{s.t. y^*=f(k,l)}\]</span></li>
+</ul>
+<p>We proceed in class with the second stage first, and then the first stage. However, this appendix shows that the problem can be solved in a <em>single stage.</em> For simplicity, we look at the short run, where there is a single input <span class="math inline">\(l\)</span> that can be chosen <span class="math inline">\((\bar{k}\)</span> is fixed).</p>
+<p>The firm’s <strong>profit maximization problem</strong>:
+- <span color="blue"><strong>Choose</strong>: <span class="math inline">\(&lt;\)</span> Input and Output: <span class="math inline">\(l,y\)</span> <span class="math inline">\(&gt;\)</span></span>
+- <span color="green"><strong>To Maximize</strong>: <span class="math inline">\(&lt;\)</span> Profit: <span class="math inline">\(\pi=py-wl\)</span> <span class="math inline">\(&gt;\)</span></span>
+- <span color="red"><strong>Subject to</strong>: <span class="math inline">\(&lt;\)</span> Technology: <span class="math inline">\(q=f(\bar{k},l)\)</span> <span class="math inline">\(&gt;\)</span></span>
+- Written mathematically:
+<span class="math display">\[\max_{\textcolor{blue}{l,y \geq 0}}\textcolor{green}{pq-wl}\]</span>
+<span class="math display">\[\textcolor{red}{s.t. y=f(\bar{k},l)}\]</span></p>
