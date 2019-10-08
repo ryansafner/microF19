@@ -108,8 +108,8 @@ ggplot(data.frame(x=c(0,5)), aes(x=x))+
   stat_function(fun=pi_2, geom="line", size=2, linetype = "dashed", color="darkgreen")+
   stat_function(fun=pi_1, geom="line", size=2, linetype = "dashed", color="green")+
   stat_function(fun=pi_0, geom="line", size=2, linetype = "dashed", color="lightgreen")+
-  geom_label(aes(x=4,y=pi_2(4)), color = "darkgreen", label=expression(pi==2), size = 6)+
-  geom_label(aes(x=4,y=pi_1(4)), color = "green", label=expression(pi==1), size = 6)+
+  geom_label(aes(x=4,y=pi_2(4)), color = "darkgreen", label=expression(pi==4), size = 6)+
+  geom_label(aes(x=4,y=pi_1(4)), color = "green", label=expression(pi==2), size = 6)+
   geom_label(aes(x=4,y=pi_0(4)), color = "lightgreen", label=expression(pi==0), size = 6)+
     scale_x_continuous(breaks=seq(0,5,1),
                      limits=c(0,5),
@@ -121,10 +121,12 @@ ggplot(data.frame(x=c(0,5)), aes(x=x))+
   guides(color = F)+
   labs(x = "Input (l)",
        y = "Output (q)",
-       title = expression(paste("Isoprofit Lines, ",slope==frac(w,p))),
+       title = "Isoprofit Lines",
        caption = expression(paste("Technology: ", q(l,bar(k))==sqrt(l), ", Prices: ",w==1, ", ", p==2)))+
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
+
+For these example isoprofit lines, since the price of our input $(w)$ is $1, and the price of output $(p)$ is $2, the slope of each of the isoprofit lines is positive $0.5$. 
 
 ### Constraint: Technology
 
@@ -172,10 +174,10 @@ pi_05=function(x){0.5+0.5*x}
 ggplot(data.frame(x=c(0,5)), aes(x=x))+
   stat_function(fun=pi_1, geom="line", size=2, linetype = "dashed", color="darkgreen")+
   stat_function(fun=pi_0, geom="line", size=2, linetype = "dashed", color="green")+
-  geom_label(aes(x=2.75,y=pi_1(2.75)), color = "darkgreen", label=expression(pi==1), size = 4)+
+  geom_label(aes(x=2.75,y=pi_1(2.75)), color = "darkgreen", label=expression(pi==2), size = 4)+
   geom_label(aes(x=2.75,y=pi_0(2.75)), color = "green", label=expression(pi==0), size = 4)+
   stat_function(fun=pi_05, geom="line", size=2, color = "lightgreen")+
-  geom_label(aes(x=2.75,y=pi_05(2.75)), color = "lightgreen", label=expression(pi==0.5), size = 4)+
+  geom_label(aes(x=2.75,y=pi_05(2.75)), color = "lightgreen", label=expression(pi==1), size = 4)+
   stat_function(fun=prod_1, geom="line", size=2, color="red")+
   geom_label(aes(x=2.75,y=prod_1(2.75)), color = "red", label="Technology", size = 4)+
   geom_segment(aes(x=0,xend=1,y=1,yend=1), size=1, linetype="dotted")+
@@ -202,3 +204,125 @@ $$\begin{align*}
 \end{align*}$$
 
 ## The Firm's Supply and Demand Functions
+
+## The Geometry of Short-Run Production
+
+This appendix explores the geometry of production functions in the short run. From the common law of diminishing returns (sometimes called "*the law of variable proportions*"), with constant technology, increasing the use of one factor (e.g. $l)$, holding other factors constant (e.g. $\bar{k})$, will ultimately experience diminishing returns. We often break up short-run production into three stages, based on the type of returns to increasing the use of one factor: increasing, decreasing, and negative.
+
+```{r, fig.retina=3, fig.height=5.5}
+prod_2=function(x){-0.5*x^3+6*x^2-x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=prod_2, geom="line", size=2, color="red")+
+  geom_label(aes(x=9.5,y=prod_2(9.5)), color = "red", label="Total Product", size = 5)+
+  geom_vline(xintercept=6, size=1.5, linetype="dashed")+
+  geom_label(x=4.5,y=50, label="Stage I")+
+  geom_vline(xintercept=8, size=1.5, linetype="dashed")+
+  geom_label(x=7,y=50, label="Stage II")+
+  geom_label(x=9,y=50, label="Stage III")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,120,20),
+                     limits=c(0,120),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  guides(color = F)+
+  labs(x = "Input, Labor (l)",
+       y = "Output (q)",
+       title = "Total Output")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+```{r, fig.retina=3, fig.height=5.5}
+mp=function(x){-1.5*x^2+12*x-1}
+ap=function(x){-0.5*x^2+6*x-1}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=mp, geom="line", size=2, color="blue")+
+  geom_label(aes(x=7.5,y=mp(7.5)), color = "blue", label=expression(MP[l]), size = 5)+
+  stat_function(fun=ap, geom="line", size=2, color="purple")+
+  geom_label(aes(x=9.5,y=ap(9.5)), color = "purple", label=expression(AP[l]), size = 5)+
+  geom_vline(xintercept=6, size=1.5, linetype="dashed")+
+  geom_label(x=4.5,y=8, label="Stage I")+
+  geom_vline(xintercept=8, size=1.5, linetype="dashed")+
+  geom_label(x=7,y=8, label="Stage II")+
+  geom_label(x=9,y=8, label="Stage III")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,24,4),
+                     limits=c(0,24),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  guides(color = F)+
+  labs(x = "Input, Labor (l)",
+       y = "Output per Worker (q/l)",
+       title = "Output per Input")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+### I. Increasing Returns
+
+In Stage I, labor experiences *increasing returns*. Both the marginal and the average product of labor are positive and (mostly) increasing. That is to say, output is increasing at an increasing rate when more labor is added, and the productivity per worker increases. For the example above, Stage I occurs over the range of 0-6 workers. 
+
+Intuitively, increasing returns means that output increases at an increasing rate. This is not the same, but you can think of this almost like exponential growth -- just by adding a few more units of input we can get massive amounts of output. If this held forever, we could grow the entire world's supply of food in a single flower pot!  
+
+Note that at 4 workers, marginal product reaches a maximum. Beyond this point, marginal product remains positive but begins to decrease. Looking at the production function, at 4 workers, the production function is at an inflection point. After 4 workers, the production function continues to increase, but now at a *decreasing rate*. 
+
+Geometrically, what this means is that between 0-4 workers, the production function is convex (a line connecting two points is above the function), between 4-6 workers, the production function is concave (a line connecting two points is below the function), the inflection point at 4 is where it switches between convex and concave. 
+
+Stage I ends not at 4 laborers, where marginal product is maximized, but at 6 workers, where the marginal product and average product intersect (are equal). 
+
+In practice, most firms breeze through Stage I very quickly. Naturally, if firms can boost output a lot, and cheaply, just by adding a worker or two, they will keep hiring workers and hiring workers...
+
+### II. Decreasing Returns
+
+In Stage II, labor experiences *diminishing returns*. As we discussed with the law of diminishing returns, this will eventually happen to all factors of production if you keep adding them (holding other factors constant). Now, output is increasing, but at a decreasing rate. Adding more workers will increase output, but by progressively less and less, and each worker also is less productive on average, since both average and marginal product is declining (though total product is increasing). For the example above, Stage II occurs over the range of 6-8 workers.
+
+Stage II ends at 8 workers, where the marginal product falls to zero. 
+
+In practice, most firms operate in Stage II, so this range is sometimes called the ``economic region'' of short run production. We have seen that it is in the interest of a firm to keep adding labor during Stage I. We will next see that it is disadvantageous for a firm to keep adding labor beyond Stage II. Hence, the optimal amount of labor is often somewhere in Stage II. 
+
+### III. Negative Returns
+
+In Stage III, labor experiences *negative returns*, that is, adding labor actually *decreases* output! Here we have the "too many cooks in the kitchen" phenomenon. For the example above, Stage III happens when the firm is using 8 or more workers. We can see that the marginal product is negative, and average product continues to decline, as does output. 
+
+Recall diminishing returns implies that we are adding labor but holding all other factors (e.g. capital) constant. It is possible to increase the number of workers beyond 8 and still increase output, but that would require an increase in *capital*. If we do *not* increase capital, then by continually adding labor we will eventually hit diminishing (and negative) returns.
+
+| Stage | Output | $MP_l$ | $AP_l$ |
+|-------|--------|--------|--------|
+| I     | $\uparrow$ at $\uparrow$ rate, then $\uparrow$ at $\downarrow$ rate | $\uparrow$, then $\downarrow$ | $\uparrow$ | 
+| II    | $\uparrow$ at $\downarrow$ rate | $\downarrow$ | $\downarrow$ |
+| III   | $\downarrow$ | Negative | $\downarrow$ |
+
+## The Relationship Between Marginal and Average
+
+There is a consistent relationship between any marginal magnitude and any average magnitude. We will see this when we talk about production, about costs, revenues, profits, etc.
+
+When the marginal is greater than the average, the average is increasing because the marginal "pulls up" the average. When the marginal is less than the average, the average is decreasing because the marginal "pulls down" the average. Therefore, average is neither increasing nor decreasing (reaches a maximum/minimum) when the marginal equals the average. 
+
+Think of your grades or your GPA. Suppose your average is a B, and you get back a (marginal) grade that is an A. Since the marginal is higher than the average, this pulls up your average. Suppose instead you get back a (marginal) grade that is a C. Since the marginal is lower than the average, this pulls down your average. 
+
+
+| Case | $AP_l$ | 
+|------|--------|
+| $MP_l > AP_l$ | $\uparrow$ | 
+| $MP_l = AP_l$ | Maximized |
+| $MP_l < AP_l$ | $\downarrow$ |
+
+Look at the lower panel of the figure above and you can see, in Stage I, $MP_l>AP_l$ and thus $AP_l$ is increasing. The transition to Stage II occurs where $MP_l=AP_l$ and thus $AP_l$ reaches its maximum. In Stage III, $MP_l<AP_l$ and thus $AP_l$ is falling. 
+
+If these graphs looks vaguely familiar, cost curves (total cost, marginal cost, average cost) are *monetized reciprocals* of product curves (total product, marginal product, average product). Here is a proof (that will make sense a few lessons from now):
+
+$$\begin{align*}
+MC & = \frac{ \partial TVC}{\partial q}\\
+& = w \frac{\partial L}{\partial q}\\
+&= w \frac{1}{MP_L}\\	
+\end{align*}$$
+
+$$\begin{align*}
+AVC & = \frac{ \partial TVC}{\partial q}\\
+& = w \frac{L}{q}\\
+&= w \frac{1}{AP_L}\\	
+\end{align*}$$

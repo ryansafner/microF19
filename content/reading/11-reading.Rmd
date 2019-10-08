@@ -1,5 +1,5 @@
 ---
-title: "2.1 Theory of the Firm - Readings"
+title: "2.2 Short Run and Long Run - Readings"
 citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
@@ -7,4 +7,4 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 
 # Recommended
 
-- <i class="fas fas fa-book"></i> Ch. 6.1 in @textbook
+- <i class="fas fas fa-book"></i> Ch. 6.2-6.3 in @textbook
