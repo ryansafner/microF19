@@ -94,14 +94,14 @@ class: inverse, center, middle
 .pull-left[
 .content-box-green[
 .green[**Example**:] Consider a firm with the production function
-$$q=\sqrt{lk}$$
+$$q=k^{0.5}l^{0.5}$$
 
 - Suppose in the short run, the firm has 4 units of capital.
 ]
 
 1. Derive the short run production function
 2. What is the total product (output) that can be made with 4 workers?
-3. What is the total product (output) that can be made with 6 workers?
+3. What is the total product (output) that can be made with 5 workers?
 
 ]
 
@@ -1706,7 +1706,7 @@ ggplot(data.frame(x=c(0,C/w)), aes(x=x))+
 - Slope changes: $-\frac{w}{r'}$
 
 .center[
-![:scale 50%](https://www.dropbox.com/s/860tndrzl6zdxs2/shortageofrobots.jpg?raw=1)
+![:scale 40%](https://www.dropbox.com/s/860tndrzl6zdxs2/shortageofrobots.jpg?raw=1)
 ]
 ]
 ]
