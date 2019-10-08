@@ -71,7 +71,10 @@ lessons:
     class: "10-class"
 
   - title: "2.2 Short Run and Long Run"
-  
+    reading: "11-reading"
+    slides: "11-slides"
+    class: "11-class"
+    
   - title: "2.3 Solving the Firm's Cost Minimization Problem"
 
   - title: "2.4 Cost and Revenue Functions"

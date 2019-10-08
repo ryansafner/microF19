@@ -49,12 +49,13 @@ Traditionally, it is easier if we break the firm's profit maximization problem i
 We proceed in class with the second stage first, and then the first stage. However, this appendix shows that the problem can be solved in a *single stage.* For simplicity, we look at the short run, where there is a single input $l$ that can be chosen $(\bar{k}$ is fixed). 
 
 The firm's **profit maximization problem**:
-- <span color="blue">**Choose**: $<$ Input and Output: $l,y$ $>$</span>
-- <span color="green">**To Maximize**: $<$ Profit: $\pi=py-wl$ $>$</span>
-- <span color="red">**Subject to**: $<$ Technology: $q=f(\bar{k},l)$ $>$</span>
+
+- **Choose**: $<$ Input and Output: $l,y$ $>$
+- **To Maximize**: $<$ Profit: $\pi=py-wl$ $>$
+-**Subject to**: $<$ Technology: $q=f(\bar{k},l)$ $>$
 - Written mathematically:
-  $$\max_{\textcolor{blue}{l,y \geq 0}}\textcolor{green}{pq-wl}$$
-  $$\textcolor{red}{s.t. y=f(\bar{k},l)}$$
+  $$\max_{l,y \geq 0}pq-wl$$
+  $$s.t. y=f(\bar{k},l)$$
 
 ### Objective: Maximize Profits
 

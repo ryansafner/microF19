@@ -1,0 +1,2070 @@
+---
+title: "2.2: Short Run and Long Run"
+subtitle: "ECON 306 · Microeconomic Analysis · Fall 2019"
+author: 'Ryan Safner<br> Assistant Professor of Economics <br> <a href="mailto:safner@hood.edu"><i class="fa fa-paper-plane fa-fw"></i> safner@hood.edu</a> <br> <a href="https://github.com/ryansafner/microf19"><i class="fa fa-github fa-fw"></i> ryansafner/microf19</a><br> <a href="https://microF19.classes.ryansafner.com"> <i class="fa fa-globe fa-fw"></i> microF19.classes.ryansafner.com</a><br>'
+#date:
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML" # rescales math with css changes https://github.com/yihui/xaringan/issues/143
+    lib_dir: libs
+    #seal: false
+    css: [custom.css, custom-fonts.css, "hygge"] #, metropolis, metropolis-fonts
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"] # first is for rescaling images , second is for embedding tweets, https://github.com/yihui/xaringan/issues/100
+      highlightStyle: ocean #rainbow #monokai rainbow solarized-light #tomorrow-night -blue -eighties zenburn
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+    includes:
+      in_header: header.html # for font awesome, used in title  
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo=F,
+                      message=F,
+                      warning=F)
+library("tidyverse")
+library("mosaic")
+library("ggrepel")
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+set.seed(256)
+```
+
+# The "Runs" of Production 
+
+.pull-left[
+
+- The "time"-frame of production can be usefully divided between short vs. long run analysis
+
+- .shout[Short run]: at least one factor of production is fixed (it is too costly to be changed)
+$$q=f(\bar{k},l)$$
+    - We assume capital is fixed (i.e. number of factories, storefronts, etc)
+    - Our only decisions concern how we use labor
+    
+]
+
+.pull-right[
+.center[
+![:scale 60%](https://www.dropbox.com/s/csmheqe2xzp1dst/timehourglass.jpg?raw=1)
+]
+
+]
+
+---
+
+# The "Runs" of Production 
+
+.pull-left[
+
+- The "time"-frame of production can be usefully divided between short vs. long run analysis
+
+- .shout[Short run]: at least one factor of production is fixed (it is too costly to be changed)
+$$q=f(\bar{k},l)$$
+    - We assume capital is fixed (i.e. number of factories, storefronts, etc)
+    - Our only decisions concern how we use labor
+    
+- .shout[Long run]: all factors of production are variable
+$$q=f(k,l)$$
+
+]
+
+.pull-right[
+.center[
+![:scale 60%](https://www.dropbox.com/s/csmheqe2xzp1dst/timehourglass.jpg?raw=1)
+]
+
+]
+
+---
+
+class: inverse, center, middle
+
+# Production in the Short Run
+
+---
+
+# Production in the Short Run: Example
+
+.pull-left[
+.content-box-green[
+.green[**Example**:] Consider a firm with the production function
+$$q=\sqrt{lk}$$
+
+- Suppose in the short run, the firm has 4 units of capital.
+]
+
+1. Derive the short run production function
+2. What is the total product (output) that can be made with 4 workers?
+3. What is the total product (output) that can be made with 6 workers?
+
+]
+
+--
+
+.pull-right[
+
+```{r, fig.retina=3}
+library("mosaic")
+prod_1=function(x){2*sqrt(x)}
+
+pf<-ggplot(data.frame(x=c(0,6)), aes(x=x))+
+  stat_function(fun=prod_1, geom="line", size=2, color="red")+
+  geom_label(aes(x=5,y=prod_1(5)), color = "red", label="Total Product", size = 6)+
+    scale_x_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  guides(color = F)+
+  labs(x = "Input (l)",
+       y = "Output (q)",
+       caption = expression(paste("Technology: ", q(l,bar(k))==2*sqrt(l))))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+pf
+```
+
+]
+
+---
+
+# Marginal Products
+
+.pull-left[
+- The .shout[marginal product] of an input is the *additional* output produced by *one more unit* of that input (*holding other inputs constant*)
+
+- Like marginal utility
+
+- Similar to marginal utilities, I will give you the marginal product equations
+
+]
+
+.pull-right[
+```{r, fig.retina=3}
+pf+ # 1 to 2
+  geom_segment(x=1,xend=1,y=0,yend=prod_1(1), linetype="dotted", size =1)+
+  geom_segment(x=0,xend=1,y=prod_1(1),yend=prod_1(1), linetype="dotted", size =1)+
+  geom_segment(x=2,xend=2,y=0,yend=prod_1(2), linetype="dotted", size =1)+
+  geom_segment(x=0,xend=2,y=prod_1(2),yend=prod_1(2), linetype="dotted", size =1)+
+  annotate("segment", x = 1, xend = 2, y = 1, yend = 1, color = "purple", size=2, alpha=0.9, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  annotate("segment", x = 1, xend = 1, y = 2, yend = prod_1(2), color = "purple", size=2, alpha=0.9, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))
+
+```
+]
+
+---
+
+# Marginal Product of Labor
+
+.pull-left[
+
+- .shout[Marginal product of labor `\\((MP_l)\\)`]: additional output produced by adding one more unit of labor (holding $k$ constant)
+$$MP_l = \frac{\Delta q}{\Delta l}$$
+
+- $MP_l$ is the slope of $TP$ at every value of $l$! 
+
+- Note: via calculus: $\frac{\partial q}{\partial l}$
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=3.5}
+ggplot(data.frame(x=c(0,6)), aes(x=x))+
+  stat_function(fun=prod_1, geom="line", size=2, color="red")+
+  geom_label(aes(x=5,y=prod_1(5)), color = "red", label=expression(TP==2*sqrt(l)), size = 6)+
+    scale_x_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  guides(color = F)+
+  labs(x = "Input (l)",
+       y = "Output (q)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+```{r, fig.retina=3, fig.height=3.5}
+mp=function(x){1/sqrt(x)}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=mp, geom="line", size=2, color="blue")+
+  geom_label(aes(x=1,y=mp(1)), color = "blue", label=expression(MP[l]==frac(1,sqrt(l))), size = 4)+
+    scale_x_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  guides(color = F)+
+  labs(x = "Input (l)",
+       y = "Output per Worker (q/l)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Marginal Product of Capital
+
+.pull-left[
+
+- .shout[Marginal product of capital `\\((MP_k)\\)`]: additional output produced by adding one more unit of capital (holding $l$ constant)
+$$MP_k = \frac{\Delta q}{\Delta k}$$
+
+- $MP_k$ is the slope of $TP$ at every value of $k$! 
+
+- Note: via calculus: $\frac{\partial q}{\partial k}$
+
+- Note we often don't consider capital in the short run!
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=3.5}
+ggplot(data.frame(x=c(0,6)), aes(x=x))+
+  stat_function(fun=prod_1, geom="line", size=2, color="red")+
+  geom_label(aes(x=5,y=prod_1(5)), color = "red", label=expression(TP==2*sqrt(k)), size = 6)+
+    scale_x_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  guides(color = F)+
+  labs(x = "Input (k)",
+       y = "Output (q)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+```{r, fig.retina=3, fig.height=3.5}
+mp=function(x){1/sqrt(x)}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=mp, geom="line", size=2, color="blue")+
+  geom_label(aes(x=1,y=mp(1)), color = "blue", label=expression(MP[k]==frac(1,sqrt(k))), size = 4)+
+    scale_x_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  guides(color = F)+
+  labs(x = "Input (k)",
+       y = "Output per Machine (q/k)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Diminishing Returns
+
+.pull-left[
+
+- .onfire[Law of Diminishing Returns]: adding more of one factor of production *holding others constant* will result in successively lower increases in output<sup>.red[1]</sup>
+
+- In order to increase output, firm will need to increase *all* factors!
+
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=3.5}
+ggplot(data.frame(x=c(0,6)), aes(x=x))+
+  stat_function(fun=prod_1, geom="line", size=2, color="red")+
+  geom_label(aes(x=5,y=prod_1(5)), color = "red", label=expression(TP==2*sqrt(l)), size = 6)+
+# 1 to 2
+  geom_segment(x=1,xend=1,y=0,yend=prod_1(1), linetype="dotted", size =1)+
+  geom_segment(x=0,xend=1,y=prod_1(1),yend=prod_1(1), linetype="dotted", size =1)+
+  geom_segment(x=2,xend=2,y=0,yend=prod_1(2), linetype="dotted", size =1)+
+  geom_segment(x=0,xend=2,y=prod_1(2),yend=prod_1(2), linetype="dotted", size =1)+
+  annotate("segment", x = 1, xend = 2, y = 1, yend = 1, color = "purple", size=2, alpha=0.9, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  annotate("segment", x = 1, xend = 1, y = 2, yend = prod_1(2), color = "purple", size=2, alpha=0.9, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+    scale_x_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  guides(color = F)+
+  labs(x = "Input (l)",
+       y = "Output (q)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+```{r, fig.retina=3, fig.height=3.5}
+mp=function(x){1/sqrt(x)}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=mp, geom="line", size=2, color="blue")+
+  geom_label(aes(x=1,y=mp(1)), color = "blue", label=expression(MP[l]==frac(1,sqrt(l))), size = 4)+
+    scale_x_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  guides(color = F)+
+  labs(x = "Input (l)",
+       y = "Output per Worker (q/l)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Diminishing Returns
+
+.pull-left[
+
+- .onfire[Law of Diminishing Returns]: adding more of one factor of production *holding others constant* will result in successively lower increases in output<sup>.red[1]</sup>
+
+- In order to increase output, firm will need to increase *all* factors!
+
+.center[
+![:scale 80%](https://www.dropbox.com/s/smwh0dv38htghip/toomanycooks.jpg?raw=1)
+]
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=3.5}
+ggplot(data.frame(x=c(0,6)), aes(x=x))+
+  stat_function(fun=prod_1, geom="line", size=2, color="red")+
+  geom_label(aes(x=5,y=prod_1(5)), color = "red", label=expression(TP==2*sqrt(l)), size = 6)+
+# 1 to 2
+  geom_segment(x=1,xend=1,y=0,yend=prod_1(1), linetype="dotted", size =1)+
+  geom_segment(x=0,xend=1,y=prod_1(1),yend=prod_1(1), linetype="dotted", size =1)+
+  geom_segment(x=2,xend=2,y=0,yend=prod_1(2), linetype="dotted", size =1)+
+  geom_segment(x=0,xend=2,y=prod_1(2),yend=prod_1(2), linetype="dotted", size =1)+
+  annotate("segment", x = 1, xend = 2, y = 1, yend = 1, color = "purple", size=2, alpha=0.9, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  annotate("segment", x = 1, xend = 1, y = 2, yend = prod_1(2), color = "purple", size=2, alpha=0.9, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  
+  # 2 to 3
+    geom_segment(x=3,xend=3,y=0,yend=prod_1(3), linetype="dotted", size =1)+
+  geom_segment(x=0,xend=3,y=prod_1(3),yend=prod_1(3), linetype="dotted", size =1)+
+  annotate("segment", x = 2, xend = 3, y = 1, yend = 1, color = "purple", size=2, alpha=0.9, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  annotate("segment", x = 2, xend = 2, y = 3, yend = prod_1(3), color = "purple", size=2, alpha=0.9, arrow=arrow(length=unit(0.3,"cm"), ends="last", type="closed"))+
+  scale_x_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  guides(color = F)+
+  labs(x = "Input (l)",
+       y = "Output (q)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+```{r, fig.retina=3, fig.height=3.5}
+mp=function(x){1/sqrt(x)}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=mp, geom="line", size=2, color="blue")+
+  geom_label(aes(x=1,y=mp(1)), color = "blue", label=expression(MP[l]==frac(1,sqrt(l))), size = 4)+
+    scale_x_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  guides(color = F)+
+  labs(x = "Input (l)",
+       y = "Output per Worker (q/l)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Production Functions and Marginal Product
+
+- A quick trick to roughly estimate $MP_l$
+
+$$MP_l \approx \frac{q_2-q_1}{l_2-l_1}$$
+
+| $l$ | $q$ | $MP_l$ |
+|-----|-----|:------:|
+| $0$ | $0.00$ | $-$ |
+| $1$ | $2.00$ | $2.00-0.00=2.00$ |
+| $2$ | $2.83$ | $2.83-2.00=0.83$ |
+| $3$ | $3.46$ | $3.46-2.83=0.63$ |
+
+
+- Note these are *approximate*. Technically, $MP_l$ is defined via calculus as an *infinitesimal* change in $l$, whereas these are discrete changes.
+
+---
+
+# Average Product of Labor
+
+.pull-left[
+
+- .shout[Average product of labor `\\((AP_l)\\)`]: total output per worker
+$$AP_l = \frac{q}{l}$$
+
+- A measure of *labor productivity*
+
+- Geometrically: slope of a line from (0,0) to $q(l)$
+
+- .shout[Average product of capital `\\((AP_k)\\)`]: total output per unit of capital
+$$AP_k = \frac{q}{k}$$
+]
+
+.pull-right[
+
+```{r, fig.retina=3, fig.height=3.5}
+ggplot(data.frame(x=c(0,6)), aes(x=x))+
+  stat_function(fun=prod_1, geom="line", size=2, color="red")+
+  geom_label(aes(x=5,y=prod_1(5)), color = "red", label=expression(TP==2*sqrt(l)), size = 6)+
+    scale_x_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  guides(color = F)+
+  labs(x = "Input (l)",
+       y = "Output (q)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+```{r, fig.retina=3, fig.height=3.5}
+ap=function(x){2/sqrt(x)}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=ap, geom="line", size=2, color="purple")+
+  geom_label(aes(x=1,y=ap(1)), color = "purple", label=expression(AP[l]==frac(2,sqrt(l))), size = 4)+
+    scale_x_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("I.C. equations", values = colors)+
+  guides(color = F)+
+  labs(x = "Input (l)",
+       y = "Output per Worker (q/l)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Production in the Short Run: Example II
+
+.content-box-green[
+.green[**Example**:] Suppose a firm has the following production function:
+$$q=2k+l^2$$
+
+- Suppose in the short run, the firm has 10 units of capital.
+]
+
+1. Write an equation for the short run production function.
+2. Calculate the total product(s), marginal product(s), and average product(s) for each of the first 5 workers.
+
+
+---
+
+class: inverse, center, middle
+
+# The Firm's Problem: Long Run
+
+---
+
+# The Long Run
+
+.pull-left[
+
+- In the long run, *all* factors of production are **variable**
+
+$$q=f(k,l)$$
+
+- Can build more factories, open more storefronts, rent more space, invest in machines, etc.
+
+- So the firm can choose both $l$ *and* $k$
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/radyrg161n921y3/chooselocations.jpg?raw=1)
+]
+]
+
+---
+
+# The Firm's Problem
+
+.pull-left[
+- Based on what we've discussed, we can fill in a constrained optimization model for the firm
+    - But don't write this one down just yet!
+
+- The **firm's problem** is: 
+
+1. **Choose:** .blue[ < inputs and output >]
+
+2. **In order to maximize:** .green[< profits >]
+
+3. **Subject to:** .red[< technology >]
+
+- It's actually much easier to break this into *2 stages*<sup>.red[1]</sup>
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/zwows56ydpqj9u6/management.jpg?raw=1)
+]
+]
+
+.footnote[<sup>.red[1]</sup> Though it's possible to do it all at once. See today's [class notes](/class/11-class) page for an example.]
+---
+
+# The Firm's Two Problems
+
+.pull-left[
+
+- First Stage: the **firm's profit maximization problem**: 
+
+1. **Choose:** .blue[ < output >]
+
+2. **In order to maximize:** .green[< profits >]
+
+- We'll cover this later...first we'll explore: 
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/zwows56ydpqj9u6/management.jpg?raw=1)
+]
+]
+
+---
+
+# The Firm's Two Problems
+
+.pull-left[
+
+- First Stage: the **firm's profit maximization problem**: 
+
+1. **Choose:** .blue[ < output >]
+
+2. **In order to maximize:** .green[< profits >]
+
+- We'll cover this later...first we'll explore: 
+
+- Second Stage: the **firm's cost minimization problem**: 
+
+1. **Choose:** .blue[ < inputs >]
+
+2. **In order to _minimize_:** .green[< cost >]
+
+3. **Subject to:** .red[< producing the optimal output >]
+
+- Minimizing costs $\iff$ maximizing profits
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/zwows56ydpqj9u6/management.jpg?raw=1)
+]
+]
+
+---
+
+# Long Run Production
+
+.pull-left[
+.content-box-green[
+.green[**Example**]: $q=\sqrt{lk}$
+]
+
+```{r}
+library(kableExtra)
+
+empty<-tribble(
+   ~"", ~"", ~"0", ~"1", ~"2", ~"3", ~"4", ~"5",
+  "l", "0", "0.00", "0.00", "0.00", "0.00", "0.00", "0.00",
+  "l", "1", "0.00", "1.00", "1.41", "1.73", "2.00", "2.24",
+  "l", "2", "0.00", "1.41", "2.00", "2.45", "2.83", "3.16",
+  "l", "3", "0.00", "1.73", "2.45", "3.00", "3.46", "3.87",
+  "l", "4", "0.00", "2.00", "2.83", "3.46", "4.00", "4.47",
+  "l", "5", "0.00", "2.24", "3.16", "3.87", "4.47", "5.00"
+)
+
+#empty %>%
+#  mutate(`1` = cell_spec(`1`, "html", color=ifelse(`1`=="2.00","red","black"))) %>%
+kable(empty, format="html") %>%
+  kable_styling(full_width=F) %>%
+  add_header_above(c(" " = 2, "k" = 6)) %>%
+  column_spec(c(1,2), bold=T) %>%
+  collapse_rows(columns = 1, latex_hline = "major", valign = "middle")
+```
+]
+
+.pull-right[
+- Many input-combinations yield the same output!
+
+- So how does the firm choose the *optimal* combination??
+]
+---
+
+# Mapping Input-Combination Choices Graphically
+
+.pull-left[
+
+.center[
+
+3-D Production Function
+```{r, fig.retina=3, fig.height=5.5}
+library("plotly")
+x_vec = seq(0,10,1)
+y_vec = seq(0,10,1)
+x_matrix = matrix(c(x_vec), nrow = 10, ncol = 1)
+y_matrix = matrix(c(y_vec), nrow = 1, ncol = 10)
+z_matrix = matrix(c(sqrt(x_matrix %*% y_matrix)),nrow=10,ncol=10)
+
+plot_ly(x = x_vec,
+           y = y_vec,
+           z = z_matrix) %>%
+  add_surface() %>%
+  layout(scene = list(xaxis = list(title="Labor"),
+                      yaxis = list(title="Capital"),
+                      zaxis = list(title="Output")))
+```
+]
+]
+.pull-right[
+.center[
+2-D Isoquant Contours
+
+```{r, fig.retina=3, fig.height=5.5}
+library("mosaic")
+library("viridis")
+
+IC_10=function(x){100/x}
+IC_9=function(x){81/x}
+IC_8=function(x){64/x}
+IC_7=function(x){49/x}
+IC_6=function(x){36/x}
+IC_5=function(x){25/x}
+IC_4=function(x){16/x}
+IC_3=function(x){9/x}
+IC_2=function(x){4/x}
+IC_1=function(x){1/x}
+
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_10, geom="line", size=2, color = "#FDE725FF")+
+  stat_function(fun=IC_9, geom="line", size=2, color = "#B8DE29FF")+
+  stat_function(fun=IC_8, geom="line", size=2, color = "#73D055FF")+
+  stat_function(fun=IC_7, geom="line", size=2, color = "#3CBB75FF")+
+  stat_function(fun=IC_6, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=IC_5, geom="line", size=2, color = "#238A8DFF")+
+  stat_function(fun=IC_4, geom="line", size=2, color = "#2D708EFF")+
+  stat_function(fun=IC_3, geom="line", size=2, color = "#39568CFF")+
+  stat_function(fun=IC_2, geom="line", size=2, color = "#453781FF")+
+  stat_function(fun=IC_1, geom="line", size=2, color = "#481567FF")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+]
+
+---
+
+class: inverse, center, middle
+
+# Isoquants and MRTS
+
+---
+
+# Isoquant Curves
+
+.pull-left[
+
+- We can draw an .blue[isoquant] indicating all combinations of $l$ and $k$ that yield the same $q$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+library(ggrepel)
+iq_points<-tribble(
+  ~"letter", ~x, ~y,
+  "A", 1, 4,
+  "B", 2, 2,
+  "C", 4, 1,
+  "D", 2, 4,
+  "E", 1, 2
+)
+
+iq_8=function(x){8/x}
+iq_4=function(x){4/x}
+iq_2=function(x){2/x}
+
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  stat_function(fun=iq_4, geom="line", size=2, color = "blue")+
+  geom_label(x=4.5, y=iq_4(4.5), label=expression(q==2.00), color = "blue")+
+  geom_point(data = subset(iq_points, letter %in% c("A","B","C")),
+                           aes(x=x,y=y), size =3)+
+  geom_text_repel(data = subset(iq_points, letter %in% c("A","B","C")),
+                  aes(x=x,y=y, label=letter), size =4)+
+    scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+
+# Isoquant Curves
+
+.pull-left[
+
+- We can draw an .blue[isoquant] indicating all combinations of $l$ and $k$ that yield the same $q$
+
+- Combinations *above* the curve yield .green[more output]
+  - $D > A = B = C$
+  - On a .green[higher curve]
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  stat_function(fun=iq_8, geom="line", size=2, color = "green")+
+  geom_label(x=4.5, y=iq_8(4.5), label=expression(q==2.82), color = "green")+
+  stat_function(fun=iq_4, geom="line", size=2, color = "blue")+
+  geom_label(x=4.5, y=iq_4(4.5), label=expression(q==2.00), color = "blue")+
+  geom_point(data = subset(iq_points, letter %in% c("A","B","C","D")),
+                           aes(x=x,y=y), size =3)+
+  geom_text_repel(data = subset(iq_points, letter %in% c("A","B","C","D")),
+                  aes(x=x,y=y, label=letter), size =4)+
+    scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Isoquant Curves
+
+.pull-left[
+
+- We can draw an .blue[isoquant] indicating all combinations of $l$ and $k$ that yield the same $q$
+
+- Combinations *above* the curve yield .green[more output]
+  - $D > A = B = C$
+  - On a .green[higher curve]
+
+- Combinations *below* the curve yield .red[less output]
+  - $E < A = B = C$
+  - On a .red[lower curve]
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  stat_function(fun=iq_8, geom="line", size=2, color = "green")+
+  geom_label(x=4.5, y=iq_8(4.5), label=expression(q==2.82), color = "green")+
+  stat_function(fun=iq_4, geom="line", size=2, color = "blue")+
+  geom_label(x=4.5, y=iq_4(4.5), label=expression(q==2.00), color = "blue")+
+  stat_function(fun=iq_2, geom="line", size=2, color = "red")+
+  geom_label(x=4.5, y=iq_2(4.5), label=expression(q==1.41), color = "red")+
+  geom_point(data = iq_points, aes(x=x,y=y), size =3)+
+  geom_text_repel(data = iq_points, aes(x=x,y=y, label=letter), size =4)+
+    scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Marginal Rate of *Technical* Substitution I
+
+.pull-left[
+- If your firm uses fewer workers, how much capital would it need to produce the same amount
+
+- .shout[Marginal Rate of Technical Substitution (MRTS)]: rate at which firm trades off one input for another to *yield the same output*
+
+- Think of this as the **opportunity cost**: # of units of $k$ you need to give up to acquire 1 more $l$
+
+- **MRTS** measures **firm's** tradeoff between $l$ and $k$ based on its **technology**
+]
+
+.pull-right[
+.center[
+![:scale 80%](https://www.dropbox.com/s/9e7tx7dj47bsscz/scale.png?raw=1)
+]
+]
+
+---
+
+# Marginal Rate of *Technical* Substitution II
+
+.pull-left[
+
+- MRTS is the slope of the isoquant
+$$MRTS_{l,k}=-\frac{\Delta k}{\Delta l} = \frac{rise}{run}$$
+
+- Amount of $k$ given up for 1 more $l$
+
+- Note: slope (MRTS) changes along the curve!
+
+- **Law of diminishing returns**!
+
+]
+.pull-right[
+
+```{r MRS, fig.retina=3, fig.align="center", fig.width=6}
+
+IC_mrs=function(x){10/x}
+
+p<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_mrs, geom="line", size=2, color="blue")+
+  geom_segment(aes(x=1, xend=1, y=5, yend=9), linetype="dashed", color="red", size=2)+
+  geom_segment(aes(x=1, xend=2, y=5, yend=5), linetype="dashed", color="red", size=2)+
+  geom_segment(aes(x=5, xend=5, y=2, yend=1), linetype="dashed", color="red", size=2)+
+  geom_segment(aes(x=5, xend=9, y=1, yend=1), linetype="dashed", color="red", size=2)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+p
+```
+
+]
+
+---
+
+# MRTS and Marginal Products I
+
+.pull-left[
+
+- How to find and $MRTS$?
+
+- Moving along an isoquant
+    - $l$ and $k$ will change
+    - $MP_l$ and $MP_k$ will change
+    - *Output is constant* $(\Delta q=0)$
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# MRTS and Marginal Products I
+
+.pull-left[
+
+- How to find and $MRTS$?
+
+- Moving along an isoquant
+    - $l$ and $k$ will change
+    - $MP_l$ and $MP_k$ will change
+    - *Output is constant* $(\Delta q=0)$
+
+$$\begin{align*}
+MP_l \Delta l+MP_k\Delta k&= \Delta q\\ \end{align*}$$
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# MRTS and Marginal Products I
+
+.pull-left[
+
+- How to find and $MRTS$?
+
+- Moving along an isoquant
+    - $l$ and $k$ will change
+    - $MP_l$ and $MP_k$ will change
+    - *Output is constant* $(\Delta q=0)$
+
+$$\begin{align*}
+MP_l \Delta l+MP_k\Delta k&= \Delta q\\
+MP_l \Delta l+MP_k \Delta k &=0\\ \end{align*}$$
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# MRTS and Marginal Products I
+
+.pull-left[
+
+- How to find and $MRTS$?
+
+- Moving along an isoquant
+    - $l$ and $k$ will change
+    - $MP_l$ and $MP_k$ will change
+    - *Output is constant* $(\Delta q=0)$
+
+$$\begin{align*}
+MP_l \Delta l+MP_k\Delta k&= \Delta q\\
+MP_l \Delta l+MP_k \Delta k &=0\\
+MP_k \Delta k&= -MP_l \Delta l\\ \end{align*}$$
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# MRTS and Marginal Products I
+
+.pull-left[
+
+- How to find and $MRTS$?
+
+- Moving along an isoquant
+    - $l$ and $k$ will change
+    - $MP_l$ and $MP_k$ will change
+    - *Output is constant* $(\Delta q=0)$
+
+$$\begin{align*}
+MP_l \Delta l+MP_k\Delta k&= \Delta q\\
+MP_l \Delta l+MP_k \Delta k &=0\\
+MP_k \Delta k&= -MP_l \Delta l \\
+\underbrace{\frac{\Delta k}{\Delta l}}_{MRTS} &= -\frac{MP_l}{MP_k}\\ \end{align*}$$
+
+]
+.pull-right[
+
+```{r, echo=F, fig.retina=3, fig.align="center", fig.width=6}
+p
+```
+
+]
+
+---
+
+# Special Case I: Perfect Substitutes
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Consider Bank Tellers `\\((l)\\)` and ATMs `\\((k)\\)` 
+]
+- One ATM can do the work of 2 bank tellers
+
+- .shout[Perfect substitutes]: goods that can be substituted at same fixed rate and yield same utility
+
+- $MRS_{l,k}=-0.5$ (a constant!)
+
+]
+
+.pull-right[
+```{r, echo=F, fig.retina=3, fig.align="center"}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  geom_segment(aes(x=0, xend=2, y=1, yend=0), size=1, color="#453781FF")+
+  geom_segment(aes(x=0, xend=4, y=2, yend=0), size=1, color="#20A387FF")+
+  geom_label(aes(x=1, y=0.5), size=6, color="#453781FF", label="q=1")+
+  geom_label(aes(x=1, y=1.5), size=6, color="#20A387FF", label="q=2")+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Bank Tellers (l)",
+       y = "ATMs (k)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Special Case I: Perfect Substitutes (Math FYI)
+
+.pull-left[
+
+.content-box-red[
+.red[**Math FYI: Production functions for substitutes**]
+
+$$q=al+bk$$
+
+- $a,b$: relative weights determined by technology
+
+- Known as **linear production function**
+]
+
+.content-box-green[
+.green[**Example**]
+$$y=l+2k$$
+
+- $MRTS_{l,k}=-\frac{a}{b} = -\frac{1}{2}$
+]
+]
+
+.pull-right[
+```{r, echo=F, fig.retina=3, fig.align="center"}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  geom_segment(aes(x=0, xend=2, y=1, yend=0), size=1, color="#453781FF")+
+  geom_segment(aes(x=0, xend=4, y=2, yend=0), size=1, color="#20A387FF")+
+  geom_label(aes(x=1, y=0.5), size=6, color="#453781FF", label="q=1")+
+  geom_label(aes(x=1, y=1.5), size=6, color="#20A387FF", label="q=2")+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Bank Tellers (l)",
+       y = "ATMs (k)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Special Case II: Perfect Complements
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Consider busses `\\((k)\\)` and bus drivers `\\((l)\\)`
+]
+- Must combine together in fixed proportions (1:1)
+
+- .shout[Perfect complements]: inputs must be used together in same fixed proportion to produce output
+
+- MRS: ?
+
+]
+
+.pull-right[
+```{r, echo=F, fig.retina=3, fig.align="center"}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  geom_segment(aes(x=1, xend=1, y=5, yend=1), size=1, color="#453781FF")+
+  geom_segment(aes(x=1, xend=5, y=1, yend=1), size=1, color="#453781FF")+
+  geom_segment(aes(x=2, xend=2, y=5, yend=2), size=1, color="#20A387FF")+
+  geom_segment(aes(x=2, xend=5, y=2, yend=2), size=1, color="#20A387FF")+
+  geom_label(aes(x=4, y=1), size=6, color="#453781FF", label="q=1")+
+  geom_label(aes(x=4, y=2), size=6, color="#20A387FF", label="q=2")+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Bus Drivers (l)",
+       y = "Buses (k)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Special Case II: Perfect Complements (Math FYI)
+
+.pull-left[
+
+.content-box-red[
+.red[**Math FYI: Production functions for complements**]
+
+$$q=min\{al,bk\}$$
+
+- $a,b$: relative weights determined by technology
+
+- MRS $=0, \infty$, or undefined
+
+- Known as **Leontief production function**
+]
+
+.content-box-green[
+.green[**Example**]
+$$q=min\{l,k\}$$
+
+]
+]
+
+.pull-right[
+```{r, echo=F, fig.retina=3, fig.align="center"}
+ggplot(data.frame(x=c(0,5)), aes(x=x))+
+  geom_segment(aes(x=1, xend=1, y=5, yend=1), size=1, color="#453781FF")+
+  geom_segment(aes(x=1, xend=5, y=1, yend=1), size=1, color="#453781FF")+
+  geom_segment(aes(x=2, xend=2, y=5, yend=2), size=1, color="#20A387FF")+
+  geom_segment(aes(x=2, xend=5, y=2, yend=2), size=1, color="#20A387FF")+
+  geom_label(aes(x=4, y=1), size=6, color="#453781FF", label="u=1")+
+  geom_label(aes(x=4, y=2), size=6, color="#20A387FF", label="u=2")+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Bus Drivers (l)",
+       y = "Buses (k)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Common Case: Cobb-Douglas Production Functions
+
+.pull-left[
+
+- Again: very common functional form in economics is .shout[Cobb-Douglas]
+
+$$q=A(k^al^b)$$
+
+- Where $a, b >0$ (and very often $a+b=1$)
+
+- $A$ is total factor productivity
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=5.5}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=IC_8, geom="line", size=2, color = "#73D055FF")+
+  stat_function(fun=IC_6, geom="line", size=2, color = "#20A387FF")+
+  stat_function(fun=IC_4, geom="line", size=2, color = "#2D708EFF")+
+  stat_function(fun=IC_2, geom="line", size=2, color = "#453781FF")+
+    geom_label(aes(x=9,y=IC_8(9)), color = "#73D055FF", label="q=64/l", size = 6)+
+    geom_label(aes(x=9,y=IC_6(9)), color = "#20A387FF", label="q=36/l", size = 6)+
+    geom_label(aes(x=9,y=IC_4(9)), color = "#2D708EFF", label="q=16/l", size = 6)+
+    geom_label(aes(x=9,y=IC_2(9)), color = "#453781FF", label="q=4/l", size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor (l)",
+       y = "Capital (k)",
+       title = "Isoquant curves for q=lk")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+]
+
+---
+
+# Practice
+
+.content-box-green[
+.green[**Example**]: Suppose your firm has the following production function:
+$$q=2lk$$
+
+Where your marginal utilities are:
+
+$$\begin{align*}
+MP_l&=2k\\
+MU_k&=2l\\
+\end{align*}$$
+
+1. Put $l$ on the horizontal axis and $k$ on the vertical axis. Write an equation for $MRTS_{l,k}$.
+
+2. Would input combinations of $(1, 4)$ and $(2, 2)$ be on the same isoquant?
+
+3. Sketch a graph of the isoquant from part 2. 
+]
+
+---
+
+class: inverse, center, middle
+
+# Isocost Lines
+
+---
+
+# Isocost Lines
+
+.pull-left[
+
+- If your firm can choose among *many* input combinations to produce $q$, which combinations are optimal?
+
+- Those combination that are **cheapest**
+
+- Denote prices of each input as:
+    - $w$: price of labor (wage)
+    - $r$: price of capital
+
+- Let $C$ be the .shout[total cost] of using inputs $(l,k)$ at current input prices $(w,r)$ to produce $q$ units of output:
+
+$$C(q,r,q)=ql+rk$$
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/7w8vi6zqycn3z5v/priceguarantee.jpg?raw=1)
+]
+]
+
+---
+
+# The Isocost Line, Graphically
+
+.pull-left[
+
+$$wl+rk=C$$
+
+]
+
+---
+
+# The Isocost Line, Graphically
+
+.pull-left[
+
+$$wl+rk=C$$
+
+- Solve for $k$ to graph
+
+$$k=\frac{C}{r}-\frac{w}{r}l$$
+
+]
+
+.pull-right[
+```{r BC-setup}
+library("mosaic")
+w<-2.5
+r<-5
+C<-20
+
+ends<-tribble(
+  ~x, ~y,
+  0, (C/r),
+  (C/w), 0
+)
+BC=function(x){(C/r)-(w/r)*x}
+line_colors <- c("BC" = "blue")
+```
+
+```{r BC-plot0, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,C/w)), aes(x=x))+
+  scale_x_continuous(breaks = NULL)+
+  scale_y_continuous(breaks = NULL)+
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# The Isocost Line, Graphically
+
+.pull-left[
+
+$$wl+rk=C$$
+
+- Solve for $k$ to graph
+
+$$k=\frac{C}{r}-\frac{w}{r}l$$
+
+- Vertical-intercept: $\frac{C}{r}$
+- Horizontal-intercept: $\frac{C}{w}$
+]
+
+.pull-right[
+
+```{r BC-plot1, echo=F, message = F, warning = F, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,C/w)), aes(x=x))+
+  geom_point(data = ends,
+             mapping = aes(x = x,
+                           y = y),
+             size=3)+
+  #stat_function(fun=BC, geom="line", size=1, aes(color="BC"))+
+  scale_x_continuous(breaks = c(0,(C/w)),
+                     labels = c(0,expression(C/w)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks = c(0,(C/r)),
+                     labels = c(0,expression(C/r)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+   coord_cartesian(clip = 'off')+ # show points on edge
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# The Isocost Line, Graphically
+
+.pull-left[
+
+$$wl+rk=C$$
+
+- Solve for $k$ to graph
+
+$$k=\frac{C}{r}-\frac{w}{r}l$$
+
+- Vertical-intercept: $\frac{C}{r}$
+- Horizontal-intercept: $\frac{C}{w}$
+- slope: $-\frac{w}{r}$
+
+]
+
+.pull-right[
+```{r BC-plot2, echo=F, message = F, warning = F, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,C/w)), aes(x=x))+
+  geom_point(data = ends,
+             mapping = aes(x = x,
+                           y = y),
+             size=3)+
+  stat_function(fun=BC, geom="line", size=2, color="blue")+
+  annotate("text", x = (0.5*(C/w)+1.75), y = BC(0.5*(C/w)), label = expression(paste("slope =", - w/r)), color="blue", size =7)+
+  scale_x_continuous(breaks = c(0,(C/w)),
+                     labels = c(0,expression(C/w)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks = c(0,(C/r)),
+                     labels = c(0,expression(C/r)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+   coord_cartesian(clip = 'off')+ # show points on edge
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# The Isocost Line: Example
+
+.content-box-green[
+.green[**Example**]: Suppose your firm has a purchasing budget of $50. Market wages are $5/worker-hour and the mark rental rate of capital is $10/machine-hour. Let $l$ be on the horizontal axis and $k$ be on the vertical axis.
+
+1. Write an equation for the isocost line (in graphable form).
+
+2. Graph the isocost line.
+]
+
+---
+
+# Interpreting Isocost Line
+
+.pull-left[
+
+- Points .blue[on] the line are same total cost
+  - A: \\($5(0l)+$10(5k) = $50\\) 
+  - B: \\($5(10l)+$10(0k) = $50\\)
+  - C: \\($5(2l)+$10(4k) = $50\\) 
+  - D: \\($5(6l)+$10(2k) = $50\\)
+
+
+]
+
+.pull-right[
+
+```{r BC2-setup}
+library("mosaic")
+points<-tribble(
+  ~letter, ~x, ~y,
+  "A", 0, 5,
+  "B", 10, 0,
+  "C", 2, 4,
+  "D", 6, 2,
+  "E", 3, 2,
+  "F", 6, 4
+)
+BC1=function(x){5-0.5*x}
+line_colors <- c("BC" = "blue")
+```
+
+```{r BC2-plot1, fig.retina=3, fig.align="center", fig.width=6}
+fill1<-tribble(
+  ~x, ~y,
+  0, 5,
+  10, 0,
+  0,0
+)
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_polygon(data=fill1, aes(x=x, y=y),fill="green", alpha=0.4)+
+  geom_point(data = subset(points, letter %in% c("A", "B", "C", "D")),
+             aes(x = x, y = y), size=4, color = "blue")+
+  stat_function(fun=BC1, geom="line", size=2, aes(color="BC"))+
+  geom_text_repel(data = subset(points, letter %in% c("A", "B", "C", "D")),
+                  aes(x=x , y = y, label = letter),
+                  color="blue", size=6,
+                  point.padding=0.25)+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Interpreting Isocost Line
+
+.pull-left[
+
+- Points .blue[on] the line are same total cost
+  - A: \\($5(0l)+$10(5k) = $50\\) 
+  - B: \\($5(10l)+$10(0k) = $50\\)
+  - C: \\($5(2l)+$10(4k) = $50\\) 
+  - D: \\($5(6l)+$10(2k) = $50\\)
+
+- Points .green[beneath] the line are .green[cheaper] (but may produce less)
+  - E: \\($5(3l)+$10(2k) = $35\\) 
+
+
+]
+
+.pull-right[
+
+```{r BC2-plot2, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_polygon(data=fill1, aes(x=x, y=y),fill="green", alpha=0.4)+
+  geom_point(data = subset(points, letter %in% c("A", "B", "C", "D")),
+             aes(x = x, y = y), size=4, color = "blue")+
+  geom_text_repel(data = subset(points, letter %in% c("A", "B", "C", "D")),
+                  aes(x=x , y = y, label = letter),
+                  color="blue", size=6,
+                  point.padding=0.25)+
+  geom_point(data = subset(points, letter=="E"),
+             aes(x = x, y = y), size=4, color = "green")+
+  geom_text_repel(data = subset(points, letter=="E"),
+                  aes(x=x , y = y, label = letter),
+                  color="green", size=6,
+                  point.padding=0.25)+
+  stat_function(fun=BC1, geom="line", size=2, aes(color="BC"))+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Interpreting the Isocost Line
+
+.pull-left[
+
+- Points .blue[on] the line are same total cost
+  - A: \\($5(0l)+$10(5k) = $50\\) 
+  - B: \\($5(10l)+$10(0k) = $50\\)
+  - C: \\($5(2l)+$10(4k) = $50\\) 
+  - D: \\($5(6l)+$10(2k) = $50\\)
+
+- Points .green[beneath] the line are .green[cheaper] (but may produce less)
+  - E: \\($5(3l)+$10(2k) = $35\\) 
+
+- Points .red[above] the line are .red[more expensive] (and may produce more)
+  - F: \\($5(6l)+$10(4k) = $70\\) 
+
+]
+
+.pull-right[
+
+```{r BC2-plot3, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_polygon(data=fill1, aes(x=x, y=y),fill="green", alpha=0.4)+
+  geom_point(data = subset(points, letter %in% c("A", "B", "C", "D")),
+             aes(x = x, y = y), size=4, color = "blue")+
+  geom_text_repel(data = subset(points, letter %in% c("A", "B", "C", "D")),
+                  aes(x=x , y = y, label = letter),
+                  color="blue", size=6,
+                  point.padding=0.25)+
+  geom_point(data = subset(points, letter=="E"),
+             aes(x = x, y = y), size=4, color = "green")+
+  geom_text_repel(data = subset(points, letter=="E"),
+                  aes(x=x , y = y, label = letter),
+                  color="green", size=6,
+                  point.padding=0.25)+
+  geom_point(data = subset(points, letter=="F"),
+             aes(x = x, y = y), size=4, color = "red")+
+  geom_text_repel(data = subset(points, letter=="F"),
+                  aes(x=x , y = y, label = letter),
+                  color="red", size=6,
+                  point.padding=0.25)+
+  stat_function(fun=BC1, geom="line", size=2, aes(color="BC"))+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Interpretting the Slope
+
+.pull-left[
+
+- **Slope**: market-rate of .whisper[tradeoff] between $l$ and $k$
+
+- .whisper[Relative price] of $l$ or .whisper[opportunity cost] of $l$:
+
+> Using 1 more unit of $l$ requires giving up $\frac{w}{r}$ units of $k$
+
+]
+
+.pull-right[
+```{r BC-slope-plot, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,C/w)), aes(x=x))+
+  geom_point(data = ends,
+             mapping = aes(x = x,
+                           y = y),
+             size=3)+
+  stat_function(fun=BC, geom="line", size=2, color="blue")+
+  annotate("text", x = (0.5*(C/w)+1.75), y = BC(0.5*(C/w)), label = expression(paste("slope =", - w/r)), color="blue", size =7)+
+  scale_x_continuous(breaks = c(0,(C/w)),
+                     labels = c(0,expression(C/w)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks = c(0,(C/r)),
+                     labels = c(0,expression(C/r)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+   coord_cartesian(clip = 'off')+ # show points on edge
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Changes in Relative Factor Prices I
+
+.pull-left[
+
+- Changes in .whisper[relative factor prices]: *rotate* the line
+
+.content-box-green[
+.green[**Example**]: An increase in the price of $l$ (wages)
+
+- Slope changes: $-\frac{w'}{r}$
+
+.center[
+![:scale 75%](https://www.dropbox.com/s/38uytjucjnxsjwu/minwagerobot.jpg?raw=1)
+]
+]
+]
+
+.pull-right[
+```{r x-change-setup}
+w2 <- 5
+ends_betw2<-tribble(
+  ~x, ~y,
+  0, (C/r),
+  (C/w), 0,
+  (C/w2), 0
+)
+
+BC3=function(x){(C/r)-(w2/r)*x}
+#line_colors <- c("BC" = "blue")
+```
+
+```{r BC-x-change-plot, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,C/w)), aes(x=x))+
+  stat_function(fun=BC, geom="line", size=2, aes(color="BC"))+
+  stat_function(fun=BC3, geom="line", linetype="dashed", size=2, aes(color="BC"))+
+  scale_x_continuous(breaks = c(0,(C/w2), (C/w)),
+                     labels = c(0,expression(C/w*minute),expression(C/w)),
+                     limits = c(0, (C/w)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks = c(0,(C/r)),
+                     labels = c(0,expression(m/p[y])),
+                     limits = c(0, (C/r)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Changes in Relative Factor Prices II
+
+.pull-left[
+
+- Changes in .whisper[relative factor prices]: *rotate* the line
+
+.content-box-green[
+.green[**Example**]: An increase in the price of $k$
+
+- Slope changes: $-\frac{w}{r'}$
+
+.center[
+![:scale 50%](https://www.dropbox.com/s/860tndrzl6zdxs2/shortageofrobots.jpg?raw=1)
+]
+]
+]
+
+.pull-right[
+```{r y-change-setup}
+r2 <- 7.5
+ends_betw3<-tribble(
+  ~x, ~y,
+  0, (C/r),
+  0, (C/r2),
+  (C/w), 0
+)
+
+BC4=function(x){(C/r2)-(w/r2)*x}
+#line_colors <- c("BC" = "blue")
+```
+
+```{r BC-y-change-plot, fig.retina=3, fig.align="center", fig.width=6}
+ggplot(data.frame(x=c(0,C/w)), aes(x=x))+
+  stat_function(fun=BC, geom="line", size=2, aes(color="BC"))+
+  stat_function(fun=BC4, geom="line", linetype="dashed", size=2, aes(color="BC"))+
+  scale_x_continuous(breaks = c(0,(C/w)),
+                     labels = c(0,expression(C/w)),
+                     limits = c(0, (C/w)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks = c(0,(C/r2),(C/r)),
+                     labels = c(0,expression(C/r),expression(C/r*minute)),
+                     limits = c(0, (C/r)),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+class: inverse, center, middle
+
+# Solving the Cost Minimization Problem
+
+---
+
+# The Firm's Cost Minimization Problem
+
+.pull-left[
+
+- The **firm's cost minimization problem** is: 
+
+1. **Choose:** .blue[ < inputs: `\\(l, k\\)`>]
+
+2. **In order to maximize:** .green[< total cost: `\\($wl+rk\\)` >]
+
+3. **Subject to:** .red[< producing the optimal output: `\\(q^*=f(l,k)\\)` >]
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# The Cost Minimization Problem: Tools
+
+.pull-left[
+- We now have the tools to understand firm's input choices:
+
+- .blue[Choice]: combination of inputs $(l, k)$
+
+- .red[Production function/isoquants]: firm's technological constraints
+    - How the *firm* trades off between inputs
+- .green[Isocost line]: firm's total cost (for given output and input prices)
+    - How the *market* trades off between inputs
+- The **firms's cost minimization problem**: choose $l$ and $k$ to minimize total cost subject to producing the optimal amount of output
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# The Cost Minimization Problem: Math
+
+.pull-left[
+
+$$\min_{l,k} wl+rk$$
+$$s.t. q^*=f(l,k)$$
+
+- This requires calculus to solve. We will look at **graphs** instead!
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/nw0v6bsho0ab4zq/choices.jpg?raw=1)
+]
+]
+
+---
+
+# The Firm's Least-Cost Input Combination: Graphically
+
+.pull-left[
+
+- .shout[Graphical solution]: Lowest isocost line *tangent* to desired isoquant (A)
+
+- B produces same output as A, but higher cost
+
+- C is same cost as A, but produces less than desired output
+
+- D produces the desired ouput but at higher cost
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+library("mosaic")
+
+points_opt<-tribble(
+  ~letter, ~x, ~y,
+  "A", 10, 5,
+  "B", 4, 12,
+  "C", 4, 8,
+  "D", 12, 2
+)
+
+iq_opt=function(x){50/x}
+IC_10=function(x){10-0.5*x}
+IC_14=function(x){14-0.5*x}
+IC_12=function(x){12-0.5*x}
+IC_8=function(x){8-0.5*x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=iq_opt, geom="line", size=2, color = "#3CBB75FF")+
+  stat_function(fun=IC_10, geom="line", size=2, color = "red")+
+    geom_label(aes(x=3,y=iq_opt(3)), color = "#3CBB75FF", label=expression(q^o==sqrt(50)), size = 6)+
+    geom_label(aes(x=2,y=IC_10(2)), color = "red", label="C=$40", size = 6)+
+  
+  stat_function(fun=IC_14, geom="line", size=2, color = "darkred")+
+      geom_label(aes(x=2,y=IC_14(2)), color = "darkred", label="C=$48", size = 6)+
+
+  stat_function(fun=IC_8, geom="line", size=2, color = "pink")+
+      geom_label(aes(x=2,y=IC_8(2)), color = "pink", label="C=$32", size = 6)+
+  geom_point(data = points_opt,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = points_opt,
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  geom_segment(aes(x = 0, xend = 10, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 5, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor",
+       y = "Capital",
+       caption = expression(paste(q== sqrt(lk), ", ", q^o==sqrt(50), ", w = $2, ", r," = $4", sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# The Firm's Least-Cost Input Combination: Why A?
+
+.pull-left[
+
+$$\begin{align*}
+\text{Isoquant curve slope} &= \text{Isocost line slope} \\\end{align*}$$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+min_c<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=iq_opt, geom="line", size=2, color = "#3CBB75FF")+
+  stat_function(fun=IC_10, geom="line", size=2, color = "red")+
+    geom_label(aes(x=3,y=iq_opt(3)), color = "#3CBB75FF", label=expression(q^o==sqrt(50)), size = 6)+
+    geom_label(aes(x=2,y=IC_10(2)), color = "red", label="C=$40", size = 6)+
+  geom_point(data = subset(points_opt, letter=="A"),
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text_repel(data = subset(points_opt, letter=="A"),
+             mapping=aes(x=x, y=y,
+             label = letter),
+             size = 6)+
+  geom_segment(aes(x = 0, xend = 10, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 5, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor",
+       y = "Capital",
+       caption = expression(paste(q== sqrt(lk), ", ", q^o==sqrt(50), ", w = $2, ", r," = $4", sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+min_c
+```
+]
+
+---
+
+# The Firm's Least-Cost Input Combination: Why A?
+
+.pull-left[
+
+$$\begin{align*}
+\text{Isoquant curve slope} &= \text{Isocost line slope} \\
+| MRTS_{l,b} | &= | \frac{w}{r} | \\
+| \frac{MP_l}{MP_k} | &= | \frac{w}{r} | \\
+| -0.5 | &= | -0.5 | \\\end{align*}$$
+
+- *Firm* would exchange at same rate as market
+
+- **No other combination** of $(l,k)$ **exists** at current prices & output that could lower cost to produce $q^*$!
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+min_c
+```
+]
+
+---
+
+# The Firm's Least-Cost Input Combination: Two Equivalent Rules
+
+.pull-left[
+
+## Rule 1
+
+$$\frac{MP_l}{MP_k}  =  \frac{w}{r}$$
+
+- Easier for solving math problems (slope of each curve)
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+min_c
+```
+]
+
+---
+
+# The Firm's Least-Cost Input Combination: Two Equivalent Rules
+
+.pull-left[
+
+## Rule 1
+
+$$\frac{MP_l}{MP_k}  =  \frac{w}{r}$$
+
+- Easier for solving math problems (slope of each curve)
+
+## Rule 2
+
+$$\frac{MP_l}{w}  =  \frac{MP_k}{r}$$
+
+- Easier for intuition (next slide)
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+min_c
+```
+]
+
+---
+
+# The Equimarginal Rule Again I
+
+$$\frac{MP_l}{w}  =  \frac{MP_k}{r} = \cdots = \frac{MP_n}{p_n}$$
+
+- .shout[Equimarginal Rule]: the cost of production is minimized where the **marginal product per dollar spent** is **equalized** across all $n$ possible inputs
+
+- Firm will always choose an option that gives higher marginal product (e.g. if $MP_l > MP_k)$
+    - But each option has a different cost, so we weight each option by its cost, hence $\frac{MP_l}{w}$
+    
+---
+
+# The Equimarginal Rule Again II
+
+$$\frac{MP_l}{w}  =  \frac{MP_k}{r} = \cdots = \frac{MP_n}{p_n}$$
+
+- Why is this the optimum? 
+
+.content-box-green[
+.green[**Example**]: suppose firm could get a higher marginal product per $1 spent on $l$ than for $k$ (i.e. "more bang for your buck"!)
+
+- Not minimizing costs!
+- Use more $l$ and less $k$!
+    - This will raise $MP_k$ and lower $MP_l$!
+
+- Continues until cost-adjusted marginal products are equalized
+
+]
+
+---
+
+# The Equimarginal Rule Again III
+
+.pull-left[
+
+- Any .shout[optimum] in economics: no better alternatives exist under current constraints
+
+- No possible change in your inputs to produce $q^*$ that would lower cost
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+---
+
+# The Firm's Least-Cost Input Combination: Example
+
+.content-box-green[
+.green[**Example**]: 
+
+  Your firm can use labor `\\(l\\)` and capital `\\(k\\)` to produce output according to the production function:
+$$q=2lk$$
+
+
+The marginal products are:
+
+$$\begin{align*}
+MP_l &=2k \\
+MP_k &=2l \\ \end{align*}$$   
+
+]
+You want to produce 100 units, the price of labor is \$10, and the price of capital is \$5. 
+
+
+1. What is the least-cost combination of labor and capital that produces 100 units of output?
+2. How much does this combination cost? 
