@@ -1824,7 +1824,7 @@ $$s.t. q^*=f(l,k)$$
 
 - C is same cost as A, but produces less than desired output
 
-- D produces the desired ouput but at higher cost
+- D produces is cheaper, but produces less than desired output
 
 ]
 
@@ -2052,7 +2052,7 @@ $$\frac{MP_l}{w}  =  \frac{MP_k}{r} = \cdots = \frac{MP_n}{p_n}$$
 .content-box-green[
 .green[**Example**]: 
 
-  Your firm can use labor `\\(l\\)` and capital `\\(k\\)` to produce output according to the production function:
+  Your firm can use labor l and capital k to produce output according to the production function:
 $$q=2lk$$
 
 
