@@ -1,0 +1,34 @@
+---
+title: "2.2 Short Run and Long Run - Practice Problems"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(pander)
+source(file.path(here::here(), "lib", "graphics.R"))
+```
+
+- [<i class="fas fa-file-pdf"></i> `Download as PDF`](/practice/11-practice.pdf)
+
+Your firm can use labor `\\(l\\)` and capital `\\(k\\)` to produce output according to the production function:
+$$q=4lk$$
+
+
+The marginal products are:
+
+$$\begin{align*}
+MP_l &=2k \\
+MP_k &=2l \\ \end{align*}$$
+
+Suppose you  need to produce 144 units, the price of labor is \$10, and the price of capital is \$40. 
+
+## 1. 
+What is the least-cost combination of labor and capital that produces 144 units of output?
+
+## 2.
+How much does this combination cost?
+
+## 3.
+Does this technology experience constant returns, increasing returns, or decreasing returns to scale?

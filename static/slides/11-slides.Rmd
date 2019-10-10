@@ -1932,7 +1932,7 @@ min_c
 
 $$\begin{align*}
 \text{Isoquant curve slope} &= \text{Isocost line slope} \\
-| MRTS_{l,b} | &= | \frac{w}{r} | \\
+| MRTS_{l,k} | &= | \frac{w}{r} | \\
 | \frac{MP_l}{MP_k} | &= | \frac{w}{r} | \\
 | -0.5 | &= | -0.5 | \\\end{align*}$$
 
@@ -2077,7 +2077,7 @@ class: inverse, center, middle
 
 ---
 
-### Returns to Scale
+# Returns to Scale
 
 - The .shout[returns to scale] of production refers to the change in output when all inputs are increased *at the same rate*
 
@@ -2101,7 +2101,7 @@ $$q=f(k,l) \rightarrow q=f(ck,cl) \text{ for some }c$$
 
 ---
 
-### Returns to Scale: Example 
+# Returns to Scale: Example 
 
 .content-box-green[
 .green[**Example**:] Does each of the following production functions exhibit constant returns to scale, increasing returns to scale, or decreasing returns to scale?

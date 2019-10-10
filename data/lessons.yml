@@ -74,6 +74,7 @@ lessons:
     reading: "11-reading"
     slides: "11-slides"
     class: "11-class"
+    practice: "11-practice"
     
   - title: '<i class="fas fa-laptop-code"></i> **Problem Set 3**'
     assignment: "03-problem-set"
