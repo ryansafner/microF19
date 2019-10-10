@@ -16,8 +16,8 @@ $$q=4lk$$
 The marginal products are:
 
 $$\begin{aligned}
-MP_l &=2k \\
-MP_k &=2l \\ \end{aligned}$$
+MP_l &=4k \\
+MP_k &=4l \\ \end{aligned}$$
 
 Suppose you  need to produce 144 units, the price of labor is \$10, and the price of capital is \$40. 
 
