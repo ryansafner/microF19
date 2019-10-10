@@ -1951,7 +1951,7 @@ min_c
 
 ---
 
-# The Firm's Least-Cost Input Combination: Two Equivalent Rules
+# Two Equivalent Rules
 
 .pull-left[
 
@@ -1972,7 +1972,7 @@ min_c
 
 ---
 
-# The Firm's Least-Cost Input Combination: Two Equivalent Rules
+# Two Equivalent Rules
 
 .pull-left[
 
@@ -2059,11 +2059,12 @@ $$q=2lk$$
 The marginal products are:
 
 $$\begin{align*}
-MP_l &=2k \\
-MP_k &=2l \\ \end{align*}$$   
+MP_l&=2k\\
+MP_k&=2l\\\end{align*}$$
 
 ]
-You want to produce 100 units, the price of labor is \$10, and the price of capital is \$5. 
+
+You want to produce 100 units, the price of labor is $10, and the price of capital is $5. 
 
 
 1. What is the least-cost combination of labor and capital that produces 100 units of output?
@@ -2082,6 +2083,8 @@ class: inverse, center, middle
 - The .shout[returns to scale] of production refers to the change in output when all inputs are increased *at the same rate*
 
 $$q=f(k,l) \rightarrow q=f(ck,cl) \text{ for some }c$$
+
+--
 
 - .whisper[Constant returns to scale]: output increases at the same proportionate rate as inputs increase
     - e.g. if you double all inputs, output doubles

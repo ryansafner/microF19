@@ -157,13 +157,28 @@ class: inverse, center, middle
 
 ---
 
-# The Accounting vs. Economic Point of View
+# The Accounting vs. Economic Point of View I
 
 .pull-left[
 
 - Helpful to consider two points of view:
   - **"Accounting point of view"**: are you taking in more cash than you are spending?
   - **"Economic point of view**: is your product you making the *best social* use of your resources (i.e. are there higher-valued uses of your resources you are keeping them away from)?
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/zd7zs2h3v95lh4l/costrevenue.jpg?raw=1)
+
+![](https://www.dropbox.com/s/mb9yaadujqe38fj/disappear.jpg?raw=1)
+]
+]
+
+---
+# The Accounting vs. Economic Point of View II
+
+.pull-left[
 
 - Social implications: are consumers *best* off with you using scarce resources (with alternative uses!) to produce your current product?
 
@@ -187,10 +202,14 @@ class: inverse, center, middle
 
 $$C(q)=f+VC(q)$$
 
+--
+
 - Two kinds of costs:
 
 1. .shout[Fixed costs, `\\(f\\)`] are costs that do not vary with output
     - Only true in the short run! (Consider this the cost of maintaining your capital)
+
+--
 
 2. .shout[Variable costs, `\\(VC(q)\\)`] are costs that vary with output (notice the variable in them!)
     - Typically, the more production of $q$, the higher the cost
@@ -320,7 +339,7 @@ $$MC(q) = \frac{\Delta C(q)}{\Delta q} \approx \frac{C_2-C_1}{q_2-q_1}$$
 # Average and Marginal Costs: Example
 
 .content-box-green[
-.green[**Example**]: A small farm grows strawberries on 5 acres of land that it rents for $200 a week. The farm can hire workers at a wage of $250/week for each worker. The table below shows how the output of strawberries (in truckloads) varies with the number of workers hired:
+.green[**Example**]: A small farm grows strawberries on 5 acres of land that it rents for $200 a week. The farm can hire workers at a wage of $250/week for each worker. The table below shows how the output of strawberries (in truckloads) varies with the number of workers hired:]
 
 | Output | Labor |
 |--------|------:|
@@ -330,7 +349,6 @@ $$MC(q) = \frac{\Delta C(q)}{\Delta q} \approx \frac{C_2-C_1}{q_2-q_1}$$
 | 3 | 7 |
 | 4 | 12 |
 | 5 | 18 |
-]
 
 1. If labor is the only variable cost, calculate the $MC(q)$ and $AC(q)$ for each of the first 5 truckloads.
 
@@ -397,6 +415,79 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 - Whenever marginal $>$ average, average is increasing
 
+]
+
+.pull-right[
+```{r, fig.retina=3}
+library(mosaic)
+marginal<-function(x){3*x^2-8*x+8}
+average<-function(x){x^2-4*x+8+10/x}
+averagev<-function(x){x^2-4*x+8}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=marginal, geom="line", size=2, color = "red")+
+    geom_label(aes(x=3.5,y=marginal(3.5)), color = "red", label=expression(MC(q)), size = 6)+
+  stat_function(fun=averagev, geom="line", size=2, color = "brown")+
+    geom_label(aes(x=5,y=averagev(5)), color = "brown", label=expression(AVC(q)), size = 6)+
+  stat_function(fun=average, geom="line", size=2, color = "orange")+
+    geom_label(aes(x=5.5,y=average(5.5)), color = "orange", label=expression(AC(q)), size = 6)+
+    scale_x_continuous(breaks=NULL,
+                       limits=c(0,7),
+                       expand=c(0,0))+
+  scale_y_continuous(breaks=NULL,
+                     limits=c(0,20))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Output, q",
+       y = "Per-Unit Costs ($)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Relationship Between Marginal and Average
+
+.pull-left[
+
+- There is a general mathematical relationship between a marginal and an average value:
+
+- Whenever marginal $>$ average, average is increasing
+
+- Whenever marginal $<$ average, average is decreasing
+
+]
+
+.pull-right[
+```{r, fig.retina=3}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=marginal, geom="line", size=2, color = "red")+
+    geom_label(aes(x=3.5,y=marginal(3.5)), color = "red", label=expression(MC(q)), size = 6)+
+  stat_function(fun=averagev, geom="line", size=2, color = "brown")+
+    geom_label(aes(x=5,y=averagev(5)), color = "brown", label=expression(AVC(q)), size = 6)+
+  stat_function(fun=average, geom="line", size=2, color = "orange")+
+    geom_label(aes(x=5.5,y=average(5.5)), color = "orange", label=expression(AC(q)), size = 6)+
+    scale_x_continuous(breaks=NULL,
+                       limits=c(0,7),
+                       expand=c(0,0))+
+  scale_y_continuous(breaks=NULL,
+                     limits=c(0,20))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Output, q",
+       y = "Per-Unit Costs ($)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Relationship Between Marginal and Average
+
+.pull-left[
+
+- There is a general mathematical relationship between a marginal and an average value:
+
+- Whenever marginal $>$ average, average is increasing
+
 - Whenever marginal $<$ average, average is decreasing
 
 - When marginal $=$ average, average is **maximized/minimized**
@@ -409,11 +500,6 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 .pull-right[
 ```{r, fig.retina=3}
-library(mosaic)
-marginal<-function(x){3*x^2-8*x+8}
-average<-function(x){x^2-4*x+8+10/x}
-averagev<-function(x){x^2-4*x+8}
-
 ggplot(data.frame(x=c(0,10)), aes(x=x))+
   stat_function(fun=marginal, geom="line", size=2, color = "red")+
     geom_label(aes(x=3.5,y=marginal(3.5)), color = "red", label=expression(MC(q)), size = 6)+
