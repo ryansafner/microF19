@@ -75,15 +75,19 @@ lessons:
     slides: "11-slides"
     class: "11-class"
     
-  - title: "2.3 Solving the Firm's Cost Minimization Problem"
+  - title: '<i class="fas fa-laptop-code"></i> **Problem Set 3**'
+    assignment: "03-problem-set"
 
-  - title: "2.4 Cost and Revenue Functions"
-  
-  - title: "2.5 Factor Markets"
+  - title: "2.3 Cost and Revenue Functions"
+    reading: "12-reading"
+    slides: "12-slides"
+    class: "12-class"
+    
+  - title: "2.4 Factor Markets"
 
-  - title: "2.6 Short Run Profit Maximization"
+  - title: "2.5 Short Run Profit Maximization"
   
-  - title: "2.7 Long Run Industry Equilibrium"
+  - title: "2.6 Long Run Industry Equilibrium"
 
   - title: '<i class="fas fa-star"></i> **Exam 2**'
 

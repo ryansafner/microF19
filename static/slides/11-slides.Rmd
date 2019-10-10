@@ -1049,9 +1049,9 @@ p
 ]
 - One ATM can do the work of 2 bank tellers
 
-- .shout[Perfect substitutes]: goods that can be substituted at same fixed rate and yield same utility
+- .shout[Perfect substitutes]: inputs that can be substituted at same fixed rate and yield same output
 
-- $MRS_{l,k}=-0.5$ (a constant!)
+- $MRTS_{l,k}=-0.5$ (a constant!)
 
 ]
 
@@ -1247,10 +1247,10 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 # Practice
 
 .content-box-green[
-.green[**Example**]: Suppose your firm has the following production function:
+.green[**Example**]: Suppose a firm has the following production function:
 $$q=2lk$$
 
-Where your marginal utilities are:
+Where its marginal products are:
 
 $$\begin{align*}
 MP_l&=2k\\
@@ -1286,7 +1286,7 @@ class: inverse, center, middle
 
 - Let $C$ be the .shout[total cost] of using inputs $(l,k)$ at current input prices $(w,r)$ to produce $q$ units of output:
 
-$$C(q,r,q)=ql+rk$$
+$$C(w,r,q)=wl+rk$$
 
 ]
 
@@ -2068,3 +2068,88 @@ You want to produce 100 units, the price of labor is \$10, and the price of capi
 
 1. What is the least-cost combination of labor and capital that produces 100 units of output?
 2. How much does this combination cost? 
+
+---
+
+class: inverse, center, middle
+
+# Returns to Scale
+
+---
+
+### Returns to Scale
+
+- The .shout[returns to scale] of production refers to the change in output when all inputs are increased *at the same rate*
+
+$$q=f(k,l) \rightarrow q=f(ck,cl) \text{ for some }c$$
+
+- .whisper[Constant returns to scale]: output increases at the same proportionate rate as inputs increase
+    - e.g. if you double all inputs, output doubles
+    $$f(2k,2l)=2f(k,l)$$
+
+--
+
+- .whisper[Increasing returns to scale]: output increases *more than* proportionately to the change in inputs
+    - e.g. if you double all inputs, output *more than* doubles
+    $$f(ck,cl)<cf(k,l)$$
+
+--
+
+- .whisper[Decreasing returns to scale]: output increases *less than* proportionately to the change in inputs
+    - e.g. if you double all inputs, output *less than* doubles
+    $$f(ck,cl)>cf(k,l)$$
+
+---
+
+### Returns to Scale: Example 
+
+.content-box-green[
+.green[**Example**:] Does each of the following production functions exhibit constant returns to scale, increasing returns to scale, or decreasing returns to scale?
+]
+1. $q=4l+2k$
+
+2. $q=2lk$
+
+3. $q=2l^{0.3}k^{0.3}$
+ 
+---
+
+# Returns to Scale: Cobb-Douglas
+
+- One reason we often use Cobb-Douglas production functions is to easily determine returns to scale:     
+$$q=Ak^\alpha l^\beta$$
+
+- $\alpha + \beta = 1$: constant returns to scale
+- $\alpha + \beta >1$: increasing returns to scale
+- $\alpha + \beta <1$: decreasing returns to scale
+- Note this trick *only* works for Cobb-Douglas functions! 
+
+---
+
+# Cobb-Douglas: Constant Returns Case
+
+- In the constant returns to scale case (most common), Cobb-Douglas is often written as:     
+$$q=Ak^\alpha l^{1-\alpha}$$
+
+- $\alpha$ is the .whisper[output elasticity of capital]
+    - A 1% increase in $k$ leads to a $\alpha$% increase in $q$
+
+- $1-\alpha$ is the .whisper[output elasticity of labor]
+    - A 1% increase in $l$ leads to a $(1-\alpha)$% increase in $q$
+
+---
+
+
+# Output-Expansion Paths & Cost Curves
+
+.center[
+![](https://www.dropbox.com/s/0lccry50i7x8shl/outputexpansion.png?raw=1)
+
+Goolsbee et. al (2011: 246)
+]
+
+- **Output Expansion Path**: curve illustrating the changes in the optimal mix of inputs and the total cost to produce an increasing amount of output
+
+- **Total Cost curve**: curve showing the total cost of producing different amounts of output (next class)
+
+- See next class' notes page to see how we go from our least-cost combinations over a range of outputs to derive a total cost function
