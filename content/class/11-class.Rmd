@@ -226,6 +226,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   stat_function(fun=prod_2, geom="line", size=2, color="red")+
   geom_label(aes(x=9.5,y=prod_2(9.5)), color = "red", label="Total Product", size = 5)+
   geom_vline(xintercept=6, size=1.5, linetype="dashed")+
+  geom_segment(x=4, xend=4, y=0, yend=prod_2(4), size=1, linetype="dotted")+
   geom_label(x=4.5,y=50, label="Stage I")+
   geom_vline(xintercept=8, size=1.5, linetype="dashed")+
   geom_label(x=7,y=50, label="Stage II")+
@@ -254,6 +255,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   stat_function(fun=ap, geom="line", size=2, color="purple")+
   geom_label(aes(x=9.5,y=ap(9.5)), color = "purple", label=expression(AP[l]), size = 5)+
   geom_vline(xintercept=6, size=1.5, linetype="dashed")+
+  geom_segment(x=4, xend=4, y=0, yend=mp(4), size=1, linetype="dotted")+
   geom_label(x=4.5,y=8, label="Stage I")+
   geom_vline(xintercept=8, size=1.5, linetype="dashed")+
   geom_label(x=7,y=8, label="Stage II")+
@@ -325,14 +327,7 @@ Look at the lower panel of the figure above and you can see, in Stage I, $MP_l>A
 
 If these graphs looks vaguely familiar, cost curves (total cost, marginal cost, average cost) are *monetized reciprocals* of product curves (total product, marginal product, average product). Here is a proof (that will make sense a few lessons from now):
 
-$$\begin{align*}
-MC & = \frac{ \partial TVC}{\partial q}\\
-& = w \frac{\partial L}{\partial q}\\
-&= w \frac{1}{MP_L}\\	
-\end{align*}$$
+$$MC(q)  = \frac{ \partial VC(q)}{\partial q} = w \frac{\partial l}{\partial q}= w \frac{1}{MP_l}$$
 
-$$\begin{align*}
-AVC & = \frac{ \partial TVC}{\partial q}\\
-& = w \frac{L}{q}\\
-&= w \frac{1}{AP_L}\\	
-\end{align*}$$
+$$
+AVC(q) = \frac{ \partial VC}{\partial q} = w \frac{l}{q}= w \frac{1}{AP_l}$$
