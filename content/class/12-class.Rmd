@@ -26,14 +26,16 @@ Today we put our tools together (production functions/isoquants and isocost line
 Again, these tools and rules are almost *identical* to how we solved the consumer's problem^[Compare $\frac{MP_l}{MP_k}=\frac{w}{r}$ to $\frac{MU_x}{MU_y}=\frac{p_x}{p_y}$ or $\frac{MP_l}{w}=\frac{MP_k}{r}$ to $\frac{MU_x}{p_x} = \frac{MU_y}{p_y}$!], with a major exception: 
 
 Consumers:
-  - choose goods to maximize utility subject to their budget constraint
-  - budget constraint (line) is what is fixed
-  - get on highest indifference curve tangent to budget constraint
+
+- choose goods to maximize utility subject to their budget constraint
+- budget constraint (line) is what is fixed
+- get on highest indifference curve tangent to budget constraint
 
 Produces:
-  - choose inputs to minimize cost subject to producing the optimal amount (their constraint)
-  - isoquant curve is what is fixed (want to produce a specific amount!)
-  - get on *lowest* isocost line tangent to isoquant curve
+
+- choose inputs to minimize cost subject to producing the optimal amount (their constraint)
+- isoquant curve is what is fixed (want to produce a specific amount!)
+- get on *lowest* isocost line tangent to isoquant curve
 
 We finally wrap up with a discussion of *returns to scale*.
 
@@ -73,11 +75,11 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   stat_function(fun=iq_opt, geom="line", size=2, color = "#3CBB75FF")+
   stat_function(fun=IC_10, geom="line", size=2, color = "red")+
   stat_function(fun=IC_10_2, geom="line", size=2, color = "darkred", linetype="dashed", alpha=0.5)+
-  geom_label(aes(x=3,y=iq_opt(3)), color = "#3CBB75FF", label=expression(q^o==sqrt(50)), size = 6)+
-  geom_label(aes(x=2,y=IC_10(2)), color = "red", label="C=$40", size = 6)+
+  geom_label(aes(x=3,y=iq_opt(3)), color = "#3CBB75FF", label=expression(q^o==sqrt(50)), size = 5)+
+  geom_label(aes(x=2.5,y=IC_10(2.5)), color = "red", label="C=$40", size = 5)+
   # new cost line and label
   stat_function(fun=IC_14, geom="line", size=2, color = "darkred")+
-  geom_label(aes(x=2,y=IC_14(2)), color = "darkred", label="C=$56", size = 6)+
+  geom_label(aes(x=2.5,y=IC_14(2.5)), color = "darkred", label="C=$56", size = 5)+
   # arrow
   annotate("segment", x = 10, xend = 7, y = 5, yend = 7, color = "purple", size=2, alpha=0.9, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
   geom_point(data = points_opt,
@@ -104,7 +106,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   labs(x = "Labor",
        y = "Capital",
        title = "A Rise in Wages",
-       subtitle = "Causes a movement along the isoquant to a higher total cost",
+       subtitle = "Move along isoquant to higher total cost",
        caption = expression(paste(q==sqrt(lk), ", ", q^o==sqrt(50), ", ", w[1], "= $2, ", w[2], ", = $4, ", r," = $4", sep=" ")))+
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
@@ -118,10 +120,10 @@ Note you could also go in the other direction. Begin at point $B$ and suppose th
 ## Improvements in Technology
 
 We defined our original production function as including an "input" called "[total factor productivity](https://en.wikipedia.org/wiki/Total_factor_productivity)." In our Cobb-Douglas case, we included it in our function as $A$, as in:
-$$y=Ak^\alpha l^\beta$$
+$$q=Ak^\alpha l^\beta$$
 
 Now let's see how this affects production. Suppose the firm wants to produce 100 units of output at a particular set of input prices, with the following technology (represented by the production function):
-$$y=k^{0.5}l^{0.5}$$
+$$q=k^{0.5}l^{0.5}$$
 ```{r, fig.retina=3}
 points_tech1<-tribble(
   ~letter, ~x, ~y,
@@ -134,8 +136,8 @@ IC_tech_min=function(x){200-x}
 ggplot(data.frame(x=c(0,10)), aes(x=x))+
   stat_function(fun=iq_tech_opt, geom="line", size=2, color = "#3CBB75FF")+
   stat_function(fun=IC_tech_min, geom="line", size=2, color = "red")+
-  geom_label(aes(x=250,y=iq_tech_opt(250)), color = "#3CBB75FF", label=expression(q^o==100), size = 6)+
-  geom_label(aes(x=25,y=IC_tech_min(25)), color = "red", label="C=$2000", size = 6)+
+  geom_label(aes(x=250,y=iq_tech_opt(250)), color = "#3CBB75FF", label=expression(q^o==100), size = 4)+
+  geom_label(aes(x=25,y=IC_tech_min(25)), color = "red", label="C=$2000", size = 4)+
   geom_point(data = points_tech1,
              mapping=aes(x=x, y=y),
              size = 3)+
@@ -163,7 +165,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 Then the firm's "technology" improves, such that its new production function is
 
-$$y=2k^{0.5}l^{0.5}$$
+$$q=2k^{0.5}l^{0.5}$$
 
 Notice total factor productivity $(A)$ has doubled, such that, for the same amount of inputs $l$ and $k$, the firm can now produce *twice* as much output $(2q)$. So suppose again the firm still wishes to produce $q^*=100$, the same as before. Under the new technology, the firm can **produce the same output with fewer inputs**. This is the definition of productivity increases or, for an entire economy, economic growth.
 
@@ -182,10 +184,10 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   stat_function(fun=iq_tech_opt_2, geom="line", size=2, color = "green")+
   stat_function(fun=IC_tech_min, geom="line", size=2, color = "red")+
   stat_function(fun=IC_tech_min_2, geom="line", size=2, color = "pink")+
-  geom_label(aes(x=200,y=(iq_tech_opt(200)+10)), color = "#3CBB75FF", label=expression(paste(q^o==100, ", Tech 1")), size = 3)+
-  geom_label(aes(x=200,y=iq_tech_opt_2(200)), color = "green", label=expression(paste(q^o==100, ", Tech 2")), size = 3)+
-  geom_label(aes(x=25,y=IC_tech_min(25)), color = "red", label="C=$2000", size = 3)+
-  geom_label(aes(x=25,y=IC_tech_min_2(25)), color = "pink", label="C=$1000", size = 3)+
+  geom_label(aes(x=200,y=(iq_tech_opt(200)+10)), color = "#3CBB75FF", label=expression(paste(q^o==100, ", Tech 1")), size = 4)+
+  geom_label(aes(x=200,y=iq_tech_opt_2(200)), color = "green", label=expression(paste(q^o==100, ", Tech 2")), size = 4)+
+  geom_label(aes(x=25,y=IC_tech_min(25)), color = "red", label="C=$2000", size = 4)+
+  geom_label(aes(x=25,y=IC_tech_min_2(25)), color = "pink", label="C=$1000", size = 4)+
   geom_point(data = points_tech2,
              mapping=aes(x=x, y=y),
              size = 3)+
@@ -209,7 +211,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   labs(x = "Labor",
        y = "Capital",
        title = "Better Technology",
-       subtitle = "Cost-min. combo of inputs to produce 100 units",
+       subtitle = "Lowers Cost-min. combo to produce 100 units",
        caption = expression(paste(q==2*k^{0.5}*l^{0.5}, ", ", q^o==100, ", w= $10 , ","r = $10", sep=" ")))+
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```

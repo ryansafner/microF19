@@ -61,7 +61,7 @@ The firm's **profit maximization problem**:
 
 - **Choose**: $<$ Input and Output: $l,y$ $>$
 - **To Maximize**: $<$ Profit: $\pi=py-wl$ $>$
--**Subject to**: $<$ Technology: $q=f(\bar{k},l)$ $>$
+- **Subject to**: $<$ Technology: $q=f(\bar{k},l)$ $>$
 - Written mathematically:
   $$\max_{l,y \geq 0}pq-wl$$
   $$s.t. y=f(\bar{k},l)$$
@@ -168,7 +168,7 @@ ggplot(data.frame(x=c(0,5)), aes(x=x))+
   labs(x = "Input (l)",
        y = "Output (q)",
        title = "Production Function",
-       subtitle = "Diminishing returns: q increases with l at a decreasing rate",
+       subtitle = "Diminishing returns: q rises with l at decreasing rate",
        caption = expression(paste("Technology: ", q(l,bar(k))==sqrt(l))))+
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
