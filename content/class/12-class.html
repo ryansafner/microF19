@@ -1,0 +1,72 @@
+---
+title: "2.3 Cost Minimization - Class Notes"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+<!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<h2>Contents</h2>
+<div id="TOC">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#slides">Slides</a></li>
+<li><a href="#practice-problems">Practice Problems</a></li>
+<li><a href="#appendix">Appendix</a><ul>
+<li><a href="#a-change-in-relative-factor-prices">A Change in Relative Factor Prices</a></li>
+<li><a href="#improvements-in-technology">Improvements in Technology</a></li>
+</ul></li>
+</ul>
+</div>
+
+<h2 id="overview">Overview</h2>
+<ul>
+<li><em>Thursday, October 10, 2019 (Section 1 Tu/Th)</em></li>
+</ul>
+<p>Today we put our tools together (production functions/isoquants and isocost lines) to solve the firm’s cost minimization problem. Again, we do not solve this constrained optimization problem with calculus, but by looking graphically, and using an algabraic rule that should make intuitive sense.</p>
+<p>Again, these tools and rules are almost <em>identical</em> to how we solved the consumer’s problem<span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">Compare <span class="math inline">\(\frac{MP_l}{MP_k}=\frac{w}{r}\)</span> to <span class="math inline">\(\frac{MU_x}{MU_y}=\frac{p_x}{p_y}\)</span> or <span class="math inline">\(\frac{MP_l}{w}=\frac{MP_k}{r}\)</span> to <span class="math inline">\(\frac{MU_x}{p_x} = \frac{MU_y}{p_y}\)</span>!<br />
+<br />
+</span></span>, with a major exception:</p>
+<p>Consumers:
+- choose goods to maximize utility subject to their budget constraint
+- budget constraint (line) is what is fixed
+- get on highest indifference curve tangent to budget constraint</p>
+<p>Produces:
+- choose inputs to minimize cost subject to producing the optimal amount (their constraint)
+- isoquant curve is what is fixed (want to produce a specific amount!)
+- get on <em>lowest</em> isocost line tangent to isoquant curve</p>
+<p>We finally wrap up with a discussion of <em>returns to scale</em>.</p>
+<p>Note to section 1 (Tu/Th) students: this was formerly lumped in with Class 11, but I’ve since broke it into its own class to better keep track of our schedule.</p>
+<h2 id="slides">Slides</h2>
+<ul>
+<li><a href="/slides/10-slides.html"><i class="fas fa-external-link-square-alt"></i> Lecture Slides</a></li>
+</ul>
+<h2 id="practice-problems">Practice Problems</h2>
+<p>Today we will be working on <a href="/practice/12-practice">practice problems</a>. Answers will be posted later.</p>
+<h2 id="appendix">Appendix</h2>
+<h3 id="a-change-in-relative-factor-prices">A Change in Relative Factor Prices</h3>
+<p>If an input (labor or capital) changes in price, we saw that it rotated the isocost line by changing the slope, and the intercept for that input. How does it affect the cost-minimizing (optimal) combination of inputs?</p>
+<p>It turns out, a change in one input’s price relative to the other is likely to change the ratio of inputs, as well as the total cost of production due to the mathematics and geometry of cost minimization. Recall the cost-minimizing combination of inputs occurs where the slope of the isoquant is equal to the slope of the lowest isocost line tangent to the isoquant. In the graph below, this occurs at point <span class="math inline">\(A\)</span>.</p>
+<p>Then, suppose the price of labor <span class="math inline">\(w\)</span> increases from $2 to $4. This causes a move along the isoquant from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>, the firm substitutes more capital for labor, and this costs more!</p>
+<p><img src="/class/12-class_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Why does the optimal isocost line rotate along <em>both</em> axes (i.e. <em>both</em> axis-endpoints change)? With the budget constraint, we saw a change in one price caused the budget constraint to rotate and change an endpoint only along the axis with the good that changed in price.</p>
+<p>Here, recall that the isoquant is unmovable - this is the set optimal quantity we want to produce. If an input were to change in price, that would rotate the isocost line and change only the intercept of that input that changed in price, as with a budget constraint. However, that new line (dashed darker red line) would <em>not</em> be tangent to our original budget constraint anymore - that is, we could not produce the output we want at the <em>same</em> total cost as before. Thus, it must be on a <em>new</em> isocost line (indicating a <em>different</em> total cost), just with the same slope as the new isocost line after the price change.</p>
+<p>Note you could also go in the other direction. Begin at point <span class="math inline">\(B\)</span> and suppose the price of labor <em>decreases</em> (or perhaps the price of capital <em>increases</em>). Then, the firm will substitute more labor for capital, and this will cost less!</p>
+<h3 id="improvements-in-technology">Improvements in Technology</h3>
+<p>We defined our original production function as including an “input” called “<a href="https://en.wikipedia.org/wiki/Total_factor_productivity">total factor productivity</a>.” In our Cobb-Douglas case, we included it in our function as <span class="math inline">\(A\)</span>, as in:
+<span class="math display">\[y=Ak^\alpha l^\beta\]</span></p>
+<p>Now let’s see how this affects production. Suppose the firm wants to produce 100 units of output at a particular set of input prices, with the following technology (represented by the production function):
+<span class="math display">\[y=k^{0.5}l^{0.5}\]</span>
+<img src="/class/12-class_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Then the firm’s “technology” improves, such that its new production function is</p>
+<p><span class="math display">\[y=2k^{0.5}l^{0.5}\]</span></p>
+<p>Notice total factor productivity <span class="math inline">\((A)\)</span> has doubled, such that, for the same amount of inputs <span class="math inline">\(l\)</span> and <span class="math inline">\(k\)</span>, the firm can now produce <em>twice</em> as much output <span class="math inline">\((2q)\)</span>. So suppose again the firm still wishes to produce <span class="math inline">\(q^*=100\)</span>, the same as before. Under the new technology, the firm can <strong>produce the same output with fewer inputs</strong>. This is the definition of productivity increases or, for an entire economy, economic growth.</p>
+<p><img src="/class/12-class_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>

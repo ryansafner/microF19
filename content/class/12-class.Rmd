@@ -1,0 +1,215 @@
+---
+title: "2.3 Cost Minimization - Class Notes"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+# Overview
+
+- *Thursday, October 10, 2019 (Section 1 Tu/Th)*
+
+Today we put our tools together (production functions/isoquants and isocost lines) to solve the firm's cost minimization problem. Again, we do not solve this constrained optimization problem with calculus, but by looking graphically, and using an algabraic rule that should make intuitive sense. 
+
+Again, these tools and rules are almost *identical* to how we solved the consumer's problem^[Compare $\frac{MP_l}{MP_k}=\frac{w}{r}$ to $\frac{MU_x}{MU_y}=\frac{p_x}{p_y}$ or $\frac{MP_l}{w}=\frac{MP_k}{r}$ to $\frac{MU_x}{p_x} = \frac{MU_y}{p_y}$!], with a major exception: 
+
+Consumers:
+  - choose goods to maximize utility subject to their budget constraint
+  - budget constraint (line) is what is fixed
+  - get on highest indifference curve tangent to budget constraint
+
+Produces:
+  - choose inputs to minimize cost subject to producing the optimal amount (their constraint)
+  - isoquant curve is what is fixed (want to produce a specific amount!)
+  - get on *lowest* isocost line tangent to isoquant curve
+
+We finally wrap up with a discussion of *returns to scale*.
+
+Note to section 1 (Tu/Th) students: this was formerly lumped in with Class 11, but I've since broke it into its own class to better keep track of our schedule.
+
+# Slides
+
+- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/10-slides.html)
+
+# Practice Problems
+Today we will be working on [practice problems](/practice/12-practice). Answers will be posted later. 
+
+# Appendix
+
+## A Change in Relative Factor Prices
+
+If an input (labor or capital) changes in price, we saw that it rotated the isocost line by changing the slope, and the intercept for that input. How does it affect the cost-minimizing (optimal) combination of inputs?
+
+It turns out, a change in one input's price relative to the other is likely to change the ratio of inputs, as well as the total cost of production due to the mathematics and geometry of cost minimization. Recall the cost-minimizing combination of inputs occurs where the slope of the isoquant is equal to the slope of the lowest isocost line tangent to the isoquant. In the graph below, this occurs at point $A$.
+
+Then, suppose the price of labor $w$ increases from $2 to $4. This causes a move along the isoquant from $A$ to $B$, the firm substitutes more capital for labor, and this costs more!
+
+```{r}
+library(tidyverse)
+points_opt<-tribble(
+  ~letter, ~x, ~y,
+  "A", 10, 5,
+  "B", 7, 7
+)
+
+iq_opt=function(x){50/x}
+IC_10=function(x){10-0.5*x}
+IC_10_2=function(x){10-x}
+IC_14=function(x){14-x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=iq_opt, geom="line", size=2, color = "#3CBB75FF")+
+  stat_function(fun=IC_10, geom="line", size=2, color = "red")+
+  stat_function(fun=IC_10_2, geom="line", size=2, color = "darkred", linetype="dashed", alpha=0.5)+
+  geom_label(aes(x=3,y=iq_opt(3)), color = "#3CBB75FF", label=expression(q^o==sqrt(50)), size = 6)+
+  geom_label(aes(x=2,y=IC_10(2)), color = "red", label="C=$40", size = 6)+
+  # new cost line and label
+  stat_function(fun=IC_14, geom="line", size=2, color = "darkred")+
+  geom_label(aes(x=2,y=IC_14(2)), color = "darkred", label="C=$56", size = 6)+
+  # arrow
+  annotate("segment", x = 10, xend = 7, y = 5, yend = 7, color = "purple", size=2, alpha=0.9, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  geom_point(data = points_opt,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text(data = points_opt,
+             mapping=aes(x=x, y=(y+1.5),
+             label = letter),
+             size = 6)+
+  # old point A lines
+  geom_segment(aes(x = 0, xend = 10, y = 5, yend=5), linetype="dotted", size=1)+
+  geom_segment(aes(x = 10, xend = 10, y = 5, yend=0), linetype="dotted", size=1)+
+  # new point B lines
+  geom_segment(aes(x = 0, xend = 7, y = 7, yend=7), linetype="dotted", size=1)+
+  geom_segment(aes(x = 7, xend = 7, y = 7, yend=0), linetype="dotted", size=1)+
+  
+    scale_x_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor",
+       y = "Capital",
+       title = "A Rise in Wages",
+       subtitle = "Causes a movement along the isoquant to a higher total cost",
+       caption = expression(paste(q==sqrt(lk), ", ", q^o==sqrt(50), ", ", w[1], "= $2, ", w[2], ", = $4, ", r," = $4", sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+Why does the optimal isocost line rotate along *both* axes (i.e. *both* axis-endpoints change)? With the budget constraint, we saw a change in one price caused the budget constraint to rotate and change an endpoint only along the axis with the good that changed in price.
+
+Here, recall that the isoquant is unmovable - this is the set optimal quantity we want to produce. If an input were to change in price, that would rotate the isocost line and change only the intercept of that input that changed in price, as with a budget constraint. However, that new line (dashed darker red line) would *not* be tangent to our original budget constraint anymore - that is, we could not produce the output we want at the *same* total cost as before. Thus, it must be on a *new* isocost line (indicating a *different* total cost), just with the same slope as the new isocost line after the price change.
+
+Note you could also go in the other direction. Begin at point $B$ and suppose the price of labor *decreases* (or perhaps the price of capital *increases*). Then, the firm will substitute more labor for capital, and this will cost less!
+
+## Improvements in Technology
+
+We defined our original production function as including an "input" called "[total factor productivity](https://en.wikipedia.org/wiki/Total_factor_productivity)." In our Cobb-Douglas case, we included it in our function as $A$, as in:
+$$y=Ak^\alpha l^\beta$$
+
+Now let's see how this affects production. Suppose the firm wants to produce 100 units of output at a particular set of input prices, with the following technology (represented by the production function):
+$$y=k^{0.5}l^{0.5}$$
+```{r, fig.retina=3}
+points_tech1<-tribble(
+  ~letter, ~x, ~y,
+  "A", 100, 100
+)
+
+iq_tech_opt=function(x){10000/x}
+IC_tech_min=function(x){200-x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=iq_tech_opt, geom="line", size=2, color = "#3CBB75FF")+
+  stat_function(fun=IC_tech_min, geom="line", size=2, color = "red")+
+  geom_label(aes(x=250,y=iq_tech_opt(250)), color = "#3CBB75FF", label=expression(q^o==100), size = 6)+
+  geom_label(aes(x=25,y=IC_tech_min(25)), color = "red", label="C=$2000", size = 6)+
+  geom_point(data = points_tech1,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text(data = points_tech1,
+             mapping=aes(x=x, y=(y+25),
+             label = letter),
+             size = 6)+
+  # old point A lines
+  geom_segment(aes(x = 0, xend = 100, y = 100, yend=100), linetype="dotted", size=1)+
+  geom_segment(aes(x = 100, xend = 100, y = 100, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,250,50),
+                     limits=c(0,250),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,250,50),
+                     limits=c(0,250),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor",
+       y = "Capital",
+       title = "Original Technology",
+       subtitle = "Cost-min. combo of inputs to produce 100 units",
+       caption = expression(paste(q==k^{0.5}*l^{0.5}, ", ", q^o==100, ", w= $10 , ","r = $10", sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+
+Then the firm's "technology" improves, such that its new production function is
+
+$$y=2k^{0.5}l^{0.5}$$
+
+Notice total factor productivity $(A)$ has doubled, such that, for the same amount of inputs $l$ and $k$, the firm can now produce *twice* as much output $(2q)$. So suppose again the firm still wishes to produce $q^*=100$, the same as before. Under the new technology, the firm can **produce the same output with fewer inputs**. This is the definition of productivity increases or, for an entire economy, economic growth.
+
+```{r, fig.retina=3}
+points_tech2<-tribble(
+  ~letter, ~x, ~y,
+  "A", 100, 100,
+  "B", 50, 50
+)
+
+iq_tech_opt_2=function(x){2500/x}
+IC_tech_min_2=function(x){100-x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=iq_tech_opt, geom="line", size=2, color = "#3CBB75FF")+
+  stat_function(fun=iq_tech_opt_2, geom="line", size=2, color = "green")+
+  stat_function(fun=IC_tech_min, geom="line", size=2, color = "red")+
+  stat_function(fun=IC_tech_min_2, geom="line", size=2, color = "pink")+
+  geom_label(aes(x=200,y=(iq_tech_opt(200)+10)), color = "#3CBB75FF", label=expression(paste(q^o==100, ", Tech 1")), size = 3)+
+  geom_label(aes(x=200,y=iq_tech_opt_2(200)), color = "green", label=expression(paste(q^o==100, ", Tech 2")), size = 3)+
+  geom_label(aes(x=25,y=IC_tech_min(25)), color = "red", label="C=$2000", size = 3)+
+  geom_label(aes(x=25,y=IC_tech_min_2(25)), color = "pink", label="C=$1000", size = 3)+
+  geom_point(data = points_tech2,
+             mapping=aes(x=x, y=y),
+             size = 3)+
+  geom_text(data = points_tech2,
+             mapping=aes(x=x, y=(y+25),
+             label = letter),
+             size = 6)+
+  # old point A lines
+  geom_segment(aes(x = 0, xend = 100, y = 100, yend=100), linetype="dotted", size=1)+
+  geom_segment(aes(x = 100, xend = 100, y = 100, yend=0), linetype="dotted", size=1)+
+  # new point B lines
+  geom_segment(aes(x = 0, xend = 50, y = 50, yend=50), linetype="dotted", size=1)+
+  geom_segment(aes(x = 50, xend = 50, y = 50, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,250,50),
+                     limits=c(0,250),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,250,50),
+                     limits=c(0,250),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor",
+       y = "Capital",
+       title = "Better Technology",
+       subtitle = "Cost-min. combo of inputs to produce 100 units",
+       caption = expression(paste(q==2*k^{0.5}*l^{0.5}, ", ", q^o==100, ", w= $10 , ","r = $10", sep=" ")))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```

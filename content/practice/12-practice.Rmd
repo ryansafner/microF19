@@ -1,5 +1,5 @@
 ---
-title: "2.2 Short Run and Long Run - Practice Problems"
+title: "2.3 Cost Minimization - Practice Problems"
 editor_options: 
   chunk_output_type: console
 ---
@@ -10,7 +10,7 @@ library(pander)
 source(file.path(here::here(), "lib", "graphics.R"))
 ```
 
-- [<i class="fas fa-file-pdf"></i> `Download as PDF`](/practice/11-practice.pdf)
+- [<i class="fas fa-file-pdf"></i> `Download as PDF`](/practice/12-practice.pdf)
 
 Your firm can use labor $l$ and capital $k$ to produce output according to the production function:
 $$q=4lk$$

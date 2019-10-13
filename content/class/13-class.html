@@ -29,22 +29,11 @@ editor_options:
 </div>
 
 <h2 id="overview">Overview</h2>
-<ul>
-<li><em>Tuesday, October 8, 2019 (Section 1 Tu/Th)</em></li>
-<li><em>Wednesday, October 9, 2019 (Section 2 M/W)</em></li>
-</ul>
-<p>Today we continue with setting up the second stage of the firm’s problem, the <em>cost-minimization problem</em>, where firms choose inputs <span class="math inline">\((l,k)\)</span> that minimize total cost <span class="math inline">\((wl+rk)\)</span> in order to produce the optimal amount of output <span class="math inline">\(q^*\)</span>. For now, we are merely <em>assuming</em> the amount of output that is optimal, later we will explicitly solve for it as our first stage (<em>profit maximization problem</em>).</p>
-<p>In doing so, we need to split up production activity into the <em>short-run</em>, where firms cannot change all inputs (we traditionally assume capital is fixed <span class="math inline">\(\bar{k}\)</span> and firms can only change labor <span class="math inline">\(l)\)</span>, and the long run, where firms can change all inputs. We discuss short run production and associated input-based metrics: <em>marginal product</em> and <em>average product.</em></p>
-<p>In the long-run, firms can choose <em>many</em> combinations of inputs <span class="math inline">\((l,k)\)</span> that yield a desired output. We introduce two tools that will remind you a lot like the tools from consumer theory: (1) an <em>isoquant curve</em><span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">Call it an output curve to remember it better.<br />
-<br />
-</span></span> that, similar to an indifference curve, contains all the combinations of inputs that yield the same output, and (2) an <em>isocost line</em><span><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">Call it just a cost line to remember it better.<br />
-<br />
-</span></span> that, similar to a budget constraint, contains all the combinations of inputs that are the same total cost. We discuss some properties about each of these things and do some examples in anticipation of puttiung these tools together in the next class to solve the problem.</p>
-<p>For some students, it takes this second time around with the tools of consumer theory for them to finally “click,” and that’s okay!</p>
-<p>Note to section 1 (Tu/Th) students: this formerly included the material that has now been separated into class 12 (on solving the cost minimization problem), but I’ve since broke it into its own class to better keep track of our schedule.</p>
+<p>Today we start looking on the supply side of the market for the next few weeks. You will ultimately see, we will use the same tools (and get basically the same results!) for studying producers (constrained optimization models) as we did for consumers. Sometimes, these models finally “click” for students the second time around, and production is often more intuitive than utility and consumption.</p>
+<p>Today we set up the problem, and discuss what it is that firms do. If you want to learn a lot more about the economics of organization and the firm, take my Industrial Organization class next semester.</p>
 <h2 id="slides">Slides</h2>
 <ul>
-<li><a href="/slides/11-slides.html"><i class="fas fa-external-link-square-alt"></i> Lecture Slides</a></li>
+<li><a href="/slides/10-slides.html"><i class="fas fa-external-link-square-alt"></i> Lecture Slides</a></li>
 </ul>
 <h2 id="appendix">Appendix</h2>
 <h3 id="solving-the-firms-problem-in-one-step">Solving the Firm’s Problem in One Step</h3>
@@ -80,7 +69,7 @@ editor_options:
 <span class="math display">\[s.t. y=f(\bar{k},l)\]</span></li>
 </ul>
 <h4 id="objective-maximize-profits">Objective: Maximize Profits</h4>
-<p>The objective function is trying to maximize profits. So we need to think about different levels (“contour lines”) of profit that correspond to combinations of input and output (at constant prices).<span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">This is similar to finding indifference curves for consumers’ attempting to maximize their utility function (by finding the highest indifference curve for their budget).<br />
+<p>The objective function is trying to maximize profits. So we need to think about different levels (“contour lines”) of profit that correspond to combinations of input and output (at constant prices).<span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">This is similar to finding indifference curves for consumers’ attempting to maximize their utility function (by finding the highest indifference curve for their budget).<br />
 <br />
 </span></span></p>
 <p>A firm earns profits (<span class="math inline">\(\pi\)</span>) as revenues minus costs:
@@ -97,7 +86,7 @@ Where
 \pi+wl&amp;=py\\
 \frac{\pi}{p}+\frac{w}{p}l&amp;=q\\
 \end{align*}\]</span></p>
-<p><img src="/class/11-class_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/class/13-class_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>For these example isoprofit lines, since the price of our input <span class="math inline">\((w)\)</span> is $1, and the price of output <span class="math inline">\((p)\)</span> is $2, the slope of each of the isoprofit lines is positive <span class="math inline">\(0.5\)</span>.</p>
 <h4 id="constraint-technology">Constraint: Technology</h4>
 <p>The constraint is what is technologically feasible for the firm to produce, according to its production function. We need to make a few assumptions about production functions in order to get an optimum solution:</p>
@@ -107,10 +96,10 @@ Where
 <li><span class="math inline">\(\frac{d^2q}{d l^2}&lt;0\)</span>: Diminishing marginal productivity (production increases at a decreasing rate, i.e. the second derivative of the production function is negative)</li>
 </ol>
 <p>These assumptions generate <em>decreasing returns to scale</em> in production: doubling input produces less than double output. These assumptions give us a mathematically-easy answer to find, but not all production fits these assumptions. A production function that fits these assumptions would look like this:</p>
-<p><img src="/class/11-class_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/class/13-class_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <h4 id="solving-the-problem">Solving the Problem</h4>
 <p>Essentially, we are trying to find the highest profit line tangent to our production function:</p>
-<p><img src="/class/11-class_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/class/13-class_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>At a tangency, the slopes of the two functions are equal. The slope of the isoprofit lines we know are <span class="math inline">\(\frac{w}{p}\)</span>. The slope of the production function is the marginal product (of labor). So at the point of tangency:
 <span class="math display">\[\begin{align*}
     \text{Slope of production function} &amp;= \text{Slope of Isoprofit line}\\
@@ -119,8 +108,8 @@ Where
 <h3 id="the-firms-supply-and-demand-functions">The Firm’s Supply and Demand Functions</h3>
 <h3 id="the-geometry-of-short-run-production">The Geometry of Short-Run Production</h3>
 <p>This appendix explores the geometry of production functions in the short run. From the common law of diminishing returns (sometimes called “<em>the law of variable proportions</em>”), with constant technology, increasing the use of one factor (e.g. <span class="math inline">\(l)\)</span>, holding other factors constant (e.g. <span class="math inline">\(\bar{k})\)</span>, will ultimately experience diminishing returns. We often break up short-run production into three stages, based on the type of returns to increasing the use of one factor: increasing, decreasing, and negative.</p>
-<p><img src="/class/11-class_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p><img src="/class/11-class_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/class/13-class_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/class/13-class_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <h4 id="i.-increasing-returns">I. Increasing Returns</h4>
 <p>In Stage I, labor experiences <em>increasing returns</em>. Both the marginal and the average product of labor are positive and (mostly) increasing. That is to say, output is increasing at an increasing rate when more labor is added, and the productivity per worker increases. For the example above, Stage I occurs over the range of 0-6 workers.</p>
 <p>Intuitively, increasing returns means that output increases at an increasing rate. This is not the same, but you can think of this almost like exponential growth – just by adding a few more units of input we can get massive amounts of output. If this held forever, we could grow the entire world’s supply of food in a single flower pot!</p>

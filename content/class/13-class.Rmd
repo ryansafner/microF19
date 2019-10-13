@@ -19,22 +19,13 @@ knitr::opts_chunk$set(echo = FALSE,
 
 # Overview
 
-- *Tuesday, October 8, 2019 (Section 1 Tu/Th)*
-- *Wednesday, October 9, 2019 (Section 2 M/W)*
+Today we start looking on the supply side of the market for the next few weeks. You will ultimately see, we will use the same tools (and get basically the same results!) for studying producers (constrained optimization models) as we did for consumers. Sometimes, these models finally "click" for students the second time around, and production is often more intuitive than utility and consumption.
 
-Today we continue with setting up the second stage of the firm's problem, the *cost-minimization problem*, where firms choose inputs $(l,k)$ that minimize total cost $(wl+rk)$ in order to produce the optimal amount of output $q^*$. For now, we are merely *assuming* the amount of output that is optimal, later we will explicitly solve for it as our first stage (*profit maximization problem*).
-
-In doing so, we need to split up production activity into the *short-run*, where firms cannot change all inputs (we traditionally assume capital is fixed $\bar{k}$ and firms can only change labor $l)$, and the long run, where firms can change all inputs. We discuss short run production and associated input-based metrics: *marginal product* and *average product.*
-
-In the long-run, firms can choose *many* combinations of inputs $(l,k)$ that yield a desired output. We introduce two tools that will remind you a lot like the tools from consumer theory: (1) an *isoquant curve*^[Call it an output curve to remember it better.] that, similar to an indifference curve, contains all the combinations of inputs that yield the same output, and (2) an *isocost line*^[Call it just a cost line to remember it better.] that, similar to a budget constraint, contains all the combinations of inputs that are the same total cost. We discuss some properties about each of these things and do some examples in anticipation of puttiung these tools together in the next class to solve the problem.
-
-For some students, it takes this second time around with the tools of consumer theory for them to finally "click," and that's okay!
-
-Note to section 1 (Tu/Th) students: this formerly included the material that has now been separated into class 12 (on solving the cost minimization problem), but I've since broke it into its own class to better keep track of our schedule.
+Today we set up the problem, and discuss what it is that firms do. If you want to learn a lot more about the economics of organization and the firm, take my Industrial Organization class next semester.
 
 # Slides
 
-- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/11-slides.html)
+- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/10-slides.html)
 
 # Appendix
 

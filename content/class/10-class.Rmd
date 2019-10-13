@@ -17,6 +17,9 @@ knitr::opts_chunk$set(echo = FALSE,
                       warning = FALSE)
 ```
 
+- *Thursday, October 3, 2019 (Section 1 Tu/Th)*
+- *Monday, October 7, 2019 (Section 2 M/W)*
+
 # Overview
 
 Today we start looking on the supply side of the market for the next few weeks. You will ultimately see, we will use the same tools (and get basically the same results!) for studying producers (constrained optimization models) as we did for consumers. Sometimes, these models finally "click" for students the second time around, and production is often more intuitive than utility and consumption.

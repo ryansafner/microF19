@@ -1,5 +1,5 @@
 ---
-title: "2.2 Short Run and Long Run - Practice Problems"
+title: "2.3 Cost Minimization - Practice Problems"
 author: "Ryan Safner"
 date: "ECON 306 - Fall 2019"
 output: pdf_document
