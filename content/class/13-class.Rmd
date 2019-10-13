@@ -82,7 +82,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   guides(color = F)+
   labs(x = "Output (q)",
        y = "Total Costs C(q)",
-       title = "Total Costs with Constant Returns to Scale")+
+       title = "Total Costs with Constant RTS")+
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
 
@@ -103,7 +103,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   guides(color = F)+
   labs(x = "Output (q)",
        y ="Costs per Unit",
-       title = "Per Unit Costs with Constant Returns to Scale")+
+       title = "Per Unit Costs with Constant RTS")+
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
 
@@ -159,7 +159,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   guides(color = F)+
   labs(x = "Output (q)",
        y = "Total Costs C(q)",
-       title = "Total Costs with Decreasing Returns to Scale")+
+       title = "Total Costs with Decreasing RTS")+
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
 
@@ -180,7 +180,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   guides(color = F)+
   labs(x = "Output (q)",
        y ="Costs per Unit",
-       title = "Per Unit Costs with Decreasing Returns to Scale")+
+       title = "Per Unit Costs with RTS")+
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
 
@@ -215,7 +215,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   guides(color = F)+
   labs(x = "Input, Labor (l)",
        y = "Output (q)",
-       title = "Decreasing Returns to Scale")+
+       title = "Increasing Returns to Scale")+
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
 
@@ -236,7 +236,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   guides(color = F)+
   labs(x = "Output (q)",
        y = "Total Costs C(q)",
-       title = "Total Costs with Increasing Returns to Scale")+
+       title = "Total Costs with Increasing RTS")+
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
 
@@ -257,7 +257,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   guides(color = F)+
   labs(x = "Output (q)",
        y ="Costs per Unit",
-       title = "Per Unit Costs with Increasing Returns to Scale")+
+       title = "Per Unit Costs with Increasing RTS")+
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
 

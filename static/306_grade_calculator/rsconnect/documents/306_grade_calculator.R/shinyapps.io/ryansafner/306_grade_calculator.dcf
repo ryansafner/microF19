@@ -1,0 +1,12 @@
+name: 306_grade_calculator
+title: 306_grade_calculator
+username:
+account: ryansafner
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1323593
+bundleId: 2497081
+url: https://ryansafner.shinyapps.io/306_grade_calculator/
+when: 1570998660.67418
+asMultiple: FALSE
+asStatic: FALSE
