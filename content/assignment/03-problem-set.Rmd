@@ -1,0 +1,169 @@
+---
+title: "Problem Set 3"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(pander)
+source(file.path(here::here(), "lib", "graphics.R"))
+```
+
+*Due by Thursday, September 26, 2019* (Section 1 - TuTh)
+
+*Due by Monday, September 30, 2019* (Section 2 - MW)
+
+- [<i class="fas fa-file-pdf"></i> `Download as PDF`](/homeworks/03-problem-set-pdf.pdf)
+
+Please write your answers to the following questions on a piece of paper, or download and print a PDF copy (link above) to write on. You may also type your answers and print out a hard copy.
+
+You may work together (and I highly encourage that) but you must turn in your own answers. Your TA, under my supervision, will grade homeworks 70% for completion, and for the remaining 30%, pick one question to grade for accuracy - so it is best that you try every problem, even if you are unsure how to complete it accurately.
+
+# Concepts and Critical Thinking
+
+Please answer the following questions briefly (1-3 sentences). Use examples as necessary. Be sure to label graphs fully, if appropriate.
+
+## Question 1
+
+Describe, in your own words, what the marginal rate of technical substitution means. How is it different from the slope of the isocost line?
+
+## Question 2
+
+Describe, in your own words, what is true at the least-cost input combination (the optimum) for a firm. Why is it the optimum? What does the equality of the slope of the isoquant curve and the slope of the isocost line *mean*, in English?
+
+## Question 4
+
+Suppose that, holding prices constant, Alice has preferences over the number of books she purchases, illustrated in the table below.
+
+```{r, echo = F, message = F, warning = F}
+engel<-tribble(
+  ~Income, ~Books,
+  "$5", 5,
+  "$10", 6,
+  "$15", 20,
+  "$20", 25,
+  "$25", 26,
+  "$30", 10,
+  "$35", 9,
+  "$40", 8,
+  "$45", 7,
+  "$50", 6
+)
+
+engel %>%
+  knitr::kable(., format="html")
+```
+
+# Quantitative Applications
+
+Show all work for calculations. You may lose points, even if correct, for missing work. Be sure to label graphs fully, if appropriate.
+
+## Question 3
+
+Suppose a firm can hire labor at \$5/hour and rent capital for \$20 per hour.
+
+### Part A
+Write an equation for the total cost of the firm.
+
+### Part B
+Suppose the firm wants to spend exactly \$100. With labor on the horizontal axis and capital on the vertical axis, find the equation of the isocost line (in a graphable form), and graph it.
+
+### Part C
+If the firm is completely automated (i.e. it uses *only* capital), how many units of capital can they employ for $100?
+
+### Part D
+If the firm uses only labor, how many units of labor can they employ for $100?
+
+### Part E
+What is the slope of the isocost line? What does it represent? 
+
+### Part F
+Suppose a tax on capital makes renting capital raises the price of capital to $25 per hour. What is the new (graphable) equation of the $100 isocost line? Graph the new isocost line on the same graph.
+
+## Question 4
+
+For each of the following production functions, identify whether the production process exhibits constant returns to scale, increasing returns to scale, or decreasing returns to scale. Be sure to show your work!
+
+### Part A
+$$q=2L+4K$$
+
+### Part B
+$$q=6L^{0.25}K^{0.75}$$
+
+### Part C
+$$q=2L^{0.8}K^{0.4}$$
+
+### Part D
+$$q=2L^{0.25}K^{0.25}$$
+
+## Question 5
+
+Mad Max's Road Warriors fix potholes in interstate highways. Max's road crews fill potholes using workers and shovels, always in 1 to 1 combinations. Using 1 worker with 1 shovel can fill 10 potholes in a day. A worker with 2 shovels can still only fill 10 potholes, as can 2 workers with 1 shovel.
+
+### Part A
+What is the relationship between workers and shovels as inputs?
+
+### Part B
+Draw three production isoquants: one corresponding to filling 10 potholes, one for 20 potholes, and one for 30 potholes.
+
+### Part C
+Mad Max receives a state contract to fill in 30 potholes. If the price of shovels is $10, and wages are $5, what is the lowest cost Mad Max can fulfill the contract at? Plot this isocost line on the graph.
+
+### Part D
+Add two more isocost lines to the graph, one for a total cost of $15 and one for $30. Hint: you'll need to find the equations, and nicely, the slope doesn't change.
+
+### Part E
+If the cost of buying a shovel rises from $10 to $20, what will happen to the rate at which Max Max combines workers and shovels to fill the potholes? Why?
+
+## Question 6
+Your firm builds aircraft engines using both labor (L) and power tools (K). The production function for aircraft engines is $q=10 L^{0.5}K^{0.5}$
+
+### Part A
+Can you completely mechanize the production of aircraft engines (i.e. produce using all capital, no labor)?
+
+### Part B
+Suppose you currently have 100 power tools. In the short run, you cannot buy or sell power tools. Derive your short run production function.
+
+### Part C
+Find the (i) total product of labor, (ii) average product of labor, and (iii) marginal product of labor for using 0, 1, 2, 3, 4, and 5 workers.^[Hint: make a table!] Round to the nearest engine. Does labor experience diminishing returns?
+
+### Part D
+Using your answer from Part C, sketch two graphs (roughly), one of total product, and one of marginal and average product, each with labor on the horizontal axis.
+
+### Part E
+In the long run, does the production function exhibit constant returns to scale, increasing returns to scale, or decreasing returns to scale?
+
+## Question 6
+Dunder Mifflin paper company produces reams of paper each week according to the production function:
+$$\begin{align*}q &=10 l^{0.5} k^{0.5}\\
+MP_l& = 5l^{-0.5}k^{0.5}\\
+MP_k& = 5l^{0.5}k^{-0.5}\\
+\end{align*}$$
+
+They have determined that they need to ship 1,000 reams of paper this week to Scranton, PA. Using capital costs $20, whereas labor costs $10.
+
+### Part A
+
+What is the cost-minimizing combination of labor and capital that will yield 1,000 reams of paper? Round each to the nearest whole number.
+
+### Part B
+What is the total cost of using this combination of inputs?
+
+### Part C
+Now suppose that they need to double their output this week, and need to produce 2,000 reams of paper. How does their optimal combination of inputs change?^[Hint: neither the equation for MRTS nor any prices are changing!]
+
+### Part D
+What is the total cost of this new level of output?
+
+### Part E
+Suppose management at Dunder Mifflin develops a new program that magically makes everyone at the firm more productive, such that the firm's new production function is:
+$$\begin{align*}q &=20 l^{0.5} k^{0.5}\\
+MP_l& = 10l^{-0.5}k^{0.5}\\
+MP_k& = 10l^{0.5}k^{-0.5}\\
+\end{align*}$$
+
+Still needing to supply 2,000 reams of paper this week at the same input prices, what is their new optimal combination of labor and capital?
+
+### Part F
+How much does this combination cost? What does this show you about technological improvement (or "total factor productivity")?
