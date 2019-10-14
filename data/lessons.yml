@@ -82,7 +82,8 @@ lessons:
     practice: "12-practice"
     
   - title: '<i class="fas fa-laptop-code"></i> **Problem Set 3**'
-
+    assignment: "03-problem-set"
+    
   - title: "2.4 Cost and Revenue Functions"
   
   - title: "2.5 Factor Markets"

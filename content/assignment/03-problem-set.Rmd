@@ -10,9 +10,9 @@ library(pander)
 source(file.path(here::here(), "lib", "graphics.R"))
 ```
 
-*Due by Thursday, September 26, 2019* (Section 1 - TuTh)
+*Due by Thursday, October 24, 2019* (Section 1 - Tu/Th)
 
-*Due by Monday, September 30, 2019* (Section 2 - MW)
+*Due by Wednesday, October 23, 2019* (Section 2 - M/W)
 
 - [<i class="fas fa-file-pdf"></i> `Download as PDF`](/homeworks/03-problem-set-pdf.pdf)
 
@@ -32,34 +32,19 @@ Describe, in your own words, what the marginal rate of technical substitution me
 
 Describe, in your own words, what is true at the least-cost input combination (the optimum) for a firm. Why is it the optimum? What does the equality of the slope of the isoquant curve and the slope of the isocost line *mean*, in English?
 
+## Question 3
+
+Explain the difference between the short run and the long run in production.
+
 ## Question 4
 
-Suppose that, holding prices constant, Alice has preferences over the number of books she purchases, illustrated in the table below.
+Describe, in your own words, what the law of diminishing marginal returns means. How can firms increase output?
 
-```{r, echo = F, message = F, warning = F}
-engel<-tribble(
-  ~Income, ~Books,
-  "$5", 5,
-  "$10", 6,
-  "$15", 20,
-  "$20", 25,
-  "$25", 26,
-  "$30", 10,
-  "$35", 9,
-  "$40", 8,
-  "$45", 7,
-  "$50", 6
-)
-
-engel %>%
-  knitr::kable(., format="html")
-```
-
-# Quantitative Applications
+# Problems
 
 Show all work for calculations. You may lose points, even if correct, for missing work. Be sure to label graphs fully, if appropriate.
 
-## Question 3
+## Question 5
 
 Suppose a firm can hire labor at \$5/hour and rent capital for \$20 per hour.
 
@@ -81,7 +66,7 @@ What is the slope of the isocost line? What does it represent?
 ### Part F
 Suppose a tax on capital makes renting capital raises the price of capital to $25 per hour. What is the new (graphable) equation of the $100 isocost line? Graph the new isocost line on the same graph.
 
-## Question 4
+## Question 6
 
 For each of the following production functions, identify whether the production process exhibits constant returns to scale, increasing returns to scale, or decreasing returns to scale. Be sure to show your work!
 
@@ -97,7 +82,7 @@ $$q=2L^{0.8}K^{0.4}$$
 ### Part D
 $$q=2L^{0.25}K^{0.25}$$
 
-## Question 5
+## Question 7
 
 Mad Max's Road Warriors fix potholes in interstate highways. Max's road crews fill potholes using workers and shovels, always in 1 to 1 combinations. Using 1 worker with 1 shovel can fill 10 potholes in a day. A worker with 2 shovels can still only fill 10 potholes, as can 2 workers with 1 shovel.
 
@@ -116,7 +101,7 @@ Add two more isocost lines to the graph, one for a total cost of $15 and one for
 ### Part E
 If the cost of buying a shovel rises from $10 to $20, what will happen to the rate at which Max Max combines workers and shovels to fill the potholes? Why?
 
-## Question 6
+## Question 8
 Your firm builds aircraft engines using both labor (L) and power tools (K). The production function for aircraft engines is $q=10 L^{0.5}K^{0.5}$
 
 ### Part A
@@ -134,7 +119,7 @@ Using your answer from Part C, sketch two graphs (roughly), one of total product
 ### Part E
 In the long run, does the production function exhibit constant returns to scale, increasing returns to scale, or decreasing returns to scale?
 
-## Question 6
+## Question 9
 Dunder Mifflin paper company produces reams of paper each week according to the production function:
 $$\begin{align*}q &=10 l^{0.5} k^{0.5}\\
 MP_l& = 5l^{-0.5}k^{0.5}\\
@@ -157,7 +142,7 @@ Now suppose that they need to double their output this week, and need to produce
 What is the total cost of this new level of output?
 
 ### Part E
-Suppose management at Dunder Mifflin develops a new program that magically makes everyone at the firm more productive, such that the firm's new production function is:
+Suppose management at Dunder Mifflin develops a new program that magically makes everyone at the firm more productive, such that the firm's new production function becomes:
 $$\begin{align*}q &=20 l^{0.5} k^{0.5}\\
 MP_l& = 10l^{-0.5}k^{0.5}\\
 MP_k& = 10l^{0.5}k^{-0.5}\\
