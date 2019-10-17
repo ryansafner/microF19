@@ -112,41 +112,6 @@ Here is a list of a few places you might consider to dig up some information on 
     - [Fivethirtyeight](https://fivethirtyeight.com/) -- Nate Silver & co. (a journalist, but a *leader* on using data and statistics in social science and journalism)
     - [Andrew Gelman](http://andrewgelman.com) -- Andrew Gelman (a statistician, but another *leader* on using data and statistics for social science)
 
-# Data Sources
-
-While it is one thing to find a topic to write on, it is an altogether different animal to find data to use to test empirical research questions. You will find out quickly that the constraint to writing an empirical paper is not the set of topics or questions to write on (though that is often a challenge itself!), but the data available to use. 
-
-Depending on the topic, you can also collect your own data, and many times you will want to create a custom dataset by simply combining data from different sources. 
-
-**General Databases of Datasets**
-
-- [Google Database Search](https://toolbox.google.com/datasetsearch)
-- [Kaggle](https://www.kaggle.com/datasets)
-- [Harvard Law School: Find a Database](https://hls.harvard.edu/library/research/find-a-database/#hlsnav-databases-for-legal-and-law-related-research)
-
-Here is a list of good data sources depending on the types of topics you might be interested in writing on:
-
-- National and State Accounts Data: [Bureau of Economic Analysis](http://www.bea.doc.gov/)
-- Labor Market and Price Data: [Bureau of Labor Statistics](http://www.bls.gov/)
-- Macroeconomic Data: [Federal Reserve Economic Data (FRED)](https://fred.stlouisfed.org/), [World Development Indicators (World Bank)](https://datacatalog.worldbank.org/dataset/world-development-indicators), [Penn World Table](https://www.rug.nl/ggdc/productivity/pwt/)
-- International Data: [NationMaster.com](http://www.nationmaster.com/), [Doing Business](http://rru.worldbank.org/DoingBusiness/), [CIESIN](ttp://www.ciesin.org/data.html)
-- Census Data: [U.S. Census Bureau](http://www.census.gov/)
-- Sports Data: [Spotrac](http://spotrac.com), [Rodney Fort's Sports Data](https://sites.google.com/site/rodswebpages/codes)
-- Data Clearing House: [Stat USA](http://www.stat-usa.gov/), [Fedstats](http://www.fedstats.gov/), [Statistical Abstract of the United States](http://www.census.gov/prod/www/statistical-abstract-us.html), [Resources for Economists](http://rfe.org) 
-- Political and Social Data: [ICPSR](http://www.icpsr.umich.edu/), [Federal Election Commission](http://fec.gov), [Poole and Rosenthal Roll Call Data (Voting ideology)](http://voteview.uh.edu/default_nomdata.htm), [Archigos Data on Political Leaders](https://www.rochester.edu/college/faculty/hgoemans/data.htm), [Library of Congress: Thomas (Legislation)](http://thomas.loc.gov/), [Iowa Electronic Markets (Prediction Markets)](http://www.biz.uiowa.edu/iem/)
-- War and Violence Data: [Correlates of War](http://www.correlatesofwar.org/data-sets)
-- State Level Data: [Correlates of State Policy](http://ippsr.msu.edu/public-policy/correlates-state-policy)
-- Health Data: [Centers for Disease Control](http://www.cdc.gov/scientific.htm), [CDC Wonder System](http://wonder.cdc.gov/DataSets.shtml)
-- Crime Data: [Bureau of Justice Statistics](http://www.ojp.usdoj.gov/bjs/)
-- Education Data: [National Center for Education Statistics](http://www.nces.ed.gov/)
-- Environmental Data: [EPA](http://www.epa.gov/ceisweb1/ceishome/)
-- Religion Data: [American Religion Data Archiva (ARDA)](http://www.arda.tm/)
-- Financial Data: [Financial Data Finder](http://www.cob.ohio-state.edu/cgi-bin/DB_Search/db_search.cgi?setup_file=finance.setup.cgi){Financial Data Finder}
-- Philanthropy Data: [The Urban Institute](http://nccs.urban.org/)
-
-Most government agencies and non-profit organizations have publicly available data on the issue you are concerned with, and will be your first place to look. 
-
-
 # Grading Rubric and Deadlines
 
 Here is the rubric that I will use to grade your paper:

@@ -70,7 +70,7 @@ class: inverse, center, middle
 .pull-left[
 - The purpose of any paper is to .shout[persuade]
 
-- Everything else is .onfire[secondary!]
+- Everything else is .whisper[secondary!]
   - *Inform* reader of new information
   - *Report* new finding,
   - etc.
@@ -91,7 +91,7 @@ class: inverse, center, middle
 
 .pull-left[
 
-- .onfire[Goal is to convince a **general reader**, **NOT** your professor]
+- .whisper[Goal is to convince a **general reader**, **NOT** your professor]
 
 - *I* am *NOT* your audience! You're not trying to convince *me* (you might, though)!
 
@@ -114,7 +114,7 @@ class: inverse, center, middle
 
 - A reader must be convinced through the use of an .shout[argument]
 
-- Arguments use .onfire[premises] and .onfire[reasoning] to support a .onfire[conclusion]
+- Arguments use .whisper[premises] and .whisper[reasoning] to support a .whisper[conclusion]
 
 - That conclusion is your .shout[thesis] statement
 ]
@@ -249,7 +249,7 @@ class: inverse, center, middle
 
 > .green[**Example**:] if you argue for/against the minimum wage: Assume policymakers want to improve income for the poor. Is the minimum wage the *best* means for achieving that end?
 
-- .onfire[Nobody cares about how you feel, only what you can defend]
+- .whisper[Nobody cares about how you feel, only what you can defend]
   - Nobody wants to read about why you think they are a bad person
   - Normative claims should be explicit, and backed by theory and evidence
   
@@ -275,9 +275,9 @@ class: inverse, center, middle
 
 - Beware prevalent economic fallacies
 
-- The Nirvana Fallacy: the alternative to an imperfect system is *NOT* a perfect utopia, it is a relevant, feasible, alternative (imperfect) system
+- **The Nirvana Fallacy**: the alternative to an imperfect system is *NOT* a perfect utopia, it is a relevant, feasible, alternative (imperfect) system
 
-- The Broken Window Fallacy: people overestimate the visible and intended consequences of a policy and underestimate the unintended and unseen consequences (such as the opportunity cost)!
+- **The Broken Window Fallacy**: people overestimate the visible and intended consequences of a policy and underestimate the unintended and unseen consequences (such as the opportunity cost)!
 
 ---
 
@@ -285,10 +285,10 @@ class: inverse, center, middle
 
 - Apply your theory and/or model to real world scenarios
 
-- .onfire[What are the actual institutions that affect individual behavior?]
+- .whisper[What are the actual institutions that affect individual behavior?]
   - e.g. statutes, laws, local customs, history, religious practices, community norms, shared values, morality
 
-- .onfire[How do the conditions "on the ground" channel economic principles?]
+- .whisper[How do the conditions "on the ground" channel economic principles?]
   - e.g. if they add additional constraints, affect relative prices, distort incentives for certain choices
 
 - Test any hypotheses, implications, or predictions from theory
@@ -341,7 +341,7 @@ class: inverse, center, middle
 # Empirical Evidence: Be Modest with your Claims III
 
 .center[
-![](https://www.dropbox.com/s/y34vcx6ejxljuhp/anecdotes.png?raw=1)
+![:scale 80%](https://www.dropbox.com/s/y34vcx6ejxljuhp/anecdotes.png?raw=1)
 ]
 
 ---
@@ -352,7 +352,7 @@ class: inverse, center, middle
 
 - Must be *relevant*, *generalizable*, not a freak *outlier*
 
-- Don't .onfire["cherry-pick"] that parts of examples that support your thesis and ignore parts that contradict it
+- Don't .whisper["cherry-pick"] that parts of examples that support your thesis and ignore parts that contradict it
 
 ---
 
@@ -501,8 +501,10 @@ Oped %>%
 .green[**Example**:] does writing a longer op-ed get you a better grade on the assignment?
 ]
 
+.pull-left[
 $$\widehat{Grade_i}=\hat{\beta_0}+\hat{\beta_1}Words_i+u_i$$
-
+.font80[
+.regtable[
 ```{r}
 reg1<-lm(Oped~Words, data=Oped)
 library(huxtable)
@@ -514,14 +516,20 @@ huxreg("Op-ed Grade" = reg1,
                       "SER" = "sigma"),
        number_format = 2)
 ```
+]
+]
+]
 
 --
 
+.pull-right[
 What's wrong with this model?
 
---
-
 $$\widehat{Grade_i}=\hat{\beta_0}+\hat{\beta_1}Words_i+\hat{\beta_2}Quality_i+\hat{\beta_3}Topic_i+ \cdots + u_i$$
+
+]
+
+---
 
 # Statistical Analysis V
 
@@ -647,7 +655,7 @@ huxreg("Baseline" = reg1,
 
 # Narrative
 
-- At the end of the day, no matter how technical, mathematical, or scientific, .onfire[every paper tells a story].
+- At the end of the day, no matter how technical, mathematical, or scientific, .whisper[every paper tells a story].
 
 - Formulas, tables, and charts are *worthless* unless we can ascribe meaning to them in the real world.  What do those numbers represent?!
 
@@ -665,7 +673,7 @@ huxreg("Baseline" = reg1,
 
 - Recognize that reasonable people disagree for rational reasons - not for irrational reasons (mere opinion, greed, stupidity, evilness, religion, political ideology, etc)
 
-- .onfire[For all honest intellectual arguments, always ask yourself, what evidence, however improbable, would convince me of another view?]
+- .whisper[For all honest intellectual arguments, always ask yourself, what evidence, however improbable, would convince me of another view?]
 
 - See the [ideological Turing test idea](http://econlog.econlib.org/archives/2011/06/the_ideological.html) for more!
 
@@ -746,7 +754,7 @@ class: inverse, center, middle
 
 # Conclusion
 
-- .onfire[Avoid repeating the introduction. Summarize it in half as many sentences if necessary]
+- .whisper[Avoid repeating the introduction. Summarize it in half as many sentences if necessary]
   - The reader has already read it!
   - Most readers skim two sections of a paper, the introduction and the conclusion
 
@@ -784,7 +792,7 @@ class: inverse, center, middle
 
 .pull-right[
 
-- .onfire[As long as it needs to be (to do a good job).}
+- .whisper[As long as it needs to be (to do a good job).]
 
 > "I didn't have time to write a short letter, so I wrote a long one instead." - Mark Twain
 
@@ -797,7 +805,7 @@ class: inverse, center, middle
 
 - Always tailor it to the specific audience (a journal, the popular media, experts, etc)
 
-- At the very least, .onfire[assume your audience is an educated High School or college graduate] with some .onfire[basic familiarity with your subject area].
+- At the very least, .whisper[assume your audience is an educated High School or college graduate] with some .whisper[basic familiarity with your subject area].
     - Do not assume they know anything beyond that level
     - **Do not assume they have taken our class**
     - So make *no* references to our class, my lecture notes, class discussions or inside jokes, etc. 
@@ -920,7 +928,7 @@ class: inverse, center, middle
 - .shout[Pick a topic you are passionate about, or familiar with, or genuinely curious about]
   - You will write much better, it will be easier, and you may even enjoy writing it!
 
-Remember, economics is *NOT* a narrow set of topics (e.g. inflation, stock prices, labor markets), it is a .onfire[way of thinking] about the world
+Remember, economics is *NOT* a narrow set of topics (e.g. inflation, stock prices, labor markets), it is a .whisper[way of thinking] about the world
   - With a dose of cleverness, you can easily find a way to write about baseball, politics, crowdfunding, pirates, cryptocurrencies, recycling, superheroes, the NFL, video games, contract law, Game of Thrones, the WWE, gender, drugs, sex, rock n roll, etc. (Ask me for examples!)
 
 - Papers out in left field often make for better papers and I want to read these!
