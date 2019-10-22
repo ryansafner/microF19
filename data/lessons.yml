@@ -85,7 +85,10 @@ lessons:
     assignment: "03-problem-set"
     
   - title: "2.4 Cost and Revenue Functions"
-  
+    reading: "13-reading"
+    slides: "13-slides"
+    class: "13-class"
+
   - title: "2.5 Factor Markets"
 
   - title: "2.6 Short Run Profit Maximization"
