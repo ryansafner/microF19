@@ -9,6 +9,9 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+- [<i class="fas fa-file-pdf"></i> `Download as PDF`](/practice/12-practice.pdf)
+- [<i class="fas fa-file-pdf"></i> `Answer Key`](/practice/12-practice-answers.pdf)
+
 Your firm can use labor $l$ and capital $k$ to produce output according to the production function:
 $$q=4lk$$
 
