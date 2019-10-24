@@ -15,8 +15,6 @@ $$\begin{aligned}
 C(q)&=q^2+1\\
 MC(q)&=2q\\ \end{aligned}$$
 
-Suppose you  need to produce 144 units, the price of labor is \$10, and the price of capital is \$40. 
-
 ### 1. Write an equation for fixed costs, $f$.
 
 ### 2. Write an equation for variable costs, $VC(q)$.

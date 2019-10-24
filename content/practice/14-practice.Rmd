@@ -17,7 +17,6 @@ $$\begin{align*}
 C(q)&=q^2+1\\
 MC(q)&=2q\\ \end{align*}$$
 
-
 ## 1. 
 Write an equation for fixed costs, $f$.
 
