@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = FALSE,
 
 # Slides
 
-- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/15-slides.html)
+- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/14-slides.html)
 
 # Practice Problems
 
