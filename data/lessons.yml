@@ -89,12 +89,15 @@ lessons:
     slides: "13-slides"
     class: "13-class"
 
-  - title: "2.5 Factor Markets"
+  - title: "2.5 Short Run Profit Maximization"
+    reading: "14-reading"
+    slides: "14-slides"
+    class: "14-class"
+    
+  - title: "2.6 Long Run Industry Equilibrium"
 
-  - title: "2.6 Short Run Profit Maximization"
+  - title: "2.7 Factor Markets"
   
-  - title: "2.7 Long Run Industry Equilibrium"
-
   - title: '<i class="fas fa-star"></i> **Exam 2**'
 
   - title: '<span class="fake-header-table">3. Market Equilibrium</span>'

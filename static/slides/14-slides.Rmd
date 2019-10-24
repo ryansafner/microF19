@@ -1,0 +1,1074 @@
+---
+title: "2.5: Short Run Profit Maximization"
+subtitle: "ECON 306 · Microeconomic Analysis · Fall 2019"
+author: 'Ryan Safner<br> Assistant Professor of Economics <br> <a href="mailto:safner@hood.edu"><i class="fa fa-paper-plane fa-fw"></i> safner@hood.edu</a> <br> <a href="https://github.com/ryansafner/microf19"><i class="fa fa-github fa-fw"></i> ryansafner/microf19</a><br> <a href="https://microF19.classes.ryansafner.com"> <i class="fa fa-globe fa-fw"></i> microF19.classes.ryansafner.com</a><br>'
+#date:
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML" # rescales math with css changes https://github.com/yihui/xaringan/issues/143
+    lib_dir: libs
+    #seal: false
+    css: [custom.css, custom-fonts.css, "hygge"] #, metropolis, metropolis-fonts
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"] # first is for rescaling images , second is for embedding tweets, https://github.com/yihui/xaringan/issues/100
+      highlightStyle: ocean #rainbow #monokai rainbow solarized-light #tomorrow-night -blue -eighties zenburn
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+    includes:
+      in_header: header.html # for font awesome, used in title  
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo=F,
+                      message=F,
+                      warning=F)
+library("tidyverse")
+library("mosaic")
+library("ggrepel")
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+set.seed(256)
+```
+
+
+# Recall: The Firm's Two Problems
+
+.pull-left[
+
+- First Stage: the **firm's profit maximization problem**: 
+
+1. **Choose:** .blue[ < output >]
+
+2. **In order to maximize:** .green[< profits >]
+
+- All that remains: how to find $q^*$
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/zwows56ydpqj9u6/management.jpg?raw=1)
+]
+]
+
+---
+
+# Visualizing Total Profit As $R(q)-C(q)$
+
+.pull-left[
+
+- $\pi(q)=R(q)-C(q)$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+library(mosaic)
+revenues<-function(x){10*x}
+costs<-function(x){x^2+x+10}
+profit<-function(x){10*x-(x^2+x+10)}
+
+total_plot<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=revenues, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=9.5,y=revenues(9.5)), color = "blue", label="R(q)", size = 4)+
+  stat_function(fun=costs, geom="line", size=2, color = "red")+
+    geom_label(aes(x=9.5,y=costs(9.5)), color = "red", label=expression(C(q)), size = 4)+
+  stat_function(fun=profit, geom="line", size=2, color = "green")+
+    geom_label(aes(x=8,y=profit(8)), color = "green", label=expression(pi(q)==R(q)-C(q)), size = 4)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,120,10),
+                     labels=scales::dollar,
+                     limits=c(0,120),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Output, q",
+       y = "$")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+total_plot
+```
+]
+
+---
+
+# Visualizing Total Profit As $R(q)-C(q)$
+
+.pull-left[
+
+- $\pi(q)=R(q)-C(q)$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+total_plot+
+  stat_function(fun=profit, geom="line", size=2, color = "green")+
+    geom_label(aes(x=6.5,y=profit(6.5)), color = "green", label=expression(pi(q)), size = 4)
+```
+]
+
+---
+
+# Visualizing Total Profit As $R(q)-C(q)$
+
+.pull-left[
+
+- $\pi(q)=R(q)-C(q)$
+
+- Graph: find $q^*$ to max $\pi \implies q^*$ where max distance between $R(q)$ and $C(q)$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+total_plot+
+  stat_function(fun=profit, geom="line", size=2, color = "green")+
+    geom_label(aes(x=6.5,y=profit(6.5)), color = "green", label=expression(pi(q)), size = 4)+
+  geom_segment(x=5,xend=5,y=0,yend=revenues(5),size=1,linetype="dotted")
+```
+]
+
+---
+
+# Visualizing Total Profit As $R(q)-C(q)$
+
+.pull-left[
+
+- $\pi(q)=R(q)-C(q)$
+
+- Graph: find $q^*$ to max $\pi \implies q^*$ where max distance between $R(q)$ and $C(q)$
+
+- Slopes must be equal:
+$$MR(q)=MC(q)$$
+
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+total_plot+
+  stat_function(fun=profit, geom="line", size=2, color = "green")+
+    geom_label(aes(x=6.5,y=profit(6.5)), color = "green", label=expression(pi(q)), size = 4)+
+  geom_segment(x=5,xend=5,y=0,yend=revenues(5),size=1,linetype="dotted")+
+  # slope lines
+  geom_segment(x=3, xend=7, y=20, yend=60, size=1, linetype="dashed")+
+  geom_segment(x=3, xend=7, y=30, yend=70, size=1, linetype="dashed")
+```
+]
+
+---
+
+# Visualizing Total Profit As $R(q)-C(q)$
+
+.pull-left[
+
+- $\pi(q)=R(q)-C(q)$
+
+- Graph: find $q^*$ to max $\pi \implies q^*$ where max distance between $R(q)$ and $C(q)$
+
+- Slopes must be equal:
+$$MR(q)=MC(q)$$
+
+- At $q^*=5$:
+  - $R(q)=50$
+  - $C(q)=40$
+  - $\pi(q)=10$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+total_plot+
+  stat_function(fun=profit, geom="line", size=2, color = "green")+
+    geom_label(aes(x=6.5,y=profit(6.5)), color = "green", label=expression(pi(q)), size = 4)+
+  geom_segment(x=5,xend=5,y=0,yend=revenues(5),size=1,linetype="dotted")+
+  # slope lines
+  geom_segment(x=3, xend=7, y=20, yend=60, size=1, linetype="dashed")+
+  geom_segment(x=3, xend=7, y=30, yend=70, size=1, linetype="dashed")+
+  
+  # dotted lines
+  geom_segment(x=0, xend=5, y=50, yend=50, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=5, y=40, yend=40, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=5, y=10, yend=10, size=1, linetype="dotted")
+```
+]
+
+---
+
+# Visualizing Profit Per Unit As $MR(q)$ and $MC(q)$
+
+.pull-left[
+
+- At low output $q<q^*$, can increase $\pi$ by producing *more*: $MR(q)>MC(q)$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+mr<-function(x){10}
+mc<-function(x){2*x}
+
+marginal_plot<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=mr, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=9.5,y=mr(9.5)), color = "blue", label="MR(q)", size = 4)+
+  stat_function(fun=mc, geom="line", size=2, color = "red")+
+    geom_label(aes(x=9.5,y=mc(9.5)), color = "red", label="MC(q)", size = 4)+
+  
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     labels=scales::dollar,
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Output, q",
+       y = "$/Unit")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+
+marginal_plot+
+  annotate("segment", x = 0.5, xend = 3.5, y = 8, yend = 8, color = "green", size=2, alpha=0.9, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))
+
+```
+]
+
+---
+
+# Visualizing Profit Per Unit As $MR(q)$ and $MC(q)$
+
+.pull-left[
+
+- At high output $q>q^*$, can increase $\pi$ by producing *less*: $MR(q)<MC(q)$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+marginal_plot+
+  annotate("segment", x = 9.5, xend = 6.5, y = 12, yend = 12, color = "green", size=2, alpha=0.9, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))
+
+```
+]
+
+---
+
+# Visualizing Profit Per Unit As $MR(q)$ and $MC(q)$
+
+.pull-left[
+
+- $\pi$ is *maximized* where $MR(q)=MC(q)$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+marginal_plot+
+  geom_segment(x=5, xend=5, y=0, yend=10, size=1, linetype="dotted")
+```
+]
+
+---
+
+class: inverse, center, middle
+
+# Comparative Statics
+
+---
+
+# If Market Price Changes I
+
+.pull-left[
+
+- Suppose the market price *increases*
+
+- Firm - always setting $MR(q)=MC(q)$ - will respond by *producing more*  
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+mr_2=function(x){14}
+
+marginal_plot+
+  stat_function(fun=mr_2, geom="line", size=2, linetype="dashed", color = "blue")+
+    geom_label(aes(x=9.5,y=mr_2(9.5)), color = "blue", label="MR(q)'", size = 4)+
+  geom_segment(x=5, xend=5, y=0, yend=10, size=1, linetype="dotted")+
+  geom_segment(x=7, xend=7, y=0, yend=14, size=1, linetype="dotted")+
+  annotate("segment", x = 5, xend = 7, y = 10, yend = 14, color = "green", size=2, alpha=0.9, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))
+  
+```
+]
+
+---
+
+# If Market Price Changes II
+
+.pull-left[
+
+- Suppose the market price *decreases*
+
+- Firm - always setting $MR(q)=MC(q)$ - will respond by *producing less*  
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+mr_3=function(x){6}
+
+marginal_plot+
+  stat_function(fun=mr_3, geom="line", size=2, linetype="dashed", color = "blue")+
+    geom_label(aes(x=9.5,y=mr_3(9.5)), color = "blue", label="MR(q)''", size = 4)+
+  geom_segment(x=5, xend=5, y=0, yend=10, size=1, linetype="dotted")+
+  geom_segment(x=3, xend=3, y=0, yend=6, size=1, linetype="dotted")+
+  annotate("segment", x = 5, xend = 3, y = 10, yend = 6, color = "green", size=2, alpha=0.9, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))
+  
+```
+]
+
+---
+
+# If Market Price Changes II
+
+.pull-left[
+
+- .whisper[The firm's marginal cost curve is [mostly] its (inverse) supply curve]
+$$Supply=MC(q)$$
+  - How it will supply the optimal amount of output in response to the market price
+
+- There is an exception to this! We will see shortly!
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+mr_3=function(x){6}
+
+marginal_plot+
+    geom_label(aes(x=8,y=mc(8)), color = "red", label="Supply", size = 4)
+
+```
+]
+
+---
+
+class: inverse, center, middle 
+
+# Calculating Profit
+
+---
+
+# Calculating Average Profit as $AR(q)-AC(q)$
+
+.pull-left[
+
+- Profit is 
+$$\pi(q)=R(q)-C(q)$$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+ac=function(x){x+10/x}
+
+marginal_plot+
+  stat_function(fun=ac, geom="line", size=2, color = "orange")+
+    geom_label(aes(x=0.75,y=ac(0.75)), color = "orange", label="AC(q)", size = 4)
+```
+]
+
+---
+
+# Calculating Average Profit as $AR(q)-AC(q)$
+
+.pull-left[
+
+- Profit is 
+$$\pi(q)=R(q)-C(q)$$
+
+- Profit per unit can be calculated as:
+$$\begin{align*}
+\frac{\pi(q)}{q}&=AR(q)-AC(q)\\
+&=p-AC(q)\\
+\end{align*}$$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+ac=function(x){x+10/x}
+
+marginal_plot+
+  stat_function(fun=ac, geom="line", size=2, color = "orange")+
+    geom_label(aes(x=0.75,y=ac(0.75)), color = "orange", label="AC(q)", size = 4)
+```
+]
+
+---
+# Calculating Average Profit as $AR(q)-AC(q)$
+
+.pull-left[
+
+- Profit is 
+$$\pi(q)=R(q)-C(q)$$
+
+- Profit per unit can be calculated as:
+$$\begin{align*}
+\frac{\pi(q)}{q}&=AR(q)-AC(q)\\
+&=p-AC(q)\\
+\end{align*}$$
+
+- Multiply by $q$ to get total profit:
+$$\pi(q)=q\left[p-AC(q) \right]$$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+ac=function(x){x+10/x}
+
+marginal_plot+
+  stat_function(fun=ac, geom="line", size=2, color = "orange")+
+    geom_label(aes(x=0.75,y=ac(0.75)), color = "orange", label="AC(q)", size = 4)
+```
+]
+
+---
+
+# Calculating Average Profit as $AR(q)-AC(q)$
+
+.pull-left[
+
+- At market price of $p^*=$ $10
+
+- At $q^*=5$ (per unit):
+
+- At $q^*=5$ (totals):
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+ac=function(x){x+10/x}
+
+marginal_plot+
+  stat_function(fun=ac, geom="line", size=2, color = "orange")+
+    geom_label(aes(x=0.75,y=ac(0.75)), color = "orange", label="AC(q)", size = 4)
+  geom_segment(x=5, xend=5, y=0, yend=10, size=1, linetype="dotted")
+```
+]
+
+---
+
+# Calculating Average Profit as $AR(q)-AC(q)$
+
+.pull-left[
+
+- At market price of $p^*=$ $10
+
+- At $q^*=5$ (per unit):
+  - $AR(5)=$ $10/unit
+
+- At $q^*=5$ (totals):
+  - $R(5)=$ $50
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+marginal_plot+
+  stat_function(fun=ac, geom="line", size=2, color = "orange")+
+    geom_label(aes(x=0.75,y=ac(0.75)), color = "orange", label="AC(q)", size = 4)+
+  geom_rect(xmin=0,xmax=5, ymin=0, ymax=10, fill="blue",alpha=0.25)+
+  geom_segment(x=5, xend=5, y=0, yend=10, size=1, linetype="dotted")
+
+```
+]
+
+---
+
+# Calculating Average Profit as $AR(q)-AC(q)$
+
+.pull-left[
+
+- At market price of $p^*=$ $10
+
+- At $q^*=5$ (per unit):
+  - $AR(5)=$ $10/unit
+  - $AC(5)=$ $7/unit
+
+- At $q^*=5$ (totals):
+  - $R(5)=$ $50
+  - $C(5)=$ $35
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+marginal_plot+
+  stat_function(fun=ac, geom="line", size=2, color = "orange")+
+    geom_label(aes(x=0.75,y=ac(0.75)), color = "orange", label="AC(q)", size = 4)+
+  geom_rect(xmin=0,xmax=5, ymin=0, ymax=10, fill="blue",alpha=0.25)+
+  geom_rect(xmin=0,xmax=5, ymin=0, ymax=7.30, fill="red",alpha=0.25)+
+  geom_segment(x=5, xend=5, y=0, yend=10, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=5, y=7.30, yend=7.30, size=1, linetype="dotted")
+
+```
+]
+
+---
+
+# Calculating Average Profit as $AR(q)-AC(q)$
+
+.pull-left[
+
+- At market price of $p^*=$ $10
+
+- At $q^*=5$ (per unit):
+  - $AR(5)=$ $10/unit
+  - $AC(5)=$ $7/unit
+  - $A\pi(5)=$ $3/unit
+  
+- At $q^*=5$ (totals):
+  - $R(5)=$ $50
+  - $C(5)=$ $35
+  - $\pi(5)=$ $15
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+marginal_plot+
+  stat_function(fun=ac, geom="line", size=2, color = "orange")+
+    geom_label(aes(x=0.75,y=ac(0.75)), color = "orange", label="AC(q)", size = 4)+
+  geom_rect(xmin=0,xmax=5, ymin=0, ymax=10, fill="blue",alpha=0.25)+
+  geom_rect(xmin=0,xmax=5, ymin=0, ymax=7.30, fill="red",alpha=0.25)+
+  geom_rect(xmin=0,xmax=5, ymin=7.30, ymax=10, fill="green",alpha=0.25)+
+  geom_segment(x=5, xend=5, y=0, yend=10, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=5, y=7.30, yend=7.30, size=1, linetype="dotted")
+
+```
+]
+
+---
+
+# Calculating Average Profit as $AR(q)-AC(q)$
+
+.pull-left[
+
+- At market price of $p^*=$ $2
+
+- At $q^*=1$ (per unit):
+
+- At $q^*=1$ (totals):
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+mr_low<-function(x){2}
+
+marginal_plot_2<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=mr_low, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=9.5,y=mr_low(9.5)), color = "blue", label="MR(q)", size = 4)+
+  stat_function(fun=mc, geom="line", size=2, color = "red")+
+    geom_label(aes(x=9.5,y=mc(9.5)), color = "red", label="MC(q)", size = 4)+
+  stat_function(fun=ac, geom="line", size=2, color = "orange")+
+    geom_label(aes(x=0.75,y=ac(0.75)), color = "orange", label="AC(q)", size = 4)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     labels=scales::dollar,
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Output, q",
+       y = "$/Unit")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+
+
+
+marginal_plot_2+
+  geom_segment(x=1, xend=1, y=0, yend=2, size=1, linetype="dotted")
+```
+]
+
+---
+
+# Calculating Average Profit as $AR(q)-AC(q)$
+
+.pull-left[
+
+- At market price of $p^*=$ $2
+
+- At $q^*=1$ (per unit):
+  - $AR(1)=$ $2/unit
+
+- At $q^*=5$ (totals):
+  - $R(1)=$ $2
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+marginal_plot_2+
+  geom_segment(x=1, xend=1, y=0, yend=2, size=1, linetype="dotted")+
+  geom_rect(xmin=0,xmax=1, ymin=0, ymax=2, fill="blue",alpha=0.25)+
+  geom_segment(x=1, xend=1, y=0, yend=2, size=1, linetype="dotted")
+
+```
+]
+
+---
+
+# Calculating Average Profit as $AR(q)-AC(q)$
+
+.pull-left[
+
+- At market price of $p^*=$ $2
+
+- At $q^*=5$ (per unit):
+  - $AR(1)=$ $2/unit
+  - $AC(1)=$ $7/unit
+
+- At $q^*=5$ (totals):
+  - $R(1)=$ $2
+  - $C(5)=$ $35
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+marginal_plot_2+
+  geom_segment(x=1, xend=1, y=0, yend=2, size=1, linetype="dotted")+
+  geom_rect(xmin=0,xmax=1, ymin=0, ymax=2, fill="blue",alpha=0.25)+
+  geom_rect(xmin=0,xmax=1, ymin=0, ymax=10, fill="red",alpha=0.25)+
+  geom_segment(x=1, xend=1, y=0, yend=10, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=1, y=10, yend=10, size=1, linetype="dotted")
+
+```
+]
+
+---
+
+# Calculating Average Profit as $AR(q)-AC(q)$
+
+.pull-left[
+
+- At market price of $p^*=$ $2
+
+- At $q^*=5$ (per unit):
+  - $AR(1)=$ $2/unit
+  - $AC(1)=$ $10/unit
+  - $A\pi(1)=$ -$8/unit
+  
+- At $q^*=5$ (totals):
+  - $R(1)=$ $2
+  - $C(1)=$ $10
+  - $\pi(1)=$ -$8
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+marginal_plot_2+
+  geom_segment(x=1, xend=1, y=0, yend=2, size=1, linetype="dotted")+
+  geom_rect(xmin=0,xmax=1, ymin=0, ymax=2, fill="blue",alpha=0.25)+
+  geom_rect(xmin=0,xmax=1, ymin=0, ymax=10, fill="red",alpha=0.25)+
+  geom_segment(x=1, xend=1, y=0, yend=10, size=1, linetype="dotted")+
+  geom_rect(xmin=0,xmax=1, ymin=2, ymax=10, fill="black",alpha=0.75)
+
+```
+]
+
+---
+
+class: inverse, center, middle
+
+# Short-Run Shut-Down Decisions
+
+---
+
+# Short-Run Shut-Down Decisions
+
+.pull-left[
+
+- What if a firm's profits at $q^*$ are *negative* (i.e. it earns **losses**)?
+
+- Should it produce at all?
+
+]
+
+.pull-right[
+.center[
+![:scale 90%](https://www.dropbox.com/s/9ljdldig9i71e2r/emptywarehouse.jpg?raw=1)
+]
+]
+
+---
+
+# Short-Run Shut-Down Decisions
+
+.pull-left[
+
+- Suppose firm chooses to produce **nothing** $(q=0)$:
+
+- If it has fixed costs, its profits are:
+
+$$\begin{align*}
+\pi(q)&=pq-C(q)\\
+\end{align*}$$
+
+]
+
+.pull-right[
+.center[
+![:scale 90%](https://www.dropbox.com/s/9ljdldig9i71e2r/emptywarehouse.jpg?raw=1)
+]
+]
+
+---
+
+# Short-Run Shut-Down Decisions
+
+.pull-left[
+
+- Suppose firm chooses to produce **nothing** $(q=0)$:
+
+- If it has fixed costs, its profits are:
+
+$$\begin{align*}
+\pi(q)&=pq-C(q)\\
+\pi(q)&=pq-f-VC(q)\\
+\end{align*}$$
+
+]
+
+.pull-right[
+.center[
+![:scale 90%](https://www.dropbox.com/s/9ljdldig9i71e2r/emptywarehouse.jpg?raw=1)
+]
+]
+
+---
+
+# Short-Run Shut-Down Decisions
+
+.pull-left[
+
+- Suppose firm chooses to produce **nothing** $(q=0)$:
+
+- If it has fixed costs, its profits are:
+
+$$\begin{align*}
+\pi(q)&=pq-C(q)\\
+\pi(q)&=pq-f-VC(q)\\
+\pi(0)&=-f\\
+\end{align*}$$
+
+]
+
+.pull-right[
+.center[
+![:scale 90%](https://www.dropbox.com/s/9ljdldig9i71e2r/emptywarehouse.jpg?raw=1)
+]
+]
+
+---
+
+# Short-Run Shut-Down Decisions 
+
+- A firm should choose to produce nothing $(q=0)$ only when:  
+
+$$\begin{align*}
+\pi \text{ from producing} &< \pi \text{ from not producing}\\
+\end{align*}$$
+
+---
+
+# Short-Run Shut-Down Decisions 
+
+- A firm should choose to produce nothing $(q=0)$ only when:  
+
+$$\begin{align*}
+\pi \text{ from producing} &< \pi \text{ from not producing}\\
+\pi(q) &< -FC \\
+\end{align*}$$
+
+---
+
+# Short-Run Shut-Down Decisions 
+
+- A firm should choose to produce nothing $(q=0)$ only when:  
+
+$$\begin{align*}
+\pi \text{ from producing} &< \pi \text{ from not producing}\\
+\pi(q) &< -FC \\
+pq-VC(q)-FC &<-FC\\
+\end{align*}$$
+
+---
+
+# Short-Run Shut-Down Decisions 
+
+- A firm should choose to produce nothing $(q=0)$ only when:  
+
+$$\begin{align*}
+\pi \text{ from producing} &< \pi \text{ from not producing}\\
+\pi(q) &< -FC \\
+pq-VC(q)-FC &<-FC\\
+pq-VC(q) &< 0\\
+\end{align*}$$
+
+---
+
+# Short-Run Shut-Down Decisions 
+
+- A firm should choose to produce nothing $(q=0)$ only when:  
+
+$$\begin{align*}
+\pi \text{ from producing} &< \pi \text{ from not producing}\\
+\pi(q) &< -FC \\
+pq-VC(q)-FC &<-FC\\
+pq-VC(q) &< 0\\
+pq &< VC(q)\\
+\end{align*}$$
+
+---
+
+# Short-Run Shut-Down Decisions 
+
+- A firm should choose to produce nothing $(q=0)$ only when:  
+
+$$\begin{align*}
+\pi \text{ from producing} &< \pi \text{ from not producing}\\
+\pi(q) &< -FC \\
+pq-VC(q)-FC &<-FC\\
+pq-VC(q) &< 0\\
+pq &< VC(q)\\
+\mathbf{p} &< \mathbf{AVC(q)}\\
+\end{align*}$$
+
+--
+
+.pull-left[
+
+- .shout[Shut down price]: firm will shut down production *in the short run* when $p<AVC(q)$
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/5yziq49xln55d81/shutitdown.jpg?raw=1)
+]
+]
+
+---
+
+class: inverse, center, middle
+
+# The Firm's Short Run Supply Decision
+
+---
+
+# The Firm's Short Run Supply Decision
+
+.pull-left[
+```{r, fig.retina=3}
+marginal<-function(x){3*x^2-8*x+8}
+average<-function(x){x^2-4*x+8+10/x}
+averagev<-function(x){x^2-4*x+8}
+price1<-function(x){10}
+
+supply_plot<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=marginal, geom="line", size=2, color = "red")+
+    geom_label(aes(x=3.5,y=marginal(3.5)), color = "red", label=expression(MC(q)), size = 3)+
+  stat_function(fun=averagev, geom="line", size=2, color = "brown")+
+    geom_label(aes(x=5,y=averagev(5)), color = "brown", label=expression(AVC(q)), size = 3)+
+  stat_function(fun=average, geom="line", size=2, color = "orange")+
+    geom_label(aes(x=5.5,y=average(5.5)), color = "orange", label=expression(AC(q)), size = 3)+
+    scale_x_continuous(breaks=NULL,
+                       limits=c(0,7),
+                       expand=c(0,0))+
+  scale_y_continuous(breaks=NULL,
+                     limits=c(0,20))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Output, q",
+       y = "Per-Unit Costs ($)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+
+supply_plot+
+    stat_function(fun=price1, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=5.5,y=price1(5.5)), color = "blue", label=expression(MR(q)), size = 3)+
+  geom_segment(x=2.9,xend=2.9,y=0,yend=10,size=1,linetype="dotted")
+```
+]
+
+---
+
+# The Firm's Short Run Supply Decision
+
+.pull-left[
+```{r, fig.retina=3}
+price2<-function(x){14}
+
+supply_plot+
+    stat_function(fun=price2, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=5.5,y=price2(5.5)), color = "blue", label=expression(MR(q)), size = 3)+
+  geom_segment(x=3.3,xend=3.3,y=0,yend=14,size=1,linetype="dotted")
+```
+]
+
+---
+
+# The Firm's Short Run Supply Decision
+
+.pull-left[
+```{r, fig.retina=3}
+price3<-function(x){6}
+
+supply_plot+
+    stat_function(fun=price3, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=5.5,y=price3(5.5)), color = "blue", label=expression(MR(q)), size = 3)+
+  geom_segment(x=2.4,xend=2.4,y=0,yend=6,size=1,linetype="dotted")
+```
+]
+
+---
+
+# The Firm's Short Run Supply Decision
+
+.pull-left[
+```{r, fig.retina=3}
+supply_plot+
+  geom_hline(yintercept=4, size=1, linetype="dashed")+
+  geom_label(x=6,y=4, label="Min AVC(q)", size =5, color="brown")+
+  stat_function(fun=marginal, xlim=c(2,10), geom="line", size=3.5, color = "red")+
+    geom_label(aes(x=3,y=marginal(3)), color = "red", label="Supply", size = 5)
+```
+]
+
+.pull-right[
+]
+
+---
+
+# The Firm's Short Run Supply Decision
+
+.pull-left[
+```{r, fig.retina=3}
+supply_plot+
+  geom_hline(yintercept=4, size=1, linetype="dashed")+
+  geom_label(x=6,y=4, label="Min AVC(q)", size =5, color="brown")+
+  geom_segment(x=0,xend=0,y=0,yend=4, color="red", size=5)+
+  geom_segment(x=0,xend=2,y=4,yend=4, color="red", size=3.5)+
+  stat_function(fun=marginal, xlim=c(2,10), geom="line", size=3.5, color = "red")+
+    geom_label(aes(x=3,y=marginal(3)), color = "red", label="Supply", size = 5)
+```
+]
+
+.pull-right[
+.center[
+Firm's short run (inverse) supply:
+]
+$$\begin{cases}
+p=MC(q) & \text{if } p \geq AVC \\
+q=0 & \text{If } p < AVC\\ \end{cases}$$
+]
+
+---
+
+# The Firm's Short Run Supply Decision
+
+.pull-left[
+```{r, fig.retina=3}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_segment(x=0,xend=0,y=0,yend=4, color="red", size=5)+
+  geom_segment(x=0,xend=2,y=4,yend=4, color="red", size=3.5)+
+  stat_function(fun=marginal, xlim=c(2,10), geom="line", size=3.5, color = "red")+
+    geom_label(aes(x=3,y=marginal(3)), color = "red", label="Supply", size = 5)+
+    scale_x_continuous(breaks=NULL,
+                       limits=c(0,7),
+                       expand=c(0,0))+
+  scale_y_continuous(breaks=NULL,
+                     limits=c(0,20))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Output, q",
+       y = "Per-Unit Costs ($)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+
+```
+]
+
+.pull-right[
+.center[
+Firm's short run (inverse) supply:
+]
+$$\begin{cases}
+p=MC(q) & \text{if } p \geq AVC \\
+q=0 & \text{If } p < AVC\\ \end{cases}$$
+]
+
+---
+
+# Summary:
+
+**1. Choose $q^*$ such that $MR(q)=MC(q)$**
+
+--
+
+**2. Profit $\pi=q[p-AC(q)]$**
+
+--
+
+**3. Shut down if $p<AVC(q)$**
+
+--
+
+.center[
+Firm's short run (inverse) supply:
+]
+
+$$\begin{cases}
+p=MC(q) & \text{if } p \geq AVC\\
+q=0 & \text{If } p < AVC\\ \end{cases}$$
+
+---
+
+# Choosing the Profit-Maximizing Output $q^*$: Example
+
+.content-box-green[
+.green[**Example**]: Bob's barbershop gives haircuts in a very competitive market, where barbers cannot differentiate their haircuts. The current market price of a haircut is $15. Bob's daily short run costs are given by:
+
+$$\begin{align*}
+C(q) &= 0.5q^2\\
+MC(q) &=q\\
+\end{align*}$$
+]
+
+1. How many haircuts per day would maximize Bob's profits?
+
+2. How much profit will Bob earn per day?
+
+3. Find Bob's shut down price.
+
+4. Write Bob's short-run inverse supply function.

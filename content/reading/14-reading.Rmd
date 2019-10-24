@@ -1,0 +1,10 @@
+---
+title: "2.5 Short Run Profit Maximization - Readings"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Recommended
+
+- <i class="fas fas fa-book"></i> Ch. 8 in @textbook

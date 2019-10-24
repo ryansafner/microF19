@@ -23,7 +23,7 @@ Today we cover costs and revenues before we put them together next class to solv
 
 # Slides
 
-- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/12-slides.html)
+- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/13-slides.html)
 
 # Appendix
 

@@ -1,0 +1,38 @@
+---
+title: "2.5 Short Run Profit Maximization - Practice Problems"
+author: "Ryan Safner"
+date: "ECON 306 - Fall 2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+A firm has short-run costs given by:
+$$\begin{aligned}
+C(q)&=q^2+1\\
+MC(q)&=2q\\ \end{aligned}$$
+
+Suppose you  need to produce 144 units, the price of labor is \$10, and the price of capital is \$40. 
+
+### 1. Write an equation for fixed costs, $f$.
+
+### 2. Write an equation for variable costs, $VC(q)$.
+
+### 3. Write an equation for average fixed costs, $AFC(q)$.
+
+### 4. Write an equation for average variable costs, $AVC(q)$.
+
+### 5. Write an equation for average (total) costs, $AC(q)$.
+
+### 6. Suppose the firm is in a competitive market, and the current market price is $4, how many units of output maximize profits?
+
+### 7. How much profit will this firm earn?
+
+### 8. At what market price would the firm break even $(\pi=0)$?
+
+### 9. Below what market price would the firm shut down in the short run if it were earning losses?
+
+### 10. Write out the firm's short run supply function.

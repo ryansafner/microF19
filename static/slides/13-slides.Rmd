@@ -713,11 +713,6 @@ MC(q)&=30q+8\\ \end{align*}$$
 
 ---
 
-class: inverse, center, middle
-# Costs in the Long Run
-
----
-
 # Costs: Example: Visualized
 
 ```{r, fig.retina=3}
@@ -728,25 +723,26 @@ afc_ex1<-function(x){45/x}
 
 ggplot(data.frame(x=c(0,10)), aes(x=x))+
   stat_function(fun=mc_ex1, geom="line", size=2, color = "red")+
-    geom_label(aes(x=5,y=mc_ex1(5)), color = "red", label=expression(MC(q)), size = 4)+
+    geom_label(aes(x=2.5,y=mc_ex1(2.5)), color = "red", label=expression(MC(q)), size = 4)+
   stat_function(fun=avc_ex1, geom="line", size=2, color = "brown")+
-    geom_label(aes(x=4,y=avc_ex1(4)), color = "brown", label=expression(AVC(q)), size = 4)+
+    geom_label(aes(x=3,y=avc_ex1(3)), color = "brown", label=expression(AVC(q)), size = 4)+
   stat_function(fun=afc_ex1, geom="line", size=2, color = "pink")+
-    geom_label(aes(x=5,y=afc_ex1(5)), color = "pink", label=expression(AFC(q)), size = 4)+
+    geom_label(aes(x=3,y=afc_ex1(3)), color = "pink", label=expression(AFC(q)), size = 4)+
   stat_function(fun=ac_ex1, geom="line", size=2, color = "orange")+
-    geom_label(aes(x=5,y=ac_ex1(5)), color = "orange", label=expression(AC(q)), size = 4)+
+    geom_label(aes(x=3,y=ac_ex1(3)), color = "orange", label=expression(AC(q)), size = 4)+
    geom_segment(x=1.73,xend=1.73,y=0, yend=59.9, size=1, linetype="dotted")+
    geom_segment(x=0,xend=1.73,y=59.9, yend=59.9, size=1, linetype="dotted")+
-   scale_x_continuous(breaks=seq(0,6,1),
-                     limits=c(0,6),
+   scale_x_continuous(breaks=c(0,1,1.73,2,3,4),
+                     limits=c(0,4),
                      expand=expand_scale(mult=c(0,0.1)))+
-  scale_y_continuous(breaks=seq(0,250,20),
-                     limits=c(0,250),
+  scale_y_continuous(breaks=seq(0,100,10),
+                     labels=scales::dollar,
+                     limits=c(0,100),
                      expand=expand_scale(mult=c(0,0.1)))+
   #scale_colour_manual("Curves", values = line_colors, guide=F)+
   labs(x = "Output, q",
        y = "Per-Unit Costs ($)",
-       caption = expression(paste(C(q)==q^2+q+10)))+
+       caption = expression(paste(C(q)==15*q^2+8*q+45)))+
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
 
