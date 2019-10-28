@@ -812,7 +812,7 @@ $$\begin{align*}
 
 $$\begin{align*}
 \pi \text{ from producing} &< \pi \text{ from not producing}\\
-\pi(q) &< -FC \\
+\pi(q) &< -f \\
 \end{align*}$$
 
 ---
@@ -823,8 +823,8 @@ $$\begin{align*}
 
 $$\begin{align*}
 \pi \text{ from producing} &< \pi \text{ from not producing}\\
-\pi(q) &< -FC \\
-pq-VC(q)-FC &<-FC\\
+\pi(q) &< -f \\
+pq-VC(q)-f &<-f\\
 \end{align*}$$
 
 ---
@@ -835,8 +835,8 @@ pq-VC(q)-FC &<-FC\\
 
 $$\begin{align*}
 \pi \text{ from producing} &< \pi \text{ from not producing}\\
-\pi(q) &< -FC \\
-pq-VC(q)-FC &<-FC\\
+\pi(q) &< -f \\
+pq-VC(q)-f &<-f\\
 pq-VC(q) &< 0\\
 \end{align*}$$
 
@@ -848,8 +848,8 @@ pq-VC(q) &< 0\\
 
 $$\begin{align*}
 \pi \text{ from producing} &< \pi \text{ from not producing}\\
-\pi(q) &< -FC \\
-pq-VC(q)-FC &<-FC\\
+\pi(q) &< -f \\
+pq-VC(q)-f &<-f\\
 pq-VC(q) &< 0\\
 pq &< VC(q)\\
 \end{align*}$$
@@ -862,8 +862,8 @@ pq &< VC(q)\\
 
 $$\begin{align*}
 \pi \text{ from producing} &< \pi \text{ from not producing}\\
-\pi(q) &< -FC \\
-pq-VC(q)-FC &<-FC\\
+\pi(q) &< -f \\
+pq-VC(q)-f &<-f\\
 pq-VC(q) &< 0\\
 pq &< VC(q)\\
 \mathbf{p} &< \mathbf{AVC(q)}\\
