@@ -7,4 +7,4 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 
 # Recommended
 
-- <i class="fas fas fa-book"></i> Ch. 8 in @textbook
+- <i class="fas fas fa-book"></i> Ch. 8.1-8.3 in @textbook

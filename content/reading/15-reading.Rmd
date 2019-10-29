@@ -1,0 +1,12 @@
+---
+title: "2.6: Long Run Industry Equilibrium - Readings"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Recommended
+
+- <i class="fas fas fa-book"></i> Ch. 8.4-8.5, 2.5 in @textbook
+
+See Ch. 2.5 for elasticity of supply.

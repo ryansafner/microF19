@@ -1,0 +1,701 @@
+---
+title: "Problem Set 3 (Solutions)"
+author: "Ryan Safner"
+date: "ECON 306 Fall 2019"
+output: pdf_document
+header-includes:
+- \usepackage{amsmath}
+- \usepackage{multirow, multicol, booktabs}
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = F,
+                      message = F)
+```
+
+**Note:** Answers may be longer than I would deem sufficient on an exam. Some might vary slightly based on points of interest, examples, or personal experience. These suggested answers are designed to give you both the answer and a short explanation of why it is the answer.
+
+# Concepts and Critical Thinking
+
+1. **Describe, in your own words, what the marginal rate of technical substitution means. How is it different from the slope of the isocost line?**
+
+---
+
+The marginal rate of *technical* substitution (MRST) is the tradeoff (or exchange rate) between two inputs for a firm (based on its *technology* or production function). The number literally means the amount of *capital* the firm would remove (rate of substitution) if they were to use 1 more unit of *labor* to produce the same amount of output.
+
+The $MRTS=\frac{MP_l}{MP_k}$ is the slope of the *isoquant curves*, which expresses all the combinations of $l$ and $k$ that produce the same output $q$. 
+
+The slope of the *isocost line* $\frac{w}{r}$ is the rate at which the *market* trades off (or the exchange rate) between $l$ and $k$, based on relative factor prices.
+
+---
+
+2. **Describe, in your own words, what is true at the least-cost input combination (the optimum) for a firm. Why is it the optimum? What does the equality of the slope of the isoquant curve and the slope of the isocost line *mean*, in English?**
+
+---
+
+At the optimum point, the producer minimizes their total cost (reaches the lowest possible isocost line) for a given level of output (a given isoquant curve) -- thus their optimum is at a point where the two are tangent. At a tangency, the slopes between the budget constraint and the indifference curve are the same. We have seen that at this point: 
+$$\frac{MP_l}{w}=\frac{MP_k}{r}$$
+
+This means that at the optimum, the marginal product (output gained) for every dollar spent on either labor or capital is the same. That is, you can get no more output by spending a dollar more on labor, or by spending a dollar more on capital. This combination is the best that you can possibly do.
+
+\clearpage
+
+3. **Explain the difference between the short run and the long run in production.**
+
+---
+
+In the short run, at least one factor of production is *fixed*, meaning it is too costly to change. In the long run, all factors are *variable*, meaning they can be changed.
+
+In our analysis, we often assume that *capital* $(k)$ is fixed in the short run - it is too difficult for a firm to change the number of locations or factories that it has (capital). It can only change labor in the short run.
+
+$$q_{SR}=f(\bar{k},l)$$
+
+In the long run, firms *can* change the number of locations or factories that it has (capital), so all factors are variable.
+
+$$q_{LR}=f(k,l)$$
+
+---
+
+4. **Describe, in your own words, what the law of diminishing marginal returns means. How can firms increase output?**
+
+---
+
+The law of diminishing returns means that adding more of *one* input, holding all others fixed, the marginal product of that input will diminish.
+
+For example, if we have a fixed amount of capital (one oven), and we keep adding chefs (labor), the more chefs we add, the smaller and smaller the marginal product of labor (we get fewer and fewer *additional* pizzas for every chef we add). It may be such that you ultimately get *negative* marginal product - if you keep adding enough labor, it might actually *reduce* total output since there are "too many cooks in the kitchen."
+
+It's crucial to understand that this relationship consists of adding more of just *one* factor, and holding constant *all other factors.* The key problem was that there was just a single oven that we kept adding chefs to. If we want to sustainably increase our output, we need to add more of *both* labor *and* capital.
+
+This concept is largely attributed to David Ricardo, the classical economist, who famously said that if the law of diminishing returns was *not* true, we would be able to grow the entire world's food supply in a single flower pot!
+
+---
+
+\clearpage
+
+# Problems
+
+Show all work for calculations. You may lose points, even if correct, for missing work. Be sure to label graphs fully, if appropriate.
+
+5. **Suppose a firm can hire labor at \$5/hour and rent capital for \$20 per hour.**
+
+a. **Write an equation for the total cost of the firm.**
+
+---
+
+If $w=\$5$ and $r=20$
+
+$$\begin{aligned}
+	C &= wL+rK \\
+	C &= 5L+20K\\ \end{aligned}$$
+
+Since the elasticity is positive, they are normal goods. Since the elasticity is larger than 1, they are luxury goods. For every 1\% Steve's income increases (decreases), he buys 1.43\% more (fewer) meals.
+	
+---
+
+b. **Suppose the firm wants to spend exactly \$100. With labor on the horizontal axis and capital on the vertical axis, find the equation of the isocost line (in a graphable form), and graph it.**
+
+$$\begin{aligned}
+	100&=5L+20K	\\
+	100-5L&=20K	\\
+	5-0.25L&=K\\
+	\end{aligned}$$
+
+```{r, fig.height=3}
+library(mosaic)
+TC_line=function(x){5-0.25*x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=TC_line, geom="line", size=2, color="red")+
+  geom_label(aes(x=5, y=TC_line(5)), color="red", label="C=$100")+
+  scale_x_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Labor (l)",
+       y = "Capital (k)")+
+  theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
+
+```
+
+
+c. **If the firm is completely automated (i.e. it uses *only* capital), how many units of capital can they employ for $100?**
+
+---
+
+$$\frac{C}{r}=\frac{100}{20}=5$$
+
+---
+
+d. **If the firm uses only labor, how many units of labor can they employ for $100?**
+
+---
+
+$$\frac{C}{w}=\frac{100}{5}=20$$
+
+---
+
+e. **What is the slope of the isocost line? What does it represent?**
+
+---
+
+The slope is $0\frac{w}{r}=-\frac{5}{20}=-\frac{1}{4}$. It represents the tradeoff in the market between $l$ and $k$ based on their relative prices.
+
+---
+
+f. **Suppose a tax on capital makes renting capital raises the price of capital to $25 per hour. What is the new (graphable) equation of the $100 isocost line? Graph the new isocost line on the same graph.**
+
+---
+
+$$\begin{aligned}
+	100&=5L+25K	\\
+	100-5L&=25K	\\
+	5-0.2L&=K\\
+	\end{aligned}$$
+
+An easier way is to think about the new endpoint for capital:
+
+$$\frac{C}{r'}=\frac{100}{25}=4$$
+
+```{r, fig.height=3}
+library(mosaic)
+TC_line=function(x){5-0.25*x}
+TC_line_2=function(x){4-0.2*x}
+
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=TC_line, geom="line", size=2, color="red")+
+  geom_label(aes(x=5, y=TC_line(5)), color="red", label="C=$100")+
+  stat_function(fun=TC_line_2, geom="line", size=2, linetype="dashed", color="red")+
+  geom_label(aes(x=5, y=TC_line_2(5)), color="red", label="C'=$100")+
+  scale_x_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Labor (l)",
+       y = "Capital (k)")+
+  theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
+
+```
+
+---
+
+\clearpage
+
+6. **For each of the following production functions, identify whether the production process exhibits constant returns to scale, increasing returns to scale, or decreasing returns to scale. Be sure to show your work!**
+
+a. $q=2L+4K$
+
+---
+
+Suppose for example, we have 2 L and 2 K:
+$$q=2(2)+4(2)=4+8=12$$
+
+Now we double inputs to 4L and 4K:
+
+$$q=2(4)+4(4)=8+16=24$$
+
+Output has doubled, from 12 to 24 units, when we have doubled inputs from 2 to 4 K & L, so we have constant returns to scale.
+
+---
+
+b. $q=6L^{0.25}K^{0.75}$
+
+---
+
+Suppose for example, we have 2 L and 2 K:
+
+$$q=6(2)^{0.25}(2)^{0.75}=12$$
+
+Now we double inputs to 4L and 4K:
+
+$$q=6(4)^{0.25}(4)^{0.75}=24$$
+
+Output has doubled, from 12 to 24 units, when we have doubled inputs from 2 to 4 K & L, so we have constant returns to scale.
+
+---
+
+c. $q=2L^{0.8}K^{0.4}$
+
+---
+
+Suppose for example, we have 2 L and 2 K:
+
+$$q=2(2)^{0.8}(2)^{0.4}=4.59$$
+
+Now we double inputs to 4L and 4K:
+
+$$q=2(4)^{0.8}(4)^{0.4}=10.56$$
+
+Output has more than doubled, from 4.59 to 10.56 units, when we have doubled inputs from 2 to 4 K & L, so we have increasing returns to scale.
+
+---
+
+d. $q=2L^{0.25}K^{0.25}$
+
+---
+
+Suppose for example, we have 2 L and 2 K:
+
+$$q=2(2)^{0.25}(2)^{0.25}=2.82$$
+
+Now we double inputs to 4L and 4K:
+
+$$q=2(4)^{0.25}(4)^{0.25}=4$$
+
+Output has less than doubled, from 2.82 to 4 units, when we have doubled inputs from 2 to 4 K & L, so we have increasing returns to scale.
+
+---
+
+\clearpage
+
+7. Mad Max's Road Warriors fix potholes in interstate highways. Max's road crews fill potholes using workers and shovels, always in 1 to 1 combinations. Using 1 worker with 1 shovel can fill 10 potholes in a day. A worker with 2 shovels can still only fill 10 potholes, as can 2 workers with 1 shovel.
+
+a. **What is the relationship between workers and shovels as inputs?**
+
+---
+
+They are perfect complements. 
+	
+If we wanted to write the production function: since workers and shovels are perfect complements, Max Max can only increase production (by 10) for every combination of 1 worker and 1 shovel (having more of one, but not the other, does not change production). Thus, Mad Max can produce (fill potholes) according to the *minimum* of what he has between the number of workers and the number of shovels.
+
+$$q=10\times min\{L,K\}$$
+
+As an example, if Mad Max has 2 workers and 7 shovels, there are only 2 worker-shovel combinations, and thus they can fill 20 potholes.
+
+---
+
+b. **Draw three production isoquants: one corresponding to filling 10 potholes, one for 20 potholes, and one for 30 potholes.**
+
+---
+
+```{r, fig.height=3}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_segment(aes(x=1, xend=1, y=5, yend=1), color="red", size=1)+
+  geom_segment(aes(x=1, xend=5, y=1, yend=1), color="red", size=1)+
+  geom_label(aes(x=4, y=1), color="red", label="Q=10")+
+  geom_segment(aes(x=2, xend=2, y=5, yend=2), color="blue", size=1)+
+  geom_segment(aes(x=2, xend=5, y=2, yend=2), color="blue", size=1)+
+  geom_label(aes(x=4, y=2), color="blue", label="Q=20")+
+  geom_segment(aes(x=3, xend=3, y=5, yend=3), color="green", size=1)+
+  geom_segment(aes(x=3, xend=5, y=3, yend=3), color="green", size=1)+
+  geom_label(aes(x=4, y=3), color="green", label="Q=30")+
+  scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Workers (l)",
+       y = "Shovels (k)")+
+  theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
+```
+
+---
+
+c. **Mad Max receives a state contract to fill in 30 potholes. If the price of shovels is $10, and wages are $5, what is the lowest cost Mad Max can fulfill the contract at? Plot this isocost line on the graph.**
+
+---
+
+We know for it to fill 30 potholes, Mad Max would need 3 workers with 3 shovels. Plugging this into the cost function at current prices: 
+
+$$\begin{aligned}
+	wL+rK&=C\\
+	\$5(3)+\$10(3)&=C\\
+	\$15+\$30&=C\\
+	\$45&=C\\
+	\end{aligned}$$
+
+Now we want to plot the isocost line for $45, with $w=\$5$ and $r=\$10$. Let's find the equation for K in terms of L: 
+
+$$\begin{aligned}
+	C&=wL+rK\\
+	C-wL&=rK\\
+	\frac{C}{r}-\frac{w}{r}L&=K\\
+	\end{aligned}$$
+
+And now we plug in $C=\$45$, $w=\$5$, and $r=\$10$. 
+
+$$\begin{aligned}
+	K&=\frac{45}{10}-\frac{5}{10}L\\
+	K&=4.5-0.5L\\
+	\end{aligned}$$
+
+See the updated graph below in the solution to the next part. 
+
+---
+
+d. **Add two more isocost lines to the graph, one for a total cost of $15 and one for $30. Hint: you'll need to find the equations, and nicely, the slope doesn't change.**
+
+---
+
+It's simplest to use the equation of the isocost line and rearrange it to graphable form (K in terms of L). Then plug in different costs and find the equation. Note the slope never changes, only the intercept! 
+
+$$\begin{aligned}
+	C&=wL+rK\\
+	C-wL&=rK\\
+	\frac{C}{r}-\frac{w}{r}L&=K\\
+	K&=\frac{C}{10}-\frac{5}{10}L\\
+	K&=\frac{C}{10}-0.5L\\
+	\end{aligned}$$
+
+For C=\$15: 
+
+$$\begin{aligned}
+	K&=\frac{15}{10}-0.5L\\
+	K&=1.5-0.5L\\	
+	\end{aligned}$$
+
+For C=\$30: 
+
+$$\begin{aligned}
+	K&=\frac{30}{10}-0.5L\\
+	K&=3-0.5L\\	
+	\end{aligned}$$
+
+```{r, fig.height=3}
+CC_1=function(x){1.5-0.5*x}
+CC_2=function(x){3.0-0.5*x}
+CC_3=function(x){4.5-0.5*x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=CC_1, geom="line", size=2, color="black")+
+  geom_label(aes(x=2, y=CC_1(2)), color="black", label="C=$15")+
+  stat_function(fun=CC_2, geom="line", size=2, color="black")+
+  geom_label(aes(x=3, y=CC_2(3)), color="black", label="C=$30")+
+  stat_function(fun=CC_3, geom="line", size=2, color="black")+
+  geom_label(aes(x=4, y=CC_3(4)), color="black", label="C=$45")+
+  geom_segment(aes(x=1, xend=1, y=5, yend=1), color="red", size=1)+
+  geom_segment(aes(x=1, xend=5, y=1, yend=1), color="red", size=1)+
+  geom_label(aes(x=4, y=1), color="red", label="Q=10")+
+  geom_segment(aes(x=2, xend=2, y=5, yend=2), color="blue", size=1)+
+  geom_segment(aes(x=2, xend=5, y=2, yend=2), color="blue", size=1)+
+  geom_label(aes(x=4, y=2), color="blue", label="Q=20")+
+  geom_segment(aes(x=3, xend=3, y=5, yend=3), color="green", size=1)+
+  geom_segment(aes(x=3, xend=5, y=3, yend=3), color="green", size=1)+
+  geom_label(aes(x=4, y=3), color="green", label="Q=30")+
+  scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Workers (l)",
+       y = "Shovels (k)")+
+  theme_classic(base_size=20) #base_family = "Fira Sans Condensed",
+```
+
+---
+
+e. **If the cost of buying a shovel rises from $10 to $20, what will happen to the rate at which Max Max combines workers and shovels to fill the potholes? Why?**
+
+---
+
+The composition of inputs will not change as Mad Max still needs to have an equal number of workers and shovels. Workers and shovels are perfectly complementary inputs.
+
+---
+
+\clearpage
+
+8. **Your firm builds aircraft engines using both labor (L) and power tools (K). The production function for aircraft engines is $q=10 L^{0.5}K^{0.5}$**
+
+a. **Can you completely mechanize the production of aircraft engines (i.e. produce using all capital, no labor)?**
+
+---
+
+No, if labor (L) is 0, the entire function becomes 0, yielding no output.
+
+---
+
+b. **Suppose you currently have 100 power tools. In the short run, you cannot buy or sell power tools. Derive your short run production function.**
+
+---
+
+$$\begin{aligned}
+q&=10\sqrt{(100)}\sqrt{L}\\
+q&=10(10)\sqrt{L}\\
+q&=100\sqrt{L}\\
+\end{aligned}$$
+
+---
+
+c. **Find the (i) total product of labor, (ii) average product of labor, and (iii) marginal product of labor for using 0, 1, 2, 3, 4, and 5 workers.^[Hint: make a table!] Round to the nearest engine. Does labor experience diminishing returns?**
+
+---
+
+Simply plug in $l=0$, $l=1$, $l=2 \cdots l=5$ into the production function to find the total product $(q)$. see how total product changes to find the marginal product. Divide by total output by $l$ to find the average product:
+
+| $l$ | $q=100sqrt{l}$ | $MP_l=\frac{\Delta q}{\Delta l}$ | $AP_l=\frac{q}{l}$ |
+|-----|-----|--------|--------|
+| $0$ | $100\sqrt{0}=0$ | $-$ | $-$ |
+| $1$ | $100\sqrt{1}=100$ | $100-0=100$ | $\frac{100}{1}=100$ |
+| $2$ | $100\sqrt{2}=141$ | $141-100=41$ | $\frac{141}{2}=71$ |
+| $3$ | $100\sqrt{3}=173$ | $173-141=32$ | $\frac{173}{3}=58$ |
+| $4$ | $100\sqrt{4}=200$ | $200-173=27$ | $\frac{200}{4}=50$ |
+| $5$ | $100\sqrt{5}=224$ | $224-200=24$ | $\frac{224}{5}=45$ |
+
+Yes, labor experiences diminishing returns as $MP_l$ is decreasing as $l$ is increasing.
+
+---
+
+d. **Using your answer from Part C, sketch two graphs (roughly), one of total product, and one of marginal and average product, each with labor on the horizontal axis.**
+
+
+```{r}
+points_aircraft<-tribble(
+  ~l, ~q, ~mpl, ~apl,
+  0, 0, NA, NA,
+  1, 100, 100, 100,
+  2, 141, 41, 71,
+  3, 173, 32, 58,
+  4, 200, 27, 50,
+  5, 224, 24, 45
+)
+
+# IC_pe_1=function(x){150/x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_path(data=points_aircraft, aes(x=l, y=q), size=1, color="green")+
+  geom_label(aes(x=4,y=200), color = "green", label="q", size = 4)+
+    scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,250,50),
+                     limits=c(0,250),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "Labor (l)",
+       y = "Output (q)",
+       caption = expression(q==100*sqrt(l)))+
+  theme_classic(base_size=14) #base_family = "Fira Sans Condensed", base_size=20)
+```
+
+```{r}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_path(data=points_aircraft, aes(x=l, y=mpl), size=1, color="red")+
+  geom_label(aes(x=4,y=27), color = "red", label=expression(MP[l]), size = 4)+
+  geom_path(data=points_aircraft, aes(x=l, y=apl), size=1, color="blue")+
+  geom_label(aes(x=4,y=50), color = "blue", label=expression(AP[l]), size = 4)+
+    scale_x_continuous(breaks=seq(0,5,1),
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,100,10),
+                     limits=c(0,100),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  coord_cartesian(clip = "off")+
+  labs(x = "Labor (l)",
+       y = "Output (q)",
+       caption = expression(q==100*sqrt(l)))+
+  theme_classic(base_size=14) #base_family = "Fira Sans Condensed", base_size=20)
+
+```
+
+---
+
+e. **In the long run, does the production function exhibit constant returns to scale, increasing returns to scale, or decreasing returns to scale?**
+
+---
+
+By recognizing this is a Cobb-Douglas Production function of the form $q=Ak^{\alpha}l^{\beta}$ (here, $\alpha$ and $\beta$ are both 0.5, as $\sqrt{x}=x^{0.5}$, we can take the shorCut of noticing that $\alpha+\beta=1$, as $0.5+0.5=1$, so there are constant returns to scale. 
+		
+We can confirm this by hand, by plugging in a number of inputs and then increasing them at the same rate. Suppose for example, we have 2 l and 2 l:
+
+$$q=10\sqrt{2}\sqrt{2}=10(2)=20$$
+
+Now we double inputs to 4L and 4K:
+
+$$q=10\sqrt{4}\sqrt{4}=10(4)=40$$
+
+Output has doubled, from 20 to 40 units, when we have doubled inputs from 2 to 4 K & L, so we have constant returns to scale.
+
+---
+
+\clearpage
+
+9. Dunder Mifflin paper company produces reams of paper each week according to the production function:
+$$\begin{aligned}q &=10 l^{0.5} k^{0.5}\\
+MP_l& = 5l^{-0.5}k^{0.5}\\
+MP_k& = 5l^{0.5}k^{-0.5}\\
+\end{aligned}$$
+
+They have determined that they need to ship 1,000 reams of paper this week to Scranton, PA. Using capital costs $20, whereas labor costs $10.
+
+a. **What is the cost-minimizing combination of labor and capital that will yield 1,000 reams of paper? Round each to the nearest whole number.**
+
+---
+
+We know that at the optimum:
+
+$$\begin{aligned}
+	\frac{MP_L}{MP_K}&=\frac{w}{r} && \text{Definition of optimum}\\
+	\frac{5L^{-0.5}K^{0.5}}{5L^{0.5}K^{-0.5}}&=\frac{10}{20} && \text{Plugging in known values}\\
+	L^{(-0.5-0.5)}K^{(0.5-(-0.5)}&=0.5 && \text{Exponent rule for division}\\
+	L^{-1}K^{1}&=0.5 && \\
+	\frac{K}{L}&=0.5 && \text{Exponent rule for negative exponents}\\
+	K&=0.5L && \text{Multiplying both sides by }L\\
+	\end{aligned}$$
+
+To get exact quantities, plug this into the production function:
+
+$$\begin{aligned}
+ q&=10\sqrt{LK} && \text{The production function}\\
+ 	1000 &=10\sqrt{L(0.5L)} && \text{Plugging in our function of K and } q^*=1000\\
+ 	100 &=\sqrt{L(0.5L)} && \text{Dividing both sides by 10}\\
+ 	100&=\sqrt{0.5L^2} && \text{Multiplying}\\
+ 	10000&=0.5L^2 && \text{Squaring  both sides}\\
+ 	20000&=L^2 && \text{Dividing both sides by 0.5}\\
+ 	141&\approx L && \text{Square rooting both sides}\\
+	\end{aligned}$$
+
+Knowing $L$, we can find $K$:
+
+$$\begin{aligned}
+	K&=0.5L\\
+	K&=0.5(141)\\
+	K&=71\\	
+	\end{aligned}$$
+
+---
+
+b. **What is the total cost of using this combination of inputs?**
+
+---
+
+$$\begin{aligned}
+		wL+rK&=C\\
+		\$10(141)+\$20(71)&=C\\
+		\$1410+\$1420&=\$2830\\	
+		\end{aligned}$$
+
+---
+
+c. **Now suppose that they need to double their output this week, and need to produce 2,000 reams of paper. How does their optimal combination of inputs change?^[Hint: neither the equation for MRTS nor any prices are changing!]**
+
+---
+
+One quick hint is that recognizing the production function as a Cobb-Douglas production function and looking at the exponents on $L$ and $K$ (as they are square roots, the exponents are each 0.5).
+
+$$\begin{aligned}
+	q&=2L^{0.5}K^{0.5}\\
+	1&=0.5+0.5\\	
+	\end{aligned}$$
+
+The sum of the exponents is 1, so the production function experiences constant returns to scale: doubling inputs will double output. We know that output doubles, so all inputs must double from about 141 workers and 71 capital to about 282 workers and 141 capital. Since the MRTS is not changing (no marginal products changed), nor did any input prices, the ratio of capital to labor used is still $K=0.5L$. 
+	
+Anyway, let's check manually. Knowing $K=0.5L$ still, we need to find the exact quantities used in production. Plug this into the production function, as before (with double $q$): 
+
+$$\begin{aligned}
+ q&=10\sqrt{LK} && \text{The production function}\\
+ 	2000 &=10\sqrt{L(0.5L)} && \text{Plugging in our function of K and } q^*=2000\\
+ 	200 &=\sqrt{L(0.5L)} && \text{Dividing both sides by 10}\\
+ 	200&=\sqrt{0.5L^2} && \text{Multiplying}\\
+ 	40000&=0.5L^2 && \text{Squaring  both sides}\\
+ 	80000&=L^2 && \text{Dividing both sides by 0.5}\\
+ 	283&\approx L && \text{Square rooting both sides}\\
+	\end{aligned}$$
+
+Knowing $L$, we can find $K$: 
+
+$$\begin{aligned}
+	K&=0.5L\\
+	K&=0.5(283)\\
+	K&=141\\	
+	\end{aligned}$$
+
+Which we anticipated (although with rounding error on $L$) before.
+
+---
+
+e. **What is the total cost of this new level of output?**
+
+---
+
+$$\begin{aligned}
+		wL+rK&=C\\
+		\$10(283)+\$20(141)&=C\\
+		\$2830+\$2800&=\$5630\\	
+		\end{aligned}$$
+
+It has just about doubled the cost of before, as should be intuitive (we're producing twice as much as before, with twice as many inputs at the same prices). 
+		
+A graph was not necessary for these problems, but it can help us visualize what we were solving for:
+
+---
+
+f. **Suppose management at Dunder Mifflin develops a new program that magically makes everyone at the firm more productive, such that the firm's new production function becomes:**
+$$\begin{aligned}q &=20 l^{0.5} k^{0.5}\\
+MP_l& = 10l^{-0.5}k^{0.5}\\
+MP_k& = 10l^{0.5}k^{-0.5}\\
+\end{aligned}$$
+
+**Still needing to supply 2,000 reams of paper this week at the same input prices, what is their new optimal combination of labor and capital?**
+
+---
+
+The optimal ratio remains $K=0.5L$. To get the new quantities, plug this into the updated production function:
+
+$$\begin{aligned}
+ q&=10\sqrt{LK} && \text{The production function}\\
+ 	2000 &=20\sqrt{L(0.5L)} && \text{Plugging in our function of K and } q^*=2000\\
+ 	100 &=\sqrt{L(0.5L)} && \text{Dividing both sides by 10}\\
+ 	100&=\sqrt{0.5L^2} && \text{Multiplying}\\
+ 	10000&=0.5L^2 && \text{Squaring  both sides}\\
+ 	20000&=L^2 && \text{Dividing both sides by 0.5}\\
+ 	141&\approx L && \text{Square rooting both sides}\\
+	\end{aligned}$$
+
+Knowing $L$, we can find $K$:
+
+$$\begin{aligned}
+	K&=0.5L\\
+	K&=0.5(141)\\
+	K&=71\\	
+	\end{aligned}$$
+
+This is the same optimal combination as when the firm produced 1,000 copies!
+
+---
+
+g. **How much does this combination cost? What does this show you about technological improvement (or "total factor productivity")?**
+
+---
+
+With the same prices of labor and capital, this is the same total cost as in part b. Notice the doubling of "total factor productivity" in the production function (from 10 to 20) means the firm can use half the amount of inputs to produce the same amount as before!
+
+```{r, fig.height=3}
+df_iq_opt=function(x){10000/x}
+df_iq_opt2=function(x){40000/x}
+df_IC_1=function(x){141.5-0.5*x}
+df_IC_2=function(x){281.5-0.5*x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=df_iq_opt, geom="line", size=2, color = "blue")+
+  stat_function(fun=df_iq_opt2, geom="line", size=2, color = "green")+
+    geom_label(aes(x=450,y=df_iq_opt(450)), color = "blue", label=expression(q^o==1000), size = 3)+
+    geom_label(aes(x=450,y=df_iq_opt2(450)), color = "green", label=expression(q^o==2000), size = 3)+
+  stat_function(fun=df_IC_1, geom="line", size=2, color = "darkred")+
+      geom_label(aes(x=50,y=df_IC_1(50)), color = "darkred", label="C=$2830", size = 3)+
+  stat_function(fun=df_IC_2, geom="line", size=2, color = "red")+
+      geom_label(aes(x=100,y=df_IC_2(100)), color = "pink", label="C=$5630", size = 3)+
+  geom_segment(aes(x = 0, xend = 141, y = 72, yend=72), linetype="dotted", size=1)+
+  geom_segment(aes(x = 141, xend = 141, y = 72, yend=0), linetype="dotted", size=1)+
+  geom_segment(aes(x = 0, xend = 283, y = 141, yend=141), linetype="dotted", size=1)+
+  geom_segment(aes(x = 283, xend = 283, y = 141, yend=0), linetype="dotted", size=1)+
+    scale_x_continuous(breaks=seq(0,500,50),
+                     limits=c(0,500),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,500, 50),
+                     limits=c(0,500),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Labor",
+       y = "Capital",
+       caption = expression(paste(q==10*sqrt(lk), ", w = $10, r = $20")))+
+  theme_classic(base_size=14) #base_family = "Fira Sans Condensed", base_size=20)
+
+```

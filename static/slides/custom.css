@@ -498,3 +498,20 @@ position: absolute;
   font-size: 80%;
   color: gray
 }
+
+/* adding three column */
+
+.tri-left {
+  width: 30%;
+  float: left;
+}
+
+.tri-middle {
+  width: 30%;
+  float: left;
+}
+
+.tri-right {
+  width: 30%;
+  float: left;
+}
