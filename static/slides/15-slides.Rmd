@@ -149,7 +149,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 ---
 
-# Firm's Long Run Supply Decisions: Visualizing the Supply Curve
+# Firm's Long Run Supply: Visualizing
 
 .pull-left[
 
@@ -204,7 +204,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 ---
 
-# Firm's Long Run Supply Decisions: Visualizing the Supply Curve
+# Firm's Long Run Supply: Visualizing
 
 .pull-left[
 
@@ -255,7 +255,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 ---
 
-# Firm's Long Run Supply Decisions: Visualizing the Supply Curve
+# Firm's Long Run Supply: Visualizing
 
 .pull-left[
 
