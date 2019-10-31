@@ -101,6 +101,9 @@ lessons:
     class: "15-class"
 
   - title: "2.7 Factor Markets"
+    reading: "16-reading"
+    slides: "16-slides"
+    class: "16-class"
 
   - title: '<i class="fas fa-laptop-code"></i> **Problem Set 4**'
     assignment: "04-problem-set"
