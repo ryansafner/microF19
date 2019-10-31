@@ -142,20 +142,40 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 # Factor Market Prices and Opportunity Costs
 
-- In functioning factor markets, price represents the **opportunity cost** of hiring a factor for an alternative use
-  - Firms not only pay for direct use of a factor, but also indirectly for *not using* it in an alternate process. 
-  - e.g. a producer of hammers buys steel, pays (the opportunity cost) for "taking" the steel away from alternative uses
-    - e.g. salary for a skilled worker must be high enough to keep them at their current firm, and not be attracted to other firms/industries
+.pull-left[
 
+- In functioning factor markets, .onfire[the factor price represents the **opportunity cost** of hiring a factor for an alternative use]
+  - Firms not only pay for direct use of a factor, but also indirectly for *not using* it in an alternate process!
+
+- .green[**Example**]: a producer of hammers buys steel, pays (the opportunity cost) for "taking" the steel away from alternative uses
+
+- .green[**Example**]: e.g. salary for a skilled worker must be high enough to keep them at their current firm, and not be attracted to other firms/industries
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/mb9yaadujqe38fj/disappear.jpg?raw=1)
+]
+]
 ---
 
 # Labor Markets
 
+.pull-left[
 - Empirically, about 70% of total cost of production comes from labor
 
-- We'll focus just on the market for labor as an example
+- We'll focus just on the .shout[market for labor] as an example factor market
 
-- Can do the same for *any* factor market (capital, land, materials, etc.)
+- Can do the same for *any* factor market 
+  - (e.g. capital, land, materials, etc.)
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/uwqthhm8l339l8f/labormarket.jpg?raw=1)
+]
+]
 
 ---
 
@@ -534,6 +554,8 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 - Consider a factor (such as land) for which the supply is perfectly inelastic (e.g. a fixed supply)
 
 - Then the **entire value of the land is economic rent**!
+
+- .whisper[The *less* elastic the supply of a factor, the *more* economic rent it generates!]
 
 ]
 

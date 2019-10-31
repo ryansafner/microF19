@@ -2722,7 +2722,7 @@ $$p=2+0.5q$$
 
 - Slope: $0.5$
 
-- Vertical intercept called the .shout["Choke price"]: price where $q_S=0$ ($10), just low enough to discourage *any* sales
+- Vertical intercept called the .shout["Choke price"]: price where $q_S=0$ ($2), just low enough to discourage *any* sales
 
 ]
 
@@ -2797,7 +2797,7 @@ $$\epsilon_{q_S,p} = \frac{\% \Delta q_S}{\% \Delta p}$$
 |                 | "Elastic" | "Unit Elastic" | "Inelastic" |
 |-----------------|-----------|----------------|------------|
 | **Intuitively**:    | *Large* response | Proportionate response | *Little* response |
-| **Mathematically**: | $\epsilon_{q_s,p} > 1$ | $\epsilon_{q_D,p} = 1$ | $\epsilon_{q_D,p} < 1$ |
+| **Mathematically**: | $\epsilon_{q_s,p} > 1$ | $\epsilon_{q_s,p} = 1$ | $\epsilon_{q_s,p} < 1$ |
 |                 | Numerator $>$ Denominator | Numerator $=$ Denominator | Numerator $<$ Denominator |
 | **A 1% change in $p$** | More than 1% change in $q_S$ | 1% change in $q_S$ | Less than 1% change in $q_S$ | 
 
@@ -2971,7 +2971,7 @@ $$\epsilon_{q,p} = \mathbf{\frac{1}{slope} \times \frac{p}{q}}$$
 
 ---
 
-# Determinants of Price Elasticity of Supply
+# Determinants of Price Elasticity of Supply I
 
 .pull-left[
 
@@ -2983,6 +2983,23 @@ $$\epsilon_{q,p} = \mathbf{\frac{1}{slope} \times \frac{p}{q}}$$
 - Smaller (larger) .shout[share of market for inputs] $\implies$ more (less) elastic
   - Will your suppliers raise the price much if you buy more?
   - How much competition is there in your input markets?
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/uuajn64cnex5uru/elastic.jpg?raw=1)
+]
+
+]
+
+---
+
+# Determinants of Price Elasticity of Supply II
+
+.pull-left[
+
+> What determines how responsive your selling behavior is to a price change?
 
 - More (less) .shout[time to adjust] to price changes $\implies$ more (less) elastic
 
