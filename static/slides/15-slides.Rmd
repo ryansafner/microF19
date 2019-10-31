@@ -2466,8 +2466,8 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
     stat_function(fun=lowered_ac, geom="line", size=2, color = "orange", linetype="dashed")+
 
   # final demand
-  stat_function(fun=final_demand, geom="line", size=2, color = "blue", linetype="dashed")+
-  geom_label(aes(x=1,y=final_demand(1)), color = "blue", label="Final Demand", size = 5)+
+  stat_function(fun=final_demand_d, geom="line", size=2, color = "blue", linetype="dashed")+
+  geom_label(aes(x=1,y=final_demand_d(1)), color = "blue", label="Final Demand", size = 5)+
   geom_segment(x=3, xend=3, y=0, yend=8, size=1, linetype="dotted")+
   annotate("segment", x = 3.225, xend = 3, y = 3, yend = 3, color = "purple", size=2, alpha=0.9, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
       scale_x_continuous(breaks=NULL,
