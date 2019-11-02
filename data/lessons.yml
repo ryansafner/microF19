@@ -109,7 +109,8 @@ lessons:
     assignment: "04-problem-set"
     
   - title: '<i class="fas fa-star"></i> **Exam 2**'
-
+    assignment: "02-exam"
+    
   - title: '<span class="fake-header-table">3. Market Equilibrium</span>'
     header: True
 

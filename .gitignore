@@ -6,3 +6,5 @@
 public/
 static/exams/
 static/data/Opedgradescsv.csv
+.log
+.synctex.gz

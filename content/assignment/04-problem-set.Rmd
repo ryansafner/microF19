@@ -39,9 +39,10 @@ In a competitive industry, even among firms with *significant cost differences* 
 ## Question 4
 
 For each industry below, indicate:
-  - i. whether it is likely to be an *increasing cost*, *decreasing cost*, or *constant* cost industry
-  - ii. describe what would happen to the long-run equilibrium price and output for the industry from an *increase* in market demand
-  - iii. Graph this series of changes (in ii) for the industry, indicating the *long run industry supply curve* (draw a graph just for the industry, not for individual firms).
+
+- i. whether it is likely to be an *increasing cost*, *decreasing cost*, or *constant* cost industry
+- ii. describe what would happen to the long-run equilibrium price and output for the industry from an *increase* in market demand
+- iii. Graph this series of changes (in ii) for the industry, indicating the *long run industry supply curve* (draw a graph just for the industry, not for individual firms).
 
 ## Part A
 Software distribution
@@ -109,7 +110,7 @@ lrac
 If Mike wanted to produce 125 bikes, what size plant should be used, and why? What about 150 bikes?
 
 ### Part B
-If Mike wanted to produce 150 bikes, what size plant should be used, and why? What about 275 bikes?
+If Mike wanted to produce 250 bikes, what size plant should be used, and why? What about 275 bikes?
 
 ### Part C
 Draw the *long run average cost curve* on the graph provided (or sketch one yourself).

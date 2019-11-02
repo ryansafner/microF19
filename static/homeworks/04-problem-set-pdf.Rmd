@@ -103,7 +103,7 @@ lrac
 ```
 
 a. If Mike wanted to produce 125 bikes, what size plant should be used, and why? What about 150 bikes?
-b. If Mike wanted to produce 150 bikes, what size plant should be used, and why? What about 275 bikes?
+b. If Mike wanted to produce 250 bikes, what size plant should be used, and why? What about 275 bikes?
 c. Draw the *long run average cost curve* on the graph provided (or sketch one yourself).
 d. Suppose Mike's long run total cost function can be roughly expressed as:  
 $$LRC(q)=\frac{1}{64}q^3-6.25q^2+725q$$

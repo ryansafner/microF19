@@ -1,0 +1,196 @@
+---
+output:
+  pdf_document:
+    includes:
+      #before_body: 306exam2cover.tex 
+      #after_body: Metrics2018finalformulas.tex
+    latex_engine: pdflatex #required for Fira Sans font to render properly
+#header-includes:
+#  - \usepackage{tikz, pgfplots, booktabs}
+class: "Microeconomic Analysis"
+examnum: "Exam 2"
+coursecode: "ECON 306"
+semester: "Spring 2019"
+section: "Section 1"
+---
+
+## True/False/Uncertain and \emph{Explain}
+
+Indicate whether the following statements are **True**, **False**, or **Uncertain**, and give a short (2-3 sentences) **explanation**.
+
+1. An upward-sloping market supply curve implies that the industry faces \emph{external diseconomies}.  
+
+\vspace{2in}
+
+2. A firm with the following production function
+$$q=2l+k$$
+has technology that exhibits *increasing returns to scale*.
+
+\clearpage 
+
+3. The graph below depicts the cost structure for a representative firm in a competitive industry: 
+
+
+```{r, echo=F, message=F, warning=F, fig.width=3.25, fig.asp=1.06, fig.align="center"}
+library(mosaic)
+library(tidyverse)
+
+mc=function(x){3*x^2-8*x+10}
+ac=function(x){x^2-4*x+9.9+10/x}
+avc=function(x){x^2-4*x+10}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=mc, geom="line", size=1.5, color = "red")+
+  geom_label(x=2.9,y=mc(2.9), color = "red", label=expression(MC(q)), size = 3)+
+  stat_function(fun=ac, geom="line", size=1.5, color = "orange")+
+  geom_label(x=3.5,y=ac(3.5), color = "orange", label=expression(AC(q)), size = 3)+
+  stat_function(fun=avc, geom="line", size=1.5, color = "purple")+
+  geom_label(x=3.5,y=avc(3.5), color = "purple", label=expression(AVC(q)), size = 3)+
+    scale_x_continuous(breaks=NULL,
+                     limits=c(0,4),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,12,1),
+                     limits=c(0,12),
+                     label=scales::dollar,
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Quantity",
+       y = "Price")+
+  theme_light(base_size=12)#base_family = "Fira Sans Condensed", base_size=20)
+```
+
+According to the graph, the firm will break even at a market price of \$10, and shut down in the short run below a market price of \$6.
+
+
+\vspace{2in}
+
+4. A firm in a competitive market has lower costs than all of its competitors due to its having the best trained workers. In the long run, this firm can earn positive economic profits.
+
+\clearpage
+
+5. A firm should shut down production in the short run when its variable costs exceed its total revenues at its profit-maximizing quantity.
+
+\vspace{2in}
+
+6. Soybeans are likely to approximate a perfectly competitive industry.
+
+\vspace{2in}
+
+\clearpage
+
+## Short Answer (10 points each)
+
+If applicable, show all work and clearly label all graphs.
+
+7. Briefly explain how we derive the long run average cost curve for a firm. Draw an example graph to demonstrate your explanation.
+
+
+\vspace{3in}
+
+8. Explain the difference between *economies of scale* and *returns to scale.*
+
+\clearpage
+
+9. Explain why fixed costs only exist in the short run.
+
+\vspace{3in}
+
+10. Explain the difference between a fixed cost and a sunk cost.
+
+\clearpage
+
+11. Write a production function and draw two example isoquants that describes the following technology: an automotive assembly plant can assemble 1 car for every combination of 4 wheels and 1 engine.
+
+\clearpage
+
+## Problems
+
+Show all work. You may *not* earn full credit if you only write the answer, even if correct.
+
+12. You have a firm with the following production function:
+$$y=kl$$
+
+a. In the short run, the firm has 5 units of capital. Write out the short-run production function.
+
+b. Write down the total product, marginal product, and average product of labor for 0, 1, 2, 3, 4, and 5 workers.
+
+c. In the long run, the marginal products of labor and capital, respectively, are: 
+
+$$\begin{aligned}
+	MP_l&=k\\
+	MP_k&=l\\
+	\end{aligned}$$
+Suppose your firm needs to produce 1,000 units of output, the price of labor is \$20, and the price of capital is \$50. Find the optimal (i.e. cost-minimizing) combination of labor and capital that produces 1,000 units. 
+
+```{r, echo=F, message=F, warning=F, fig.width=3.25, fig.asp=1.06, fig.align="center"}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+    scale_x_continuous(breaks=seq(0,100,20),
+                     limits=c(0,100),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,100,10),
+                     limits=c(0,100),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_light(base_size=12)#base_family = "Fira Sans Condensed", base_size=20)
+```
+
+d. What is the total cost of producing with the optimal combination?
+
+e. Graph the isoquant, isocost line, and optimum on the graph above. 
+
+f. In the long run, does this production function exhibit constant, increasing, or decreasing returns to scale? 
+
+\newpage
+\thispagestyle{plain}
+\mbox{}
+\clearpage 
+
+13. Suppose you are a restaurant operating in the very competitive D.C. brunch market. You have a cost structure as follows, where $q$ is hundreds of meals served per day. 
+
+$$\begin{aligned}
+C(q)&=2q^2 +4q+18\\
+MC(q)&=4q+4\\	
+\end{aligned}$$
+
+a. Write the equations for (i) fixed costs, (ii) variable costs, (iii) average fixed costs, (iv), average variable costs, and (v) average (total) costs. 
+
+b. The market price is currently \$12. Calculate the profit-maximizing quantity of output.
+
+c. At the profit-maximizing quantity, calculate the average cost.
+
+d. At the profit-maximizing price and quantity, calculate the total profit. Should this firm stay or exit the market in the long run?
+
+e. Should this firm produce or shut down in the short run?
+
+f. What price would the firm need to charge in order to break even? 
+
+g. In the long run, what must the equilibrium  market price be for this industry, and why? 
+
+\newpage
+\thispagestyle{plain}
+\mbox{}
+\clearpage 
+
+## Long Answer (10 points each)
+
+Please answer clearly and concisely (2-5 sentences is sufficient). If applicable, show all work and clearly label all graphs.
+
+14. Explain why in a market economy, a firm’s profits go to entrepreneurs and shareholders (e.g. and not to workers, etc). 
+
+15. Describe, as completely as you can, what the firm’s short-run supply curve looks like and what the firm’s long-run supply curve looks like. Draw a graph. What are the main differences?
+
+16. Give an example of an economic rent, and how in a competitive industry, economic profits will still fall to zero in the long run.
+
+\newpage
+\thispagestyle{plain}
+\mbox{}
+\clearpage 
+
+## Formulas
+
+$$wl+rk=C$$
+
+$$\epsilon_{q,p}=\frac{1}{slope}\times \frac{p}{q}$$
+
+- Two curves are *tangent* at a point $\iff$ two curves have the same slope *at that point*
