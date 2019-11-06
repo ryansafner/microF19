@@ -15,6 +15,7 @@ source(file.path(here::here(), "lib", "graphics.R"))
 *Due by Wednesday, November 6, 2019* (Section 2 - M/W)
 
 - [<i class="fas fa-file-pdf"></i> `Download as PDF`](/homeworks/04-problem-set-pdf.pdf)
+- [<i class="far fa-life-ring"></i> `Answer Key`](/homeworks/04-problem-set-answers-pdf.pdf)
 
 Please write your answers to the following questions on a piece of paper, or download and print a PDF copy (link above) to write on. You may also type your answers and print out a hard copy.
 
@@ -76,7 +77,7 @@ Assuming labor is the only variable cost, make a table to calculate the *average
 
 Mike's Bikes produces racing bicycles. Consider the following graph, which illustrates the short run average total cost curves corresponding to three possible plant sizes Mike could produce with: a small plant, a medium plant, and a large plant.
 
-```{r, fig.retina=3}
+```{r, echo=F, warning=F, message=F, fig.retina=3}
 library(tidyverse)
 library(mosaic)
 
