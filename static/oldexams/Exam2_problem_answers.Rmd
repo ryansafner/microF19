@@ -1,0 +1,345 @@
+---
+title: "Practice Exam 2 Answer Key"
+author: "Ryan Safner"
+output:
+  pdf_document:
+    latex_engine: pdflatex #required for Fira Sans font to render properly 
+header-includes:
+  #- \usepackage{tikz, pgfplots, booktabs}
+---
+
+12. You have a firm with the following production function:
+$$q=kl$$
+
+a. **In the short run, the firm has 5 units of capital. Write out the short-run production function.**
+
+---
+
+Plug $k=5$ into the production function:
+
+$$q=5l$$
+
+
+---
+
+b. **Write down the total product, marginal product, and average product of labor for 0, 1, 2, 3, 4, and 5 workers.**
+
+---
+
+Make a table:
+
+| $l$ | $q=5l$ | $MP_l=q_2-q_1$ | $AP_l=q/l$ |
+|----:|-------:|---------------:|-----------:|
+| $0$ | $0$ | $-$ | $-$ |
+| $1$ | $5$ | $5$ | $5$ |
+| $2$ | $10$ | $5$ | $5$ |
+| $3$ | $15$ | $5$ | $5$ |
+| $4$ | $20$ | $5$ | $5$ |
+| $5$ | $25$ | $5$ | $5$ |
+
+---
+
+c. **In the long run, the marginal products of labor and capital, respectively, are:**
+
+$$\begin{aligned}
+	MP_l&=k\\
+	MP_k&=l\\
+	\end{aligned}$$
+**Suppose your firm needs to produce 1,000 units of output, the price of labor is \$20, and the price of capital is \$50. Find the optimal (i.e. cost-minimizing) combination of labor and capital that produces 1,000 units.**
+
+---
+
+First, recognize that at the optimum, the slope of the isoquant curve (left) is equal to the slope of the isocost line:
+
+$$\begin{aligned}
+\frac{MP_l}{MP_k}&=\frac{w}{r}\\
+\frac{k}{l}&=\frac{10}{40}\\
+\frac{k}{l}&=0.4\\
+k&=0.4l\\
+\end{aligned}$$
+
+Now we take this and plug it into the production function, which has to produce 1,000 units.
+
+$$\begin{aligned}
+q&=kl\\
+1000&=(0.4l)l\\
+1000&=0.4l^2\\
+2500&=l^2\\
+50&=l\\
+\end{aligned}$$
+
+If $l^*=50$, then $k^*=0.4(50)=20$. Thus, the cost-minimizing combination of labor and capital that produces 1,000 units of output is 50 units of labor and 20 units of capital.
+
+```{r, echo=F, message=F, warning=F, fig.width=3.25, fig.asp=1.06, fig.align="center"}
+library(mosaic)
+isocost=function(x){40-0.4*x}
+isoquant=function(x){1000/x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=isocost, geom="line", size=2, color = "red")+
+    geom_label(aes(x=90,y=isocost(90)), color = "red", label="Cost=$2,000", size = 3)+
+  stat_function(fun=isoquant, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=90,y=isoquant(90)), color = "blue", label="Output=1,000", size = 3)+
+  geom_segment(x=0,xend=50,y=20,yend=20, size = 1, linetype="dotted")+
+  geom_segment(x=50,xend=50,y=20,yend=0, size = 1, linetype="dotted")+
+    scale_x_continuous(breaks=seq(0,100,20),
+                     limits=c(0,100),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,100,10),
+                     limits=c(0,100),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Labor",
+       y = "Capital")+
+  theme_light(base_size=12)#base_family = "Fira Sans Condensed", base_size=20)
+```
+
+d. **What is the total cost of producing with the optimal combination?**
+
+---
+
+$$\begin{aligned}
+wl+rk&=C\\
+20(50)+50(20)&=C\\
+1000+1000&=C\\
+2000&=C\\
+\end{aligned}$$
+
+The total cost of using 20 workers and 50 units of capital at current input prices is $2,000.
+
+---
+
+e. **Graph the isoquant, isocost line, and optimum on the graph above.** 
+
+---
+
+It will help to find the isocost line equation to graph (by solving for k):
+
+$$\begin{aligned}
+wl+rk&=C\\
+20l+50k&=2000\\
+50k&=2000-20l\\
+k&=40-0.4l\\
+\end{aligned}$$
+
+Alternatively, just calculate and graph the endpoints:
+
+- If the firm only used capital, for $2,000 it could use $\frac{2000}{50}=40$
+- If the firm only used labor, for $2,000 it could use $\frac{2000}{20}=100$
+
+---
+
+f. **In the long run, does this production function exhibit constant, increasing, or decreasing returns to scale?**
+
+---
+
+Suppose for example, we have 1 L and 1 K:
+$$q=(1)(1)=1$$
+
+Now we double inputs to 2 L and 2 K:
+
+$$q=(2)(2)=4$$
+
+Output has quadrupled, from 1 to 4 units, when we have doubled inputs from 1 to 2 K & L, so we have increasing returns to scale.
+
+Even simpler, since this is a Cobb-Douglas function, adding the exponents
+$$q=l^1k^1$$
+leads to 1+1=2, which is greater than 1, so it is again, increasing returns to scale.
+
+---
+
+\clearpage
+
+13. Suppose you are a restaurant operating in the very competitive D.C. brunch market. You have a cost structure as follows, where $q$ is hundreds of meals served per day. 
+
+$$\begin{aligned}
+C(q)&=2q^2 +4q+18\\
+MC(q)&=4q+4\\	
+\end{aligned}$$
+
+a. Write the equations for (i) fixed costs, (ii) variable costs, (iii) average fixed costs, (iv), average variable costs, and (v) average (total) costs. 
+
+---
+
+Fixed costs are where costs don't change with output, so any term(s) where there is no variable $q$ in them: 18 We could also see that if $q=0$:
+
+
+$$\begin{aligned}
+ 	C(q)&=2q^2+4q+18\\
+ 	C(0)&=2(0)^2+4(0)+18\\
+ 	C(0)&=18\\	
+ 	\end{aligned}$$
+
+$f=18$
+
+Variable costs change with output, so any term(s) with a variable $q$ in them: 
+
+$$\begin{aligned}
+	VC(q)&=2q^2+4q\\	
+	\end{aligned}$$
+
+$$\begin{aligned}
+	AFC(q)&=\frac{FC}{q}\\
+	&=\frac{18}{q}\\
+	\end{aligned}$$
+
+$$\begin{aligned}
+	AVC(q)&=\frac{VC(q)}{q}\\
+	&=\frac{2q^2+4q}{q}\\
+	&=2q+4\\	
+	\end{aligned}$$
+
+$$\begin{aligned}
+	AC(q)&=\frac{C(q)}{q}\\
+	&=\frac{2q^2+4q+18}{q}\\
+	&=2q+4+\frac{18}{q}\\
+	\end{aligned}$$
+
+Alternatively, we know that: 
+
+$$\begin{aligned}
+	AC(q)&=AVC(q)+AFC(q)\\
+	&=(2q+4)+(\frac{18}{q})\\
+	&=2q+4+\frac{18}{q}\\
+	\end{aligned}$$
+
+---
+
+b. **The market price is currently \$12. Calculate the profit-maximizing quantity of output.**
+
+---
+
+In a perfectly competitive market, optimal quantity is where $p=MR(q)=MC(q)$. 
+
+$$\begin{aligned}
+	p&=MC(q)\\
+	12&=4q+4\\
+	8&=4q
+	2&=q^*\\
+	\end{aligned}$$
+
+---
+
+c. **At the profit-maximizing quantity, calculate the average cost.**
+
+---
+
+We know the average cost function from (a), just plug in the quantity we just found, 2.
+
+$$\begin{aligned}
+	AC(q) &=2q+4+\frac{18}{q}\\
+	AC(2) &=2(2)+4+\frac{18}{(2)}\\
+	AC(2) &=4+4+9\\
+	AC(2) &=17\\
+	\end{aligned}$$
+
+---
+
+d. **At the profit-maximizing price and quantity, calculate the total profit. Should this firm stay or exit the market in the long run?**
+
+---
+
+$$\begin{aligned}
+	\pi &= (p-AC(q))q\\
+	\pi &= (12-17)2\\
+	\pi &= (-5)2\\
+	\pi &= -10\\
+	\end{aligned}$$
+
+Since the firm is earning losses, it will want to *exit* in the *long run*.
+
+---
+
+e. **Should this firm produce or shut down in the short run?**
+
+---
+
+Find the shut-down price, the minimum of AVC, where $AVC=MC$
+
+$$\begin{aligned}
+	AVC(q) &= MC(q)\\	
+	2q+4 &= 4q+4\\
+	q&=0	\\
+	\end{aligned}$$
+
+Plug in $0$ into either $MC(q)$ or $AVC(q)$ to get a price of $4. This is the shut down price. Since the current market price (12) is higher than the shut down price, the firm should *not* shut down in the short run, even though it is earning losses!
+
+---
+
+f. **What price would the firm need to charge in order to break even?**
+
+---
+
+Find the break-even price, the minimum of AC, where $AC=MC$
+
+$$\begin{aligned}
+	AC(q) &= MC(q)\\	
+	2q+4+\frac{18}{q} &= 4q+4\\
+	2q+\frac{18}{q} &=4q	\\
+	\frac{18}{q} &= 2q\\
+	18 & = 2q^2\\
+	9 &= q^2\\
+	3 &= q\\
+	\end{aligned}$$
+
+This is the quantity where average cost is minimized. Find what this cost is by plugging in 3 into either $MC$ or $AC$:
+
+$$\begin{aligned}
+	MC(q)&=4q+4\\	
+	MC(3)&=4(3)+4\\
+	MC(3)&=16\\
+	\end{aligned}$$
+
+At a price of $16, the firm breaks even $(\pi=0)$. 
+
+---
+
+g. **In the long run, what must the equilibrium  market price be for this industry, and why?**
+
+---
+
+For a competitive market to be in long run equilibrium, all firms must earn an economic profit of $0. The price must be equal to average cost (the break even price) for this to happen, which again is at $16.
+
+\clearpage
+
+Visualize this problem below: 
+
+```{r, echo=F, message=F, warning=F, fig.height=4, fig.align="center"}
+mc_joe=function(x){4*x+4}
+ac_joe=function(x){2*x+4+18/x}
+avc_joe=function(x){2*x+4}
+price=function(x){12}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_rect(xmin=0,xmax=2,ymin=12,ymax=17, fill="black", alpha=0.3)+
+  stat_function(fun=price, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=8,y=price(8)), color = "blue", label=expression(MR(q)), size = 3)+
+  stat_function(fun=mc_joe, geom="line", size=2, color = "red")+
+    geom_label(aes(x=3.5,y=mc_joe(3.5)), color = "red", label=expression(MC(q)), size = 3)+
+  stat_function(fun=avc_joe, geom="line", size=2, color = "brown")+
+    geom_label(aes(x=7,y=avc_joe(7)), color = "brown", label=expression(AVC(q)), size = 3)+
+  stat_function(fun=ac_joe, geom="line", size=2, color = "orange")+
+    geom_label(aes(x=6,y=ac_joe(6)), color = "orange", label=expression(AC(q)), size = 3)+
+  geom_hline(yintercept=16, size=1, linetype="dashed")+
+  geom_label(x=9,y=16, label="Break Even Price= $16.00", size =3, color="orange")+
+  geom_segment(x=2,xend=2,y=0,yend=17, size=1, linetype="dotted")+
+  geom_segment(x=0,xend=2,y=17,yend=17, size=1, linetype="dotted")+
+  geom_hline(yintercept=4, size=1, linetype="dashed")+
+  geom_label(x=9,y=4, label="Shut Down Price= $4.00", size =3, color="brown")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                       limits=c(0,10),
+                       expand=c(0,0))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=c(0,0))+
+  
+  #geom_segment(x=0,xend=0,y=0,yend=23, color="red", size=5)+
+  #geom_segment(x=0,xend=5,y=23,yend=23, color="red", size=3.5)+
+  #stat_function(fun=mc, xlim=c(5,10), geom="line", size=3.5, color = "red")+
+   # geom_label(aes(x=2,y=23), color = "red", label="SUPPLY", size = 5)+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Output, q",
+       y = "$")+
+  theme_light(base_size=14)
+
+
+```
