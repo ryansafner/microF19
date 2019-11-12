@@ -114,7 +114,10 @@ lessons:
   - title: '<span class="fake-header-table">3. Market Equilibrium</span>'
     header: True
 
-  - title: "3.1 Comparative Statics"
+  - title: "3.1 The Supply and Demand Model"
+    reading: "17-reading"
+    slides: "17-slides"
+    class: "17-class"
 
   - title: "3.2 Markets and Surpluses"
   

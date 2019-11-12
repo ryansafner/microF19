@@ -1,0 +1,756 @@
+---
+title: "3.1: The Supply and Demand Model"
+subtitle: "ECON 306 · Microeconomic Analysis · Fall 2019"
+author: 'Ryan Safner<br> Assistant Professor of Economics <br> <a href="mailto:safner@hood.edu"><i class="fa fa-paper-plane fa-fw"></i> safner@hood.edu</a> <br> <a href="https://github.com/ryansafner/microf19"><i class="fa fa-github fa-fw"></i> ryansafner/microf19</a><br> <a href="https://microF19.classes.ryansafner.com"> <i class="fa fa-globe fa-fw"></i> microF19.classes.ryansafner.com</a><br>'
+#date:
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML" # rescales math with css changes https://github.com/yihui/xaringan/issues/143
+    lib_dir: libs
+    #seal: false
+    css: [custom.css, custom-fonts.css, "hygge"] #, metropolis, metropolis-fonts
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"] # first is for rescaling images , second is for embedding tweets, https://github.com/yihui/xaringan/issues/100
+      highlightStyle: ocean #rainbow #monokai rainbow solarized-light #tomorrow-night -blue -eighties zenburn
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+    includes:
+      in_header: header.html # for font awesome, used in title  
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo=F,
+                      message=F,
+                      warning=F)
+library("tidyverse")
+library("mosaic")
+library("ggrepel")
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+set.seed(256)
+```
+
+class: inverse, center, middle
+
+# Equilibrium
+
+---
+
+# Recall: The Two Major Models of Economics as a "Science"
+
+.pull-left[
+
+## Optimization
+
+- Agents have objectives they value
+
+- Agents face constraints
+
+- Make tradeoffs to maximize objectives within constraints
+
+.center[
+![](https://www.dropbox.com/s/qvr240t5j6t3arm/optimize.jpeg?raw=1)
+]
+]
+
+--
+
+.pull-right[
+
+## Equilibrium
+
+- Agents face competition from others that affect prices
+
+- Agents adjust their behaviors based on prices
+
+- Stable outcomes result where all agents cease adjusting
+
+.center[
+![](https://www.dropbox.com/s/j7xenkgo3p71vke/equilibriumbalance.png?raw=1)
+]
+
+]
+
+---
+
+# Recall: Optimization and Equilibrium
+
+.pull-left[
+- If people can *learn* and *change* their behavior, they will always switch to a higher-valued option
+
+- If there are no alternatives that are better, people are at an *optimum*
+
+- If everyone is at an optimum, the system is in *equilibrium*
+]
+
+.pull-right[
+.center[
+![:scale 70%](https://www.dropbox.com/s/wp97bsk0yni31k9/incentive2.jpg?raw=1)
+
+![:scale 70%](https://www.dropbox.com/s/j7xenkgo3p71vke/equilibriumbalance.png?raw=1)
+]
+]
+
+---
+
+# Equilibrium Analysis: Questions to Answer
+
+.pull-left[
+
+- Where do prices come from?
+
+- How do they change?
+
+- How consumers and producers to respond to changes?
+
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/7l05ucw4hfwlsyc/economics1.jpg?raw=1)
+]
+]
+
+---
+
+# Equilibrium Analysis
+
+.pull-left[
+- An .shout[equilibrium] is an allocation of resources such that no individual has an incentive to alter their behavior
+
+- In markets: .onfire["market-clearing"] prices where quantity supplied equals quantity demanded
+]
+
+.pull-right[
+.center[
+![:scale 70%](https://www.dropbox.com/s/j7xenkgo3p71vke/equilibriumbalance.png?raw=1)
+]
+]
+
+---
+
+# *Partial*  Equilibrium Analysis
+
+.pull-left[
+
+- We will only look at .onfire["*partial* equilibrium"] in a single market
+
+- Changes in *one* market often affect *other* markets, affecting the .onfire["*general* equilibrium"]
+  - e.g. a change in the price of corn will affect the market for wheat, soybeans, flax, cereal, sugar, candy, ethanol, gasoline, automobiles, etc...
+  - think of all of the *complements*, *substitutes*, upstream and downstream goods in production...
+  - General equilibrium is too complicated for undergraduate courses...
+]
+
+.pull-right[
+.center[
+![:scale 70%](https://www.dropbox.com/s/j7xenkgo3p71vke/equilibriumbalance.png?raw=1)
+]
+]
+
+---
+
+class: inverse, center, middle
+
+# Recall: Demand
+
+---
+
+# Demand Curve
+
+.pull-left[
+
+- .shout[Demand curve] graphically represents the demand schedule
+
+- Also measures a person's .onfire[maximum willingness to pay (WTP)] for a given quantity
+
+- Law of Demand (price effect) $\implies$ Demand curves always slope downwards
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+library("mosaic")
+demand=function(x){10-x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+  geom_label(aes(x=8,y=demand(8)), color = "blue", label="Demand", size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+---
+
+# Demand Function
+
+.pull-left[
+
+- .shout[Demand function] relates quantity to price
+
+.content-box-green[
+.green[**Example**]: 
+$$q=10-p$$
+]
+- Not graphable (wrong axes)!
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+library("mosaic")
+demand=function(x){10-x}
+
+d<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+  geom_label(aes(x=8,y=demand(8)), color = "blue", label="Demand", size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+d
+```
+]
+
+---
+
+# Inverse Demand Function
+
+.pull-left[
+
+- .shout[*Inverse* demand function] relates price to quantity
+    - Find by taking demand function and solving for $p$
+
+.content-box-green[
+.green[**Example**]: 
+$$p=10-q$$
+]
+- Graphable (price on vertical axis)!
+
+]
+
+---
+
+# Inverse Demand Function
+
+.pull-left[
+
+- .shout[*Inverse* demand function] relates price to quantity
+    - Find by taking demand function and solving for $p$
+
+.content-box-green[
+.green[**Example**]: 
+$$p=10-q$$
+]
+- Graphable (price on vertical axis)!
+
+- Slope: $-1$
+
+- Vertical intercept called the .shout["Choke price"]: price where $q_D=0$ ($10), just high enough to discourage *any* purchases
+
+]
+
+
+.pull-right[
+
+```{r, fig.retina=3}
+d
+```
+]
+
+---
+
+# Inverse Demand Function
+
+.pull-left[
+
+- .shout[*Inverse* demand function] relates price to quantity
+    - Find by taking demand function and solving for $p$
+
+.content-box-green[
+.green[**Example**]: 
+$$p=10-q$$
+]
+- Read two ways:
+
+- Horizontally: at any given price, how many units person wants to buy
+
+- Vertically: at any given quantity, the .shout[maximum willingness to pay (WTP)] for that quantity
+    - This way will be very useful later
+
+]
+
+
+.pull-right[
+
+```{r, fig.retina=3}
+d
+```
+]
+
+---
+
+class: inverse, center, middle
+
+# Recall: Supply
+
+---
+
+# Supply Function
+
+.pull-left[
+
+- .shout[Supply function] relates quantity *supplied* to price
+
+.content-box-green[
+.green[**Example**]: 
+$$q=2p-8$$
+]
+- Not graphable (wrong axes)!
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+supply=function(x){0.5*x+4}
+
+s<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=supply, geom="line", size=2, color = "red")+
+  geom_label(aes(x=8,y=supply(8)), color = "red", label="Supply", size = 6)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity of x",
+       y = "Price of x")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+s
+```
+]
+
+---
+
+# Inverse Supply Function
+
+.pull-left[
+
+- .shout[*Inverse* supply function] relates price to quantity
+    - Find by taking supply function and solving for $p$
+
+.content-box-green[
+.green[**Example**]: 
+$$p=4+0.5q$$
+]
+- Graphable (price on vertical axis)!
+
+]
+
+---
+
+# Inverse Supply Function
+
+.pull-left[
+
+- .shout[*Supply* demand function] relates price to quantity
+    - Find by taking demand function and solving for $p$
+
+.content-box-green[
+.green[**Example**]: 
+$$p=4+0.5q$$
+]
+- Graphable (price on vertical axis)!
+
+- Slope: $0.5$
+
+- Vertical intercept called the .shout["Choke price"]: price where $q_S=0$ ($4), just low enough to discourage *any* sales
+
+]
+
+
+.pull-right[
+
+```{r, fig.retina=3}
+s
+```
+]
+
+---
+
+# Inverse Supply Function
+
+.pull-left[
+
+- .shout[*Inverse* supply function] relates price to quantity
+    - Find by taking suuply function and solving for $p$
+
+.content-box-green[
+.green[**Example**]: 
+$$p=4+0.5q$$
+]
+- Read two ways:
+
+- Horizontally: at any given price, how many units firm wants to sell
+
+- Vertically: at any given quantity, the .shout[minimum willingness to accept (WTA)] for that quantity
+
+]
+
+
+.pull-right[
+
+```{r, fig.retina=3}
+s
+```
+]
+
+---
+
+class: inverse, center, middle
+
+# Market Equilibrium
+
+---
+
+# Market Equilibrium
+
+.pull-left[
+
+- Market-clearing (equilibrium) price $(p^*)$: $6.00
+
+- Market-clearing (equilibrium) quantity exchanged $(q^*)$: 4
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=5}
+graph<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=9,y=demand(9)), color = "blue", label="Demand = Max WTP", size = 5)+
+  stat_function(fun=supply, geom="line", size=2, color = "red")+
+    geom_label(aes(x=9,y=supply(9)), color = "red", label="Supply = Min WTA", size = 5)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  labs(x = "Quantity (q)",
+       y = "Price (p)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+
+graph+
+  geom_segment(x=4, xend=4, y=0, yend=6, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=4, y=6, yend=6, size=1, linetype="dotted")
+```
+]
+
+---
+
+# The Algebra of Calculating Equilibrium
+
+- Simple algebra to find equilibrium prices and quantities if we know supply and demand functions
+
+- Remember, supply and demand are each mathematical functions relating price to quantity:
+  - Demand: $q_D = f(p)$
+  - Supply: $q_S = f(p)$
+
+- We know at equilibrium: $q_D=q_P$
+
+---
+
+# Calculating Equilibrium: Example I
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Take our example supply and demand functions:
+
+$$\begin{align*}
+q_d&=10-p\\
+q_s&=2p-8\\
+\end{align*}$$
+]
+
+- In equilibrium: quantity demanded equals quantity supplied
+
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=5}
+graph+
+  geom_segment(x=4, xend=4, y=0, yend=6, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=4, y=6, yend=6, size=1, linetype="dotted")
+```
+]
+
+---
+
+# Calculating Equilibrium: Example II
+
+.content-box-green[
+.green[**Example**]: Let the supply and demand functions for a market be:
+
+$$\begin{align*}
+	q_D&=30-0.5p\\
+	q_S&=2p-40\\	
+	\end{align*}$$
+]
+
+1. Find equilibrium quantity and price $(q^*, p^*)$.
+
+2. Sketch a rough graph.
+
+---
+
+class: inverse, center, middle
+
+# Why Markets Tend to Equilibrate
+
+---
+
+# Excess Demand I
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Consider *any* price below $6, such as $5: 
+
+- $Q_d=2; \quad Q_s=5$
+
+- $Q_d>Q_s$: .shout[excess demand]
+
+- A .shout[shortage] of 3 units
+
+]
+
+
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=5}
+graph+
+  geom_segment(x=0, xend=5, y=5, yend=5, size=1, linetype="dotted")+
+  geom_segment(x=2, xend=2, y=0, yend=5, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=4, y=5, yend=5, size=1, linetype="dotted")+
+  geom_segment(x=5, xend=5, y=0, yend=5, size=1, linetype="dotted")+
+  annotate("segment", x = 2, xend = 5, y = 3, yend = 3, colour = "black", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="both", type="closed"))+
+  geom_label(x=3.5, y=3, label="Shortage")
+
+```
+]
+
+---
+
+# Excess Demand II
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Consider *any* price below $6, such as $5: 
+
+- $Q_d=2; \quad Q_s=5$
+
+- $Q_d>Q_s$: .shout[excess demand]
+
+- A .shout[shortage] of 3 units
+
+]
+
+- Sellers will not supply more than 2 units
+
+- For 2 units, some buyers are willing to pay more than $3
+
+
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=5}
+graph+
+  geom_segment(x=0, xend=5, y=5, yend=5, size=1, linetype="dotted")+
+  geom_segment(x=2, xend=2, y=0, yend=8, size=1, linetype="dotted")+ # wtp
+  geom_segment(x=0, xend=2, y=8, yend=8, size=1, linetype="dotted")+ # wtp
+  geom_segment(x=0, xend=4, y=5, yend=5, size=1, linetype="dotted")+
+  geom_segment(x=5, xend=5, y=0, yend=5, size=1, linetype="dotted")+
+  annotate("segment", x = 2, xend = 5, y = 3, yend = 3, colour = "black", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="both", type="closed"))+
+  geom_label(x=3.5, y=3, label="Shortage")
+```
+]
+
+---
+
+# Excess Demand III
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Consider *any* price below $6, such as $5: 
+
+- $Q_d=2; \quad Q_s=5$
+
+- $Q_d>Q_s$: .shout[excess demand]
+
+- A .shout[shortage] of 3 units
+
+]
+
+- Buyers will **raise their bids** against one another, raising the price
+
+- At higher prices, sellers are willing to supply more!
+
+- Continues until *equilibrium*, no pressure for change, `\\(q_s=q_d\\)`
+
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=5}
+graph+
+  geom_segment(x=0, xend=2, y=5, yend=5, size=1, linetype="dotted")+
+  geom_segment(x=2, xend=2, y=0, yend=5, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=4, y=6, yend=6, size=1, linetype="dotted")+
+  geom_segment(x=4, xend=4, y=0, yend=6, size=1, linetype="dotted")+
+  annotate("segment", x = 2, xend = 4, y = 5, yend = 6, colour = "black", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))
+```
+]
+
+---
+
+# Excess Supply I
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Consider *any* price above $6, such as $8: 
+
+- $Q_d=2; \quad Q_s=8$
+
+- $Q_d<Q_s$: .shout[excess supply]
+
+- A .shout[surplus] of 6 units
+
+]
+
+
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=5}
+graph+
+  geom_segment(x=0, xend=8, y=8, yend=8, size=1, linetype="dotted")+
+  geom_segment(x=2, xend=2, y=0, yend=8, size=1, linetype="dotted")+
+  geom_segment(x=8, xend=8, y=0, yend=8, size=1, linetype="dotted")+
+  annotate("segment", x = 2, xend = 8, y = 3, yend = 3, colour = "black", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="both", type="closed"))+
+  geom_label(x=5, y=7, label="Surplus")
+```
+]
+
+---
+
+# Excess Supply II
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Consider *any* price above $6, such as $8: 
+
+- $Q_d=2; \quad Q_s=8$
+
+- $Q_d<Q_s$: .shout[excess supply]
+
+- A .shout[surplus] of 6 units
+
+]
+
+- Buyers will not buy more than 2 units
+
+- For 2 units, some sellers are willing to accept less than $8
+
+
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=5}
+graph+
+  geom_segment(x=0, xend=8, y=8, yend=8, size=1, linetype="dotted")+
+  geom_segment(x=2, xend=2, y=0, yend=8, size=1, linetype="dotted")+
+  geom_segment(x=8, xend=8, y=0, yend=8, size=1, linetype="dotted")+
+  #wta
+  geom_segment(x=0, xend=2, y=5, yend=5, size=1, linetype="dotted")+
+  annotate("segment", x = 2, xend = 8, y = 3, yend = 3, colour = "black", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="both", type="closed"))+
+  geom_label(x=5, y=7, label="Surplus")
+```
+]
+
+---
+
+# Excess Supply III
+
+.pull-left[
+
+.content-box-green[
+.green[**Example**]: Consider *any* price above $6, such as $8: 
+
+- $Q_d=2; \quad Q_s=8$
+
+- $Q_d<Q_s$: .shout[excess supply]
+
+- A .shout[surplus] of 6 units
+
+]
+
+- Sellers will **lower their asking prices** against one another, lowering the price
+
+- At lower prices, buyers are willing to buy more!
+
+- Continues until *equilibrium*, no pressure for change, `\\(q_s=q_d\\)`
+
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=5}
+graph+
+  geom_segment(x=0, xend=2, y=8, yend=8, size=1, linetype="dotted")+
+  geom_segment(x=2, xend=2, y=0, yend=8, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=4, y=6, yend=6, size=1, linetype="dotted")+
+  geom_segment(x=4, xend=4, y=0, yend=6, size=1, linetype="dotted")+
+  annotate("segment", x = 2, xend = 4, y = 8, yend = 6, colour = "black", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))
+```
+]
+
+---
+
+# Why Markets Tend to Equilibrate
+
+.center[
+![](https://www.dropbox.com/s/60q8uepk12z3zv4/kiviqauction.png?raw=1)
+]
+

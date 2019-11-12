@@ -1,0 +1,27 @@
+---
+title: "3.1: The Supply and Demand Model - Class Notes"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+# Overview
+
+
+# Slides
+
+- [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/17-slides.html)
+
+We will do an activity to demonstrate market equilibrium in class using [http://kiviq.us](http://kiviq.us). See instructions [here](/files/kiviq.pdf)
