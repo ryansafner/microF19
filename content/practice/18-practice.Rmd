@@ -1,0 +1,37 @@
+---
+title: "3.2: Market Competition and Surpluses - Practice Problems"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(pander)
+source(file.path(here::here(), "lib", "graphics.R"))
+```
+
+- [<i class="fas fa-file-pdf"></i> `Download as PDF`](/practice/18-practice.pdf)
+- [<i class="fas fa-file-pdf"></i> `Answer Key`](/practice/18-practice-answers.pdf)
+
+The supply and demand in the market for tomatoes are estimated to be:
+$$\begin{align*}
+q_D&=1000-200p\\
+q_S&=200p-200\\ \end{align*}$$
+
+## 1. 
+Calculate the market-clearing price and quantity exchanged.
+
+## 2.
+Find the inverse demand function and inverse supply function.
+
+## 3.
+Sketch a graph of this market, labelling key points.
+
+## 4.
+Calculate the price elasticty of demand and price elasticity of supply.
+
+## 5.
+Calculate the consumer surplus and producer surplus, and shade each on the graph.
+
+## 6.
+Who gets greater surplus, consumers or producers, and why?
