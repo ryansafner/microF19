@@ -343,6 +343,7 @@ $$q_x^D = D(m, p_x, p_y)$$
 
 - See my [Visualizing Demand Shifters](https://ryansafner.shinyapps.io/Demand/)
 
+.source[See [Class 1.9](/class/09-class) for a reminder.]
 ]
 
 .pull-right[
@@ -372,7 +373,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 ]
 
-.source[See [Class 1.9](/class/09-class) for a reminder.]
+
 
 ---
 
