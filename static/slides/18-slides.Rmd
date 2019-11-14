@@ -111,7 +111,7 @@ graph+
 
 - Sellers will not supply more than 2 units
 
-- For 2 units, some buyers are willing to pay more than $3
+- For 2 units, some buyers are willing to pay more than $5
 
 
 ]
@@ -274,7 +274,7 @@ graph+
 # Why Markets Tend to Equilibrate
 
 .center[
-![:scale 80%](https://www.dropbox.com/s/60q8uepk12z3zv4/kiviqauction.png?raw=1)
+![:scale 60%](https://www.dropbox.com/s/60q8uepk12z3zv4/kiviqauction.png?raw=1)
 ]
 
 ---
@@ -333,7 +333,7 @@ $$q_x^D = D(m, p_x, p_y)$$
 
 .pull-left[
 
-- A change in one of the .onfire["determinants of demand"] (or "shifters") will shift the demand curve
+- A change in one of the .whisper["determinants of demand"] (or "shifters") will shift the demand curve
     - Change in income $m$
     - Change in price of other goods $p_y$ (substitutes or complements)
     - Change in preferences or expectations about good $x$ (show up in utility function)
@@ -371,6 +371,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 ```
 
 ]
+
 .source[See [Class 1.9](/class/09-class) for a reminder.]
 
 ---
@@ -382,7 +383,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 - Consider our demand function:
 $$q_D=10-p$$
 
-- If the **market price $(p)$ changes** (perhaps because supply changes), that results in a **change in *_quantity demanded_ ($q_D$)**
+- If the **market price $(p)$ changes** (perhaps because supply changes), that results in a **change in _quantity demanded_ $(q_D)$**
   - We move *along* the existing demand curve
 
 - *Ceterus paribus* has not been violated
@@ -405,7 +406,7 @@ $$q_D=10-p$$
 - Consider our demand function:
 $$q_D=10-p$$
 
-- If the **something other than price changes** (income, preferences, price of a complement, etc), that results in a **change  *_demand_**
+- If the **something other than price changes** (income, preferences, price of a complement, etc), that results in a **change in _demand_**
   - We need to draw a new demand curve (or demand function)
 
 $$q_D=12-p$$
@@ -427,9 +428,11 @@ $$q_D=12-p$$
 
 .pull-left[
 
-- .onfire[There is a big difference between a change in "quantity demanded" and a change in "demand"!]
+- .whisper[There is a big difference between a change in "quantity demanded" and a change in "demand"!]
 
 ]
+
+--
 
 .pull-right[
 .center[
@@ -1023,7 +1026,7 @@ changes+
   - **maximum willingness to pay** (as a buyer)
   - **minimum willingness to accept** (as a seller)
 
-- .onfire[Goods flow to those who value them the highest and away from those who value them the lowest]
+- .whisper[Goods flow to those who value them the highest and away from those who value them the lowest]
 ]
 
 --
@@ -1041,7 +1044,7 @@ changes+
 .pull-left[
 - It might look like it, but competition in markets is **NOT** between buyers vs. sellers!
 
-- In markets: .onfire[buyers compete with other buyers] and .onfire[sellers compete with other sellers]
+- In markets: .whisper[buyers compete with other buyers] and .whisper[sellers compete with other sellers]
 
 ]
 
@@ -1587,8 +1590,8 @@ cs+geom_polygon(data=cs_1, aes(x=x,y=y), fill="blue", alpha=0.5)+
 .green[**Example**]: Using last class's supply and demand functions:
 
 $$\begin{align*}
-	q_D&=30-0.5p\\
-	q_S&=2p-40\\	
+	q_D&=10-p\\
+	q_S&=2p-8\\	
 	\end{align*}$$
 ]
 
