@@ -21,6 +21,19 @@ knitr::opts_chunk$set(echo = FALSE,
 
 Check back later for an example application to taxes and other policies.
 
+
+# Interactive Examples
+
+- [Visualizing the Elasticity and Surpluses](https://ryansafner.shinyapps.io/elasticityandsurpluses/)
+- [Visualizing the Economic Incidence of Taxation](https://ryansafner.shinyapps.io/tax-incidence/)
+
+These are examples that I wrote in R/Shiny in the past, to visualize what it is we are looking at. As I find more time, I will update these and integrate them into our slides, but until then, I will just post links. 
+
+The first is a visual example of a market supply and demand in equilibrium. You can adjust the slopes (and intercepts) of each curve, which will change the market equilibrium, each curve's elasticity at equilibrium, and the amount of surplus in equilibrium (and it will calculate each for you).
+
+The second is a visual example of how taxes alter market surpluses. Based on the elasticity of the curve in equilibrium, a tax will both shift some of that surplus to the government (as tax revenue), and some of it is thrown away as **deadweight loss**. The curve with a *lower elasticity* bears more of the tax burden and loses more surplus. Think of elasticity as the ability to evade the tax - a more elastic curve has more options and will change their buying/selling behavior *a lot* to a price change (from a tax), and thus will bear less of the tax burden!
+
+
 # Slides
 
 - [<i class="fas fa-external-link-square-alt"></i> Lecture Slides](/slides/18-slides.html)

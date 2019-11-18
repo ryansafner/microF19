@@ -130,6 +130,9 @@ lessons:
   - title: '<span class="fake-header-table">4. Game Theory and Imperfect Competition</span>'
     header: True
 
+  - title: '<i class="fas fa-laptop-code"></i> **Problem Set 5**'
+    assignment: "05-problem-set"
+
   - title: "4.1 The Monopolist's Problem"
   
   - title: "4.2 Sources of Market Power"
@@ -140,8 +143,14 @@ lessons:
   
   - title: "4.5 Contestable Markets and Collusion"
   
-  - title: '<span class="fake-header-table">Final Exam</span>'
+  - title: '<i class="fas fa-laptop-code"></i> **Problem Set 6**'
+    assignment: "06-problem-set"
+    
+  - title: '<span class="fake-header-table">End of the Semester</span>'
     header: True
 
-  - title: "**Op-Ed due**"
+  - title: '<i class="fas fa-laptop-code"></i> **Op-Ed due**'
     assignment: "op-ed"
+
+  - title: '<i class="fas fa-star"></i> **Final Exam**'
+    assignment: "03-exam"
