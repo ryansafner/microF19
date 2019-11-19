@@ -1,0 +1,17 @@
+---
+title: "3.3 The Social Functions of Market Prices - Readings"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Highly Recommended
+
+- [<i class="fas fa-podcast"></i> *NPR Planet Money* 665: "The Pickle Problem"](https://www.npr.org/sections/money/2015/11/25/457408717/episode-665-the-pickle-problem)
+- [<i class="fas fa-podcast"></i> *NPR Planet Money* 599: "The Invisible Wall"](https://www.npr.org/sections/money/2017/05/31/530935855/episode-599-the-invisible-wall)
+- [<i class="fas fa-file-pdf"></i> Hayek (1945), "The Use of Knowledge in Society"](/readings/Hayek-1945.pdf)
+- [<i class="fas fa-file-pdf"></i> Alchian (1950), "Uncertainty, Evolution, and Economic Theory"](/readings/Alchian-1950.pdf)
+- [<i class="fab fa-youtube"></i> "What if There Were No Prices?"](https://www.youtube.com/watch?v=zkPGfTEZ_r4)
+- [<i class="fab fa-youtube"></i> "Mises vs. Marx: The March of History Rap Battle"](https://misesvsmarx.aier.org)
+
+
