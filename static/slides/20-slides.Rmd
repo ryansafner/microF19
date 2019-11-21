@@ -253,6 +253,8 @@ $R(q)=$.green[`\\(p \Delta q\\)`] $+$ .red[`\\(q \Delta p\\)`]
 
 - .green[Output effect]: increases number of units sold $(\Delta q)$ times price $p$ per unit
 
+--
+
 - .red[Price effect]: lowers price per unit $(\Delta p)$ on *all* units sold $(q)$
 
 --
@@ -271,7 +273,6 @@ $$\frac{\Delta R(q)}{\Delta q}=MR(q)=p+\frac{\Delta p}{\Delta q}q$$
 
 - If we have a linear inverse demand function of the form
 $$p=a+bq$$
-Where
   - $a$ is the choke price (intercept)
   - $b$ is the slope
 
@@ -338,20 +339,20 @@ MR(q)&=a-2bq\\
 # Monopoly and Revenues: Example
 
 .content-box-green[
-.green[**Example**]: Suppose a firm's demand is given by:
+.green[**Example**]: Suppose the market demand is given by:
 
 $$q=12.5-0.25p$$
 ]
 
-1. Find the function for the marginal revenue curve.
+1. Find the function for a monopolist's marginal revenue curve.
 
-2. Calculate marginal revenue if the firm produces 6 units, and 7 units.
+2. Calculate the monopolist's marginal revenue if the firm produces 6 units, and 7 units.
 
 ---
 
 # Revenues and Price Elasticity of Demand
 
-- Marginal revenue is related to price elasticity of demand:
+- Marginal revenue is stgonly related to **price elasticity of demand**:
 
 --
 
@@ -419,9 +420,9 @@ $$MR(q)=p\bigg(1+\frac{1}{\epsilon}\bigg)$$
 
 | Elasticity | $MR(q)$ | $R(q)$ |
 |------------|---------|--------|
-| $|\epsilon|>1$  Elastic | $+$ | Increasing |
-| $|\epsilon|=1$ Unit | $0$ | Maximized |
-| $|\epsilon|<1$ Inelastic | $-$ | Decreasing |
+| $\vert \epsilon \vert >1$  Elastic | $+$ | Increasing |
+| $\vert \epsilon \vert =1$ Unit | $0$ | Maximized |
+| $\vert \epsilon \vert <1$ Inelastic | $-$ | Decreasing |
 
 - Monopolists only produce where demand is elastic, with positive $MR(q)$! 
 
@@ -438,9 +439,9 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   geom_label(aes(x=8,y=demand(8)), color = "blue", label="Demand", size = 6)+
   stat_function(fun=mr, geom="line", size=2, color = "purple")+
   geom_label(aes(x=4,y=mr(4)), color = "purple", label="MR(q)", size = 6)+
-  geom_text(aes(x=2.5,y=8.5), color = "blue", label="Elastic", size = 6)+
-  geom_text(aes(x=7.5,y=3.5), color = "blue", label="Inelastic", size = 6)+
-  geom_text(aes(x=5,y=6), color = "blue", label="Unit Elastic", size = 6)+
+  geom_text(aes(x=2.5,y=9), color = "blue", label="Elastic", size = 6)+
+  geom_text(aes(x=7.5,y=4), color = "blue", label="Inelastic", size = 6)+
+  geom_text(aes(x=6,y=6), color = "blue", label="Unit Elastic", size = 6)+
     scale_x_continuous(breaks=seq(0,10,1),
                      limits=c(0,10),
                      expand=expand_scale(mult=c(0,0.1)))+
@@ -474,7 +475,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
   geom_segment(aes(x=0,xend=5, y=25, yend=25), linetype="dashed")+
   geom_segment(aes(x=5,xend=5, y=25, yend=0), linetype="dashed")+
   
-  geom_label_repel(aes(x=5, y=25), color="green", label=expression(paste(R[max])))+
+  geom_label(aes(x=5, y=25), color="green", label=expression(paste(R[max])))+
   #coord_cartesian(clip="off")+
   labs(x = "Quantity of x",
        y = "Revenues")+
@@ -590,7 +591,8 @@ $$p=\cfrac{MC(q)}{1+\frac{1}{\epsilon}}$$
 
 $$L=\frac{p-MC(q)}{p} = -\frac{1}{\epsilon}$$
 
-- $L=0 \implies$ perfect competition (since $P=MC)$
+- $L=0 \implies$ perfect competition
+  - (since $P=MC)$
 - As $L\rightarrow 1 \implies$ more market power
 ]
 
@@ -620,7 +622,7 @@ mr_i=function(x){20-4*x}
 
 ggplot(data.frame(x=c(0,10)), aes(x=x))+
   geom_hline(yintercept=2, size=2, color="red")+
-  geom_label(x=9,y=2, color = "red", label="MC(q)")+
+  geom_label(x=7,y=2, color = "red", label="MC(q)")+
   stat_function(fun=demand_i, geom="line", size=2, color = "blue")+
   geom_label(x=9,y=demand_i(9), color = "blue", label="Demand")+
   stat_function(fun=mr_i, geom="line", size=2, color = "purple")+
@@ -658,7 +660,7 @@ mr_e=function(x){10-2*x}
 
 ggplot(data.frame(x=c(0,10)), aes(x=x))+
   geom_hline(yintercept=2, size=2, color="red")+
-  geom_label(x=9,y=2, color = "red", label="MC(q)")+
+  geom_label(x=7,y=2, color = "red", label="MC(q)")+
   stat_function(fun=demand_e, geom="line", size=2, color = "blue")+
   geom_label(x=9,y=demand_e(9), color = "blue", label="Demand")+
   stat_function(fun=mr_e, geom="line", size=2, color = "purple")+
@@ -886,12 +888,12 @@ ggplot(data.frame(x=c(0,12)), aes(x=x))+
 --
 
 4. Shut down in the *short run* if $p<AVC(q)$
-    - Minimum of AVC curve where $MC(q)=AVC(q)$
+  - Minimum of AVC curve where $MC(q)=AVC(q)$
 
 --
 
 5. Exit in the *long run* if $p<AC(q)$
-    - Minimum of AC curve where $MC(q)=AC(q)$
+  - Minimum of AC curve where $MC(q)=AC(q)$
 
 ---
 
@@ -1057,7 +1059,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 - If this were instead a *competitive* market, would set $p=MC(q)$ and produce 8
   - .blue[Consumer surplus] maximized
 
-.source[Some assumptions to make the graph simple: `\\(C(q)=aq \quad \forall a \in \mathbf{R}^+\\)`, i.e. the firm has no fixed costs, and constant marginal costs. See more information [here](http://microf19.classes.ryansafner.com/class/13-class).]
+.source[Some assumptions to make the graph simple: `\\(C(q)=2q \\)`, i.e. the firm has no fixed costs, and constant marginal costs. See more information [here](http://microf19.classes.ryansafner.com/class/13-class).]
 
 ]
 
@@ -1140,6 +1142,77 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 - Loss of .blue[consumer surplus]
 
+]
+
+---
+
+# The Bad of Monopoly II
+
+.pull-left[
+
+```{r, fig.retina=3}
+mc<-function(x){2}
+demand<-function(x){10-x}
+mr<-function(x){10-2*x}
+
+CS<-tibble(x=c(0,0,8),
+           y=c(10,2,2))
+
+CS_2<-tibble(x=c(0,0,4),
+           y=c(10,6,6))
+dwl<-tibble(x=c(4,4,8),
+           y=c(6,2,2))
+mr<-function(x){10-2*x}
+
+#line_colors <- c("Supply" = "red", "Demand" = "blue")
+#surplus_colors <-c("Consumer" = "blue", "Producer" = "red")
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  
+  # surpluses
+  geom_polygon(data=CS_2, aes(x=x,y=y), fill="blue",alpha=0.5)+
+  geom_rect(xmin=0,xmax=4,ymin=2,ymax=6,fill="green", alpha=0.25)+ #profit
+  geom_polygon(data=dwl, aes(x=x,y=y), fill="black",alpha=0.5)+ #dwl
+  
+  # surplus labels
+  geom_label(aes(x=1.5, y= 4), label="Profit", color="green", size =5)+
+  geom_label(aes(x=1.5, y= 7.5), label="CS", color="blue", size =5)+
+  geom_label(aes(x=5.5, y= 3.5), label="DWL", color="black", size =5)+
+  
+  # lines 
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=9,y=demand(9)), color = "blue", label="Demand", size = 5)+
+  stat_function(fun=mr, geom="line", size=2, color = "purple")+
+    geom_label(aes(x=4.5,y=mr(4.5)), color = "purple", label=expression(MR(q)), size = 5)+
+  stat_function(fun=mc, geom="line", size=2, color = "red")+
+    geom_label(aes(x=6,y=mc(6)), color = "red", label=expression(MC(q)==AC(q)), size = 5)+
+  
+  # optimal dots
+  geom_segment(x=0, xend=4, y=6, yend=6, size=1, linetype="dotted")+
+  geom_segment(x=8, xend=8, y=0, yend=2, size=1, linetype="dotted")+
+  geom_segment(x=4, xend=4, y=0, yend=6, size=1, linetype="dotted")+
+  
+  geom_point(x=4,y=6, size=3)+
+  geom_text(x=4.5,y=6.5,label=expression(paste("(",q^o,", ",p^o,")")), size=5)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     labels=scales::dollar,                   
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity",
+       y = "Price",
+       caption = expression(paste("Demand: ", p(q)==10-q, ", Cost: ", C(q)==2*q)))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+
+```
+
+]
+
+.pull-right[
+
 - **Deadweight loss** of surplus destroyed from lost gains from trade
   - Consumers willing to buy more than 4 units for lower prices!
   - Monopolist willing to accept lower prices to sell more, but would earn *less* total profits this way
@@ -1147,8 +1220,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 ]
 
 ---
-
-# The Bad of Monopoly III
+# The Bad of Monopoly IV
 
 .pull-left[
 
@@ -1228,7 +1300,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 .pull-left[
 .center[
-![](https://www.dropbox.com/s/21v476wphty3f0i/prize.jpg?raw=1)
+![:scale 80%](https://www.dropbox.com/s/21v476wphty3f0i/prize.jpg?raw=1)
 ]
 ]
 
@@ -1287,7 +1359,7 @@ ggplot(data.frame(x=c(0,10)), aes(x=x))+
 
 ---
 
-# The *Ugly* of Monopoly: Rent-Seeking II
+# The *Ugly* of Monopoly: Rent-Seeking
 
 .pull-left[
 
@@ -1445,5 +1517,3 @@ Gordon Tullock
 ]
 
 .source[Tullock, Gordon, (1967), "The Welfare Cost of Tariffs, Monopolies, and Theft," *Western Economic Journal* 5(3): 224-232.]
-
----
