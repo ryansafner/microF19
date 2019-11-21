@@ -129,14 +129,19 @@ lessons:
     reading: "19-reading"
     slides: "19-slides"
     class: "19-class"
+    
   - title: '<i class="fas fa-laptop-code"></i> **Problem Set 5**'
     assignment: "05-problem-set"
     
-  - title: '<span class="fake-header-table">4. Game Theory and Imperfect Competition</span>'
+  - title: '<span class="fake-header-table">4. Imperfect Competition</span>'
     header: True
 
-  - title: "4.1 The Monopolist's Problem"
-  
+  - title: "4.1 Monopoly"
+    reading: "20-reading"
+    slides: "20-slides"
+    class: "20-class"
+    practice: "20-practice"
+    
   - title: "4.2 Sources of Market Power"
   
   - title: "4.3 Pricing with Market Power"

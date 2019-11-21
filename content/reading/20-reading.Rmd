@@ -1,0 +1,15 @@
+---
+title: "4.1 Monopoly - Readings"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Recommended
+
+- <i class="fas fas fa-book"></i> Ch. 9-2-9.5 in @textbook
+
+- [<i class="fas fa-file-pdf"></i> Tullock (1967), "The Welfare Cost of Tariffs, Monopolies, and Theft"](/readings/Tullock-1967.pdf)
+- [<i class="fas fa-file-pdf"></i> Kreuger (1974), "The Political Economy of the Rent-Seeking Society"](/readings/Kreuger-1974.pdf)
+
+

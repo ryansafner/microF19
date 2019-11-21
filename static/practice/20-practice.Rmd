@@ -1,0 +1,34 @@
+---
+title: "4.1 Monopoly - Practice Problems"
+author: "Ryan Safner"
+date: "ECON 306 - Fall 2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Bob's Bats produces baseball bats, and has the following costs:
+$$\begin{aligned}
+C(q)&=5q^2+720\\
+MC(q)&=10q\\	
+\end{aligned}$$
+
+> and faces a market demand for bats: 
+$$q = 120-0.4p$$
+
+> where quantity is measured in thousands of bats
+
+### 1. Write Bob's Marginal Revenue function.
+
+### 2. Find the profit-maximizing quantity and price.
+
+### 3. How much total profit does Bob's Bats earn? Should Bob stay or exit this industry in the long run?
+
+### 4. At what price would Bob's Bats break even?
+
+### 5. How much of Bob's price is markup (over marginal cost)?
+
+### 6. Calculate the price elasticity of demand at Bob's profit-maximizing price.
