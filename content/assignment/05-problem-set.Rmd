@@ -1,0 +1,113 @@
+---
+title: "Problem Set 5"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(pander)
+source(file.path(here::here(), "lib", "graphics.R"))
+```
+
+*Due by Monday, December 2, 2019* (Section 1 - M/W)
+
+*Due by Tuesday, December 3, 2019* (Section 2 - Tu/Th)
+
+- [<i class="fas fa-file-pdf"></i> `Download as PDF`](/homeworks/05-problem-set-pdf.pdf)
+
+Please write your answers to the following questions on a piece of paper, or download and print a PDF copy (link above) to write on. You may also type your answers and print out a hard copy.
+
+You may work together (and I highly encourage that) but you must turn in your own answers. Your TA, under my supervision, will grade homeworks 70% for completion, and for the remaining 30%, pick one question to grade for accuracy - so it is best that you try every problem, even if you are unsure how to complete it accurately.
+
+# Concepts and Critical Thinking
+
+Please answer the following questions briefly (1-3 sentences). Use examples as necessary. Be sure to label graphs fully, if appropriate.
+
+## Question 1
+
+In your own words, what do allocative efficiency and Pareto efficiency mean? Under what three conditions are markets allocatively efficient and Pareto efficient?
+
+## Question 2
+
+In your own words, what are the social functions of market prices? 
+
+## Question 3
+
+In your own words, what are transaction costs, and how do they affect exchange?
+
+## Question 4
+
+In your own wrods, explain the law of one price. *why* would we expect it to be true (i.e. what market processes push us towards the predicted outcome)? What might *prevent* it from occurring?
+
+## Question 5
+
+In your own words, explain what entrepreneurship is, and how it affects market prices. 
+
+
+## Question 6
+
+In your own words, explain what consumer surplus and producer surplus mean. If Ann is willing to pay up to $6,000 for a used car, but buys it at a market price of $2,000, what is her consumer surplus? What is the producer's surplus for Frank, who sells Ann the car for $2,000, but would be willing to go as low as $1,000?
+
+# Problems
+
+Show all work for calculations. You may lose points, even if correct, for missing work. Be sure to label graphs fully, if appropriate.
+
+## Question 7
+
+The Ministry of Tourism in the Republic of Palau estimates that the monthly supply and demand for its scuba diving tours are: 
+$$\begin{align*}
+	q_S&=30p-2000\\
+	q_D&=6000-20p\\	
+	\end{align*}$$
+> where quantity represents the number of individual dives each month and $p$ is the price of a two-tank dive.
+
+### Part A
+Calculate the equilibrium quantity and price ($q^*,p^*)$.
+
+### Part B
+Calculate the consumer surplus received by divers visiting Palau, and the producer surplus received by the dive ships. 
+
+### Part C
+Calculate the price elasticity of demand at equilibrium. Is it relatively elastic or inelastic?
+
+### Part D
+Calculate the price elasticity of supply at equilibrium. Is it relatively elastic or inelastic?
+
+### Part E
+Who earns more surplus, consumers or producers, and why?
+
+### Part F
+Suppose that the demand for scuba diving services increases, and that the new demand curve is given by $q_D'=7,000-20P$. Calculate the impact of this change in demand on the consumer surplus and producer surplus.
+
+### Part G
+Draw a well-labelled graph of all that you found in this question (label prices, quantities, surpluses, curves, etc).
+
+## Question 8
+
+The market for hotel rooms in a small town is characterized by the following equations:
+
+$$\begin{align*}
+q_D&=200-0.4p\\
+q_S&=0.8p-40\\ \end{align*}$$
+
+### Part A
+Calculate the equilibrium price and quantity.
+
+### Part B
+Calculate the price elasticity of demand and price elasticity of supply in equilibrium. Is each relatively elastic or inelastic?
+
+### Part C
+Calculate the consumer and producer surplus in equilibrium. Who gets more surplus, and why?
+
+### Part D
+Suppose the local government sets a price ceiling on the price of hotel rooms - saying they can charge no more than $150/night. At $150, how many hotel rooms do consumers want to rent, and how many rooms do the hotels want to rent out? What is this situation?
+
+### Part E
+Explain what would happen as a result of part D if the price were allowed to change.
+
+### Part F
+The price cannot change because of the price control. Hotels will only rent out the quantity you found in part D. Calculate consumer surplus and producer surplus at this price and quantity. Compare it to your answer in part C, what has changed?
+
+### Part G
+Due to the situation created, how do you think those hotel rooms will be allocated and why?
