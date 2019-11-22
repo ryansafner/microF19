@@ -21,7 +21,7 @@ q_S&=200p-200\\ \end{aligned}$$
 
 ### 3. Sketch a graph of this market, labelling key points.
 
-### 4. Calculate the price elasticty of demand and price elasticity of supply.
+### 4. Calculate the price elasticty of demand and price elasticity of supply (in equilibrium).
 
 ### 5. Calculate the consumer surplus and producer surplus, and shade each on the graph.
 

@@ -28,7 +28,7 @@ Find the inverse demand function and inverse supply function.
 Sketch a graph of this market, labelling key points.
 
 ## 4.
-Calculate the price elasticty of demand and price elasticity of supply.
+Calculate the price elasticty of demand and price elasticity of supply (in equilibrium).
 
 ## 5.
 Calculate the consumer surplus and producer surplus, and shade each on the graph.
