@@ -904,7 +904,7 @@ Economics Nobel 1982
 # Barriers to Entry: Occupational Licensing I
 
 .center[
-![:scale 80%](https://www.dropbox.com/s/x4f6q87p3suj6yt/licensing.png?raw=1)
+![:scale 60%](https://www.dropbox.com/s/x4f6q87p3suj6yt/licensing.png?raw=1)
 
 In 1950, 1 in 20 jobs required a license. Today it's 1 in 4. Source: [Obama White House (2015): Occupational Licensing: A Framework for Policymakers](https://obamawhitehouse.archives.gov/sites/default/files/docs/licensing_report_final_nonembargo.pdf)
 ]
@@ -1011,7 +1011,7 @@ Source: [Washington Post (Sept 8, 2017)](https://www.washingtonpost.com/news/mor
 .center[
 ![](https://www.dropbox.com/s/oimo4dnspn4e5sn/catpatent.png?raw=1)
 ]
-
+]
 .pull-right[
 .center[
 ![](https://www.dropbox.com/s/wm0kxavp3toq426/catpatent2.png?raw=1)
@@ -1029,13 +1029,12 @@ Source: [U.S. Patent 5,443,036 (1995)](http://www.google.com/patents/US5443036)
 
 .pull-left[
 .center[
-![](https://www.dropbox.com/s/wp1g3ca65gohrb0/patentthicket.png?raw=1)
+![:scale 80%](https://www.dropbox.com/s/wp1g3ca65gohrb0/patentthicket.png?raw=1)
 ]
 ]
 
 .pull-right[
 - [Apple, Inc. vs. Samsung Electronics Co., Ltd.](https://www.theverge.com/apple/2011/11/2/2533472/apple-vs-samsung)
-]
 
 - [Freakonomics: Apple vs. Samsung: Who Owns the Rectangle?](http://freakonomics.com/2012/08/03/apple-vs-samsung-who-owns-the-rectangle/)
 ]
