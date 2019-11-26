@@ -1,0 +1,1470 @@
+---
+title: "4.2: Consequences and Sources of Monopoly"
+subtitle: "ECON 306 · Microeconomic Analysis · Fall 2019"
+author: 'Ryan Safner<br> Assistant Professor of Economics <br> <a href="mailto:safner@hood.edu"><i class="fa fa-paper-plane fa-fw"></i> safner@hood.edu</a> <br> <a href="https://github.com/ryansafner/microf19"><i class="fa fa-github fa-fw"></i> ryansafner/microf19</a><br> <a href="https://microF19.classes.ryansafner.com"> <i class="fa fa-globe fa-fw"></i> microF19.classes.ryansafner.com</a><br>'
+#date:
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML" # rescales math with css changes https://github.com/yihui/xaringan/issues/143
+    lib_dir: libs
+    #seal: false
+    css: [custom.css, custom-fonts.css, "hygge"] #, metropolis, metropolis-fonts
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"] # first is for rescaling images , second is for embedding tweets, https://github.com/yihui/xaringan/issues/100
+      highlightStyle: ocean #rainbow #monokai rainbow solarized-light #tomorrow-night -blue -eighties zenburn
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+    includes:
+      in_header: header.html # for font awesome, used in title  
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo=F,
+                      message=F,
+                      warning=F)
+library("tidyverse")
+library("mosaic")
+library("ggrepel")
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+set.seed(256)
+```
+
+class: inverse, center, middle
+
+# Social Consequences of Monopoly
+
+---
+
+# Perfectly Competitive Market
+
+.pull-left[
+```{r, fig.retina=3, fig.height=4.5}
+demand<-function(x){10-x}
+supply<-function(x){x}
+demand_firm<-function(x){10}
+mc_cc<-function(x){3*x^2-8*x+9}
+ac_cc<-function(x){x^2-4*x+10+10/x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=demand_firm, geom="line", size=2, color = "blue")+
+  geom_label(aes(x=4.5,y=demand_firm(4.5)), color = "blue", label="Demand", size = 5)+
+    stat_function(fun=mc_cc, geom="line", size=2, color = "red")+
+  geom_label(aes(x=3.5,y=mc_cc(3.5)), color = "red", label="MC(q)", size = 5)+
+    stat_function(fun=ac_cc, geom="line", size=2, color = "orange")+
+  geom_label(aes(x=4.5,y=ac_cc(4.5)), color = "orange", label="MC(q)", size = 5)+
+  geom_segment(x=2.8, xend=2.8, y=0, yend=10, size=1, linetype="dotted")+
+    scale_x_continuous(breaks=NULL,
+                     limits=c(0,5),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=NULL,
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(title = "Representative Firm",
+       x = "Quantity",
+       y = "Price")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+.pull-right[
+```{r, fig.retina=3, fig.height=4.5}
+cs_1<-tribble(
+  ~x, ~y,
+  0, 10,
+  0, 5,
+  5, 5
+)
+ps_1<-tribble(
+  ~x, ~y,
+  0, 0,
+  0, 5,
+  5, 5
+)
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_polygon(data=cs_1, aes(x=x,y=y), fill="blue", alpha=0.5)+
+  geom_polygon(data=ps_1, aes(x=x,y=y), fill="red", alpha=0.5)+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=9,y=demand(9)), color = "blue", label="Demand", size = 5)+
+  stat_function(fun=supply, geom="line", size=2, color = "red")+
+    geom_label(aes(x=9,y=supply(9)), color = "red", label="Supply", size = 5)+
+  geom_segment(x=5, xend=5, y=0, yend=5, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=5, y=5, yend=5, size=1, linetype="dotted")+
+  
+  # point A
+  geom_point(x = 5, y = 5, size=3)+
+  geom_text(x = 5, y = 5.5, label = "A", size=5)+
+  
+    scale_x_continuous(breaks=NULL,
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=NULL,
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(title = "Industry",
+       x = "Quantity",
+       y = "Price")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+]
+
+- In a *competitive* market in long run equilibrium:
+  - **Economic profit** is driven to $0
+  - **Allocatively efficient**: $p=MC(q)$ (goods produced until $MB=MC)$
+  - **Productively efficient**: $p=AC(q)_{min}$, otherwise firms would enter/exit
+  - .blue[Consumer surplus] and .red[producer surplus] is maximized
+
+---
+
+# The Bad of Monopoly I
+
+.pull-left[
+
+```{r, fig.retina=3}
+library(mosaic)
+mc<-function(x){2}
+demand<-function(x){10-x}
+mr<-function(x){10-2*x}
+
+CS<-tibble(x=c(0,0,8),
+           y=c(10,2,2))
+#PS<-tibble(x=c(0,0,2),
+#           y=c(10,2,2))
+
+#line_colors <- c("Supply" = "red", "Demand" = "blue")
+#surplus_colors <-c("Consumer" = "blue", "Producer" = "red")
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_polygon(data=CS, aes(x=x,y=y), fill="blue",alpha=0.5)+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=9,y=demand(9)), color = "blue", label="Demand", size = 5)+
+  stat_function(fun=mc, geom="line", size=2, color = "red")+
+    geom_label(aes(x=6,y=mc(6)), color = "red", label=expression(MC(q)==AC(q)), size = 5)+
+  geom_segment(x=8, xend=8, y=0, yend=2, size=1, linetype="dotted")+
+  geom_label(aes(x=3, y= 5), label="CS", color="blue", size =5)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     labels=scales::dollar,                   
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity",
+       y = "Price",
+       caption = expression(paste("Demand: ", p(q)==10-q, ", Cost: ", C(q)==2*q)))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+
+```
+
+]
+
+.pull-right[
+
+- Now suppose the market is monopolized
+
+- If this were instead a *competitive* market, would set $p=MC(q)$ and produce 8
+  - .blue[Consumer surplus] maximized
+
+.source[Some assumptions to make the graph simple: `\\(C(q)=2q \\)`, i.e. the firm has no fixed costs, and constant marginal costs. See more information [here](http://microf19.classes.ryansafner.com/class/13-class).]
+
+]
+
+---
+
+# The Bad of Monopoly II
+
+.pull-left[
+
+```{r, fig.retina=3}
+mc<-function(x){2}
+demand<-function(x){10-x}
+mr<-function(x){10-2*x}
+
+CS<-tibble(x=c(0,0,8),
+           y=c(10,2,2))
+
+CS_2<-tibble(x=c(0,0,4),
+           y=c(10,6,6))
+dwl<-tibble(x=c(4,4,8),
+           y=c(6,2,2))
+mr<-function(x){10-2*x}
+
+#line_colors <- c("Supply" = "red", "Demand" = "blue")
+#surplus_colors <-c("Consumer" = "blue", "Producer" = "red")
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  
+  # surpluses
+  geom_polygon(data=CS_2, aes(x=x,y=y), fill="blue",alpha=0.5)+
+  geom_rect(xmin=0,xmax=4,ymin=2,ymax=6,fill="green", alpha=0.25)+ #profit
+  geom_polygon(data=dwl, aes(x=x,y=y), fill="black",alpha=0.5)+ #dwl
+  
+  # surplus labels
+  geom_label(aes(x=1.5, y= 4), label="Profit", color="green", size =5)+
+  geom_label(aes(x=1.5, y= 7.5), label="CS", color="blue", size =5)+
+  geom_label(aes(x=5.5, y= 3.5), label="DWL", color="black", size =5)+
+  
+  # lines 
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=9,y=demand(9)), color = "blue", label="Demand", size = 5)+
+  stat_function(fun=mr, geom="line", size=2, color = "purple")+
+    geom_label(aes(x=4.5,y=mr(4.5)), color = "purple", label=expression(MR(q)), size = 5)+
+  stat_function(fun=mc, geom="line", size=2, color = "red")+
+    geom_label(aes(x=6,y=mc(6)), color = "red", label=expression(MC(q)==AC(q)), size = 5)+
+  
+  # optimal dots
+  geom_segment(x=0, xend=4, y=6, yend=6, size=1, linetype="dotted")+
+  geom_segment(x=8, xend=8, y=0, yend=2, size=1, linetype="dotted")+
+  geom_segment(x=4, xend=4, y=0, yend=6, size=1, linetype="dotted")+
+  
+  geom_point(x=4,y=6, size=3)+
+  geom_text(x=4.5,y=6.5,label=expression(paste("(",q^o,", ",p^o,")")), size=5)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     labels=scales::dollar,                   
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity",
+       y = "Price",
+       caption = expression(paste("Demand: ", p(q)==10-q, ", Cost: ", C(q)==2*q)))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+
+```
+
+]
+
+.pull-right[
+
+- A monopolist faces the *entire* market demand and sets $(q^o,p^o)$:
+  - Sets .purple[`\\(MR(q)\\)`] $=$ its .red[`\\(MC(q)\\)`]: 4
+  - Raises price to .blue[maximum consumers are WTP (Demand)]: $6
+
+- Restricts output and raises price, compared to competitive market
+
+- Earns .green[monopoly profits (`\\(p>AC\\)`)] 
+
+- Loss of .blue[consumer surplus]
+
+]
+
+---
+
+# The Bad of Monopoly II
+
+.pull-left[
+
+```{r, fig.retina=3}
+mc<-function(x){2}
+demand<-function(x){10-x}
+mr<-function(x){10-2*x}
+
+CS<-tibble(x=c(0,0,8),
+           y=c(10,2,2))
+
+CS_2<-tibble(x=c(0,0,4),
+           y=c(10,6,6))
+dwl<-tibble(x=c(4,4,8),
+           y=c(6,2,2))
+mr<-function(x){10-2*x}
+
+#line_colors <- c("Supply" = "red", "Demand" = "blue")
+#surplus_colors <-c("Consumer" = "blue", "Producer" = "red")
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  
+  # surpluses
+  geom_polygon(data=CS_2, aes(x=x,y=y), fill="blue",alpha=0.5)+
+  geom_rect(xmin=0,xmax=4,ymin=2,ymax=6,fill="green", alpha=0.25)+ #profit
+  geom_polygon(data=dwl, aes(x=x,y=y), fill="black",alpha=0.5)+ #dwl
+  
+  # surplus labels
+  geom_label(aes(x=1.5, y= 4), label="Profit", color="green", size =5)+
+  geom_label(aes(x=1.5, y= 7.5), label="CS", color="blue", size =5)+
+  geom_label(aes(x=5.5, y= 3.5), label="DWL", color="black", size =5)+
+  
+  # lines 
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=9,y=demand(9)), color = "blue", label="Demand", size = 5)+
+  stat_function(fun=mr, geom="line", size=2, color = "purple")+
+    geom_label(aes(x=4.5,y=mr(4.5)), color = "purple", label=expression(MR(q)), size = 5)+
+  stat_function(fun=mc, geom="line", size=2, color = "red")+
+    geom_label(aes(x=6,y=mc(6)), color = "red", label=expression(MC(q)==AC(q)), size = 5)+
+  
+  # optimal dots
+  geom_segment(x=0, xend=4, y=6, yend=6, size=1, linetype="dotted")+
+  geom_segment(x=8, xend=8, y=0, yend=2, size=1, linetype="dotted")+
+  geom_segment(x=4, xend=4, y=0, yend=6, size=1, linetype="dotted")+
+  
+  geom_point(x=4,y=6, size=3)+
+  geom_text(x=4.5,y=6.5,label=expression(paste("(",q^o,", ",p^o,")")), size=5)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     labels=scales::dollar,                   
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity",
+       y = "Price",
+       caption = expression(paste("Demand: ", p(q)==10-q, ", Cost: ", C(q)==2*q)))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+
+```
+
+]
+
+.pull-right[
+
+- **Deadweight loss** of surplus destroyed from lost gains from trade
+  - Consumers willing to buy more than 4 units for lower prices!
+  - Monopolist willing to accept lower prices to sell more, but would earn *less* total profits this way
+
+]
+
+---
+
+# The *Ugly* of Monopoly: Rent-Seeking I
+
+.pull-left[
+
+```{r, fig.retina=3}
+mc<-function(x){2}
+demand<-function(x){10-x}
+mr<-function(x){10-2*x}
+
+CS<-tibble(x=c(0,0,8),
+           y=c(10,2,2))
+
+CS_2<-tibble(x=c(0,0,4),
+           y=c(10,6,6))
+dwl<-tibble(x=c(4,4,8),
+           y=c(6,2,2))
+mr<-function(x){10-2*x}
+
+#line_colors <- c("Supply" = "red", "Demand" = "blue")
+#surplus_colors <-c("Consumer" = "blue", "Producer" = "red")
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  
+  # surpluses
+  geom_polygon(data=CS_2, aes(x=x,y=y), fill="blue",alpha=0.5)+
+  geom_rect(xmin=0,xmax=4,ymin=2,ymax=6,fill="green", alpha=0.25)+ #profit
+  geom_polygon(data=dwl, aes(x=x,y=y), fill="black",alpha=0.5)+ #dwl
+  
+  # surplus labels
+  geom_label(aes(x=1.5, y= 4), label="Profit", color="green", size =5)+
+  geom_label(aes(x=1.5, y= 7.5), label="CS", color="blue", size =5)+
+  geom_label(aes(x=5.5, y= 3.5), label="DWL", color="black", size =5)+
+  
+  # lines 
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=9,y=demand(9)), color = "blue", label="Demand", size = 5)+
+  stat_function(fun=mr, geom="line", size=2, color = "purple")+
+    geom_label(aes(x=4.5,y=mr(4.5)), color = "purple", label=expression(MR(q)), size = 5)+
+  stat_function(fun=mc, geom="line", size=2, color = "red")+
+    geom_label(aes(x=6,y=mc(6)), color = "red", label=expression(MC(q)==AC(q)), size = 5)+
+  
+  # optimal dots
+  geom_segment(x=0, xend=4, y=6, yend=6, size=1, linetype="dotted")+
+  geom_segment(x=8, xend=8, y=0, yend=2, size=1, linetype="dotted")+
+  geom_segment(x=4, xend=4, y=0, yend=6, size=1, linetype="dotted")+
+  
+  geom_point(x=4,y=6, size=3)+
+  geom_text(x=4.5,y=6.5,label=expression(paste("(",q^o,", ",p^o,")")), size=5)+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     labels=scales::dollar,                   
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity",
+       y = "Price",
+       caption = expression(paste("Demand: ", p(q)==10-q, ", Cost: ", C(q)==2*q)))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+
+```
+
+]
+
+.pull-right[
+
+- The .green[monopoly profits] earned with market power are an .shout[economic rent]
+  - This is the "prize" of market power
+
+- What if the market power is earned through political lobbying for an anti-competitive regulation?
+
+]
+
+---
+
+# The *Ugly* of Monopoly: Rent-Seeking II
+
+.pull-left[
+.center[
+![:scale 80%](https://www.dropbox.com/s/21v476wphty3f0i/prize.jpg?raw=1)
+]
+]
+
+.pull-right[
+
+- Think of an .shout[economic rent] as a "prize," the payment a person receives for a good above its opportunity cost
+
+- Creating rents creates competition for the rents, causing people to invest resources in .shout[rent-seeking]
+
+- The cost of the rent is not just the rent itself, but the resources invested in rent-seeking!
+]
+
+---
+
+# Government Intervention Creates Rents I
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/obqxaf2tz2se3jh/rents.jpg?raw=1)
+]
+]
+
+.pull-right[
+
+- Political authorities intervene in markets in various ways that benefit some groups at the expense of everyone else
+  - subsidies to groups (often producers)
+  - regulation of industries
+  - tariffs, quotas, and special exemptions from these
+  - tax breaks and loopholes
+  - conferring monopoly and other privileges
+
+- These interventions create .shout[economic rents] for their beneficiaries by reducing competition
+
+- This is a transfer of wealth from consumers/taxpayers to politically-favored groups
+
+]
+---
+
+# Government Intervention Creates Rent-*Seeking*
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/obqxaf2tz2se3jh/rents.jpg?raw=1)
+]
+]
+
+.pull-right[
+
+- The transfer is not the worst of it
+
+- The real problem is .onfire[you cannot give away money for free even if you tried!]
+
+- The promise of earning a rent breeds **competition over the rents** (.shout[rent-seeking])
+
+]
+
+---
+
+# Rent-Seeking I 
+
+.left-column[
+.center[
+![:scale 80%](https://www.dropbox.com/s/qlqf5lq2rfzevjc/annekreuger.jpg?raw=1)
+
+Anne Kreuger
+
+1934-
+]
+]
+
+.right-column[
+
+> "In many market-oriented economies, government restrictions upon economic activity are pervasive facts of life. These restrictions give rise to rents of a variety of forms, and people often compete for the rents. Sometimes, such competition is perfectly legal. In other instances, rent seeking takes other forms, such as bribery, corruption, smuggling, and black markets."
+
+> "**When quantitative restrictions are imposed upon and effectively constrain imports, an import license is a valuable commodity**...It has always been recognized that there are some costs associated with licensing: paperwork, the time spent by entrepreneurs in obtaining their licenses, the cost of the administrative apparatus necessary to issue licenses, and so on. Here, the argument is carried one step further: **in many circumstances resources are devoted to competing for those licenses**," (p.848). 
+
+]
+
+.source[Kreuger, Anne, (1974), "The Political Economy of the Rent-Seeking Society," *American Economic Review* 84(4): 833-850]
+
+
+---
+
+# Rent-Seeking III
+
+.left-column[
+.center[
+![:scale 80%](https://www.dropbox.com/s/dxqyaa7xr9nsfj0/tullock2.jpg?raw=1)
+
+Gordon Tullock
+
+1922-2014
+]
+]
+
+.right-column[
+
+> "The rectangle to the left of the [Deadweight loss] triangle is the income transfer that a successful monopolist can extort from the customers. **Surely we should expect that with a prize of this size dangling before our eyes, potential monopolists would be willing to invest large resources in the activity of monopolizing. In fact the investment that could be profitably made in forming a monopoly would be larger than this rectangle, since it represents merely the income transfer**," (p.231). 
+
+]
+
+.source[Tullock, Gordon, (1967), "The Welfare Cost of Tariffs, Monopolies, and Theft," *Western Economic Journal* 5(3): 224-232.]
+
+---
+
+# Rent-Seeking IV
+
+.left-column[
+.center[
+![:scale 80%](https://www.dropbox.com/s/dxqyaa7xr9nsfj0/tullock2.jpg?raw=1)
+
+Gordon Tullock
+
+1922-2014
+]
+]
+
+.right-column[
+
+> "Entrepreneurs should be willing to invest resources in attempts to form a monopoly until the marginal cost equals the properly discounted return. The potential customers would also be interested in preventing the transfer and should be willing to make large investments to that end. Once the monopoly is formed, continual efforts to either break the monopoly or muscle into it would be predictable. Here again considerable resources might be invested. The holders of the monopoly, on the other hand, would be willing to put quite sizable sums into the defense of their power to receive these transfers," (p.231).
+
+]
+
+.source[Tullock, Gordon, (1967), "The Welfare Cost of Tariffs, Monopolies, and Theft," *Western Economic Journal* 5(3): 224-232.]
+
+---
+
+class: inverse, center, middle
+
+# Antitrust
+
+---
+
+# Antitrust and Competition Law I
+
+.pull-left[
+
+- Aren't monopolies illegal in the U.S.?
+
+- **Yes**: engaging in anticompetitive practices in the U.S. is illegal under .shout[antitrust laws]
+  - Laws intended to promote economic competition and reduce excessive market power
+  - enforced by DOJ (criminal) and FTC (civil)
+
+]
+
+.pull-right[
+.center[
+![:scale 45%](https://www.dropbox.com/s/gg6kqeuurg4exjg/doj.png?raw=1)
+
+![:scale 45%](https://www.dropbox.com/s/zwc6kgdwe1nksct/ftc.png?raw=1)
+
+]
+]
+
+---
+
+# Antitrust and Competition Law II
+
+.pull-left[
+
+- Aren't monopolies illegal in the U.S.?
+
+- **No**: most monopolies exist *because* of explicit or implicit government-backing
+  - Some markets actually work *better* as a monopoly (**"the good"**, .onfire[natural monopoly], patents, etc.)
+  - Some markets and regulators are .onfire[captured] via **rent-seeking** firms to block competition (**"the ugly"**)
+
+]
+
+.pull-right[
+.center[
+![:scale 50%](https://www.dropbox.com/s/k89v6u0o1yqbolz/polcorrupt.jpg?raw=1)
+
+]
+]
+
+---
+
+# Antitrust and Competition Law III
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/z3ptcqr8hurtjp6/ftcstatue.jpg?raw=1)
+]
+]
+
+.pull-right[
+
+**Sherman Antitrust Act (1890)**
+
+ > $\S$ 1: "Every contract, combination in the form of trust or otherwise, or conspiracy, in restraint of trade or commerce among the several States, or with foreign nations, is declared to be illegal." 
+
+> $\S$ 2: "Every person who shall monopolize, or attempt to monopolize, or combine or conspire with any other person or persons, to monopolize any part of the trade or commerce among the several States, or with foreign nations, shall be deemed guilty of a felony [...]"
+
+
+]
+
+.source[26 Stat. 209, 15 U.S.C. $\S$ 1–7]
+
+---
+
+# Antitrust and Competition Law IV
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/9d8kugen0mps3vh/aetnamerger2.png?raw=1)
+
+Source: [WSJ (Jan 23, 2017)](http://www.wsj.com/articles/federal-judge-blocks-aetna-humana-merger-on-antitrust-grounds-1485190239)
+]
+]
+
+.pull-right[
+
+- Mergers, acquisitions, and major corporate activities are scrutinized by DOJ and FTC on antitrust grounds
+
+- To learn more: take Industrial Organization in the spring!
+
+]
+
+---
+
+class: inverse, center, middle
+
+# Sources of Market Power
+
+## Control over a Key Resource
+
+## Barriers to Entry
+
+## Economies of Scale - Natural Monopoly
+
+---
+
+class: inverse, center, middle
+
+# Control Over a Key Resource
+
+---
+
+# Control Over a Key Resource I
+
+.pull-left[
+.center[
+![:scale 75%](https://www.dropbox.com/s/8mfoki2982z4x4b/alcoa.png?raw=1)
+
+![:scale 75%](https://www.dropbox.com/s/7ztods3nn9078wu/alcoa2.jpg?raw=1)
+]
+]
+
+.pull-right[
+
+- Being one of the largest providers of a resource where there are few substitutes
+
+- Aluminum Company of America (Alcoa) once controlled 90% of the market for bauxite (used to create aluminum), and produced 63% of world aluminum supply
+
+- United States v. Alcoa 148 F.2d 416 (2d Cir. 1945)
+
+]
+
+---
+
+# Control Over a Key Resource II
+
+.pull-left[
+.center[
+![:scale 75%](https://www.dropbox.com/s/mw7wrxvz5pcqf5s/debeers.png?raw=1)
+
+![:scale 75%](https://www.dropbox.com/s/9inyyd3o1np3vly/debeersdiamonds.jpg?raw=1)
+]
+]
+
+.pull-right[
+
+- De Beers once owned 85% of the world's diamond supply
+
+]
+
+---
+
+# Control Over a Key Resource: Inventors?
+
+.pull-left[
+.center[
+![:scale 100%](https://www.dropbox.com/s/7cqlednxv38usol/myspace.png?raw=1)
+]
+]
+
+.pull-right[
+
+- What about inventors and new products?
+
+- Every first producer enjoys monopoly power...for a time
+
+- Eventually, new entrepreneurs find a way to compete and **enter** the market with *substitutes*
+
+]
+
+---
+
+# Control Over a Key Resource: Inventors?
+
+.pull-left[
+.center[
+![:scale 100%](https://www.dropbox.com/s/bm2uuzfhlkx6ui0/aol.jpg?raw=1)
+]
+]
+
+.pull-right[
+
+- What about inventors and new products?
+
+- Every first producer enjoys monopoly power...for a time
+
+- Eventually, new entrepreneurs find a way to compete and **enter** the market with *substitutes*
+
+]
+
+---
+
+# Control Over a Key Resource: Inventors?
+
+.pull-left[
+.center[
+![:scale 100%](https://www.dropbox.com/s/n22typbts0euan8/vhs.jpg?raw=1)
+]
+]
+
+.pull-right[
+
+- What about inventors and new products?
+
+- Every first producer enjoys monopoly power...for a time
+
+- Eventually, new entrepreneurs find a way to compete and **enter** the market with *substitutes*
+
+]
+
+---
+
+# Control Over a Key Resource: Inventors?
+
+.pull-left[
+.center[
+![:scale 100%](https://www.dropbox.com/s/n22typbts0euan8/vhs.jpg?raw=1)
+]
+]
+
+.pull-right[
+
+- What about inventors and new products?
+
+- Every first producer enjoys monopoly power...for a time
+
+- Eventually, new entrepreneurs find a way to compete and **enter** the market with *substitutes*
+
+- **UNLESS...**
+]
+
+---
+
+class: inverse, center, middle
+
+# Barriers to Entry
+
+---
+
+# Barriers to Entry
+
+.pull-left[
+
+- .shout[Barrier to entry]: something that makes it costly, difficult, or even illegal for competitors to enter a market & compete with incumbent firm(s)
+  - technological advantage
+  - name recognition
+  - high fixed/sunk costs
+  - intellectual property rights
+  - occupational licensing
+  - government granted privileges
+  - regulatory compliance
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/2xhn4z2xle73n6v/donotenter.png?raw=1)
+]
+]
+
+---
+
+# Barriers to Entry: Legal Prohibitions
+
+.pull-left[
+
+.center[
+![](https://www.dropbox.com/s/snqqiwh7krbxwq1/usps.png?raw=1)
+]
+]
+
+.pull-right[
+
+- The United States Postal Service is the only provider of first class mail allowed by order of the government
+
+- Starting another business that delivers mail is **illegal**
+
+- Note: FedEx and UPS deliver *express packages*, can *not* deliver mail or use USPS mailboxes
+]
+
+---
+
+# Barriers to Entry: Taxis I
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/q26m7vu26c538mf/taxi.png?raw=1)
+]
+]
+
+.pull-right[
+![](https://www.dropbox.com/s/3zce4dsvz4p4ni9/taximedallion2.jpg?raw=1)
+
+]
+
+---
+
+# Barriers to Entry: Taxis II
+
+.center[
+![:scale 40%](https://www.dropbox.com/s/bp51o8pg4qk23om/uberlyfttaxis.png?raw=1)
+]
+
+---
+
+# Barriers to Entry: Taxis III
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/uod84u4komffxar/uberprotest1.jpg?raw=1)
+]
+]
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/1wz9wy2ebhb9pan/uberprotest2.jpg?raw=1)
+]
+
+]
+
+---
+
+# Barriers to Entry: Milk
+
+.center[
+![:scale 70%](https://www.dropbox.com/s/31qaz4yi2kucq25/milkrentseeking.png?raw=1)
+
+Source: [*New York Times* (Feb 13, 2017)](https://www.nytimes.com/2017/02/13/well/eat/got-almond-milk-dairy-farms-protest-milk-label-on-nondairy-drinks.html)
+]
+
+---
+
+# If You Look at the World Long Enough...
+
+.center[
+![](https://www.dropbox.com/s/d3ryphbj3j7jtt8/rentseekingeverywhere.jpg?raw=1)
+]
+
+---
+
+# Regulation has a Dark Side
+
+.left-column[
+.center[
+![:scale 80%](https://www.dropbox.com/s/9s3qzw1m3rrl9sy/stigler.png?raw=1)
+
+George Stigler
+
+1911-1991
+
+Economics Nobel 1982
+]
+]
+
+.right-column[
+
+> "[A]s a rule, regulation is acquired by the industry and is designed and operated primarily for its benefits," (p.3).
+
+]
+
+.source[Stigler, George J, (1971), "The Theory of Economic Regulation," *Bell Journal of Economics and Management Science* 3:3-21]
+
+---
+
+# Barriers to Entry: Occupational Licensing I
+
+.center[
+![](https://www.dropbox.com/s/x4f6q87p3suj6yt/licensing.png?raw=1)
+
+In 1950, 1 in 20 jobs required a license. Today it's 1 in 4. Source: [Obama White House (2015): Occupational Licensing: A Framework for Policymakers](https://obamawhitehouse.archives.gov/sites/default/files/docs/licensing_report_final_nonembargo.pdf)
+]
+
+---
+
+# Barriers to Entry: Occupational Licensing II
+
+.center[
+![](https://www.dropbox.com/s/0yofig9c9p2040m/licensing2.pdf?raw=1)
+
+Source: [Mercatus Research (March 25, 2014): Occupational Licensing: Bad for Competition, Bad for Low-Income Workers](https://www.mercatus.org/publication/occupational-licensing-bad-competition-bad-low-income-workers)
+]
+
+---
+
+# Barriers to Entry: Occupational Licensing III
+
+.center[
+![](https://www.dropbox.com/s/q9jg2mtc3z7fve9/migrationandlicensing.png?raw=1)
+
+]
+
+---
+
+# Barriers to Entry: Occupational Licensing IV
+
+.center[
+![](https://www.dropbox.com/s/espsohk14lgh4ef/hairbraidingnpr.png?raw=1)
+
+Source: [NPR Planet Money](https://www.npr.org/sections/money/2012/06/22/155596305/episode-381-why-its-illegal-to-braid-hair-without-a-license)
+]
+
+---
+
+# Barriers to Entry: Intellectual Property I
+
+.pull-left[
+
+.center[
+![](https://www.dropbox.com/s/j5rxriut8sinvob/pharmaceutical.png?raw=1)
+]
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/4ibyb8oohmmge5z/genericpill.jpg?raw=1)
+]
+]
+
+- It costs about $1,000,000,000 and 10 years on average to create a new drug. Once discovered, it costs the firm (or it's competitors!) about $0.50/pill to manufacture.
+
+---
+
+# Barriers to Entry: Intellectual Property II
+
+.pull-left[
+
+.center[
+![](https://www.dropbox.com/s/5kfldu00lodqa1s/got1.png?raw=1)
+]
+]
+
+--
+
+.pull-right[
+.center[
+![:scale 75%](https://www.dropbox.com/s/lt9c30lpwho7uh8/gotpirated.png?raw=1)
+
+Source: [Washington Post (Sept 8, 2017)](https://www.washingtonpost.com/news/morning-mix/wp/2017/09/08/game-of-thrones-was-pirated-more-than-a-billion-times-far-more-than-it-was-watched-legally/)
+]
+]
+
+---
+
+# Barriers to Entry: Intellectual Property III
+
+.pull-left[
+
+- For these economic reasons, .shout[patent] (for ideas and inventions) and .shout[copyright] (for expressions) laws exist
+
+- Grant *temporary* monopoly to holder in order to recover their fixed costs and provide incentive to undertake (risky and expensive) research/creativity
+
+- A utilitarian *tradeoff* between incentives and access
+
+]
+
+.pull-right[
+
+.center[
+![:scale 60%](https://www.dropbox.com/s/cihnj15juyus7wj/patent.png?raw=1)
+
+![:scale 60%](https://www.dropbox.com/s/l4vep529mbzckfh/copyright.png?raw=1)
+
+]
+
+]
+
+---
+
+# Barriers to Entry: Intellectual Property IV
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/oimo4dnspn4e5sn/catpatent.png?raw=1)
+
+![](https://www.dropbox.com/s/wm0kxavp3toq426/catpatent2.png?raw=1)
+
+Source: [U.S. Patent 5,443,036 (1995)](http://www.google.com/patents/US5443036)
+
+]
+]
+
+--
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/wp1g3ca65gohrb0/patentthicket.png?raw=1)
+]
+
+[Apple, Inc. vs. Samsung Electronics Co., Ltd.](https://www.theverge.com/apple/2011/11/2/2533472/apple-vs-samsung)
+]
+
+[Freakonomics: Apple vs. Samsung: Who Owns the Rectangle?](http://freakonomics.com/2012/08/03/apple-vs-samsung-who-owns-the-rectangle/)
+
+---
+
+class: inverse, center, middle
+
+# Economies of Scale and Natural Monopoly
+
+---
+
+# Economies of Scale and Natural Monopoly I
+
+.pull-left[
+
+- Recall: .onfire[economies of scale]: as $\uparrow q$, $\downarrow AC(q)$
+
+- .onfire[Minimum Efficient Scale (MES)]: $q$ with the lowest $AC(q)$
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+demand<-function(x){20-2*x}
+
+mes_plot<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=demand, geom="line", size=2, color="blue")+
+  geom_label(x = 9, y=demand(9), color = "blue", size = 5, label = "Demand")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     labels=scales::dollar,
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Quantity (thousands)",
+       y = "Price")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)+
+  theme(legend.position = "bottom")
+mes_plot
+```
+]
+
+---
+
+# Economies of Scale and Natural Monopoly I
+
+.pull-left[
+
+- Recall: .onfire[economies of scale]: as $\uparrow q$, $\downarrow AC(q)$
+
+- .onfire[Minimum Efficient Scale (MES)]: $q$ with the lowest $AC(q)$
+
+- If MES is small relative to market demand...
+  - .orange[AC] hits .blue[Market demand] during **diseconomies of scale**...
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+tiny_mes<-function(x){(4*x-2)^(2)+12}
+
+mes_plot+
+  stat_function(fun=tiny_mes, geom="line", size=2, color="orange")+
+  geom_segment(x=0, xend=4, y=12, yend=12, size=1, linetype="dashed")+
+  geom_segment(x=4, xend=4, y=12, yend=0, size=1, linetype="dashed")+
+  geom_label(x=2.5, y=12, label="MES (Competitive)", color="orange", size=5)
+```
+]
+
+---
+
+# Economies of Scale and Natural Monopoly I
+
+.pull-left[
+
+- Recall: .onfire[economies of scale]: as $\uparrow q$, $\downarrow AC(q)$
+
+- .onfire[Minimum Efficient Scale (MES)]: $q$ with the lowest $AC(q)$
+
+- If MES is small relative to market demand...
+  - .orange[AC] hits .blue[Market demand] during **diseconomies of scale**...
+  - .onfire[...can fit more identical firms into the industry!]
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+tiny_mes_2<-function(x){(4*x-4)^(2)+12}
+tiny_mes_3<-function(x){(4*x-6)^(2)+12}
+tiny_mes_4<-function(x){(4*x-8)^(2)+12}
+tiny_mes_5<-function(x){(4*x-10)^(2)+12}
+tiny_mes_6<-function(x){(4*x-12)^(2)+12}
+tiny_mes_7<-function(x){(4*x-14)^(2)+12}
+tiny_mes_8<-function(x){(4*x-16)^(2)+12}
+
+mes_plot+
+  stat_function(fun=tiny_mes, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_2, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_3, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_4, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_5, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_6, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_7, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_8, geom="line", size=2, color="orange")+
+  geom_segment(x=0, xend=4, y=12, yend=12, size=1, linetype="dashed")+
+  geom_segment(x=4, xend=4, y=12, yend=0, size=1, linetype="dashed")+
+  geom_label(x=2.5, y=12, label="MES (Competitive)", color="orange", size=5)
+```
+]
+
+---
+
+# Economies of Scale and Natural Monopoly I
+
+.pull-left[
+
+- If MES is *large* relative to market demand...
+  - .red[AC] hits .blue[Market demand] during **_economies_ of scale**...
+  - .onfire[likely to be a single firm in the industry!]
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+big_mes<-function(x){(0.25*x-2)^(2)+4}
+
+mes_plot+
+  stat_function(fun=tiny_mes, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_2, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_3, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_4, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_5, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_6, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_7, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_8, geom="line", size=2, color="orange")+
+  geom_segment(x=0, xend=4, y=12, yend=12, size=1, linetype="dashed")+
+  geom_segment(x=4, xend=4, y=12, yend=0, size=1, linetype="dashed")+
+  geom_label(x=2.5, y=12, label="MES (Competitive)", color="orange", size=5)+
+  stat_function(fun=big_mes, geom="line", size=2, color="red")+
+  geom_segment(x=0, xend=8, y=4, yend=4, size=1, linetype="dashed")+
+  geom_segment(x=8, xend=8, y=4, yend=0, size=1, linetype="dashed")+
+  geom_label(x=2.5, y=4, label="MES (Monopoly)", color="red", size=5)
+```
+]
+
+
+---
+
+# Economies of Scale and Natural Monopoly I
+
+.pull-left[
+
+- If MES is *large* relative to market demand...
+  - .red[AC] hits .blue[Market demand] during **_economies_ of scale**...
+  - .onfire[likely to be a single firm in the industry!]
+
+- A .shout[natural monopoly] that can produce higher $q^*$ and lower $p^*$ than a competitive industry!
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+big_mes<-function(x){(0.25*x-2)^(2)+4}
+
+mes_plot+
+  stat_function(fun=tiny_mes, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_2, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_3, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_4, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_5, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_6, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_7, geom="line", size=2, color="orange")+
+  stat_function(fun=tiny_mes_8, geom="line", size=2, color="orange")+
+  geom_segment(x=0, xend=4, y=12, yend=12, size=1, linetype="dashed")+
+  geom_segment(x=4, xend=4, y=12, yend=0, size=1, linetype="dashed")+
+  geom_label(x=2.5, y=12, label="MES (Competitive)", color="orange", size=5)+
+  stat_function(fun=big_mes, geom="line", size=2, color="red")+
+  geom_segment(x=0, xend=8, y=4, yend=4, size=1, linetype="dashed")+
+  geom_segment(x=8, xend=8, y=4, yend=0, size=1, linetype="dashed")+
+  geom_label(x=2.5, y=4, label="MES (Monopoly)", color="red", size=5)
+```
+]
+
+---
+
+# Economies of Scale and Natural Monopoly II
+
+.pull-left[
+.content-box-green[
+.green[**Example**]: Imagine a single isolated condo complex with 1,000 units far from any other buildings or telco infrastructure
+
+- **Fixed costs**: laying cable to the complex is $100,000
+- **Marginal costs**: connecting each unit: $0
+]
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/5mb85n9omfnmba4/beachcondo1.jpeg?raw=1)
+]
+]
+
+---
+
+# Economies of Scale and Natural Monopoly II
+
+.pull-left[
+.content-box-green[
+.green[**Example**]: Imagine a single isolated condo complex with 1,000 units far from any other buildings or telco infrastructure
+
+- **Fixed costs**: laying cable to the complex is $100,000
+- **Marginal costs**: connecting each unit: $0
+]
+
+- Suppose 10 providers serve the complex, each laying down their own cables, and each serving 100 units:
+
+$$\mathbf{\text{Average cost}}=\frac{\$100,000}{10}=\$1,000 \text{per subscriber}$$
+
+]
+.pull-right[
+
+.center[
+![:scale 80%](https://www.dropbox.com/s/5mb85n9omfnmba4/beachcondo1.jpeg?raw=1)
+]
+]
+
+---
+
+# Economies of Scale and Natural Monopoly II
+
+.pull-left[
+.content-box-green[
+.green[**Example**]: Imagine a single isolated condo complex with 1,000 units far from any other buildings or telco infrastructure
+
+- **Fixed costs**: laying cable to the complex is $100,000
+- **Marginal costs**: connecting each unit: $0
+]
+
+- Suppose 10 providers serve the complex, each laying down their own cables, and each serving 100 units:
+
+$$\mathbf{\text{Average cost}}=\frac{\$100,000}{10}=\$1,000 \text{per subscriber}$$
+
+- Suppose 1 provider serves the complex serving all 1,000 units:
+
+$$\mathbf{\text{Average cost}}=\frac{\$100,000}{1000}=\$100 \text{per subscriber}$$
+
+]
+.pull-right[
+
+.center[
+![:scale 80%](https://www.dropbox.com/s/5mb85n9omfnmba4/beachcondo1.jpeg?raw=1)
+]
+]
+
+---
+
+# Regulating Natural Monopolies I
+
+.pull-left[
+
+- Left to its own devices, a profit-maximizing monopolist finds $q^*: MR(q)=MC(q)$ and raises $p^*$ to Max WTP
+  - Lower .blue[consumer surplus], .green[`\\(\pi\\)`] for monopolist, creates **deadweight loss**
+  - Compared to the socially-optimal outcome ($4 at 8)
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+mr<-function(x){20-4*x}
+mc<-function(x){4}
+ac<-function(x){(0.25*x-2)^(2)+4}
+cs<-tribble(
+  ~x, ~y,
+  0, 20,
+  0, 12,
+  4, 12
+)
+dwl<-tribble(
+  ~x, ~y,
+  4, 12,
+  4, 4,
+  8, 4
+)
+
+natural<-ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=demand, geom="line", size=2, color="blue")+
+  geom_label(x = 9, y=demand(9), color = "blue", size = 5, label = "Demand")+
+  stat_function(fun=mr, geom="line", size=2, color="purple")+
+  geom_label(x = 4.5, y=mr(4.5), color = "purple", size = 5, label = "MR(q)")+
+  stat_function(fun=mc, geom="line", size=2, color="red")+
+  stat_function(fun=ac, geom="line", size=2, color="orange")+
+  geom_label(x = 1, y=ac(1), color = "orange", size = 5, label = "AC(q)")+
+  geom_label(x = 9, y=mc(9), color = "red", size = 5, label = "MC(q)")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     labels=scales::dollar,
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Quantity (thousands)",
+       y = "Price")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)+
+  theme(legend.position = "bottom")
+
+natural+
+  geom_segment(x=0, xend=4, y=12, yend=12, linetype="dotted", size=1)+
+  geom_segment(x=4, xend=4, y=0, yend=12, linetype="dotted", size=1)+
+  geom_rect(xmin=0,xmax=4,ymin=4,ymax=12, fill="green", alpha=0.4)+
+  geom_polygon(data=cs, aes(x=x,y=y), fill="blue", alpha=0.5)+
+  geom_polygon(data=dwl, aes(x=x,y=y), fill="black", alpha=0.5)+
+  geom_segment(x=8,xend=8,y=0,yend=4, size=1, linetype="dotted")+
+  geom_label(x=8,y=2,label="Opt.")
+```
+]
+
+---
+
+# Regulating Natural Monopolies I
+
+.pull-left[
+
+- Left to its own devices, a profit-maximizing monopolist finds $q^*: MR(q)=MC(q)$ and raises $p^*$ to Max WTP
+  - Lower .blue[consumer surplus], .green[`\\(\pi\\)`] for monopolist, creates **deadweight loss**
+  - Compared to the socially-optimal outcome ($4 at 8)
+
+- Government can regulate natural monopolist to charge less (at minimum $p=AC(q)$
+  - $\uparrow q$, $\downarrow p$
+  - More .blue[consumer surplus] and less **deadweight loss**
+  - Less .green[`\\(\pi\\)`] for the monopolist
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+mr<-function(x){20-4*x}
+mc<-function(x){4}
+ac<-function(x){(0.25*x-2)^(2)+4}
+cs2<-tribble(
+  ~x, ~y,
+  0, 20,
+  0, 4,
+  8, 4
+)
+
+natural+
+  geom_segment(x=0, xend=4, y=12, yend=12, linetype="dotted", size=1)+
+  geom_segment(x=4, xend=4, y=0, yend=12, linetype="dotted", size=1)+
+  geom_polygon(data=cs2, aes(x=x,y=y), fill="blue", alpha=0.5)+
+  geom_segment(x=8,xend=8,y=0,yend=4, size=1, linetype="dotted")+
+  geom_label(x=8,y=2,label="Opt.")
+```
+]
+
+---
+
+# Regulating Natural Monopolies I
+
+.pull-left[
+
+- Left to its own devices, a profit-maximizing monopolist finds $q^*: MR(q)=MC(q)$ and raises $p^*$ to Max WTP
+  - Lower .blue[consumer surplus], .green[`\\(\pi\\)`] for monopolist, creates **deadweight loss**
+  - Compared to the socially-optimal outcome ($4 at 8)
+
+- Government can regulate natural monopolist to charge less (at minimum $p=AC(q)$
+  - $\uparrow q$, $\downarrow p$
+  - More .blue[consumer surplus] and less **deadweight loss**
+  - Less .green[`\\(\pi\\)`] for the monopolist
+
+- .onfire[Tradeoff between incentivizing monopolist with profits and reducing harms of monopoly]
+]
+
+.pull-right[
+
+```{r, fig.retina=3}
+mr<-function(x){20-4*x}
+mc<-function(x){4}
+ac<-function(x){(0.25*x-2)^(2)+4}
+cs2<-tribble(
+  ~x, ~y,
+  0, 20,
+  0, 4,
+  8, 4
+)
+
+natural+
+  geom_segment(x=0, xend=4, y=12, yend=12, linetype="dotted", size=1)+
+  geom_segment(x=4, xend=4, y=0, yend=12, linetype="dotted", size=1)+
+  geom_polygon(data=cs2, aes(x=x,y=y), fill="blue", alpha=0.5)+
+  geom_segment(x=8,xend=8,y=0,yend=4, size=1, linetype="dotted")+
+  geom_label(x=8,y=2,label="Opt.")
+```
+]
+
+---
+
+# Regulating Natural Monopolies II
+
+.pull-left[
+
+- Governments avoid "wasteful duplication" of competition, grant **exclusive franchises**, a single monopolist allowed in geographic region
+
+- Provider made a **common carrier**: monopolist must provide universal service to all
+
+- **Rate of return regulation**: gov't and monopolist agree on a price to guarantee a "modest return on capital" (i.e. some $\pi>0)$
+  - Attempting to $\uparrow q$ and $\downarrow p$
+  - Prohibition on price discrimination, enforced subsidies 
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/3czjutzrspco53d/publicutilities.png?raw=1)
+]
+]
+
+---
+
+# Regulating Natural Monopolies III
+
+.center[
+![](https://www.dropbox.com/s/54bt62h4y54p950/broadbandcompetition.PNG?raw=1)
+
+Locations with only 1 (wireline) broadband provider Source: [FCC: Broadband Provider Map](http://broadbandmap.gov/number-of-providers)	
+
+]
+
+---
+

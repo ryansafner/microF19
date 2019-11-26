@@ -142,8 +142,11 @@ lessons:
     class: "20-class"
     practice: "20-practice"
     
-  - title: "4.2 Sources of Market Power"
-  
+  - title: "4.2 Consequences and Sources of Monopoly"
+    reading: "21-reading"
+    slides: "21-slides"
+    class: "21-class"
+
   - title: "4.3 Pricing with Market Power"
   
   - title: "4.4 Monopolistic Competition"
