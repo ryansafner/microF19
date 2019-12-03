@@ -148,7 +148,11 @@ lessons:
     class: "21-class"
 
   - title: "4.3 Pricing with Market Power"
-  
+    reading: "22-reading"
+    slides: "22-slides"
+    class: "22-class"
+    practice: "22-practice"
+    
   - title: "4.4 Monopolistic Competition"
   
   - title: "4.5 Contestable Markets and Collusion"
