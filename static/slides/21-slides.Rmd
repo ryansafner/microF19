@@ -805,7 +805,7 @@ class: inverse, center, middle
 .pull-left[
 
 .center[
-!:scale 100%(https://www.dropbox.com/s/snqqiwh7krbxwq1/usps.png?raw=1)
+![:scale 100%](https://www.dropbox.com/s/snqqiwh7krbxwq1/usps.png?raw=1)
 ]
 ]
 
@@ -914,7 +914,7 @@ In 1950, 1 in 20 jobs required a license. Today it's 1 in 4. Source: [Obama Whit
 # Barriers to Entry: Occupational Licensing II
 
 .center[
-![:scale 75%](https://www.dropbox.com/s/0yofig9c9p2040m/licensing2.pdf?raw=1)
+![:scale 75%](https://www.dropbox.com/s/15ql3kjvc0cbib2/occupationallicensing2.png?raw=1)
 
 Source: [Mercatus Research (March 25, 2014): Occupational Licensing: Bad for Competition, Bad for Low-Income Workers](https://www.mercatus.org/publication/occupational-licensing-bad-competition-bad-low-income-workers)
 ]
@@ -933,7 +933,7 @@ Source: [Mercatus Research (March 25, 2014): Occupational Licensing: Bad for Com
 # Barriers to Entry: Occupational Licensing IV
 
 .center[
-![:scale 70%](https://www.dropbox.com/s/espsohk14lgh4ef/hairbraidingnpr.png?raw=1)
+![:scale 50%](https://www.dropbox.com/s/espsohk14lgh4ef/hairbraidingnpr.png?raw=1)
 
 Source: [NPR Planet Money](https://www.npr.org/sections/money/2012/06/22/155596305/episode-381-why-its-illegal-to-braid-hair-without-a-license)
 ]
@@ -995,9 +995,9 @@ Source: [Washington Post (Sept 8, 2017)](https://www.washingtonpost.com/news/mor
 .pull-right[
 
 .center[
-![:scale 60%](https://www.dropbox.com/s/cihnj15juyus7wj/patent.png?raw=1)
+![:scale 50%](https://www.dropbox.com/s/cihnj15juyus7wj/patent.png?raw=1)
 
-![:scale 60%](https://www.dropbox.com/s/l4vep529mbzckfh/copyright.png?raw=1)
+![:scale 50%](https://www.dropbox.com/s/l4vep529mbzckfh/copyright.png?raw=1)
 
 ]
 
