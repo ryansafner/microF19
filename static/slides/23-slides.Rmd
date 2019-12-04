@@ -1,0 +1,739 @@
+---
+title: "4.4: Monopolistic Competition and Oligopoly"
+subtitle: "ECON 306 · Microeconomic Analysis · Fall 2019"
+author: 'Ryan Safner<br> Assistant Professor of Economics <br> <a href="mailto:safner@hood.edu"><i class="fa fa-paper-plane fa-fw"></i> safner@hood.edu</a> <br> <a href="https://github.com/ryansafner/microf19"><i class="fa fa-github fa-fw"></i> ryansafner/microf19</a><br> <a href="https://microF19.classes.ryansafner.com"> <i class="fa fa-globe fa-fw"></i> microF19.classes.ryansafner.com</a><br>'
+#date:
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML" # rescales math with css changes https://github.com/yihui/xaringan/issues/143
+    lib_dir: libs
+    #seal: false
+    css: [custom.css, custom-fonts.css, "hygge"] #, metropolis, metropolis-fonts
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"] # first is for rescaling images , second is for embedding tweets, https://github.com/yihui/xaringan/issues/100
+      highlightStyle: ocean #rainbow #monokai rainbow solarized-light #tomorrow-night -blue -eighties zenburn
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+    includes:
+      in_header: header.html # for font awesome, used in title  
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo=F,
+                      message=F,
+                      warning=F)
+library("tidyverse")
+library("mosaic")
+library("ggrepel")
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+set.seed(256)
+```
+
+
+class: inverse, center, middle
+
+# Imperfect Competition
+
+---
+
+# Imperfect Competition
+
+```{r, fig.retina=3, fig.align="center", fig.width=16}
+spectrum<-ggplot(data = tibble(x=c(0,10),
+                     y=c(0,10)))+
+  aes(x = x,
+      y = y)+
+  geom_label(x=0.5,y=3, label="Less \n Competitive", size =14, color = "#fde0dd")+
+  geom_label(x=5.5,y=3, label="More \n Competitive", size = 14, color = "#7a0177")+
+  geom_label(x=1,y=2, label="Monopoly", size =10, color = "#fbb4b9")+
+  geom_label(x=5,y=2, label="Perfect \n Competition", size =10, color = "#7a0177")+
+  annotate("segment", x = 1, xend = 5, y = 3, yend = 3, colour = "black", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed"))+
+  scale_x_continuous(breaks=seq(0,6,1),
+                     limits=c(0,6))+
+  scale_y_continuous(breaks=seq(1,5,1),
+                     limits=c(1,5))+
+  theme_void()
+    
+spectrum
+```
+
+---
+
+# Imperfect Competition
+
+```{r, fig.retina=3, fig.align="center", fig.width=16}
+spectrum+geom_segment(x=4.5,xend=4.5,y=0,yend=5, color="red", size =1 , linetype="dashed")+
+  annotate("segment", x = 1, xend = 4.5, y = 4, yend = 4, colour = "red", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="both", type="closed"))+
+  geom_label(x=3,y=4.5, label='"Imperfect Competition"', size = 12, color = "red")
+```
+
+---
+
+# Imperfect Competition
+
+```{r, fig.retina=3, fig.align="center", fig.width=16}
+spectrum+geom_segment(x=4.5,xend=4.5,y=0,yend=5, color="red", size =1 , linetype="dashed")+
+  annotate("segment", x = 1, xend = 4.5, y = 4, yend = 4, colour = "red", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="both", type="closed"))+
+  geom_label(x=3,y=4.5, label='"Imperfect Competition"', size = 12, color = "red")+
+  geom_label(x=2,y=3.5, label="Oligopoly", size =10, color = "#fbb4b9")
+```
+
+---
+
+# Imperfect Competition
+
+```{r, fig.retina=3, fig.align="center", fig.width=16}
+spectrum+geom_segment(x=4.5,xend=4.5,y=0,yend=5, color="red", size =1 , linetype="dashed")+
+  annotate("segment", x = 1, xend = 4.5, y = 4, yend = 4, colour = "red", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="both", type="closed"))+
+  geom_label(x=3,y=4.5, label='"Imperfect Competition"', size = 12, color = "red")+
+  geom_label(x=2,y=3.5, label="Oligopoly", size =10, color = "#fbb4b9")+
+  geom_label(x=3.75,y=3.5, label="Monopolistic \n Competition", size =10, color = "#c51b8a")
+```
+
+---
+
+class: inverse, center, middle
+
+# Monopolistic Competition
+
+---
+
+# Monopolistic Competition
+
+.pull-left[
+
+- .shout[Monopolistic competition]: hybrid of monopoly and competition, where **each firm has _some_ market power**
+
+1. Goods are *imperfect* substitutes
+  - consumers recognize non-price differences between sellers' goods
+
+2. Entry and exit are free
+  - no barriers to entry
+
+3. Each firm is a **price-searcher**
+  - faces own downward-sloping demand curve
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/eos4k2e3zu9vl1f/laptopbrands.jpg?raw=1)
+]
+]
+
+---
+
+# Monopolistic Competition Model: Short Run
+
+.pull-left[
+```{r, fig.retina=3}
+MC=function(x){3*x^2-8*x+9}
+AC=function(x){x^2-4*x+10+10/x}
+AVC=function(x){10*x+200}
+Demand=function(x){20-2.5*x}
+MR=function(x){20-5*x}
+
+
+mc_plot<-ggplot(data.frame(x=c(0,12)), aes(x=x))+
+  stat_function(fun=MC, geom="line", color="red", size=1)+
+  geom_label(x=3.5,y=MC(3.5), color = "red", label="MC(q)")+
+  stat_function(fun=AC, geom="line", color="orange", size=1)+
+  geom_label(x=4.5,y=AC(4.5), color = "orange", label="AC(q)")+
+  stat_function(fun=Demand, geom="line", color="blue", size=1)+
+  geom_label(x=4.5,y=Demand(4.5), color = "blue", label="Demand")+
+  stat_function(fun=MR, geom="line", color="purple", size=1)+
+  geom_label(x=3.5,y=MR(3.5), color = "purple", label="MR(q)")+
+  geom_segment(aes(x=10,y=0),xend=10,yend=450,linetype=3, size=2)+
+  geom_segment(aes(x=0,y=450),xend=10,yend=450, linetype=3, size=2)+
+  labs(x = "Quantity (q)",
+       y = "Price (p)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=18)
+
+mc_plot+
+  scale_x_continuous(breaks=NULL,
+                     limits=c(0,5),
+                     expand=c(0,0))+
+  scale_y_continuous(breaks=NULL,
+                     limits=c(0,20),
+                     expand=c(0,0))
+```
+]
+
+.pull-right[
+
+- **Short Run**: Firm acts as a monopolist
+]
+
+---
+
+# Monopolistic Competition Model: Short Run
+
+.pull-left[
+```{r, fig.retina=3}
+mc_plot+
+  geom_segment(x=2.48, xend=2.48, y=0, yend=8, size = 1, linetype="dotted")+
+  scale_x_continuous(breaks=c(0,2.48),
+                     labels=c(0,expression(q*degree)),
+                     limits=c(0,5),
+                     expand=c(0,0))+
+  scale_y_continuous(breaks=NULL,
+                     limits=c(0,20),
+                     expand=c(0,0))
+```
+]
+
+.pull-right[
+
+- **Short Run**: Firm acts as a monopolist:
+
+- $q^*$: where $MR(q)=MC(q)$
+]
+
+---
+
+# Monopolistic Competition Model: Short Run
+
+.pull-left[
+```{r, fig.retina=3}
+mc_plot+
+  geom_segment(x=2.48, xend=2.48, y=0, yend=Demand(2.48), size = 1, linetype="dotted")+
+  geom_segment(x=0, xend=2.48, y=Demand(2.48), yend=Demand(2.48), size = 1, linetype="dotted")+
+  scale_x_continuous(breaks=c(0,2.48),
+                     labels=c(0,expression(q*degree)),
+                     limits=c(0,5),
+                     expand=c(0,0))+
+  scale_y_continuous(breaks=c(0,Demand(2.48)),
+                     labels=c(0,expression(p*degree)),
+                     limits=c(0,20),
+                     expand=c(0,0))
+```
+]
+
+.pull-right[
+
+- **Short Run**: Firm acts as a monopolist:
+
+- $q^*$: where $MR(q)=MC(q)$
+- $p^*$: at market demand for $q^*$
+]
+
+---
+
+# Monopolistic Competition Model: Short Run
+
+.pull-left[
+```{r, fig.retina=3}
+mc_plot+
+  geom_rect(xmin=0, xmax=2.48, ymin=AC(2.48), ymax=Demand(2.48), fill="green", alpha=0.4)+
+  geom_segment(x=2.48, xend=2.48, y=0, yend=Demand(2.48), size = 1, linetype="dotted")+
+  geom_segment(x=0, xend=2.48, y=Demand(2.48), yend=Demand(2.48), size = 1, linetype="dotted")+
+  geom_segment(x=0, xend=2.48, y=AC(2.48), yend=AC(2.48), size = 1, linetype="dotted")+
+  scale_x_continuous(breaks=c(0,2.48),
+                     labels=c(0,expression(q*degree)),
+                     limits=c(0,5),
+                     expand=c(0,0))+
+  scale_y_continuous(breaks=c(0,AC(2.48),Demand(2.48)),
+                     labels=c(0,expression(AC(q*degree)),expression(p*degree)),
+                     limits=c(0,20),
+                     expand=c(0,0))
+```
+]
+
+.pull-right[
+
+- **Short Run**: Firm acts as a monopolist:
+
+- $q^*$: where $MR(q)=MC(q)$
+- $p^*$: at market demand for $q^*$
+- Earns $\pi = [p^*-AC(q^*)]q^*$
+]
+
+---
+
+# Monopolistic Competition Model: Long Run
+
+.pull-left[
+```{r, fig.retina=3}
+mc_plot+
+  geom_rect(xmin=0, xmax=2.48, ymin=AC(2.48), ymax=Demand(2.48), fill="green", alpha=0.4)+
+  geom_segment(x=2.48, xend=2.48, y=0, yend=Demand(2.48), size = 1, linetype="dotted")+
+  geom_segment(x=0, xend=2.48, y=Demand(2.48), yend=Demand(2.48), size = 1, linetype="dotted")+
+  geom_segment(x=0, xend=2.48, y=AC(2.48), yend=AC(2.48), size = 1, linetype="dotted")+
+  scale_x_continuous(breaks=c(0,2.48),
+                     labels=c(0,expression(q*degree)),
+                     limits=c(0,5),
+                     expand=c(0,0))+
+  scale_y_continuous(breaks=c(0,AC(2.48),Demand(2.48)),
+                     labels=c(0,expression(AC(q*degree)),expression(p*degree)),
+                     limits=c(0,20),
+                     expand=c(0,0))
+```
+]
+
+.pull-right[
+
+- **Long Run**: market becomes competitive (*no barriers to entry!*)
+
+- $\pi > 0$ attracts entry into industry
+
+]
+
+---
+
+# Monopolistic Competition Model: Long Run
+
+.pull-left[
+```{r, fig.retina=3}
+Demand2=function(x){15-2*x}
+MR2=function(x){15-4.5*x}
+
+
+mc_plot2<-ggplot(data.frame(x=c(0,12)), aes(x=x))+
+  stat_function(fun=MC, geom="line", color="red", size=1)+
+  geom_label(x=3.5,y=MC(3.5), color = "red", label="MC(q)")+
+  stat_function(fun=AC, geom="line", color="orange", size=1)+
+  geom_label(x=4.5,y=AC(4.5), color = "orange", label="AC(q)")+
+  stat_function(fun=Demand2, geom="line", color="blue", size=1)+
+  geom_label(x=4.5,y=Demand2(4.5), color = "blue", label="Demand (LR)")+
+  stat_function(fun=MR2, geom="line", color="purple", size=1)+
+  geom_label(x=3.25,y=MR2(3.25), color = "purple", label="MR(q) (LR)")+
+  geom_segment(aes(x=10,y=0),xend=10,yend=450,linetype=3, size=2)+
+  geom_segment(aes(x=0,y=450),xend=10,yend=450, linetype=3, size=2)+
+  labs(x = "Quantity (q)",
+       y = "Price (p)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=18)
+
+mc_plot2+
+  
+  # old 
+  stat_function(fun=Demand, geom="line", color="blue", size=1, alpha=0.25)+
+  stat_function(fun=MR, geom="line", color="purple", size=1, alpha=0.25)+
+
+  geom_segment(x=2.125, xend=2.125, y=0, yend=Demand2(2.125), size = 1, linetype="dotted")+
+  geom_segment(x=0, xend=2.125, y=Demand2(2.125), yend=Demand2(2.125), size = 1, linetype="dotted")+
+  scale_x_continuous(breaks=c(0,2.125),
+                     labels=c(0,expression(q[LR])),
+                     limits=c(0,5),
+                     expand=c(0,0))+
+  scale_y_continuous(breaks=c(0,Demand2(2.125)),
+                     labels=c(0,expression(p[LR]==AC(q[LR]))),
+                     limits=c(0,20),
+                     expand=c(0,0))
+
+```
+
+]
+
+.pull-right[
+
+- **Long Run**: market becomes competitive (*no barriers to entry!*)
+
+- $\pi > 0$ attracts entry into industry
+
+- Demand for each firm's product will *decrease* (and become more *elastic*), until...
+
+- .whisper[Long run equilibrium]: firms earn $\pi=0$ where $p=AC(q)$<sup>.red[1]</sup>
+
+.footnote[<sup>.red[1]</sup> Note: not necessarily the minimum of $AC(q)$! $q$ is determined by $MR$ and $MC$, not demand!]
+
+]
+
+---
+
+# Monopolistic Competition vs. Perfect Competition
+
+.pull-left[
+```{r, fig.retina=3}
+cs_pc<-tribble(
+  ~x, ~y,
+  0, Demand2(0),
+  0, Demand2(2.75),
+  2.75, Demand2(2.75)
+)
+
+mc_plot2+
+  # pc
+  geom_polygon(data=cs_pc, aes(x=x,y=y), fill="blue",alpha=0.5)+
+  geom_segment(x=2.75, xend=2.75, y=0, yend=Demand2(2.75), size = 1, linetype="dotted")+
+  geom_segment(x=0, xend=2.75, y=Demand2(2.75), yend=Demand2(2.75), size = 1, linetype="dotted")+
+  scale_x_continuous(breaks=c(0,2.75),
+                     labels=c(0,expression(q[c])),
+                     limits=c(0,5),
+                     expand=c(0,0))+
+  scale_y_continuous(breaks=c(0,Demand2(2.75)),
+                     labels=c(0,expression(p[c])),
+                     limits=c(0,20),
+                     expand=c(0,0))
+
+```
+
+]
+
+.pull-right[
+
+- **Perfect competition** $(q_c, p_c)$
+  - $p_c = MC(q)$
+  - $q_c$ where $P=MC(q)$
+  - Maximum .blue[consumer surplus]
+
+
+]
+
+
+---
+
+# Monopolistic Competition vs. Perfect Competition
+
+.pull-left[
+```{r, fig.retina=3}
+cs_mc<-tribble(
+  ~x, ~y,
+  0, Demand2(0),
+  0, Demand2(2.125),
+  2.125, Demand2(2.125)
+)
+
+dwl<-tribble(
+  ~x, ~y,
+  2.125, Demand2(2.125),
+  2.125, MC(2.125),
+  2.75, Demand2(2.75)
+)
+
+mc_plot2+
+  geom_polygon(data=cs_mc, aes(x=x,y=y), fill="blue",alpha=0.5)+
+  geom_polygon(data=dwl, aes(x=x,y=y), fill="black",alpha=0.5)+
+  geom_segment(x=2.125, xend=2.125, y=0, yend=Demand2(2.125), size = 1, linetype="dotted")+
+  geom_segment(x=0, xend=2.125, y=Demand2(2.125), yend=Demand2(2.125), size = 1, linetype="dotted")+
+  
+  # pc
+  geom_segment(x=2.75, xend=2.75, y=0, yend=Demand2(2.75), size = 1, linetype="dotted")+
+  geom_segment(x=0, xend=2.75, y=Demand2(2.75), yend=Demand2(2.75), size = 1, linetype="dotted")+
+  
+  scale_x_continuous(breaks=c(0,2.125, 2.75),
+                     labels=c(0,expression(q[m]), expression(q[c])),
+                     limits=c(0,5),
+                     expand=c(0,0))+
+  scale_y_continuous(breaks=c(0,Demand2(2.125), Demand2(2.75)),
+                     labels=c(0,expression(p[m]), expression(p[c])),
+                     limits=c(0,20),
+                     expand=c(0,0))
+
+```
+
+]
+
+.pull-right[
+
+- **Perfect competition** $(q_c, p_c)$
+  - $p_c = MC(q)$, allocatively efficient
+  - $q_c$ where $P=MC(q)$
+  - Maximum .blue[consumer surplus]
+  
+- **Monopolistic competition** $(q_c, p_c)$
+  - $p_m = AC(q)$
+    - $p_m > MC(q)$, **allocatively inefficient**
+  - $q_m < q_c$, where $MR(q)=MC(q)$
+
+- Like a monopolist, produces less $q$ at a higher $p$ than competition
+  - Less .blue[consumer surplus]
+  - Now **deadweight loss**
+
+- Like perfect competition, still no $\pi$ in the long run!
+]
+
+---
+
+class: inverse, center, middle
+
+# Oligopoly
+
+---
+
+# Oligopoly
+
+.pull-left[
+
+- .shout[Oligopoly]: industry with a few large sellers with market power
+- Other features can vary
+    - May sell similar or different goods
+    - May be some barriers to entry or none
+- Key: Firms make .whisper[strategic choices], interdependent on one another
+- For modeling simplicity: 
+    - **Duopoly**: a market with only two sellers; *Triopoly*: 3 sellers, etc. 
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/vcaox5wi6lwo1g6/wirelesscarriers.png?raw=1)
+]
+]
+
+---
+
+# Oligopoly: Modelling
+
+.pull-left[
+
+- Unlike PC or monopoly, no single "theory of oligopoly"
+- Depends heavily on assumptions made about interactions and choice variables
+- One certainty: oligopoly is a strategic interaction between few firms (i.e. ideal for game theory)
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/h39nhqbdfvxvpj0/cokevspepsi.png?raw=1)
+]
+]
+
+---
+
+# Game Theory
+
+.pull-left[
+
+- .shout[Game theory]: a set of tools that model strategic interactions ("games") between rational players, 3 elements:
+    1. **Players**
+    2. **Strategies** that players can choose from
+    3. **Payoffs** to each player that are *jointly-determined* from combination of all players' strategies 
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/93gtv9xei0q5fik/gametheory.jpg?raw=1)
+]
+]
+
+---
+
+# Equilibrium in Oligopoly
+
+.pull-left[
+
+- What does "**equilibrium**" mean in an oligopoly?
+- In PC/monopoly, a vector of $(q^*,p^*)$ for whole market such that no firms/consumers have incentives to change price
+- Oligopoly: we can use game theoretic **Nash Equilibrium**: 
+    - no firm wants to change what they are doing given all others' strategies
+    - each firm is playing a **best response** against other firms' strategies
+
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/j7xenkgo3p71vke/equilibriumbalance.png?raw=1)
+]
+]
+
+---
+
+# As a Prisoner's Dilemma I
+
+.pull-left[
+
+- Suppose we have a duopoly between Apple and Google
+
+- Each is planning to launch a new tablet, and choose to sell it at a High Price or a Low Price	
+
+- Payoff matrix represents profits to each firm
+  - First number in each box goes to Row player (Apple)
+  - Second number in each box goes to Column player (Google)
+]
+
+.pull-right[
+.center[
+```{r, results="asis"}
+library(tidyverse)
+library(kableExtra)
+
+df2<-tribble(
+  ~"", ~"", ~"High Price", ~"Low Price",
+  "Apple", "High Price", "500, 500", "250, 750",
+  "Apple", "Low Price", "750, 250", "300, 300"
+)
+
+# row.names(df)<-c("Cooperate", "Defect")
+
+kable(df2, format="html") %>%
+  kable_styling(full_width=F) %>%
+  add_header_above(c(" " = 2, "Google" = 2)) %>%
+  column_spec(c(1,2), bold=T) %>%
+  collapse_rows(columns = 1, latex_hline = "major", valign = "middle")
+```
+
+]
+]
+
+---
+
+# As a Prisoner's Dilemma II
+
+.pull-left[
+
+- From Apple's perspective:
+  - Low Price is a **dominant strategy** for Apple
+
+]
+
+.pull-right[
+.center[
+```{r, results="asis"}
+library(tidyverse)
+library(kableExtra)
+
+df2<-tribble(
+  ~"", ~"", ~"High Price", ~"Low Price",
+  "Apple", "High Price", "500, 500", "250, 750",
+  "Apple", "Low Price", "750, 250", "300, 300"
+)
+
+# row.names(df)<-c("Cooperate", "Defect")
+
+kable(df2, format="html") %>%
+  kable_styling(full_width=F) %>%
+  add_header_above(c(" " = 2, "Google" = 2)) %>%
+  column_spec(c(1,2), bold=T) %>%
+  collapse_rows(columns = 1, latex_hline = "major", valign = "middle")
+```
+
+]
+]
+
+---
+
+# As a Prisoner's Dilemma II
+
+.pull-left[
+
+- From Apple's perspective:
+  - Low Price is a **dominant strategy** for Apple
+
+- From Google's perspective:
+  - Low Price is a **dominant strategy** for Google
+
+]
+
+.pull-right[
+.center[
+```{r, results="asis"}
+library(tidyverse)
+library(kableExtra)
+
+df2<-tribble(
+  ~"", ~"", ~"High Price", ~"Low Price",
+  "Apple", "High Price", "500, 500", "250, 750",
+  "Apple", "Low Price", "750, 250", "300, 300"
+)
+
+# row.names(df)<-c("Cooperate", "Defect")
+
+kable(df2, format="html") %>%
+  kable_styling(full_width=F) %>%
+  add_header_above(c(" " = 2, "Google" = 2)) %>%
+  column_spec(c(1,2), bold=T) %>%
+  collapse_rows(columns = 1, latex_hline = "major", valign = "middle")
+```
+
+]
+]
+
+---
+
+# As a Prisoner's Dilemma II
+
+.pull-left[
+
+- .shout[Nash equilibrium]: (Low Price, Low Price)
+
+- A Pareto improvement (for firms, not for consumers!): (High Price, High Price)
+
+- But not a Nash Equilibrium!
+
+]
+
+.pull-right[
+.center[
+```{r, results="asis"}
+library(tidyverse)
+library(kableExtra)
+
+df2<-tribble(
+  ~"", ~"", ~"High Price", ~"Low Price",
+  "Apple", "High Price", "500, 500", "250, 750",
+  "Apple", "Low Price", "750, 250", "300, 300"
+)
+
+# row.names(df)<-c("Cooperate", "Defect")
+
+kable(df2, format="html") %>%
+  kable_styling(full_width=F) %>%
+  add_header_above(c(" " = 2, "Google" = 2)) %>%
+  column_spec(c(1,2), bold=T) %>%
+  collapse_rows(columns = 1, latex_hline = "major", valign = "middle")
+```
+
+]
+]
+
+---
+
+# As a Prisoner's Dilemma III
+
+.pull-left[
+
+- Google and Apple could **collude** with one another and agree to both raise prices
+
+- .shout[Cartel]: group of sellers coordinate to raise prices to act like a collective monopoly and split the profits	
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/nxgqbud4hgatv2s/backroomdeal.png?raw=1)
+]
+]
+
+---
+
+# Instability of Cartels
+
+.pull-left[
+
+- Cartels often unstable:
+- Incentive for each member to cheat is too strong
+- Entrants (non-cartel members) can threaten lower prices
+- Difficult to monitor whether firms are upholding agreement
+- Cartels are illegal, must be discrete 
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/x1voms5mqjtqw7p/businesslie.png?raw=1)
+]
+]
+
+---
+
+# Cartels
+
+.center[
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hGo5bxWy21g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+]
+
+---
+
+# Cartels
+
+.center[
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aT7TxMaZ4eM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+]

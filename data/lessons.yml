@@ -153,10 +153,12 @@ lessons:
     class: "22-class"
     practice: "22-practice"
     
-  - title: "4.4 Monopolistic Competition"
-  
-  - title: "4.5 Contestable Markets and Collusion"
-  
+  - title: "4.4 Monopolistic Competition and Oligopoly"
+    reading: "23-reading"
+    slides: "23-slides"
+    class: "23-class"
+    practice: "23-practice"
+    
   - title: '<i class="fas fa-laptop-code"></i> **Problem Set 6**'
     assignment: "06-problem-set"
     
