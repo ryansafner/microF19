@@ -157,8 +157,7 @@ lessons:
     reading: "23-reading"
     slides: "23-slides"
     class: "23-class"
-    practice: "23-practice"
-    
+
   - title: '<i class="fas fa-laptop-code"></i> **Problem Set 6**'
     assignment: "06-problem-set"
     

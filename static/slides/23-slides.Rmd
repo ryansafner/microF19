@@ -521,6 +521,72 @@ class: inverse, center, middle
 
 ---
 
+# Game Theory vs. Decision Theory Models I
+
+.pull-left[
+
+- Traditional economic models are often called .shout[Decision theory]:
+
+- .whisper[Optimization models] **ignore all other agents** and just focus on how can **you** maximize **your** objective within **your** constraints
+  - Other agents are a primary cause of your constraints - but not considered in the model!
+  - Consumers max utility; firms max profit, etc.
+
+- **Outcome**: .onfire[optimum]: decision where *you* have no better alternatives
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/kjm2fzw4o3p0sk3/optimize.jpg?raw=1)
+]
+]
+
+---
+
+# Game Theory vs. Decision Theory Models I
+
+.pull-left[
+
+- Traditional economic models are often called .shout[Decision theory]:
+
+- .whisper[Equilibrium models] assume that there are **so many agents** that **no agent's decision can affect the outcome**
+  - Perfect competition - firms are price-takers, etc
+  - Alternatively: monopoly/monopsony: the *only* buyer or seller
+  - Regardless: **ignores all other agents' decisions**!
+
+- **Outcome**: .onfire[equilibrium]: where *nobody* has no better alternatives
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/9d2bkesu20g5fj7/crowdartistic.jpg?raw=1)
+]
+]
+
+---
+
+# Game Theory vs. Decision Theory Models III
+
+.pull-left[
+
+- .shout[Game theory models] directly confront **strategic interactions** between players
+  - How each player would respond to a strategy chosen by other player(s)
+  - Lead to a stable outcome where everyone has considered and chosen their best responses
+
+- **Outcome**: .onfire[Nash equilibrium]: where *nobody* has a better strategy *given the strategies everyone else is playing*
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/tymdsxbqaq2scxq/chessknights.jpg?raw=1)
+]
+]
+
+---
+
 # Equilibrium in Oligopoly
 
 .pull-left[
@@ -672,10 +738,6 @@ kable(df2, format="html") %>%
 
 - .shout[Nash equilibrium]: (Low Price, Low Price)
 
-- A Pareto improvement (for firms, not for consumers!): (High Price, High Price)
-
-- But not a Nash Equilibrium!
-
 ]
 
 .pull-right[
@@ -709,6 +771,47 @@ kable(df2, format="html") %>%
 ---
 
 # As a Prisoner's Dilemma III
+
+.pull-left[
+
+- .shout[Nash equilibrium]: (Low Price, Low Price)
+
+- A possible **Pareto improvement**: (High Price, High Price)
+  - Is it a Nash Equilibrium?
+
+]
+
+.pull-right[
+.center[
+
+![:scale 70%](https://www.dropbox.com/s/uj1jxo2s1dr8yeb/applevsgoogle.jpg?raw=1)
+
+
+```{r, results="asis"}
+library(tidyverse)
+library(kableExtra)
+
+df2<-tribble(
+  ~"", ~"", ~"High Price", ~"Low Price",
+  "Apple", "High Price", "500, 500", "250, 750",
+  "Apple", "Low Price", "750, 250", "300, 300"
+)
+
+# row.names(df)<-c("Cooperate", "Defect")
+
+kable(df2, format="html") %>%
+  kable_styling(full_width=F) %>%
+  add_header_above(c(" " = 2, "Google" = 2)) %>%
+  column_spec(c(1,2), bold=T) %>%
+  collapse_rows(columns = 1, latex_hline = "major", valign = "middle")
+```
+
+]
+]
+
+---
+
+# As a Prisoner's Dilemma IV
 
 .pull-left[
 
@@ -751,6 +854,61 @@ kable(df2, format="html") %>%
 
 ---
 
+# Government-Sanctioned Cartels I
+
+.pull-left[
+
+- Like monopolies, some cartels exist because they are *supported* by governments or regulators, possibly by rent-seeking
+
+- National Recovery Administration (1933-1935)
+  - cartelized most industries to artificially raise prices of goods
+  - found unconstitutional in *Schechter Poultry Corp. v. United States* (1935)
+
+]
+
+.pull-right[
+.center[
+![:scale 80%](https://www.dropbox.com/s/9fvp8zl5iswxqa3/nra.png?raw=1)
+]
+]
+
+---
+
+# Government-Sanctioned Cartels II
+
+.pull-left[
+.center[
+![:scale 75%](https://www.dropbox.com/s/q42p83xk669261j/raisinoutlaw.png?raw=1)
+
+Source: [NPR Planet Money](https://www.npr.org/sections/money/2015/06/24/417187957/episode-478-the-raisin-outlaw)
+]
+]
+
+.pull-right[
+
+> "Marvin Horne was known as the raisin outlaw. His crime: Selling 100% of his raisin crop, against the wishes of the Raisin Administrative Committee, a group of farmers that regulates the national raisin supply.
+> He took the case all the way to the Supreme Court, which issued its final ruling this week."
+
+]
+
+---
+
+# Government-Sanctioned Cartels II
+
+.pull-left[
+.center[
+![:scale 100%](https://www.dropbox.com/s/1ljfb3cupxpnt4e/opeccountries.png?raw=1)
+]
+]
+
+.pull-right[
+.center[
+![:scale 100%](https://www.dropbox.com/s/nx515e7whtet9i6/opecflag.png?raw=1)
+]
+]
+
+---
+
 # Cartels: In Fiction I
 
 .center[
@@ -765,3 +923,533 @@ kable(df2, format="html") %>%
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aT7TxMaZ4eM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ]
+
+---
+
+# Comparing Industries
+
+| Industry | Firms | Entry | Price (LR Eq.) | Output | Profits (LR) | Cons. Surplus | DWL |
+|----------|-------|-------|--------|--------|--------------|---------------|-----|
+| Perfect competition | Very many | Free | Lowest $(MC)$ | Highest | 0 | Highest | None |
+| Monopolistic competition | Many | Free | Higher $(p>MC)$ | Lower | 0 | Lower | Some |
+| Oligopoly (non-cooperative) | Few | Barriers? | Higher | Lower | Some | Lower | Some |
+| Monopoly<sup>1</sup> (or cartel) | 1 | Barriers | Highest | Lowest | Highest | Loweset | Largest |
+
+.footnote[<sup>1</sup> *Without* price-discrimination. Price-discrimination will increase output, increase profits, decrease consumer surplus, decrease deadweight loss]
+
+---
+
+class: inverse, center, middle
+
+# Contestable Markets
+
+---
+
+# Is Monopoly a Nash Equilibrium?
+
+.pull-left[
+
+- Now that we understand Nash equilibrium...
+
+- Are outcomes of other market structures Nash equilibria?
+
+- **Perfect competition**: no firm wants to raise or lower price given the market price $\checkmark$
+
+- **Monopolist** maximizes $\pi$ by setting $q^*$: $MR=MC$ and $p^*=Demand(q^*)$
+
+- This is *an* equilibrium, but is it the *only* equilibrium?
+
+- We've assumed just a *single* player in the model
+  - What if customers refuse to pay $p>MC$?
+  - What about *potential* competition?
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/ut01gm60urzbmtl/goingoutofbusiness.jpg?raw=1)
+
+![:scale 75%](https://www.dropbox.com/s/20ghw4p6te0776x/entry.jpg?raw=1)
+]
+]
+
+---
+
+# Contestable Markets I
+
+.pull-left[
+
+- Model the market as an entry game, with an **Incumbent** who sets $p_i$
+
+- **Entrant** decides to **stay out** or **enter** the market, charging $p_e$
+
+- Price competition<sup>.red[1]</sup>: consumers buy only from the firm with the lower price
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/ut01gm60urzbmtl/goingoutofbusiness.jpg?raw=1)
+
+![:scale 75%](https://www.dropbox.com/s/20ghw4p6te0776x/entry.jpg?raw=1)
+]
+]
+
+.footnote[<sup>.red[1]</sup> In the canonical economic models of oligopoly, 
+
+this is known as "Bertrand competition."]
+
+---
+
+# Contestable Markets II
+
+.pull-left[
+
+- Suppose firms have a total cost of $C(q)=cq$
+  - Thus, a marginal cost of $MC(q)=c$
+  
+- If Incumbent sets $p_i>c$, then entrant would enter and set $p_e=p_i-\epsilon$
+
+- **Nash Equilibrium**: incumbent sets $p_i=c$, no entry
+  - "Monopoly": a single firm, but competitive outcomes!
+  - $p=MC$, $\pi=0$, max Consumer Surplus
+
+]
+
+.pull-right[
+
+```{r, fig.retina=3} 
+# Demand function, format: p=d-eq
+a<-10
+b<-2
+f<-5
+c<-2
+
+Demand=function(x){a-b*x}
+MR=function(x){a-2*b*x}
+MC=function(x){c}
+AC=function(x){f/x+c}
+
+q_choke=a/b
+q_PC<-(a-c)/(b)
+
+CS<-data.frame(x=c(0,0,q_PC),
+               y=c(Demand(q_PC),a,Demand(q_PC)))
+
+line_colors <- c("Demand" = "blue", "MR" = "purple", "MC" = "red", "AC" = "orange")
+surplus_colors <-c("Consumer" = "blue", "Profit" = "green", "DWL" = "black")
+
+# make plot 
+
+ggplot(data.frame(x=c(0,q_choke)), aes(x=x))+
+  
+  # curves 
+  stat_function(fun=Demand, geom="line", size=1, aes(color="Demand"))+
+  stat_function(fun=MR, geom="line", size=1, aes(color="MR"))+
+  stat_function(fun=MC, geom="line", size=1, aes(color="MC"))+
+  # surpluses
+  geom_polygon(data=CS, aes(x=x,y=y, fill="Consumer"), alpha=0.5)+ #CS
+
+  # labels 
+  geom_segment(x=q_PC,y=0,xend=q_PC,yend=c,linetype=3)+
+  geom_point(x=q_PC,y=c, color="black", size=3)+ 
+  geom_text(x=q_PC,y=c+0.5,label="N.E.",color="black")+
+  annotate(geom = "label", x = 4.5, y = Demand(4.5), label = "Demand",
+           color = "blue") +
+  annotate(geom = "label", x = 2.25, y = MR(2.25), label = "MR",
+           color = "purple") +
+  annotate(geom = "label", x = 4.5, y = c, label = "MC",
+           color = "red") +
+  annotate(geom = "label", x = 1.3, y = 5, label = "Consumer Surplus",
+           color = "blue") +
+  scale_x_continuous(breaks = c(0,q_PC),
+                     labels = c(0,expression(q[p=MC])),
+                     expand=c(0,0))+
+  scale_y_continuous(breaks = c(0,c,a),
+                     labels = c(0,expression(c),expression(a)),
+                     limits = c(0,a),
+                     expand=c(0,0))+
+  scale_colour_manual("Curves", values = line_colors)+
+  scale_fill_manual("Surpluses", values = surplus_colors, guide = guide_legend(override.aes = list(alpha = 0.5)))+
+  guides(color = F, fill = F)+
+  labs(x = "Quantity (q)",
+       y = "Price (p)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=18)
+```
+]
+
+---
+
+# Contestable Markets II
+
+.pull-left[
+
+- What if the entrant has higher costs: $c_e>c_i$?
+
+- **Nash equilibrium**: incumbent sets $p_i=p_e-\epsilon$
+  - No entry
+- A monopoly, but not worst case
+]
+
+.pull-right[
+
+```{r, fig.retina=3} 
+a<-10
+b<-2
+f<-5
+c<-2
+d<-4.5
+e<-4
+
+Demand=function(x){a-b*x}
+MR=function(x){a-2*b*x}
+MCi=function(x){c}
+MCe=function(x){d}
+AC=function(x){f/x+c}
+
+q_choke=a/b
+q_PC<-(a-c)/(b)
+
+q_star<-(a-e)/b
+q_monopoly<-(a-c)/(2*b)
+
+CS<-data.frame(x=c(0,0,q_star),
+               y=c(Demand(q_star),a,Demand(q_star)))
+DWL<-data.frame(x=c(q_star,q_star,q_PC),
+               y=c(c,e,c))
+
+line_colors <- c("Demand" = "blue", "MR" = "purple", "MCi" = "red", "MCe" = "red4")
+surplus_colors <-c("Consumer" = "blue", "Profit" = "green", "DWL" = "black")
+
+# make plot 
+
+library("ggplot2")
+ggplot(data.frame(x=c(0,q_choke)), aes(x=x))+
+  
+  # curves 
+  stat_function(fun=Demand, geom="line", size=1, aes(color="Demand"))+
+  stat_function(fun=MR, geom="line", size=1, aes(color="MR"))+
+  stat_function(fun=MCi, geom="line", size=1, aes(color="MCi"))+
+  stat_function(fun=MCe, geom="line", size=1, aes(color="MCe"))+
+  # surpluses
+  geom_polygon(data=CS, aes(x=x,y=y, fill="Consumer"), alpha=0.5)+ #CS
+  geom_rect(aes(xmin=0,xmax=q_star,ymin=c,ymax=e,fill="Profit"),alpha=0.25) + # Profits
+  geom_polygon(data=DWL, aes(x=x,y=y, fill="DWL"), alpha=0.5)+ #CS
+  # labels 
+  
+  # P.C. point 
+  geom_segment(aes(x=q_PC,y=0),xend=q_PC,yend=c,linetype=3)+
+  geom_point(x=q_PC,y=c, color="black", size=3)+ 
+  geom_text(x=q_PC,y=c+0.5,label="P.C.",color="black")+
+  
+  # N.E. point 
+  geom_segment(aes(x=q_star,y=0),xend=q_star,yend=e,linetype=3)+
+  geom_segment(aes(x=0,y=e),xend=q_star,yend=e,linetype=3)+
+  geom_point(aes(x=q_star,y=e), color="black", size=3)+ 
+  geom_text(x=q_star+0.5,y=e,label="N.E.", color="black")+
+  
+  # Monopoly point 
+  geom_segment(aes(x=q_monopoly,y=0),xend=q_monopoly,yend=Demand(q_monopoly),linetype=3)+
+  geom_segment(aes(x=0,y=Demand(q_monopoly)),xend=q_monopoly,yend=Demand(q_monopoly),linetype=3)+
+  geom_point(aes(x=q_monopoly,y=Demand(q_monopoly)), color="black", size=3)+ 
+  geom_text(aes(x=q_monopoly,y=Demand(q_monopoly)),label="Monopoly", hjust=-0.1, vjust=-0.25, color="black")+
+  annotate(geom = "label", x = 4.5, y = Demand(4.5), label = "Demand",
+           color = "blue") +
+  annotate(geom = "label", x = 2.25, y = MR(2.25), label = "MR",
+           color = "purple") +
+  annotate(geom = "label", x = 4.5, y = c, label = expression(MC[i]),
+           color = "red") +
+  annotate(geom = "label", x = 4.5, y = d, label = expression(MC[e]),
+           color = "red4") +
+  annotate(geom = "label", x = 1.25, y = 6, label = "Consumer Surplus",
+           color = "blue") +
+  annotate(geom = "label", x = 1.25, y = 3, label = "Profit",
+           color = "green") +
+  annotate(geom = "label", x = 3.2, y = 3, label = "DWL",
+           color = "black") +
+  scale_x_continuous(breaks = c(0,q_monopoly,q_star,q_PC),
+                     labels = c(0,expression(q[m]),expression(q[NE]),expression(q[p=MC])),
+                     expand=c(0,0))+
+  scale_y_continuous(breaks = c(0,c,d,e,Demand(q_monopoly),a),
+                     labels = c(0,expression(MC[i]),expression(MC[e]),expression(p[i]==MC[e]-epsilon),expression(p[m]),expression(a)),
+                     limits = c(0,a),
+                     expand=c(0,0))+
+  theme_light()+
+  scale_colour_manual("Curves", values = line_colors)+
+  scale_fill_manual("Surpluses", values = surplus_colors, guide = guide_legend(override.aes = list(alpha = 0.5)))+
+  guides(color = F, fill = F)+
+  labs(x = "Quantity (q)",
+       y = "Price (p)")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=18)
+```
+]
+
+---
+
+# Contestable Markets III
+
+.pull-left[
+
+- Suppose firms have the same cost structure again
+
+- What if there are *fixed costs*, $f$?
+    - $C(q)=f+cq$
+    - $MC(q)=c$
+    - $AC(q)=c+\frac{f}{q}$
+
+- Economies of scale prevent marginal cost pricing from being profitable
+    - $\pi=-\frac{f}{q}<0$
+]
+
+.pull-right[
+
+```{r, fig.retina=3} 
+# Demand function, format: p=d-eq
+a<-10
+b<-2
+f<-5
+c<-2
+
+Demand=function(x){a-b*x}
+MR=function(x){a-2*b*x}
+MC=function(x){c}
+AC=function(x){f/x+c}
+
+q_choke<-(a/b)
+MR_choke<-(a/(2*b))
+q_PC<-(a-c)/(b)
+
+CS<-data.frame(x=c(0,0,q_PC),
+               y=c(Demand(q_PC),a,Demand(q_PC)))
+
+line_colors <- c("Demand" = "blue", "MR" = "purple", "MC" = "red", "AC" = "orange")
+surplus_colors <-c("Consumer" = "blue", "Loss" = "black", "DWL" = "black")
+
+# make plot 
+
+library("ggplot2")
+ggplot(data.frame(x=c(0,q_choke)), aes(x=x))+
+  
+  # curves 
+  stat_function(fun=Demand, geom="line", size=1, aes(color="Demand"))+
+  stat_function(fun=MR, geom="line", size=1, aes(color="MR"))+
+  stat_function(fun=MC, geom="line", size=1, aes(color="MC"))+
+  stat_function(fun=AC, geom="line", size=1, aes(color="AC"))+
+  
+  # surpluses
+  geom_rect(aes(xmin=0,xmax=q_PC,ymin=c,ymax=AC(q_PC),fill="Loss"),alpha=0.25) + # Losses
+  
+   # labels 
+  geom_segment(aes(x=q_PC,y=0),xend=q_PC,yend=c,linetype=3)+
+  geom_point(aes(x=q_PC,y=c), color="black", size=3)+ 
+  geom_text(x=q_PC+0.5,y=c,label="P.C.", color="black")+
+  annotate(geom = "label", x = 4.5, y = Demand(4.5), label = "Demand",
+           color = "blue") +
+  annotate(geom = "label", x = 2.25, y = MR(2.25), label = "MR",
+           color = "purple") +
+  annotate(geom = "label", x = 4.5, y = c, label = "MC",
+           color = "red") +
+  annotate(geom = "label", x = 4.5, y = AC(d), label = "AC",
+           color = "orange") +
+  annotate(geom = "label", x = 1.25, y = 2.5, label = "Loss",
+           color = "black") +
+  scale_x_continuous(breaks = c(0,q_PC),
+                     labels = c(0,expression(q[p=MC])),
+                     expand=c(0,0))+
+  scale_y_continuous(breaks = c(0,c,AC(q_PC),a),
+                     labels = c(0,expression(c),expression(c+f/q),expression(a)),
+                     limits = c(0,a),
+                     expand=c(0,0))+
+  theme_light(base_family = "Yanone Kaffeesatz Regular")+
+  scale_colour_manual("Curves", values = line_colors)+
+  scale_fill_manual("Surpluses", values = surplus_colors, guide = guide_legend(override.aes = list(alpha = 0.5)))+
+  labs(x = "Quantity (q)",
+       y = "Price (p)")+
+  guides(color = F, fill = F)+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=18)
+```
+]
+
+---
+
+# Contestable Markets IV
+
+.pull-left[
+
+- *Nash equilibrium*: Incumbent prices at $p_i=AC$ earns $\pi=0$
+
+- No entry
+
+- Again, "monopoly" but earning no profits
+]
+
+.pull-right[
+
+```{r, fig.retina=3} 
+# Demand function, format: p=d-eq
+a<-10
+b<-2
+f<-5
+c<-2
+
+Demand=function(x){a-b*x}
+MR=function(x){a-2*b*x}
+MC=function(x){c}
+AC=function(x){f/x+c}
+
+q_choke<-(a/b)
+MR_choke<-(a/(2*b))
+q_PC<-(a-c)/(b)
+q_AC<-((a-c)+sqrt((a-c)^2-4*b*f))/(2*b) # needed quadratic formula, heh 
+
+CS<-data.frame(x=c(0,0,q_AC),
+               y=c(Demand(q_AC),a,Demand(q_AC)))
+
+DWL<-data.frame(x=c(q_AC,q_AC,q_PC),
+                        y=c(c,Demand(q_AC),c))
+
+line_colors <- c("Demand" = "blue", "MR" = "purple", "MC" = "red", "AC" = "orange")
+surplus_colors <-c("Consumer" = "blue", "Profit" = "green", "DWL" = "black")
+
+# make plot 
+ggplot(data.frame(x=c(0,q_choke)), aes(x=x))+
+  
+  # curves 
+  stat_function(fun=Demand, geom="line", size=1, aes(color="Demand"))+
+  stat_function(fun=MR, geom="line", size=1, aes(color="MR"))+
+  stat_function(fun=MC, geom="line", size=1, aes(color="MC"))+
+  stat_function(fun=AC, geom="line", size=1, aes(color="AC"))+
+  
+  # surpluses
+  geom_polygon(data=CS, aes(x=x,y=y, fill="Consumer"), alpha=0.5)+ #CS
+  geom_polygon(data=DWL, aes(x=x,y=y, fill="DWL"), alpha=0.5)+ #DWL
+  
+   # labels 
+  geom_segment(aes(x=q_PC,y=0),xend=q_PC,yend=c,linetype=3)+
+  geom_point(aes(x=q_PC,y=c), color="black",size=3)+ 
+  geom_text(x=q_PC+0.25,y=c,label="P.C.", color="black")+
+  geom_segment(aes(x=q_AC,y=0),xend=q_AC,yend=Demand(q_AC), linetype=3)+
+  geom_segment(aes(x=0,y=Demand(q_AC)),xend=q_AC,yend=Demand(q_AC), linetype=3)+
+  geom_point(x=q_AC,y=Demand(q_AC), color="black",size=3)+ 
+  geom_text(x=q_AC+0.25,y=Demand(q_AC),label="N.E.", color="black")+
+  annotate(geom = "label", x = 4.5, y = Demand(4.5), label = "Demand",
+           color = "blue") +
+  annotate(geom = "label", x = 2.25, y = MR(2.25),  label = "MR",
+           color = "purple") +
+  annotate(geom = "label", x = 4.5, y = c, label = "MC",
+           color = "red") +
+  annotate(geom = "label", x = 4.5, y = AC(d), label = "AC",
+           color = "orange") +
+  annotate(geom = "label", x = 1.25, y = 6, label = "Consumer Surplus",
+           color = "blue") +
+  annotate(geom = "label", x = 3.5, y = 2.5, label = "DWL",
+           color = "black") +
+  scale_x_continuous(breaks = c(0,q_AC,q_PC),
+                     labels = c(0,expression(q[p=AC]),expression(q[p=MC])),
+                     expand=c(0,0))+
+  scale_y_continuous(breaks = c(0,c,AC(q_AC),a),
+                     labels = c(0,expression(c),expression(c+f/q),expression(a)),
+                     limits = c(0,a),
+                     expand=c(0,0))+
+  theme_light(base_size=22,base_family = "Yanone Kaffeesatz Regular")+
+  scale_colour_manual("Curves", values = line_colors)+
+  scale_fill_manual("Surpluses", values = surplus_colors, guide = guide_legend(override.aes = list(alpha = 0.5)))+
+  labs(x = "Quantity (q)",
+       y = "Price (p)")+
+  guides(color = F, fill = F)+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=18)
+```
+]
+
+---
+
+# What About *Sunk* Costs? I
+
+.pull-left[
+- Fixed costs $\implies$ do not vary with output
+
+- If firm exits, could sell these assets (e.g. machines, real estate) to recover costs
+  - Thus, "hit-and-run" competition remains potentially profitable
+  - Maintains credible threat against incumbent acting as a monopolist
+
+- But what if assets are *not* sellable and costs *not* recoverable---i.e. **sunk costs**?
+  - e.g. research and development, spending to build brand equity, advertising, worker-training for industry-specific skills, etc 
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/89uh92uh19y6z89/sunkcost.jpg?raw=1)
+]
+]
+
+---
+
+# What About *Sunk* Costs? II
+
+.pull-left[
+- These are bygones to the incumbent, who has already committed to producing
+
+- But new costs and risk to entrant, lowering expected profits
+
+- In effect, sunk costs make $c_e>e_i$
+
+- Incumbent can deter entry with $p_i=p_e-\epsilon$
+
+- Inefficient $p>AC$, but again lower than monopoly level
+
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/89uh92uh19y6z89/sunkcost.jpg?raw=1)
+]
+]
+
+---
+
+# Contestable Markets: Recap
+
+.pull-left[
+- .whisper[Markets are **contestable** if]:
+  1. There are no barriers to entry or exit
+  2. Firms have similar technologies (i.e. similar cost structure)
+  3. There are no sunk costs
+  
+- Economies of scale need not be inconsistent with competitive markets (as is assumed) if they are contestable
+
+- Generalizes "prefect competition" model in more realistic way, also game-theoretic
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/otgtujqdnspc3me/marketcompetition.jpg?raw=1)
+]
+]
+
+---
+
+# Contestable Markets: Summary
+
+.left-column[
+
+.center[
+![:scale 80%](https://www.dropbox.com/s/1jv6qkmg15bmvq5/baumol1.jpg?raw=1)
+
+William Baumol
+
+(1922--2017)
+
+]
+]
+
+.right-column[
+
+> "This means that...an incumbent, even if he can threaten retaliation after entry, dare not offer profit-making opportunities to potential entrants because an entering firm can hit and run, gathering in the available profits and departing when the going gets rough." 
+
+
+]
+
+.source[Baumol, William, J, 1982, "Contestable Markets: An Uprising in the Theory of Industry Structure," *American Economic Review,* 72(1): 1-15]
