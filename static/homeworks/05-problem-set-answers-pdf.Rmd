@@ -1,0 +1,741 @@
+---
+title: "Problem Set 5 (Solutions)"
+author: "Ryan Safner"
+date: "ECON 306 Fall 2019"
+output: pdf_document
+header-includes:
+- \usepackage{amsmath}
+- \usepackage{multirow, multicol, booktabs}
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = F,
+                      message = F)
+```
+
+**Note:** Answers may be longer than I would deem sufficient on an exam. Some might vary slightly based on points of interest, examples, or personal experience. These suggested answers are designed to give you both the answer and a short explanation of why it is the answer.
+
+# Concepts and Critical Thinking
+
+1. **In your own words, what do allocative efficiency and Pareto efficiency mean? Under what three conditions are markets allocatively efficient and Pareto efficient?**
+
+---
+
+Markets are efficient when they: 
+
+1. Are competitive: many buyers, many sellers
+2. Can adjust prices to reach equilibrium 
+3. Have no externalities: no individual choice affects another party not part of the decision-making 	
+
+In equilibrium, markets allocate resources to their highest valued uses (allocative efficiency) by allowing the most possible voluntary exchanges. Another way to understand this is that consumer surplus (the value created for consumers from an exchange) and producer surplus (the value created for producers from an exchange) are maximized in equilibrium.
+
+Each voluntary exchange is a Pareto improvement (at least one party is made better off, and no party made worse off; in the case of voluntary exchange, both are made better off), moving resources to a higher valued use. Recall that resources "start in the wrong place," since people find opportunities for Pareto-improving exchange that make both parties better off (moving resources to higher-valued uses).
+
+In equilibrium, all possible trades have taken place, and under current market conditions, there are no more possible trades that would make at least one party better off, and no party worse off: we have reached Pareto efficiency (where there are no more possible Pareto improvements). 
+
+Of course, there can be changes in market conditions (preferences, incomes, prices of other goods, expectations, etc) that causes equilibrium to move, implying there will now be gains from exchange (more Pareto improvements) until we reach the new equilibrium, and so on. 
+
+\clearpage
+
+2. **In your own words, what are the social functions of market prices?**
+
+---
+
+Prices are signals wrapped in an incentive. They provide information about individual preferences and relative scarcity of resources to signal to buyers, sellers, and entrepreneurs how to use various resources relative to other resources. They also provide an incentive for buyers, sellers, and entrepreneurs to act on that information in a socially useful way. For example, buyers conserve and avoid higher-priced resources that are more-highly valued elsewhere in the economy and thus seek substitute goods, while sellers and entrepreneurs are incentivized to find ways to produce more of that desired and scarce resource, or some alternative resource or invention to alleviate the unmet need. 
+	
+The marvel of this system is that it coordinates the actions of 7 billion people very quickly and with no need for any of them to possess expertise about the merits or causes of various price changes--comparing the relative prices of resources is sufficient for people to make socially-optimal changes! 
+	
+While markets generate mistakes, as any system does, the mistakes themselves provide the opportunity and the incentive for those mistakes to get corrected relatively quickly and efficiently (see next question). It is very hard to find a comparable system. 
+
+\clearpage
+
+3. **In your own words, what are transaction costs, and how do they affect exchange?**
+
+---
+
+Transaction costs are the costs of making an exchange. They include everything from the cost of finding partners to exchange with, to the costs of negotiating mutually-agreeable terms and price, to the costs of enforcing an agreement.
+
+Markets^[and, more importantly, all of the background institutions that make markets possible: clear, secure, and enforced property rights; rule of law; dispute resolution; contract enforcement; impartial courts; effective government; peace and security, etc] are institutions that reduce transactions costs among *strangers*, to facilitate exchange.
+
+If transactions costs are too high (from geography, poor technology, malfunctioning institutions, corruption, lack of trust, etc), then exchanges will *not* take place, and resources will be trapped in their existing (inefficient) uses.
+
+\clearpage
+
+4. **In your own wrods, explain the law of one price. *why* would we expect it to be true (i.e. what market processes push us towards the predicted outcome)? What might *prevent* it from occurring?**
+
+---
+
+The law of one price implies that all identical goods will tend to exchange for the same market price. 
+	
+Consider if it were not true: some sellers sell good $X$ at a low price and others sells the same, identical good $X$ at a high price. Enterprising people will recognize that there is a profit opportunity to be had by the arbitrage: by buying $X$ from the low-priced sellers and reselling $X$ to the buyers at the high price, one can make a profit of the price differential. If enough people take advantage of this opportunity, the prices of $X$ will ultimately converge on a single price, negating the arbitrage opportunity. 
+	
+There are, however, reasons we might not see prices converge. If transaction costs are too high (i.e. it costs more to buy and resell $X$ than the difference between the prices of $X$), it will not be a profitable undertaking for entrepreneurs, and thus the multiple prices will remain. Additionally, various policies can distort prices or prevent entrepreneurship, such as taxes, prohibitions, or regulations making it too costly to participate in the markets. 
+
+\clearpage
+
+
+5. **In your own words, explain what entrepreneurship is, and how it affects market prices.**
+
+---
+
+Entrepreneurship simply is alertness to, and acting up, profit opportunities in markets. This could be in the form of pure arbitrage, where there is a disparity between prices for the same good, where a person would buy at the low price and resell at the higher price. For whatever reason, buyers and sellers are mispricing goods, or missing other opportunities (metaphorically, walking past a $20 on the sidewalk) where someone could take advantage of the arbitrage opportunity, or create a new innovation or substitute, in pursuit of profit.
+
+From the actions of entrepreneurs, market prices will change and come into closer alignment with actual preferences, expectations, and opportunities for buyers and sellers. 
+
+
+---
+
+6. **In your own words, explain what consumer surplus and producer surplus mean. If Ann is willing to pay up to $6,000 for a used car, but buys it at a market price of $2,000, what is her consumer surplus? What is the producer's surplus for Frank, who sells Ann the car for $2,000, but would be willing to go as low as $1,000?**
+
+---
+
+Consumer surplus is the value of resources that consumers earn by purchasing goods in markets for prices lower than they value. It is the difference between the most they are willing to pay (their demand) and the market price they actually pay. For Ann, the most she would be willing to pay is $6,000, but she pays $2,000 in the market, and hence earns a surplus (as a consumer) of $6,000-$2,000=$4,000.
+
+Producer surplus is the value of resources that producers earn by selling goods in markets for prices higher than they would be willing to sell for. It is the difference between the market price they receive and the lowest they would be willing to accept (their supply).  Bob, the seller, earns $2,000 in the market, but would have been willing to accept at least $1,000, and hence earns a surplus (as a producer) of $2,000-$1,000=$1,000. 	
+
+---
+
+\clearpage
+
+# Problems
+
+Show all work for calculations. You may lose points, even if correct, for missing work. Be sure to label graphs fully, if appropriate.
+
+7. **The Ministry of Tourism in the Republic of Palau estimates that the monthly supply and demand for its scuba diving tours are:**
+$$\begin{aligned}
+	q_S&=30p-2000\\
+	q_D&=6000-20p\\	
+	\end{aligned}$$
+
+**where quantity represents the number of individual dives each month and $p$ is the price of a two-tank dive.**
+
+
+---
+
+a. **Calculate the equilibrium quantity and price ($q^*,p^*)$.**
+
+---
+
+$$\begin{aligned}
+	q_D&=q_S\\
+	6000-20p&=30p-2000\\
+	6000&=50p-2000\\
+	8000&=50p\\
+	160&=p^*
+	\end{aligned}$$
+
+Plugging this into the demand equation to find the equilibrium quantity: 
+
+$$\begin{aligned}
+	q_D&=6000-20p\\	
+	q_D&=6000-20(160)\\
+	q^*&=2800\\
+	\end{aligned}$$
+
+Let's also find the inverse supply and inverse demand, as it will help us graph it, and visualize for the remainder of the question. 
+
+First inverse demand: 
+
+$$\begin{aligned}
+	q_D&=6000-20p\\
+	q_D+20p&=6000\\
+	20p&=6000-q_D\\
+	p&=300-\frac{1}{20}q_D\\
+	\end{aligned}$$
+
+Next inverse supply: 
+
+$$\begin{aligned}
+	q_S&=30p-2000\\
+	q_S+2000&=30p\\
+	\frac{1}{30}q_S+66.67&=p\\	
+	\end{aligned}$$
+
+See the graph in part b.
+
+
+---
+
+b. **Calculate the consumer surplus received by divers visiting Palau, and the producer surplus received by the dive ships.**
+
+---
+
+Consumer surplus is the (triangle) area above the market price and beneath the demand curve:
+
+$$\begin{aligned}
+CS &= \frac{1}{2}bh\\
+&=\frac{1}{2}(2,800-0)(\$300-\$160)\\
+&=\$196,000\\
+\end{aligned}$$
+
+Producer surplus is the (triangle) area beneath the market price and above the supply curve:
+
+$$\begin{aligned}
+PS &= \frac{1}{2}bh\\
+&=\frac{1}{2}(2,800-0)(\$160-\$66.67)\\
+&=\$130,662\\
+\end{aligned}$$
+
+
+```{r, fig.height=4}
+library(mosaic)
+demand<-function(x){300-(1/20)*x}
+supply<-function(x){66.67+(1/30)*x}
+cs_1<-tribble(
+  ~x, ~y,
+  0,300,
+  0,160,
+  2800,160
+)
+ps_1<-tribble(
+  ~x, ~y,
+  0,66.67,
+  0,160,
+  2800,160
+)
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_polygon(data=cs_1, aes(x=x,y=y), fill="blue", alpha=0.5)+
+  geom_polygon(data=ps_1, aes(x=x,y=y), fill="red", alpha=0.5)+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=5000,y=demand(5000)), color = "blue", label="Demand", size = 5)+
+  stat_function(fun=supply, geom="line", size=2, color = "red")+
+    geom_label(aes(x=9000,y=supply(9000)), color = "red", label="Supply", size = 5)+
+  geom_segment(x=2800, xend=2800, y=0, yend=160, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=2800, y=160, yend=160, size=1, linetype="dotted")+
+  geom_label(x=2800,y=75,label="q*=2800")+
+  geom_label(x=1400,y=160,label="p*=$160")+
+    scale_x_continuous(breaks=seq(0,10000,1000),
+                     limits=c(0,10000),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,400,50),
+                     limits=c(0,400),
+                     labels=scales::dollar,
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity",
+       y = "Price")+
+  theme_classic(base_size=14)
+```
+
+
+---
+
+c. **Calculate the price elasticity of demand at equilibrium. Is it relatively elastic or inelastic?**
+
+---
+
+Demand:
+
+$$\begin{aligned}
+E_D&=\frac{1}{slope}*\frac{P}{q_D}\\
+E_D&=\cfrac{1}{-\frac{1}{20}}*\frac{160}{28}\\
+E_D&=-20*5.71\\
+E_D&\approx -114.29\\
+\end{aligned}$$
+
+Demand is relatively elastic. For every 1% the price rises (falls), consumers will buy 114% less (more).
+
+---
+
+d. **Calculate the price elasticity of supply at equilibrium. Is it relatively elastic or inelastic?**
+
+---
+
+$$\begin{aligned}
+E_S&=\frac{1}{slope}*\frac{P}{q_S}\\
+E_S&=\cfrac{1}{\frac{1}{30}}*\frac{160}{28}\\
+E_S&=30*5.71\\
+E_S&\approx 171\\
+\end{aligned}$$
+
+Supply is relatively elastic. For every 1% the price rises (falls), producers will sell 171% more (less).
+
+---
+
+e. **Who earns more surplus, consumers or producers, and why?**
+
+---
+
+Consumers earn more surplus, because their demand curve is relatively less elastic than the supply curve, which is more elastic. 	Just comparing the slopes of the two curves (from their inverse functions), demand has a slightly steeper slope, $-\frac{1}{20}$ than supply, which is flatter $\frac{1}{30}$. It is tough to see it from the way I drew this graph, but often the graph helps determine which curve is more elastic (less surplus) or less elastic (more surplus). We were able to compare quantitatively by calculating elasticities in the previous two parts.
+
+---
+
+f. **Suppose that the demand for scuba diving services increases, and that the new demand curve is given by $q_D'=7,000-20P$. Calculate the impact of this change in demand on the consumer surplus and producer surplus.**
+
+---
+
+Find the new equilibrium price and quantity first, by setting the new demand equal to the supply: 
+
+$$\begin{aligned}
+q_D'=q_S\\
+7000-20p&=30p-2000\\
+50p&=9000\\	
+p^*_2&=\$180\\
+\end{aligned}$$
+
+Now plug this into either the new demand (or the supply) function:
+
+$$\begin{aligned}
+q_D'&=7000-20P\\
+&=7000-20(180)\\
+q^*_2&=3,400
+\end{aligned}$$
+
+From here, calculate the area of the new CS and PS, we need the choke price of the new demand (the choke price of supply remains the same, since there is no new supply curve):
+
+$$\begin{aligned}
+0=q_D'&= 7000-20p\\
+20p	&=7000\\
+p_{choke}=\$350\\
+\end{aligned}$$
+
+Alternatively, you can find the new inverse demand curve equation:
+
+$$\begin{aligned}
+q_D'&= 7000-20p\\
+q_D'+20p&=7000\\
+20p&=7000-q_d\\
+p&=350-0.05q_d\\
+\end{aligned}$$
+
+Now we can solve for the area of the consumer surplus, above the new market price and beneath the new demand curve:
+
+$$\begin{aligned}
+CS'&=\frac{1}{2}bh\\
+&= \frac{1}{2}(3,400-0)(\$350-\$180)\\
+&=\$289,000\\
+\end{aligned}$$
+
+Now we can solve for the area of the producer surplus, beneath the new market price: and above the supply curve:
+
+$$\begin{aligned}
+PS'&=\frac{1}{2}bh\\
+&= \frac{1}{2}(3,400-0)(\$180-\$66.67)\\
+&=\$192,661\\
+\end{aligned}$$
+
+Both consumers and producers are better off, as consumer surplus increased by $\$289,000-\$196,000=\$93,000$, and producer surplus increased by $\$192,661-\$130,662=\$61,999$. This is because the market has grown larger, and more dives will be exchanged by the increase in demand.
+
+---
+
+g. **Draw a well-labelled graph of all that you found in this question (label prices, quantities, surpluses, curves, etc).**
+
+---
+
+```{r, fig.height=4}
+demand_2<-function(x){350-(1/20)*x}
+
+cs_2<-tribble(
+  ~x, ~y,
+  0,350,
+  0,180,
+  3400,180
+)
+ps_2<-tribble(
+  ~x, ~y,
+  0,66.67,
+  0,180,
+  3400,180
+)
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_polygon(data=cs_1, aes(x=x,y=y), fill="blue", alpha=0.4)+
+  geom_polygon(data=ps_1, aes(x=x,y=y), fill="red", alpha=0.4)+
+  geom_polygon(data=cs_2, aes(x=x,y=y), fill="blue", alpha=0.6)+
+  geom_polygon(data=ps_2, aes(x=x,y=y), fill="red", alpha=0.6)+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=5000,y=demand(5000)), color = "blue", label="Demand", size = 5)+
+  stat_function(fun=demand_2, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=5000,y=demand_2(5000)), color = "blue", label="Demand'", size = 5)+
+  stat_function(fun=supply, geom="line", size=2, color = "red")+
+    geom_label(aes(x=9000,y=supply(9000)), color = "red", label="Supply", size = 5)+
+  geom_segment(x=2800, xend=2800, y=0, yend=160, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=2800, y=160, yend=160, size=1, linetype="dotted")+
+  geom_segment(x=3400, xend=3400, y=0, yend=180, size=1, linetype="dashed")+
+  geom_segment(x=0, xend=3400, y=180, yend=180, size=1, linetype="dashed")+
+  geom_label(x=2800,y=75,label="q*=2800")+
+  geom_label(x=1400,y=160,label="p*=$160")+
+  geom_label(x=3400,y=75,label="q'=3400")+
+  geom_label(x=1400,y=180,label="p'=$180")+
+    scale_x_continuous(breaks=seq(0,10000,1000),
+                     limits=c(0,10000),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,400,50),
+                     limits=c(0,400),
+                     labels=scales::dollar,
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity",
+       y = "Price")+
+  theme_classic(base_size=14)
+```
+
+\clearpage
+
+8. **The market for hotel rooms in a small town is characterized by the following equations:**
+
+$$\begin{aligned}
+q_D&=200-0.4p\\
+q_S&=0.8p-40\\ \end{aligned}$$
+
+a. **Calculate the equilibrium price and quantity.**
+
+---
+
+Set demand and supply equal to each other:
+
+$$\begin{aligned}
+q_D&=q_S\\
+200-0.4P&=0.8p-40\\
+200&=1.2p-40\\
+240&=1.2p\\
+p^*=\$200\\
+\end{aligned}$$
+Now that we have the equilibrium price, we can plug this into the demand equation to find the quantity in equilibrium:
+
+$$\begin{aligned}
+q&=200-0.4p\\
+&=200-0.4(\$200)\\
+q^*&=120\\
+\end{aligned}$$
+
+In order to graph these curves, we must find the inverse demand and inverse supply curves $(P$ in terms of $q_D$ or $q_S$). For demand:
+
+$$\begin{aligned}
+q_D&=200-0.4p\\
+q_D+0.4p&=200\\
+0.4p&=200-q_D\\
+p&=500-2.5q_D\\
+\end{aligned}$$
+
+For supply: 
+
+$$\begin{aligned}
+q_S&=0.8p-40\\
+q_S+40&=0.8p\\
+1.25q_S+50&=p\\
+\end{aligned}$$
+
+---
+
+b. **Calculate the price elasticity of demand and price elasticity of supply in equilibrium. Is each relatively elastic or inelastic?**
+
+---
+
+$$\begin{aligned}
+E_D&=\frac{1}{slope}*\frac{p}{q_D}\\
+E_D&=\frac{1}{-2.5}*\frac{200}{120}\\
+E_D&=-0.4*1.6\\
+E_D&\approx -0.67\\
+\end{aligned}$$
+
+Demand is relatively inelastic. For every 1% increase (decrease) in price, consumers will rent 0.67% fewer (more) hotel rooms.
+
+$$\begin{aligned}
+E_S&=\frac{1}{slope}*\frac{p}{q_D}\\
+E_S&=\frac{1}{1.25}*\frac{200}{120}\\
+E_S&=0.8*1.6\\
+E_S&\approx 1.33\\
+\end{aligned}$$
+
+Supply is relatively elastic. For every 1% increase (decrease) in price, hotels will rent out 1.33% more (fewer) hotel rooms.
+
+---
+
+c. **Calculate the consumer and producer surplus in equilibrium. Who gets more surplus, and why?**
+
+---
+
+$$\begin{aligned}
+CS&=\frac{1}{2}bh\\
+&= \frac{1}{2}(120-0)(\$500-\$200)\\
+&=\$18,000\\
+\end{aligned}$$
+
+$$\begin{aligned}
+PS&=\frac{1}{2}bh\\
+&= \frac{1}{2}(120-0)(\$200-\$50)\\
+&=\$9,000\\
+\end{aligned}$$
+
+Consumers earn more surplus because their demand is less elastic than hotel suppliers' supply.
+
+```{r, fig.height=4}
+hotel_demand<-function(x){500-2.5*x}
+hotel_supply<-function(x){1.25*x+50}
+
+cs_h1<-tribble(
+  ~x, ~y,
+  0,500,
+  0,200,
+  120,200
+)
+ps_h1<-tribble(
+  ~x, ~y,
+  0,50,
+  0,200,
+  120,200
+)
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_polygon(data=cs_h1, aes(x=x,y=y), fill="blue", alpha=0.4)+
+  geom_polygon(data=ps_h1, aes(x=x,y=y), fill="red", alpha=0.4)+
+  stat_function(fun=hotel_demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=180,y=hotel_demand(180)), color = "blue", label="Demand", size = 5)+
+  stat_function(fun=hotel_supply, geom="line", size=2, color = "red")+
+    geom_label(aes(x=180,y=hotel_supply(180)), color = "red", label="Supply", size = 5)+
+  geom_segment(x=120, xend=120, y=0, yend=200, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=120, y=200, yend=200, size=1, linetype="dotted")+
+  geom_label(x=120,y=75,label="q*=120")+
+  geom_label(x=60,y=200,label="p*=$200")+
+    scale_x_continuous(breaks=seq(0,200,20),
+                     limits=c(0,200),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,500,50),
+                     limits=c(0,500),
+                     labels=scales::dollar,
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity (Rooms)",
+       y = "Price")+
+  theme_classic(base_size=14)
+```
+
+---
+
+d. **Suppose the local government sets a price ceiling on the price of hotel rooms - saying they can charge no more than $150/night. At $150, how many hotel rooms do consumers want to rent, and how many rooms do the hotels want to rent out? What is this situation?**
+
+---
+
+Simply plug in $150 into the demand function and supply function.
+
+Quantity demanded:
+
+$$\begin{aligned}
+q_D&=200-0.4p\\
+q_D&=200-0.4(150)\\
+q_D&=140\\
+\end{aligned}$$
+
+Quantity supplied:
+
+$$\begin{aligned}
+q_S&=0.8p-40\\
+q_S&=0.8(150)-40\\
+q_S&=80\\
+\end{aligned}$$
+
+Quantity demanded is greater than quantity supplied at a price of $150, thus we have **excess demand**, a **shortage.**
+
+```{r, fig.height=4}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=hotel_demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=180,y=hotel_demand(180)), color = "blue", label="Demand", size = 5)+
+  stat_function(fun=hotel_supply, geom="line", size=2, color = "red")+
+    geom_label(aes(x=180,y=hotel_supply(180)), color = "red", label="Supply", size = 5)+
+  geom_segment(x=120, xend=120, y=0, yend=200, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=120, y=200, yend=200, size=1, linetype="dotted")+
+
+  geom_hline(yintercept=150, size=3)+
+  geom_label(x=180, y=150, label="Price Ceiling (Maximum)")+
+  geom_segment(x=80, xend=80, y=0, yend=150, size=1, linetype="dashed")+
+  geom_segment(x=140, xend=140, y=0, yend=150, size=1, linetype="dashed")+
+  
+  geom_segment(x=80, xend=80, y=0, yend=300, size=1, linetype="dashed")+
+  geom_segment(x=0, xend=80, y=300, yend=300, size=1, linetype="dashed")+
+  
+  geom_label(x=80,y=75,label=expression(q[S]==80))+
+  geom_label(x=140,y=75,label=expression(q[D]==140))+
+  
+  geom_label(x=45,y=300,label=expression(p[B]==300))+
+  
+  annotate("segment", x = 80, xend = 140, y = 25, yend = 25, colour = "black", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="both", type="closed"))+
+  geom_label(x=110, y=25, label="Shortage")+
+  
+    scale_x_continuous(breaks=seq(0,200,20),
+                     limits=c(0,200),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,500,50),
+                     limits=c(0,500),
+                     labels=scales::dollar,
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity (Rooms)",
+       y = "Price")+
+  theme_classic(base_size=14)
+```
+
+---
+
+e. **Explain what would happen as a result of part D if the price were allowed to change.**
+
+---
+
+Suppliers will only want to supply 80 rooms at the price of $150. However, at $150, buyers are willing to pay (plugging 150 into the inverse demand):
+
+$$\begin{aligned}
+p&=500-2.5q_D\\
+p&=500-2.5(80)\\
+p&=\$300\\
+\end{aligned}$$
+
+Since there is an artificial scarcity, and buyers are willing to pay much more than $150 to get the 80 rooms, they will start outbidding one another. As prices begin to rise, hotels will start offering more rooms (and we walk up the supply curve). The price will continue to rise and more rooms will be offered until we reach equilibrium, where $q_S=q_D$ at $200/room for 120 rooms.
+
+
+---
+
+f. **The price cannot change because of the price control. Hotels will only rent out the quantity you found in part D. Calculate consumer surplus and producer surplus at this price and quantity. Compare it to your answer in part C, what has changed?**
+
+---
+
+Let's begin with producer surplus, which is again defined as the difference between the price that sellers recieve and the lowest price they are willing to accept. This is a triangle above the supply curve and beneath the new price controlled price $150.
+
+$$\begin{aligned}
+PS'&=\frac{1}{2}bh\\
+&= \frac{1}{2}(80-0)(\$150-\$50)\\
+&=\$4,000\\
+\end{aligned}$$
+
+Consumer surplus is the difference between what buyers are willing to pay and the price they actually pay. This is now a trapezoid beneath the demand curve and above the new price controlled price $150 extending to the new quantity exchanged of 80.
+
+I will calculate it as the area of the triangle from $300-$500, plus the rectangle from $150 to $300:
+
+$$\begin{aligned}
+CS'&=[\frac{1}{2}bh]+[bh]\\
+&= \left[\frac{1}{2}(80-0)(\$500-\$300)\right]+\left[(80-0)(\$300-\$150)\right]\\
+&=[\$8,000]+[\$12,000]\\
+&=\$20,000\\
+\end{aligned}$$
+
+Consumer surplus has increased, which should make sense, as consumers pay less for a room. Producer surplus has decreased, which should make sense, as producers are forced to accept less for a room. Some producer surplus has been converted into consumer surplus through the lowering of the market price.
+
+However, *total* economic surplus $(CS+PS)$ has *decreased* because of the price control causes fewer rooms to be exchanged (from 120 to 80 now). Before, in part c, total surplus was $\$18,000+\$8,000=\$26,000$. Now it is $\$20,000+\$4,000=\$24,000$. The remaining surplus before has been squandered as **deadweight loss**, a triangle constituting the missing $\frac{1}{2}(120-80)(\$300-\$150)=\$3,000$.
+
+This is the inefficiency of the price ceiling. *Some* consumers are better off, if they can get rooms (which are now artificially scarcer), as they will pay less. However, fewer rooms in total are made available, as suppliers will supply much less at the regulated price of $150.
+
+```{r, fig.height=4}
+ps_h2<-tribble(
+  ~x, ~y,
+  0, 50,
+  0, 150,
+  80,150
+)
+
+cs_h2<-tribble(
+  ~x, ~y,
+  0, 500,
+  0, 300,
+  80,300
+)
+
+dwl<-tribble(
+  ~x, ~y,
+  80, 300,
+  80, 150,
+  120,200
+)
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_polygon(data=cs_h2, aes(x=x,y=y), fill="blue", alpha=0.4)+
+  geom_polygon(data=ps_h2, aes(x=x,y=y), fill="red", alpha=0.4)+
+  geom_polygon(data=dwl, aes(x=x,y=y), fill="black", alpha=0.6)+
+  geom_rect(xmin=0,xmax=80, ymin=150, ymax=300, fill="blue", alpha=0.2)+
+  stat_function(fun=hotel_demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=180,y=hotel_demand(180)), color = "blue", label="Demand", size = 5)+
+  stat_function(fun=hotel_supply, geom="line", size=2, color = "red")+
+    geom_label(aes(x=180,y=hotel_supply(180)), color = "red", label="Supply", size = 5)+
+  geom_segment(x=120, xend=120, y=0, yend=200, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=120, y=200, yend=200, size=1, linetype="dotted")+
+
+  geom_hline(yintercept=150, size=3)+
+  geom_label(x=180, y=150, label="Price Ceiling (Maximum)")+
+  geom_segment(x=80, xend=80, y=0, yend=150, size=1, linetype="dashed")+
+  geom_segment(x=140, xend=140, y=0, yend=150, size=1, linetype="dashed")+
+  
+  geom_segment(x=80, xend=80, y=0, yend=300, size=1, linetype="dashed")+
+  geom_segment(x=0, xend=80, y=300, yend=300, size=1, linetype="dashed")+
+  
+  geom_label(x=80,y=75,label=expression(q[S]==80))+
+  geom_label(x=140,y=75,label=expression(q[D]==140))+
+  
+  geom_label(x=45,y=300,label=expression(p[B]==300))+
+  
+    scale_x_continuous(breaks=seq(0,200,20),
+                     limits=c(0,200),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,500,50),
+                     limits=c(0,500),
+                     labels=scales::dollar,
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity (Rooms)",
+       y = "Price")+
+  theme_classic(base_size=14)
+```
+
+---
+
+g. **Due to the situation created, how do you think those hotel rooms will be allocated and why?**
+
+---
+
+Recall, under the shortage, only 80 hotel rooms are available at $150/room, whereas buyers want 140 for that price. 
+
+For 80 hotel rooms, buyers are *actually* willing to pay $300/room. 
+
+Due to the price control, it is *illegal* for sellers to charge a price higher than $150/room, so the comptetition between buyers trying to acquire the scarce 80 rooms cannot be resolved by changing the price in the market. Instead, buyers will compete in other methods in order to pay the *true* price of \$300 and acquire the goods. 
+
+In fact, we can consider the "price" that buyers will pay in two parts: the "official" price-controlled price of \$150, plus the remainder that takes the form of **rents** to sellers. Sellers are able to allocate these rooms *however they like* under the price control - since buyers cannot officially compete on price! Buyers may wait in line to get access to these scarce rooms, and incur the cost of waiting in line as part of the "price" they pay. Or sellers can give these rooms to buyers that they like the best, or the most attractive, or the tallest. Sellers can indulge their own preferences to discriminate between buyers they will rent to and buyers they will not rent to (since there's a line of buyers outside the door that really want the scarce rooms!). Or sellers can sell the rooms on the black market and illegally charge higher prices ($300).
+
+This is the *tragedy* of price controls that seem like such a simple, good idea to make prices "better" or "more fair."
+
+It is very important not to distort market prices!!
+
+
+```{r, fig.height=4}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_rect(xmin=0,xmax=80, ymin=0, ymax=150, fill="green", alpha=0.2)+
+  geom_rect(xmin=0,xmax=80, ymin=150, ymax=300, fill="black", alpha=0.4)+
+  geom_label(x=40,y=225, color = "black", label="Rents", size = 5)+
+  
+  stat_function(fun=hotel_demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=180,y=hotel_demand(180)), color = "blue", label="Demand", size = 5)+
+  stat_function(fun=hotel_supply, geom="line", size=2, color = "red")+
+    geom_label(aes(x=180,y=hotel_supply(180)), color = "red", label="Supply", size = 5)+
+  geom_segment(x=120, xend=120, y=0, yend=200, size=1, linetype="dotted")+
+  geom_segment(x=0, xend=120, y=200, yend=200, size=1, linetype="dotted")+
+
+  geom_hline(yintercept=150, size=3)+
+  geom_label(x=180, y=150, label="Price Ceiling (Maximum)")+
+  geom_segment(x=80, xend=80, y=0, yend=150, size=1, linetype="dashed")+
+  geom_segment(x=140, xend=140, y=0, yend=150, size=1, linetype="dashed")+
+  
+  geom_segment(x=80, xend=80, y=0, yend=300, size=1, linetype="dashed")+
+  geom_segment(x=0, xend=80, y=300, yend=300, size=1, linetype="dashed")+
+  
+  geom_label(x=80,y=75,label=expression(q[S]==80))+
+  geom_label(x=140,y=75,label=expression(q[D]==140))+
+  
+  geom_label(x=45,y=300,label=expression(p[B]==300))+
+  
+  annotate("segment", x = 80, xend = 140, y = 25, yend = 25, colour = "black", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="both", type="closed"))+
+  geom_label(x=110, y=25, label="Shortage")+
+  
+  geom_label(x=40,y=75, color = "green", label="Official Cost", size = 5)+
+  
+    scale_x_continuous(breaks=seq(0,200,20),
+                     limits=c(0,200),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,500,50),
+                     limits=c(0,500),
+                     labels=scales::dollar,
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity (Rooms)",
+       y = "Price")+
+  theme_classic(base_size=14)
+```

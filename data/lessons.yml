@@ -164,7 +164,7 @@ lessons:
   - title: '<span class="fake-header-table">End of the Semester</span>'
     header: True
 
-  - title: '<i class="fas fa-laptop-code"></i> **Op-Ed due**'
+  - title: '<i class="fas fa-laptop-code"></i> **Op-Ed due last day of class**'
     assignment: "op-ed"
 
   - title: '<i class="fas fa-star"></i> **Final Exam**'

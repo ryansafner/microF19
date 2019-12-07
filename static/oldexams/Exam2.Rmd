@@ -18,13 +18,13 @@ section: "Section 1"
 
 Indicate whether the following statements are **True**, **False**, or **Uncertain**, and give a short (2-3 sentences) **explanation**.
 
-1. An upward-sloping market supply curve implies that the industry faces \emph{external diseconomies}.  
+1. In the long run for a competitive industry with constant costs, an increase in demand will have no effect on market price.
 
 \vspace{2in}
 
 2. A firm with the following production function
-$$q=2l+k$$
-has technology that exhibits *increasing returns to scale*.
+$$q=4l+2k$$
+has technology that exhibits *decreasing returns to scale*.
 
 \clearpage 
 
@@ -63,7 +63,7 @@ According to the graph, the firm will break even at a market price of \$10, and 
 
 \vspace{2in}
 
-4. A firm in a competitive market has lower costs than all of its competitors due to its having the best trained workers. In the long run, this firm can earn positive economic profits.
+4. The economic fir
 
 \clearpage
 

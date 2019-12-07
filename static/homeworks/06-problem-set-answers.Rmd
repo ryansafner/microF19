@@ -1,0 +1,661 @@
+---
+title: "Problem Set 6 (Solutions)"
+author: "Ryan Safner"
+date: "ECON 306 Fall 2019"
+output: pdf_document
+header-includes:
+- \usepackage{amsmath}
+- \usepackage{graphicx}
+- \usepackage{multirow, multicol, booktabs}
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+**UNGRADED: for practice only!**
+
+
+Please write your answers to the following questions on a piece of paper, or download and print a PDF copy (link above) to write on. You may also type your answers and print out a hard copy.
+
+You may work together (and I highly encourage that) but you must turn in your own answers. Your TA, under my supervision, will grade homeworks 70% for completion, and for the remaining 30%, pick one question to grade for accuracy - so it is best that you try every problem, even if you are unsure how to complete it accurately.
+
+# Concepts and Critical Thinking
+
+Please answer the following questions briefly (1-3 sentences). Use examples as necessary. Be sure to label graphs fully, if appropriate.
+
+1. Compare and contrast the features of 
+
+- i. perfect competition
+- ii. monopoly
+- iii. oligopoly,
+- iv. monopolistic competition
+
+Rank each market structure (from smallest to largest) in terms of
+
+- i. the number of firms
+- ii. long-run market price
+- iii. equilibrium output
+- iv. consumer surplus
+- v. long-run profits
+- vi. deadweight loss
+
+---
+
+A perfectly competitive market features very many small firms each selling identical products, where all firms are price-takers charging the market price. In the long run, there is free entry and exit, firms set $p=MC$ and earn normal profits of \$0. 
+
+A monopoly features one firm supplying the entire market with barriers preventing entry. It can earn long run profits by preventing entry. 
+
+An oligopoly features several large firms selling either identical or differentiated products, each with significant market power that are interdependent and make strategic decisions based on one another's actions.
+
+A monopolistically competitive market features many firms each selling a differentiated product with some market power. In the long run, there is free entry and exit, so firms enter until $p=AC$ and firms earn normal profits of \$0. 
+
+- \# of firms: Monopoly $<$ Oligopoly $<$ Monopolistic Competition $<$ Perfect Competition
+
+- Market price: Perfect Competition $(p=MC)$ $<$ Monopolistic Competition $(P=AC)$ $<$ Oligopoly $<$ Monopoly
+
+- Market output: Monopoly $<$ Oligopoly $<$ Monopolistic Competition $<$ Perfect Competition
+
+- Consumer Surplus: Monopoly $<$ Oligopoly $<$ Monopolistic Competition $<$ Perfect Competition
+
+- Profits: Perfect Competition & Monopolistic Competition $(\pi=0)$ $<$ Oligopoly $<$ Monopoly
+
+- Deadweight Loss: Perfect Competition ($DWL=0$) $<$ Monopolistic Competition $<$ Oligopoly $<$ Monopoly
+
+---
+
+\clearpage
+
+2. Indicate based on the given information whether an industry is likely perfectly competitive, monopolistically competitive, an oligopoly, or a monopoly:
+
+- Fairfax, Virginia has three movie theaters
+- Restaurants in the greater Piedmont area, with many different cuisines to choose from
+- All of Connecticut gets its electricity from Connecticut Light & Power company
+- Laptops, where you can choose from many different brands (Acer, Asus, Gateway, Toshiba, Sony, HP, Dell, IBM, Lenovo, etc) and each is slightly different
+- Wheat in the U.S., provided by many small farmers, with each farmer's wheat being identical to every other farmer's wheat
+- The music industry, where Universal, Sony, EMI, and Warner account for 87% of the market 
+
+---
+
+- An oligopoly -- there are only three sellers in the market
+- Monopolistically competitive -- there are many firms selling the same product broadly defined ("food") but each differentiates its product as a different specialty cuisine and attempts to cultivate its own brand
+- A monopoly -- there is only one seller in the market
+- Monopolistically competitive -- there are many firms selling the same product broadly defined ("laptops") but each differentiates its product
+- Perfectly competitive -- there are very many sellers and consumers can easily substitute any other seller's good (erasing any firm's market power)
+- An oligopoly -- there are only a few sellers in the market
+
+\clearpage
+
+3. Indicate which good is more likely to have a higher markup for firms with market power in these industries, and why:
+
+- Alcohol or jewelry
+- Prescription drugs or televisions
+- Gym memberships or school supplies
+- Doughnuts or bread
+- Popcorn in a movie theater or popcorn from a street vendor
+
+---
+
+The more relatively inelastic goods will have higher markups, since there are few substitutes, and an increase in price will cause only a small decline in the quantity demanded. The more elastic goods will have lower markups, since there are many substitutes, and an increase in price will cause a large decline in the quantity demanded:
+
+- Alcohol
+- Prescription drugs
+- School supplies
+- Bread
+- Popcorn in a movie theater
+
+\clearpage
+
+4. Explain what the goal of price discrimination is for a firm. What are the conditions required for a firm to engage in price discrimination? What are the different types of price discrimination, and how does each work? 
+
+---
+
+The firm's goal of price discrimination is to convert consumer surplus into profit. In order for a firm to price discriminate, it must meet two conditions:
+
+1. The firm must have market power
+2. The firm must be able to prevent arbitrage and resale
+
+Following that, if the firm is able to collect information on its customers' demands *before* they make a purchase, it can engage in:
+
+- *1^st^-degree price discrimination* if it has a lot of information, it will charge each customer their maximum willingness to pay
+- *3^rd^-degree price discrimination* if it is able to segment the market into different groups of customers with different demands, charging a higher price to groups with a less elastic demand and a lower price to groups with a more elastic demand
+
+If it is unable to collect information before a purchase, it can engage in a variety of *2^nd^-degree price discrimination* by offering multiple price-quantity bundles, or tying or bundling its goods and allowing customers to choose their price and quantity.
+
+\clearpage
+
+5. Describe the conditions required to make a market *contestable.* Describe and compare the Nash equilibrium of a contestable market with a pure monopoly, and with perfect competition.
+
+---
+
+In the contestable market model, an incumbent firm sets a price $p_i$ and an entrant decides to enter at $p_e$ or stay out, and consumers buy from the firm with the lower market price. 
+
+A market is contestable if it has:
+- Free entry and exit 
+- Firms with similar technologies (cost structures)
+- No sunk costs
+
+The Nash equilibrium in a contestable market (with no fixed costs) attains competitive market outcomes ($p=MC$, $\pi=0$, maximum $q$, maximum consumer surplus, no deadweight loss) with a single firm. 
+
+With fixed costs (and therefore, economies of scale), contestable markets can attain outcomes closer to competitive markets than a monopoly, even with a single firm. In the Nash equilibirium, the incumbent successfully deters entry by setting $p=AC$ and earning no profits. This generates less than the efficient competitive outcome (higher $p$, lower $q$, less consumer surplus, some deadweight loss), but much better than the monopoly outcome. 
+
+If there are sunk costs, or the incumbant firm has lower costs than the entrant, the Nash equilibrium is where the incumbent sets $p_i=MC_e-\epsilon$ (prices just below the entrant's costs), we get worse outcomes (higher $p$, lower $q$, less consumer surplus, more deadweight loss), but still better than the pure monopoly outcome. 
+
+---
+
+6. Explain what a cartel is, and comment on their stability.
+
+---
+
+A cartel is a group of sellers with market power (in an oligopoly) making a secret agreement to (restrict output and) raise prices to act as a collective monopoly and split the higher profits. Cartels are illegal in the United States under the antitrust laws, but even if cartels were perfectly legal, they are hard to sustain for economic reasons:
+
+Perhaps the strongest reason is that collusion is not a Nash equilibrium. Each firm would want to deviate from the agreement since it can raise its profits by lowering its price compared to the rest of the cartel members.
+
+---
+
+\clearpage
+
+# Problems
+
+Show all work for calculations. You may lose points, even if correct, for missing work. Be sure to label graphs fully, if appropriate.
+
+7. Another common use of game theory in economics is an *Entry game.* In one variant of this game, suppose there are two firms, each of whom can choose to Enter a market, or Stay Out. If both firms enter, they split the market, each earning $50. If both stay out, each firm earns $0. If one enters and the other stays out, the entrant can act as a monopolist and earns $100, with the other firm earning $0.
+
+\begin{figure}[h]
+\centering
+\includegraphics[height=1in]{entrygame.png}
+\end{figure}
+
+What is the Nash Equilibrium of this game?
+
+---
+
+Consider the perspective of Firm 1. If it believes Firm 2 will Enter, it can choose between Enter, which will earn it 50; or Stay Out, which will earn it it 0. Firm 1 will choose to Enter. If it believes Firm 2 will Stay Out, it can choose between Enter, which will earn it 100; or Stay Out, which will earn it 0. Firm 1 will choose to Enter. Note that Firm 1 has a dominant strategy -- it will always choose Enter regardless of what Firm 2 chooses.
+
+Now consider the perspective of Firm 2. If it believes Firm 1 will Enter, it can choose between Enter, which will earn it 50; or Stay Out, which will earn it it 0. Firm 2 will choose to Enter. If it believes Firm 1 will Stay Out, it can choose between Enter, which will earn it 100; or Stay Out, which will earn it 0. Firm 2 will choose to Enter. Note that Firm 2 has a dominant strategy -- it will always choose Enter regardless of what Firm 1 chooses.
+
+The Nash Equilibrium is an outcome where no player has any incentive to switch strategies (i.e. the most stable outcome). This can be found easily if both players have a dominant strategy (as they do here -- both Firms will always choose Enter). The Nash Equilibrium is **(Enter, Enter)** where both Firms choose Enter.
+		
+We can prove it is a Nash Equilibrium by looking at what would happen if either player changed their strategy from (Enter, Enter) (the top right box). If Firm 1 chose to Stay Out instead of Enter, it would earn 0 instead of 50, so it would not change its strategy. If Firm 2 chose to Stay Out instead of Enter, it would earn 0 instead of 50, so it would not change its strategy. Therefore (Enter, Enter) is the most stable outcome, where no Firm would change its strategy. 	
+
+---
+
+\clearpage
+
+8. Suppose you are a restaurant in a monopolistically competitive industry. Your firm has a constant marginal and average cost at \$4 per unit.
+
+```{r, fig.height=4}
+library(tidyverse)
+library(mosaic)
+
+demand<-function(x){10-x}
+mc<-function(x){4}
+mr<-function(x){10-2*x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=mr, geom="line", size=2, color = "purple")+
+    geom_label(aes(x=4,y=mr(4)), color = "purple", label="MR(q)", size = 5)+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=9,y=demand(9)), color = "blue", label="Demand", size = 5)+
+  stat_function(fun=mc, geom="line", size=2, color = "red")+
+    geom_label(aes(x=8,y=mc(8)), color = "red", label="MC(q)=AC(q)", size = 5)+
+  #geom_segment(x=2800, xend=2800, y=0, yend=160, size=1, linetype="dotted")+
+  #geom_segment(x=0, xend=2800, y=160, yend=160, size=1, linetype="dotted")+
+  #geom_label(x=2800,y=75,label="q*=2800")+
+  #geom_label(x=1400,y=160,label="p*=$160")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     labels=scales::dollar,
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity",
+       y = "Price")+
+  theme_classic(base_size=14)
+```
+
+
+a. If this were a perfectly competitive market, what would be the market price and equilibrium quantity?
+
+---
+
+Competitive firms produce where $p=MC$. The marginal cost curve meets the demand curve at $4 and 6 units, so the competitive price would be $4 and the firm would produce 6 units.
+
+---
+
+b. Calculate the (i) consumer surplus, (ii) profit, and (iii) deadweight loss at this price and quantity. Show these on the graph.
+
+---
+
+
+$$\begin{aligned}
+CS &= \frac{1}{2}(6-0)(\$10-\$4) = \$18\\
+Profit &= 0\\
+DWL &= 0\\ \end{aligned}$$
+
+
+```{r, fig.height=4}
+demand<-function(x){10-x}
+mc<-function(x){4}
+
+cs_1<-tribble(
+  ~x, ~y,
+  0,10,
+  0,4,
+  6,4
+)
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_polygon(data=cs_1, aes(x=x,y=y), fill="blue", alpha=0.5)+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=9,y=demand(9)), color = "blue", label="Demand", size = 5)+
+  stat_function(fun=mc, geom="line", size=2, color = "red")+
+    geom_label(aes(x=8,y=mc(8)), color = "red", label="MC(q)=AC(q)", size = 5)+
+  geom_segment(x=6, xend=6, y=0, yend=4, size=1, linetype="dotted")+
+  geom_label(x=6,y=2,label=expression(q[c]))+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     labels=scales::dollar,
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity",
+       y = "Price")+
+  theme_classic(base_size=14)
+```
+
+---
+
+c. Now suppose this firm has market power from a barrier to entry, and can operate like a monopolist. What price and quantity does it set?
+
+---
+
+It chooses $q^*$ where MR=MC, at 3 units, and raises the price to the demand curve at 3 units, so $7. 
+
+```{r, fig.height=3}
+
+cs_2<-tribble(
+  ~x, ~y,
+  0,10,
+  0,7,
+  3,7
+)
+
+dwl<-tribble(
+  ~x, ~y,
+  3,7,
+  3,4,
+  6,4
+)
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_polygon(data=cs_2, aes(x=x,y=y), fill="blue", alpha=0.5)+
+  geom_polygon(data=dwl, aes(x=x,y=y), fill="black", alpha=0.5)+
+  geom_rect(xmin=0,xmax=3,ymin=4,ymax=7, fill="green",alpha=0.4)+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=9,y=demand(9)), color = "blue", label="Demand", size = 5)+
+  stat_function(fun=mr, geom="line", size=2, color = "purple")+
+    geom_label(aes(x=4,y=mr(4)), color = "purple", label="MR(q)", size = 5)+
+  stat_function(fun=mc, geom="line", size=2, color = "red")+
+    geom_label(aes(x=8,y=mc(8)), color = "red", label="MC(q)=AC(q)", size = 5)+
+  geom_segment(x=6, xend=6, y=0, yend=4, size=1, linetype="dotted")+
+  geom_label(x=6,y=2,label=expression(q[c]))+
+  geom_segment(x=0, xend=3, y=7, yend=7, size=1, linetype="dashed")+
+  geom_segment(x=3, xend=3, y=0, yend=7, size=1, linetype="dashed")+
+  geom_label(x=3,y=2,label=expression(q[m]))+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     labels=scales::dollar,
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity",
+       y = "Price")+
+  theme_classic(base_size=14)
+```
+
+---
+
+d. Calculate the (i) consumer surplus, (ii) profit, and (iii) deadweight loss at this price and quantity. Show these on the graph.
+
+---
+
+$$CS (blue) = \frac{1}{2}(3-0)(\$10-\$7) = \$4.50$$
+
+$$Profit (green) = (3-0)(7-4) = \$9.00$$
+
+$$DWL (black) = \frac{1}{2}(6-3)(\$7-\$4) = \$4.50$$
+
+---
+
+e. Now suppose that the firm had earned this market power via rent-seeking. From its lobbying efforts, it had convinced the local government to require all new restaurants to get a special license, making it harder for new entrants to compete in the market. What was the most that this firm was willing to spend on lobbying in order to get the license requirement?
+
+---
+
+The "prize" of the firm's market power is the new profit generated (moving from part (b) to part (d)), which was $9.00. So, the firm would be willing to spend up to $.009 in order to secure its market power.
+
+---
+
+f. If there are 10 identical (in terms of costs and size, if not food or brand) restaurants in the industry, and all engage in maximal rent-seeking to obtain the license, what is the true total cost of market power in this market to society?
+
+---
+
+It is the deadweight loss plus the rent seeking of all 10 firms: $\$4.50 + (\$9\times 10) = \$94.50$.
+
+\clearpage
+
+9. You are a producer of smartphones and have some market power. You have a cost structure: 
+
+$$\begin{aligned}
+C(q)&=10q^2+200q+1000\\
+MC(q)&=20q+200\\
+\end{aligned}$$
+
+You estimate the demand for your smartphones to be: 
+$$q=100-0.2p$$
+where $q$ is millions of smartphones. 
+
+a. Find the function for your marginal revenues.
+
+---
+
+We first need to rearrange the demand function into a function of price $p$ in terms of quantity $q$.
+
+$$\begin{aligned}
+	q&=100-0.2p\\
+	q-100&=-0.2p\\
+	500-5q&=p\\
+	\end{aligned}$$
+
+Now that we have the inverse demand in the form of $p=a-bq$, we know that marginal revenue is just $MR(q)=a-2bq$, so: 
+
+$$MR(q)=500-10q$$
+
+---
+
+b. How many smartphones should you produce, and at what price, to maximize your profit?
+
+---
+
+We know to find the profit maximizing quantity, we must find $q^*: MR(q)=MC(q)$.
+
+$$\begin{aligned}
+	MR(q)&=MC(q)\\	
+	500-10q&=20q+200	\\
+	500&=30q+200\\
+	30&0=30q\\
+	10&=q^*\\
+	\end{aligned}$$
+
+The profit-maximizing output is 10 million smartphones. 
+
+We plug the quantity into the firm's demand curve, as that tells us the most people are willing to pay for 10 units:
+
+$$\begin{aligned}
+	p&=500-5q\\
+ 	p&=500-5(10)\\
+ 	p^*&=\$450\\
+ 	\end{aligned}$$
+ 
+ The profit-maximizing price is \$450/smartphone.
+---
+
+c. What is the cost per smartphone at the quantity you are producing?
+
+---
+
+First, we need to find the *average* cost function from the total cost function, by dividing it by quantity:
+
+$$\begin{aligned}
+	AC(q)&=\frac{C(q)}{q}\\
+	AC(q)&=\frac{10q^2+200q+1000}{q}\\
+	AC(q)&=10q+200+\frac{1000}{q}\\
+	\end{aligned}$$
+
+Now we plug in our quantity: 
+
+$$\begin{aligned}
+	AC(q)&=10q+200+\frac{1000}{q}\\
+	AC(10)&=	10(10)+200+\frac{1000}{(10)}\\
+	AC(10)&=100+200+100\\
+	AC(10)&=\$400\\
+	\end{aligned}$$
+
+It costs $400 per smartphone, when we are producing 10 million smartphones.
+
+---
+
+d. What is your total profit?
+
+---
+
+Now we take the difference between price (average revenue) and average cost (which gives us profit per unit), and then multiply by quantity:
+
+$$\begin{aligned}
+		\pi &=[q-AC(q)]q\\
+		\pi&=[450-400]10\\
+		\pi&=[50]10\\
+		\pi&=\$500\\
+		\end{aligned}$$
+
+Our profit is $500 million.
+		
+---
+
+e. What would be the lowest possible price you would need to charge to break even?
+
+---
+
+Recall to find the break-even price, we need to find the minimum of the firm's average cost curve. This happens when the marginal cost equals the average cost:
+
+$$\begin{aligned}
+		MC(q)&=AC(q) && \text{The minimum of AC intersects MC}\\
+		20q+200&=10q+200+\frac{1000}{q} && \text{Plug in the equations for MC and AC}\\
+		20q&=10q+\frac{1000}{q} && \text{Subtracting } 200 \text{ from both sides}\\
+		20q^2&=10q^2+1000 && \text{Multiplying both sides by }q\\
+		10q^2&=1000 && \text{Subtracting } 10q^2 \text{ from both sides}\\
+		q^2&=100 && \text{Dividing by } 10	\\
+		q&=10&&	\text{Square rooting}\\
+		\end{aligned}$$
+
+The minimum of the average cost curve is at 10 units. Plug this into either the original equations for $MC(q)$ or $AC(q)$ to find the price: 
+
+$$\begin{aligned}
+		MC(q)&=20q+200\\
+		MC(10)&=20(10)+200\\
+		MC(10)&=200+200\\
+		MC(10)&=\$400\\	
+		\end{aligned}$$
+		We've already seen that the average cost at 10 units is $400. In any case, $400 is the lowest price the firm could charge and break even.
+	
+---
+
+f. How much of your price is markup over marginal cost?
+
+---
+
+The profit maximizing quantity was $q^*=10$, and price $p^*=\$450$, with a marginal cost $MC(10)=\$400$. (We saw that $MC(10)=AC(10)$ at 10 units, and the AC was \$400, so therefore, MC is also \$400). Recall the firm's markup rule and Lerner Index is:
+
+$$\begin{aligned}
+	L\frac{p-MC}{p}&=L=-\frac{1}{\epsilon}\\
+	\frac{450-400}{400}&=L\\
+	0.125&=L	\\
+	\end{aligned}$$
+
+The markup is 12.5% of the price. This should be logical, as 12.5% is of $400 is $50, and the firm is charging $50 above marginal cost. 
+
+---
+
+g. Calculate the elasticity of demand at your profit-maximizing price. 
+
+---
+
+Using our answer from part f, we can solve the Lerner index equation for $\epsilon$ to get the elasticity of demand at our price of \$450: 
+
+$$\begin{aligned}
+	0.125&=-\frac{1}{\epsilon}	\\
+	\epsilon &=-\frac{1}{0.125}\\
+	\epsilon &=-8\\
+	\end{aligned}$$
+
+Demand is elastic. Raising (lowering) the price by 1% would result in consumers buying 8% less (more).
+
+
+```{r, fig.height=3}
+demand_rest<-function(x){500-5*x}
+mr_rest<-function(x){500-10*x}
+mc_rest<-function(x){20*x+200}
+ac_rest<-function(x){10*x+200+1000/x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_rect(xmin=0,xmax=10,ymin=400,ymax=450, fill="green", alpha=0.4)+
+  stat_function(fun=demand_rest, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=20,y=demand_rest(20)), color = "blue", label="Demand", size = 4)+
+  stat_function(fun=mr_rest, geom="line", size=2, color = "purple")+
+    geom_label(aes(x=20,y=mr_rest(20)), color = "purple", label="MR(q)", size = 4)+
+  stat_function(fun=mc_rest, geom="line", size=2, color = "red")+
+    geom_label(aes(x=16,y=mc_rest(16)), color = "red", label="MC(q)", size = 4)+
+  stat_function(fun=ac_rest, geom="line", size=2, color = "orange")+
+    geom_label(aes(x=20,y=ac_rest(20)), color = "orange", label="AC(q)", size = 4)+
+  geom_segment(x=0, xend=10, y=450, yend=450, size=1, linetype="dashed")+
+  geom_segment(x=10, xend=10, y=0, yend=450, size=1, linetype="dashed")+
+  geom_segment(x=0, xend=10, y=400, yend=400, size=1, linetype="dashed")+
+    scale_x_continuous(breaks=seq(0,22,2),
+                     limits=c(0,22),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,550,50),
+                     limits=c(0,550),
+                     labels=scales::dollar,
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity",
+       y = "Price")+
+  theme_classic(base_size=14)
+```
+
+---
+
+\clearpage
+
+10. Suppose that the demand for bentonite is given by
+$$q = 40 - 0.5p$$
+
+where $q$ tons of bentonite per day and $p$ is the price per ton. Bentonite is produced by a monopolist at a constant marginal and average total cost of $10 per ton.
+
+
+a. Find the marginal revenue curve for the monopolist.
+
+---
+
+First, find the inverse demand function: 
+
+$$\begin{aligned}
+			q&=40-0.5p\\
+			p&=80-2q\\
+\end{aligned}$$
+
+So we know that the marginal revenue function is then:
+$$MR(q)=80-4q$$
+
+---
+
+b. Find the profit-maximizing level of output and price.
+
+---
+
+$$\begin{aligned}
+			MR(q)&=MC(q)\\
+			80-4q&=10\\
+			4q&=70\\
+			q^*&=17.5	
+			\end{aligned}$$
+
+Next, we can find the profit-maximizing price, knowing the quantity of output, and plugging it into demand: 
+
+$$\begin{aligned}
+			p&=80-2q\\
+			p&=80-2(17.5)\\
+			p^*&=\$45\\
+			\end{aligned}$$
+
+---
+
+c. How much profit does the monopolist earn?
+
+---
+
+$$\begin{aligned}
+\pi &=(p-AC)q\\
+\pi &=(45-10)17.5\\
+\pi &=\$612.50\\
+\end{aligned}$$
+
+---
+
+d. How much of the price is markup over marginal cost?
+
+---
+
+The profit maximizing quantity was $q^*=17.5$, and price $p^*=\$45$, and marginal cost is always $MC=\$10$. Recall the firm's markup rule and Lerner Index is: 
+
+$$\begin{aligned}
+	\frac{p-MC}{p}&=L=-\frac{1}{\epsilon}\\
+	\frac{45-10}{45}&=L\\
+	\frac{7}{9}&=L\\
+	\end{aligned}$$
+	
+About 78% of the price is markup above cost. 
+
+---
+
+e. Calculate the elasticity of demand at the profit-maximizing price.
+
+---
+
+Using the markup, we can solve the equation for $\epsilon$ to  get the elasticity of demand at our price of $45: 
+
+$$\begin{aligned}
+	\frac{7}{9}&=-\frac{1}{\epsilon}	\\
+	\epsilon &=-\displaystyle \cfrac{1}{\frac{7}{9}}\\
+	\epsilon &=-\frac{9}{7}\\
+	\epsilon &\approx 1.29
+	\end{aligned}$$
+
+Demand is relatively elastic. Raising (lowering) the price by 1% would result in consumers buying 1.2% less (more).
+
+```{r, fig.height=3}
+demand_bent<-function(x){80-2*x}
+mr_bent<-function(x){80-4*x}
+mc_bent<-function(x){10}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_rect(xmin=0,xmax=17.5,ymin=10,ymax=45, fill="green", alpha=0.4)+
+  stat_function(fun=demand_bent, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=14,y=demand_bent(14)), color = "blue", label="Demand", size = 4)+
+  stat_function(fun=mr_bent, geom="line", size=2, color = "purple")+
+    geom_label(aes(x=16,y=mr_bent(16)), color = "purple", label="MR(q)", size = 4)+
+  stat_function(fun=mc_bent, geom="line", size=2, color = "red")+
+    geom_label(aes(x=8,y=mc_bent(8)), color = "red", label="MC(q)=AC(q)", size = 4)+
+  geom_segment(x=0, xend=17.5, y=45, yend=45, size=1, linetype="dashed")+
+  geom_segment(x=17.5, xend=17.5, y=0, yend=45, size=1, linetype="dashed")+
+    scale_x_continuous(breaks=seq(0,20,2),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,80,10),
+                     limits=c(0,80),
+                     labels=scales::dollar,
+                     expand=expand_scale(mult=c(0,0.1)))+
+  guides(fill=F)+
+  labs(x = "Quantity",
+       y = "Price")+
+  theme_classic(base_size=14)
+```

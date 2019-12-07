@@ -1,0 +1,168 @@
+---
+output:
+  pdf_document:
+    includes:
+      #before_body: 306exam2cover.tex 
+      #after_body: Metrics2018finalformulas.tex
+    latex_engine: pdflatex #required for Fira Sans font to render properly
+#header-includes:
+#  - \usepackage{tikz, pgfplots, booktabs}
+class: "Microeconomic Analysis"
+examnum: "Exam 3"
+coursecode: "ECON 306"
+semester: "Spring 2019"
+section: "Section 1"
+---
+
+## True/False/Uncertain and \emph{Explain}
+
+Indicate whether the following statements are **True**, **False**, or **Uncertain**, and give a short (2-3 sentences) **explanation**.
+
+1. The table below describes part of a market demand schedule. Marginal revenue for the 3\textsuperscript{rd} unit is $-$\$5.   
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{rr}
+	$q$ & $p$\\ \hline
+		1 & \$30\\
+		2 & \$25\\
+		3 & \$20\\
+		4 & \$15\\ \hline
+	\end{tabular} 
+\end{table}
+
+\vspace{2in}
+
+2. An industry with very large fixed costs and marginal costs of 0 is likely to lead to a natural monopoly.
+
+\clearpage 
+
+3. A market reaches equilibrium at a price of \$100 and a quantity of 100 units. If the elasticity of supply at equilibrium is twice as large as the elasticity of demand at equilibrium, then the supply curve is twice as steep as the demand curve.
+
+\vspace{2in}
+
+4. A firm with market power will charge a *larger* markup on products that are *more* elastic.
+
+\clearpage
+
+5. Consumers that view a good as a necessity are likely to earn greater consumer surplus than consumers who view a good as a luxury.
+
+\vspace{2in}
+
+6. A prisoners' dilemma is a game where there is an outcome from the Nash Equilibrium that is a Pareto improvement for all players, but is not itself a Nash equilibrium.
+
+\vspace{2in}
+
+\clearpage
+
+## Short Answer
+
+If applicable, show all work and clearly label all graphs.
+
+7. Over the last few years, the supply of rental housing has increased, and yet the price of housing on the market has risen. Draw a graph that illustrates this new equilibrium in the market for rental housing.
+
+
+\vspace{3in}
+
+8. Explain why markets with less elastic demand generate more consumer surplus than markets with more elastic demand. 
+
+\clearpage
+
+9. Describe *four* different examples of barriers to entry.
+
+\vspace{3in}
+
+10. Explain why, even if they were legal, cartels are economically unstable. 
+
+\clearpage
+
+11. Explain, and depict on a graph, the *complete* economic consequences of monopoly.
+
+\clearpage
+
+## Problems
+
+Show all work. You may *not* earn full credit if you only write the answer, even if correct.
+
+12. Suppose you are a restaurant operating in the very competitive high-end restaurant market in downtown Frederick. You have a cost structure as follows, where $q$ is hundreds of premium meals served per day. 
+
+\begin{align*}
+C(q)&=4q^2 +8q+36\\
+MC(q)&=8q+8\\	
+\end{align*}
+
+a. Write the equations for (i) fixed costs, (ii) variable costs, (iii) average fixed costs, (iv), average variable costs, and (v) average (total) costs.
+
+b. The market price of premium meals is currently \$40. Calculate the profit-maximizing quantity of meals to serve.
+
+c. At the profit-maximizing quantity, calculate the average cost.
+
+d. At the profit-maximizing price and quantity, calculate the total profit. Should your restaurant stay or exit the market in the long run? 
+
+e. Below what price should you stop production in the short run?
+
+f. What is the lowest price you need to charge in order to break even? 
+
+g. What must the long run equilibrium market price be for this industry, and why?
+
+\newpage
+\thispagestyle{plain}
+\mbox{}
+\clearpage 
+
+13. *Tweed Screeds* is publisher of obscure academic books. It has the following cost structure, where $q$ is hundreds of copies:
+\begin{align*}
+C(q)&=2q^2+100q+200\\
+MC(q)&=4q+100\\	
+\end{align*}
+It estimates that market demand for its new book release is estimated to be:
+\begin{equation*}
+q=17.5-0.125p	
+\end{equation*}
+
+a. Calculate the profit-maximizing quantity of copies and price per copy.
+
+b. Calculate the publisher's total profits. 
+
+c. Should this publisher stay or exit the industry in the long run? 
+
+d. What is the lowest price it would need to charge in order to break even?
+
+e. Should it shut down production in the short run?
+
+f. Calculate how much of the publisher's price is markup above cost.
+
+g. Estimate the elasticity of demand for this book at the price you found in part a.
+
+\newpage
+\thispagestyle{plain}
+\mbox{}
+\clearpage 
+
+## Short Essay
+
+Please answer clearly and concisely (2-5 sentences is sufficient). If applicable, show all work and clearly label all graphs.
+
+14. Explain the social and economic tradeoffs for laws that require an occupational license (e.g. education requirements, exams, fees, etc) in order to practice a certain profession.
+
+15. Based (only) on what we discussed about the efficiency of markets in class, outline a theory of when government intervention in the economy may be warranted.
+
+16. When are markets efficient as a means of allocating resources? What are the benefits of using markets, and what specifically is the role of prices in coordinating this process?
+
+\newpage
+\thispagestyle{plain}
+\mbox{}
+\clearpage 
+
+## Formulas
+
+$$\epsilon_{q,p}=\frac{1}{slope}\times \frac{p}{q}$$
+
+$$C(q)=VC(q)+f$$
+
+$$AC(q)_{min}: AC(q) = MC(q)$$
+
+$$AVC(q)_{min}: AVC(q) = MC(q)$$
+
+$$MR(q)=a-2bq$$
+
+$$L=\frac{p^*-MC(q^*)}{p^*}=-\frac{1}{\epsilon}$$
