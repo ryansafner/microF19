@@ -13,7 +13,7 @@ source(file.path(here::here(), "lib", "graphics.R"))
 
 *Tuesday, Deccember 17, 2019 11:30am-2:00pm* (Section 1 - TuTh)
 
-*Thursday, Deccember 13, 2019 11:30am-2:00pm* (Section 2 - MW)
+*Friday, Deccember 13, 2019 11:30am-2:00pm* (Section 2 - MW)
 
 # Concepts Study Guide
 
