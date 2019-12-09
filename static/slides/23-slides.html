@@ -812,11 +812,13 @@ class: inverse, center, middle
 
 .pull-left[
 
-- Model the market as an entry game, with an **Incumbent** who sets `\(p_i\)`
+- Model the market as an .whisper[entry game], with two players:
 
-- **Entrant** decides to **stay out** or **enter** the market, charging `\(p_e\)`
+1. **Incumbent** which sets its price `\(p_i\)`
 
-- Price competition&lt;sup&gt;.red[1]&lt;/sup&gt;: consumers buy only from the firm with the lower price
+2. **Entrant** decides to **stay out** or **enter** the market, setting its price `\(p_e\)`
+
+- Price competition between the two firms with similar products&lt;sup&gt;.red[1]&lt;/sup&gt; `\(\implies\)` consumers buy only from the firm with the lower price
 
 ]
 
@@ -842,11 +844,15 @@ this is known as "Bertrand competition."]
 - Suppose firms have a total cost of `\(C(q)=cq\)`
   - Thus, a marginal cost of `\(MC(q)=c\)`
   
-- If Incumbent sets `\(p_i&gt;c\)`, then entrant would enter and set `\(p_e=p_i-\epsilon\)`
+- If Incumbent sets `\(p_i&gt;c\)`, then entrant would enter and set `\(p_e=p_i-\epsilon\)` (for arbitrary `\(\epsilon&gt;0)\)`
 
 - **Nash Equilibrium**: incumbent sets `\(p_i=c\)`, no entry
-  - "Monopoly": a single firm, but competitive outcomes!
-  - `\(p=MC\)`, `\(\pi=0\)`, max Consumer Surplus
+  - .whisper[A single firm, but the competitive outcome!]
+    - `\(p=MC\)`
+    - `\(\pi=0\)`
+    - competitive `\(q\)`
+    - max Consumer Surplus
+    - no DWL
 
 ]
 
@@ -864,8 +870,9 @@ this is known as "Bertrand competition."]
 - What if the entrant has higher costs: `\(c_e&gt;c_i\)`?
 
 - **Nash equilibrium**: incumbent sets `\(p_i=p_e-\epsilon\)`
-  - No entry
-- A monopoly, but not worst case
+  - Entrant stays out
+  
+- A monopoly, but not the worst case
 ]
 
 .pull-right[
@@ -879,10 +886,10 @@ this is known as "Bertrand competition."]
 
 .pull-left[
 
-- Suppose firms have the same cost structure again
+- Suppose firms have the same cost structures again
 
 - What if there are *fixed costs*, `\(f\)`?
-    - `\(C(q)=f+cq\)`
+    - `\(C(q)=cq+f\)`
     - `\(MC(q)=c\)`
     - `\(AC(q)=c+\frac{f}{q}\)`
 
@@ -901,11 +908,12 @@ this is known as "Bertrand competition."]
 
 .pull-left[
 
-- *Nash equilibrium*: Incumbent prices at `\(p_i=AC\)` earns `\(\pi=0\)`
+- **Nash equilibrium**: Incumbent prices at `\(p_i=AC\)` earns `\(\pi=0\)`
 
-- No entry
+- Entrant stays out
 
-- Again, "monopoly" but earning no profits
+- Again, "monopoly" but earning no profits, and not as bad as pure monopoly
+
 ]
 
 .pull-right[
@@ -924,7 +932,21 @@ this is known as "Bertrand competition."]
   - Thus, "hit-and-run" competition remains potentially profitable
   - Maintains credible threat against incumbent acting as a monopolist
 
-- But what if assets are *not* sellable and costs *not* recoverable---i.e. **sunk costs**?
+]
+
+.pull-right[
+.center[
+![](https://www.dropbox.com/s/89uh92uh19y6z89/sunkcost.jpg?raw=1)
+]
+]
+
+---
+
+# What About *Sunk* Costs? I
+
+.pull-left[
+
+- But what if assets are *not* sellable and costs *not* recoverable - i.e. **sunk costs**?
   - e.g. research and development, spending to build brand equity, advertising, worker-training for industry-specific skills, etc 
 
 ]
@@ -942,13 +964,13 @@ this is known as "Bertrand competition."]
 .pull-left[
 - These are bygones to the incumbent, who has already committed to producing
 
-- But new costs and risk to entrant, lowering expected profits
+- But are *new* costs and risk to entrant, lowering expected profits
 
-- In effect, sunk costs make `\(c_e&gt;e_i\)`
+- In effect, sunk costs raise `\(c_e&gt;c_i\)`, and return us back to the second example
 
-- Incumbent can deter entry with `\(p_i=p_e-\epsilon\)`
-
-- Inefficient `\(p&gt;AC\)`, but again lower than monopoly level
+- Nash equilibrium:
+  - Incumbent can deter entry with `\(p_i=p_e-\epsilon\)`
+  - Inefficient, `\(p&gt;AC\)`, but again not as bad as pure monopoly
 
 ]
 
@@ -1003,6 +1025,12 @@ William Baumol
 ]
 
 .source[Baumol, William, J, 1982, "Contestable Markets: An Uprising in the Theory of Industry Structure," *American Economic Review,* 72(1): 1-15]
+
+---
+
+class: inverse, center, middle
+
+# Thanks for a Great Semester!
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
