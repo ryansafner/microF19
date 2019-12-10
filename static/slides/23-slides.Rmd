@@ -953,15 +953,57 @@ class: inverse, center, middle
 
 - Are outcomes of other market structures Nash equilibria?
 
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/ut01gm60urzbmtl/goingoutofbusiness.jpg?raw=1)
+
+![:scale 75%](https://www.dropbox.com/s/20ghw4p6te0776x/entry.jpg?raw=1)
+]
+]
+
+---
+
+# Is Monopoly a Nash Equilibrium?
+
+.pull-left[
+
+- Now that we understand Nash equilibrium...
+
+- Are outcomes of other market structures Nash equilibria?
+
+- **Perfect competition**: no firm wants to raise or lower price given the market price $\checkmark$
+
+]
+
+.pull-right[
+
+.center[
+![](https://www.dropbox.com/s/ut01gm60urzbmtl/goingoutofbusiness.jpg?raw=1)
+
+![:scale 75%](https://www.dropbox.com/s/20ghw4p6te0776x/entry.jpg?raw=1)
+]
+]
+
+---
+
+# Is Monopoly a Nash Equilibrium?
+
+.pull-left[
+
+- Now that we understand Nash equilibrium...
+
+- Are outcomes of other market structures Nash equilibria?
+
 - **Perfect competition**: no firm wants to raise or lower price given the market price $\checkmark$
 
 - **Monopolist** maximizes $\pi$ by setting $q^*$: $MR=MC$ and $p^*=Demand(q^*)$
-
-- This is *an* equilibrium, but is it the *only* equilibrium?
-
-- We've assumed just a *single* player in the model
-  - What if customers refuse to pay $p>MC$?
-  - What about *potential* competition?
+  - This is *an* equilibrium, but is it the *only* equilibrium?
+  - We've assumed just a *single* player in the model
+    - What if customers refuse to pay $p>MC$?
+    - What about *potential* competition?
 
 ]
 
@@ -982,9 +1024,9 @@ class: inverse, center, middle
 
 - Model the market as an .whisper[entry game], with two players:
 
-1. **Incumbent** which sets its price $p_i$
+1. .red[**Incumbent**] which sets its price $\color{red}{p_I}$
 
-2. **Entrant** decides to **stay out** or **enter** the market, setting its price $p_e$
+2. .blue[**Entrant**] decides to **stay out** or **enter** the market, setting its price $\color{blue}{p_E}$
 
 - Price competition between the two firms with similar products<sup>.red[1]</sup> $\implies$ consumers buy only from the firm with the lower price
 
@@ -1005,6 +1047,7 @@ this is known as "Bertrand competition."]
 
 ---
 
+
 # Contestable Markets II
 
 .pull-left[
@@ -1012,17 +1055,57 @@ this is known as "Bertrand competition."]
 - Suppose firms have a total cost of $C(q)=cq$
   - Thus, a marginal cost of $MC(q)=c$
   
-- If Incumbent sets $p_i>c$, then entrant would enter and set $p_e=p_i-\epsilon$ (for arbitrary $\epsilon>0)$
+- If .red[Incumbent] sets $\color{red}{p_I}>c$, then .blue[Entrant] would enter and set $\color{blue}{p_E}=\color{red}{p_I}-\epsilon$ (for arbitrary $\epsilon>0)$
 
-- **Nash Equilibrium**: incumbent sets $p_i=c$, no entry
-  - .whisper[A single firm, but the competitive outcome!]
-    - $p=MC$
-    - $\pi=0$
-    - competitive $q$
-    - max Consumer Surplus
-    - no DWL
 
 ]
+
+.pull-right[
+
+]
+
+---
+
+# Contestable Markets II
+
+.pull-left[
+
+- Suppose firms have a total cost of $C(q)=cq$
+  - Thus, a marginal cost of $MC(q)=c$
+  
+- If .red[Incumbent] sets $\color{red}{p_I}>c$, then .blue[Entrant] would enter and set $\color{blue}{p_E}=\color{red}{p_I}-\epsilon$ (for arbitrary $\epsilon>0)$
+  - .red[Incumbent] would forsee this, and try to price lower than $\color{blue}{p_E}$
+  - undercutting continues until...
+
+
+]
+
+.pull-right[
+
+]
+
+---
+
+# Contestable Markets II
+
+.pull-left[
+
+- Suppose firms have a total cost of $C(q)=cq$
+  - Thus, a marginal cost of $MC(q)=c$
+  
+- If .red[Incumbent] sets $\color{red}{p_I}>c$, then .blue[Entrant] would enter and set $\color{blue}{p_E}=\color{red}{p_I}-\epsilon$ (for arbitrary $\epsilon>0)$
+  - .red[Incumbent] would forsee this, and try to price lower than $\color{blue}{p_E}$
+  - undercutting continues until...
+
+- **Nash Equilibrium**: incumbent sets $\color{red}{p_I}=c$, no entry
+  - .whisper[A single firm, but the **competitive outcome**!]
+    - $p^*=MC$, $\pi=0$
+    - competitive $q^*$
+    - max Consumer Surplus, no DWL
+
+]
+
+--
 
 .pull-right[
 
@@ -1092,13 +1175,28 @@ ggplot(data.frame(x=c(0,q_choke)), aes(x=x))+
 
 .pull-left[
 
-- What if the entrant has higher costs: $c_e>c_i$?
+- What if the .blue[entrant] has *higher costs* than the .red[incumbent]: $\color{blue}{c_E}>\color{red}{c_I}$?
 
-- **Nash equilibrium**: incumbent sets $p_i=p_e-\epsilon$
-  - Entrant stays out
+]
+
+.pull-right[
+]
+
+---
+
+# Contestable Markets II
+
+.pull-left[
+
+- What if the .blue[entrant] has *higher costs* than the .red[incumbent]: $\color{blue}{c_E}>\color{red}{c_I}$?
+
+- **Nash equilibrium**: .red[incumbent] sets $\color{red}{p_I}=\color{blue}{p_E}-\epsilon$
+  - .blue[Entrant] stays out
   
 - A monopoly, but not the worst case
 ]
+
+--
 
 .pull-right[
 
@@ -1285,9 +1383,9 @@ ggplot(data.frame(x=c(0,q_choke)), aes(x=x))+
 
 .pull-left[
 
-- **Nash equilibrium**: Incumbent prices at $p_i=AC$ earns $\pi=0$
+- **Nash equilibrium**: .red[Incumbent] prices at $\color{red}{p_I}=AC$ earns $\pi=0$
 
-- Entrant stays out
+- .blue[Entrant] stays out
 
 - Again, "monopoly" but earning no profits, and not as bad as pure monopoly
 
@@ -1412,14 +1510,14 @@ ggplot(data.frame(x=c(0,q_choke)), aes(x=x))+
 # What About *Sunk* Costs? II
 
 .pull-left[
-- These are bygones to the incumbent, who has already committed to producing
+- These are bygones to the .red[Incumbent], who has already committed to producing
 
-- But are *new* costs and risk to entrant, lowering expected profits
+- But are *new* costs and risk to .blue[Entrant], lowering expected profits
 
-- In effect, sunk costs raise $c_e>c_i$, and return us back to the second example
+- In effect, sunk costs raise $\color{blue}{c_E}>\color{red}{c_I}$, and return us back to the second example
 
 - Nash equilibrium:
-  - Incumbent can deter entry with $p_i=p_e-\epsilon$
+  - .red[Incumbent] can deter entry with $\color{red}{p_I}=\color{blue}{p_E}-\epsilon$
   - Inefficient, $p>AC$, but again not as bad as pure monopoly
 
 ]
@@ -1475,6 +1573,28 @@ William Baumol
 ]
 
 .source[Baumol, William, J, 1982, "Contestable Markets: An Uprising in the Theory of Industry Structure," *American Economic Review,* 72(1): 1-15]
+
+---
+
+# Summary of the Course and Reminder
+
+.pull-left[
+.center[
+![](https://www.dropbox.com/s/17cb7ceqipgi8fs/citymodel.jpg?raw=1)
+]
+]
+
+.pull-right[
+
+- Recall: models $\neq$ reality
+- Models help us *understand* a complex reality
+
+> ...In that Empire, the Art of Cartography attained such Perfection that the map of a single Province occupied the entirety of a City, and the map of the Empire, the entirety of a Province.  In time, those Unconscionable Maps no longer satisfied, and the Cartographers Guilds struck a Map of the Empire whose size was that of the Empire, and which coincided point for point with  it. The following Generations, who were not so fond of the Study ofCartography astheir  Forebears had been, saw that that vast Map was Useless...
+
+.source[Jorge Luis Borges, 1658, *On Exactitude in Science*]
+
+]
+
 
 ---
 
