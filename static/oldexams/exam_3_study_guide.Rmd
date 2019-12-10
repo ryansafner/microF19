@@ -1,0 +1,406 @@
+---
+title: "Final Study Guide"
+author: "Ryan Safner"
+date: "12/9/2019"
+header-includes:
+  - \usepackage{color}
+  - \usepackage{multirow}
+  - \usepackage{multicol}
+  - \usepackage{booktabs}
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      message = FALSE)
+library(tidyverse)
+library(mosaic)
+```
+
+# Market Equilibrium
+
+## Demand and Supply
+
+- **Demand function**: relates quantity demanded to price, e.g. 
+$$q_D=12-2p$$
+- **Inverse demand function**: relates price to quantity demanded, e.g. 
+$$p=6-0.5q_D $$
+  - Describes the ordinary graph of the demand curve: 
+
+```{r, fig.align="center", fig.width=3, fig.asp=1}
+demand=function(x){6-0.5*x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+  geom_label(aes(x=8,y=demand(8)), color = "blue", label="Demand")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity",
+       y = "Price")+
+  theme_light(base_size=14)
+```
+
+- *Choke price*: price where demand crosses the vertical axis $(q_D=0)$
+- Can always obtain inverse demand function by solving for $p$ in the demand function
+
+- **Supply function**: relates quantity supplied to price, e.g. 
+$$q_S=0.5p-0.5$$
+- **Inverse supply function**: relates price to quantity supplied, e.g. 
+$$p=1+2q_S$$
+  - Describes the ordinary graph of the supply curve:
+
+```{r, fig.align="center", fig.width=3, fig.asp=1}
+supply=function(x){1+2*x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=supply, geom="line", size=2, color = "red")+
+  geom_label(aes(x=8,y=supply(8)), color = "red", label="Supply")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity",
+       y = "Price")+
+  theme_light(base_size=14)
+```
+
+- *Choke price*: price where demand crosses the vertical axis $(q_D=0)$
+- Can always obtain inverse demand function by solving for $p$ in the demand function
+
+## Equilibrium
+
+```{r, fig.align="center", fig.width=3, fig.asp=1}
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=supply, geom="line", size=2, color = "red")+
+  geom_label(aes(x=8,y=supply(8)), color = "red", label="Supply")+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+  geom_label(aes(x=8,y=demand(8)), color = "blue", label="Demand")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  geom_segment(x=0,xend=2,y=5,yend=5,linetype="dashed",size=1)+
+  geom_segment(x=2,xend=2,y=5,yend=0,linetype="dashed",size=1)+
+  coord_cartesian(clip="off")+
+  labs(x = "Quantity",
+       y = "Price")+
+  theme_light(base_size=14)
+```
+
+- Equilibrium exists at a unique price $p^*$ where $q^*=q_D=q_S$
+- $p^*$ can always be found by setting original Demand function and Supply function
+
+$$\begin{aligned}
+		q_D&=q_S\\
+		12-2p&=0.5p-0.5\\
+		12&=2.5p-0.5\\
+		12.5&=2.5p\\
+		5&=p^*
+		\end{aligned}$$
+
+- Knowing $p^*$, can plug into either Demand function or Supply function to find $q^*$:
+  
+$$\begin{aligned}
+		q_D&=12-2p\\
+		q_D&=12-2(5)\\
+		q^*&=2\\	
+		\end{aligned}$$
+
+## Disequilibrium: Surplus and Shortage
+
+- **Shortage** (excess demand), a price below $p^*$, $q_D>q_S$
+  - buyers will bid price upwards
+- **Surplus** (excess supply), a price above $p^*$, $p_D<q_S$
+  - sellers will lower asking prices
+
+## Consumer and Producer Surplus
+
+```{r, fig.align="center", fig.width=3, fig.asp=1}
+cs<-tribble(
+  ~x, ~y,
+  0, 6,
+  0, 5,
+  2, 5
+)
+
+ps<-tribble(
+  ~x, ~y,
+  0, 1,
+  0, 5,
+  2, 5
+)
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_polygon(data=cs, aes(x=x,y=y),fill="blue",alpha=0.4)+
+  geom_polygon(data=ps, aes(x=x,y=y),fill="red",alpha=0.4)+
+  stat_function(fun=supply, geom="line", size=2, color = "red")+
+  geom_label(aes(x=8,y=supply(8)), color = "red", label="Supply")+
+  stat_function(fun=demand, geom="line", size=2, color = "blue")+
+  geom_label(aes(x=8,y=demand(8)), color = "blue", label="Demand")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=seq(0,10,1),
+                     limits=c(0,10),
+                     expand=expand_scale(mult=c(0,0.1)),
+                     labels = function(x){paste("$", x, sep="")})+
+  geom_segment(x=0,xend=2,y=5,yend=5,linetype="dashed",size=1)+
+  geom_segment(x=2,xend=2,y=5,yend=0,linetype="dashed",size=1)+
+  labs(x = "Quantity",
+       y = "Price")+
+  theme_light(base_size=14)
+```
+
+- Consumer Surplus $=$ Max WTP (Demand)$ - p^*$
+
+- Producer Surplus $= p^* -$ Min WTA (Supply)$
+
+- Area of Triangle $= \frac{1}{2}bh$
+
+- Elasticity (in equilibrium) affects surplus:
+  - *More* elastic:
+    - less benefit from this particular exchange (have other options, etc)
+    - less distance between Max WTP or Min WTA (choke price) and market price
+    - less surplus
+  - *Less* elastic:
+    - more benefit from this particular exchange (have few options, etc)
+    - greater distance between Max WTP or Min WTA (choke price) and market price
+    - more surplus
+
+## Efficiency of Markets
+
+- Entrepreneurship, arbitrage, markets as a process
+
+- Role of prices in coordinating information and incentives
+
+- **Allocative efficiency**: allocate resources to highest-valued uses
+  - maximum consumer and producer surplus
+
+- **Pareto efficiency**: no improvements exist that would make at least one person better off without making another person worse off
+
+- Markets are efficient when they
+  1. Are competitive
+  2. Can reach equilibrium
+  3. Have no externalities
+
+# Monopoly
+
+## Features 
+
+1. Firm's products may have few close substitutes
+
+2. Barriers to entry, making entry costly
+
+3. Firm is a "price-searcher": can set optimal price $p^*$ in addition to quantity $q^*$
+
+## Marginal Revenue, Markup, and Price Elasticity
+
+```{r, fig.align="center", fig.width=3, fig.asp=1}
+demand_2=function(x){20-2*x}
+MR=function(x){20-4*x}
+
+#q_choke<-(a/b)
+#MR_choke<-(a/(2*b))
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  stat_function(fun=demand_2, geom="line", size=1, color="blue")+
+  geom_label(x=7,y=demand_2(7), label="Demand (slope=-b)", color="blue")+
+  stat_function(fun=MR, geom="line", size=1, color="purple")+
+  geom_label(x=4.5,y=MR(4.5), label="MR(q) (slope=-2b)", color="purple")+
+    scale_x_continuous(breaks = c(0,5,10),
+                       labels = c(0,expression(a/2*b),expression(a/b)),
+                       expand=expand_scale(mult=c(0,0.1)))+
+  scale_y_continuous(breaks=c(0,20),
+                     labels=c(0,expression(a)),
+                     limits=c(0,20),
+                     expand=expand_scale(mult=c(0,0.1)))+
+  labs(x = "Quantity (q)",
+       y = "Price (p)")+
+  theme_classic(base_size=14)
+```
+
+- Inverse demand: $p=a-bQ$ $\implies$ Marginal revenue: $MR(q)=a-2bq$
+
+| Price Elasticity | $MR(q)$ | $R(q)$ |
+|------------|---------|--------|
+| $\vert \epsilon \vert >1$  Elastic | $+$ | Increasing |
+| $\vert \epsilon \vert =1$ Unit | $0$ | Maximized |
+| $\vert \epsilon \vert <1$ Inelastic | $-$ | Decreasing |
+
+- Size of markup depends on **price elasticity of demand**
+  - $\downarrow$ price elasticity: $\uparrow$ markup
+
+- **Lerner Index** measures market power as % of firm's price that is markup above (marginal) cost
+$$L=\frac{p-MC(q)}{p} = -\frac{1}{\epsilon}$$
+  - In perfect competition, $L=0$ (as $p=MC)$
+  - As $L \rightarrow 1$, more market power
+
+## Profit-Maximization Problem Solution
+
+1. Produce the optimal amount of output $q^*$ where $MR(q)=MC(q)$
+2. Raise price to maximum consumers are WTP: $p^*=Demand(q^*)$
+3. Calculate profit with average cost: $\pi=[p-AC(q)]q$
+4. Shut down in the *short run* if $p<AVC(q)$
+    - Minimum of AVC curve where $MC(q)=AVC(q)$
+5. Exit in the *long run* if $p<AC(q)$
+    - Minimum of AC curve where $MC(q)=AC(q)$
+
+## Consequences of Market Power
+
+\begin{center}
+  \includegraphics[height=2in]{pc3.png}
+\end{center}
+
+- In a *competitive* market in long run equilibrium:
+  - **Economic profit** is driven to $0
+  - **Allocatively efficient**: $p=MC(q)$ (goods produced until $MB=MC)$
+  - **Productively efficient**: $p=AC(q)_{min}$, otherwise firms would enter/exit
+  - Consumer surplus and producer surplus is maximized
+
+\begin{center}
+  \includegraphics[height=2in]{pc4.png}
+\end{center}
+
+- If that same market were monopolized:
+  - Monopolist sets $MR(q)=MC(q)$, raises price to Max WTP (Demand)
+  - Restricts output and raises price, compared to competitive market
+  - Earns monopoly profits $(p>AC)$
+  - Loss of consumer surplus
+  - **Deadweight loss** of surplus destroyed from lost gains from trade
+
+- Rent-seeking
+  - "prize" of monopoly is monopoly profits
+  - firm(s) willing to invest resources to compete for the privilege to be a monopoly (e.g. lobbying for barriers to entry, preventing competition, etc)
+
+## Sources of Market Power
+
+1. Control over a key resource
+
+2. Barriers to entry
+  - ex: occupational licensing, intellectual property rights, anticompetitive regulation, etc.
+
+3. Economies of scale/**natural monopoly**
+
+\begin{center}
+  \includegraphics[height=2in]{naturalmon.png}
+\end{center}
+
+- One firm with greater economies of scale can produce more at a lower cost than competition
+  - Often regulated by government - force the monopolist to act closer to a competitive outcome $(p=MC)$
+
+
+# Pricing Strategies
+
+- Goal of price-discrimination is to charge different prices to different customers to convert consumer surplus into profit for firm
+
+- To engage in price discrimination, two conditions:
+
+1. Firm must have market power
+2. Firm must be able to prevent arbitrage/resale
+
+- 1^st^-degree price discrimination: firm charges each customer their max WTP
+
+- 3^rd^-degree price discrimination: firm segments market into multiple groups based on demand/elasticity differences
+  - charge higher price to less-elastic group
+  - charge lower price to more-elastic group
+  - must be able to separate customers into groups by identifiable characteristics before sale
+
+- 2^nd^-degree price discrimination: firm can't identify customer type beforehand, offers different options
+  - tying: lower price on "base" good, raise price on refills
+  - bundling: combine multiple goods into a package and prevent sale of individual components of bundle
+
+# Monopolistic Competition
+
+## Features 
+
+- Firms have some market power
+
+1. Firms selling imperfect substitutes
+
+2. No Barriers to entry
+
+3. Firm is a "price-searcher"
+
+- In the short run, modeled like a monopoly
+
+\begin{center}
+  \includegraphics[height=2in]{naturalmon.png}
+\end{center}
+
+- In the long run, no barriers to entry $\implies$ competitive entry pushes $\pi$ to 0 
+  - demand for each firm's product decreases & becomes more elastic until $p=AC$ for each firm
+
+
+\begin{table}
+  \begin{tabular}{cc}
+  \includegraphics[height=2in]{mcpc.png} &
+  \includegraphics[height=2in]{mcpc2.png}\\
+  \end{tabular}
+\end{table}
+
+- Compare to perfect competition (left)
+  - Lower output and higher price, less consumer surplus, some deadweight loss
+  - Worse than perfect competition, but better than monopoly
+
+## Oligopoly
+
+- Industry with few sellers
+
+- Firms are strategic and interdependent
+
+- Prisoner's Dilemma: game where each player faces an incentive not to cooperate, but all players are better off if they all cooperate
+
+	\begin{figure}[h!]
+\centering 
+\begin{tabular}{lrcc|cc|}
+& & \multicolumn{4}{c} {\textbf{\textcolor{blue}{Player 2}}} \\
+& & \multicolumn{2}{c}{Cooperate} & \multicolumn{2}{c}{Defect} \\ \cline{3-6}
+\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{\textbf{\textcolor{red}{Player 1}}}}}  & 
+\multicolumn{1}{c|}{\multirow{2}{*}{Cooperate}} & \textcolor{red}{10} & & \textcolor{red}{0} & \\ 
+&  &\multicolumn{1}{|c}{} & \textcolor{blue}{10} & & \textcolor{blue}{25}\\ \cline{3-6}
+&
+\multicolumn{1}{c|}{\multirow{2}{*}{Defect}} & \textcolor{red}{25} &  & \textcolor{red}{5} & \\ 
+& & \multicolumn{1}{|c}{} & \textcolor{blue}{0} &  & \textcolor{blue}{5} \\ \cline{3-6}
+\end{tabular}
+\caption{Prisoner's Dilemma example}  
+\end{figure}
+
+- **Nash equilibrium**: outcome where each player has no incentive to switch strategies
+  - In the example above, it is (Defect, Defect)
+
+- **Cartel**: firms colluding to raise prices together and split monopoly profits
+  - Not a Nash equilibrium! Each player has an incentive to break the agreement and Defect
+
+# Comparing Industries
+
+| Industry | Firms | Entry | Price (LR Eq.) | Output | Profits (LR) | Cons. Surplus | DWL |
+|----------|-------|-------|--------|--------|--------------|---------------|-----|
+| Perfect competition | Very many | Free | Lowest $(MC)$ | Highest | 0 | Highest | None |
+| Monopolistic competition | Many | Free | Higher $(p>MC)$ | Lower | 0 | Lower | Some |
+| Oligopoly (non-cooperative) | Few | Barriers? | Higher | Lower | Some | Lower | Some |
+| Monopoly<sup>1</sup> (or cartel) | 1 | Barriers | Highest | Lowest | Highest | Loweset | Largest |
+
+# Contestable Markets
+
+- Markets are **contestable** if:
+  1. There are no barriers to entry or exit
+  2. Firms have similar technologies (i.e. similar cost structure)
+  3. There are no sunk costs
+
+- Threat of entry $\implies$ Nash equilibrium is the competitive outcome, $p=MC$ with just 1 firm!
+

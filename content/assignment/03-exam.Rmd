@@ -17,7 +17,7 @@ source(file.path(here::here(), "lib", "graphics.R"))
 
 # Concepts Study Guide
 
-- [<i class="fas fa-file-pdf"></i> `TBD`](/oldexams/exam_2_study_guide.pdf)
+- [<i class="fas fa-file-pdf"></i> `PDF`](/oldexams/exam_3_study_guide.pdf)
 
 # "Practice" Exam
 
