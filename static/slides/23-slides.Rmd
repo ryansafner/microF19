@@ -1589,12 +1589,11 @@ William Baumol
 - Recall: models $\neq$ reality
 - Models help us *understand* a complex reality
 
-> ...In that Empire, the Art of Cartography attained such Perfection that the map of a single Province occupied the entirety of a City, and the map of the Empire, the entirety of a Province.  In time, those Unconscionable Maps no longer satisfied, and the Cartographers Guilds struck a Map of the Empire whose size was that of the Empire, and which coincided point for point with  it. The following Generations, who were not so fond of the Study ofCartography astheir  Forebears had been, saw that that vast Map was Useless...
-
-.source[Jorge Luis Borges, 1658, *On Exactitude in Science*]
+> ...In that Empire, the Art of Cartography attained such Perfection that the map of a single Province occupied the entirety of a City, and the map of the Empire, the entirety of a Province.  In time, those Unconscionable Maps no longer satisfied, and the Cartographers Guilds struck a Map of the Empire whose size was that of the Empire, and which coincided point for point with  it. The following Generations, who were not so fond of the Study of Cartography astheir  Forebears had been, saw that that vast Map was Useless...
 
 ]
 
+.source[Jorge Luis Borges, 1658, *On Exactitude in Science*]
 
 ---
 
