@@ -66,9 +66,9 @@ d. **At the profit-maximizing price and quantity, calculate the total profit. Sh
 
 $$\begin{aligned}
 \pi&=[p-AC(q)]q\\
-\pi&=[40-25]9\\
-\pi&=15(9)\\
-\pi*=\$135\\
+\pi&=[40-33]9\\
+\pi&=7(9)\\
+\pi*=\$63\\
 \end{aligned}$$
 
 Since your firm is earning profits, it should stay the long run.
