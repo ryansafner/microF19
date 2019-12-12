@@ -22,7 +22,7 @@ source(file.path(here::here(), "lib", "graphics.R"))
 # "Practice" Exam
 
 - [<i class="fas fa-file-pdf"></i> `Download Old Final Exam`](/oldexams/Exam3.pdf)
-- [<i class="far fa-life-ring"></i> `Answer Key ` (TBD)](/oldexams/Exam3_problem_answers.pdf)
+- [<i class="far fa-life-ring"></i> `Answer Key ` (Problems)](/oldexams/Exam3_problem_answers.pdf)
 
 Above, you have questions that *simulate* an exam.^[Note: because this semester I am changing the order of content, this is not an *actual* exam given in the past. I have merged some questions from different exams and may have altered the structure of questions. Regardless, **all questions were actual exam questions.**] Use it to get a sense of what questions are asked, the format, and how many. Questions draw from topics in Unit 2, and note that **just because topics or questions were not in the practice exam does NOT mean they may not show up on your exam.**^[I hope that this is obvious. I write this to ensure there is no misunderstanding.] Aside from minor extensions, no mathematical problem on any exam should be something you have not seen in some form before.
 

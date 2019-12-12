@@ -1,0 +1,394 @@
+---
+title: "Practice Final Exam Answer Key (Problems)"
+author: "Ryan Safner"
+output:
+  pdf_document:
+    latex_engine: pdflatex #required for Fira Sans font to render properly 
+header-includes:
+  #- \usepackage{tikz, pgfplots, booktabs}
+---
+
+12. Suppose you are a restaurant operating in the very competitive high-end restaurant market in downtown Frederick. You have a cost structure as follows, where $q$ is hundreds of premium meals served per day.
+
+$$\begin{aligned}
+C(q)&=4q^2 +8q+36\\
+MC(q)&=8q+8\\	
+\end{aligned}$$
+
+
+a. **Write the equations for (i) fixed costs, (ii) variable costs, (iii) average fixed costs, (iv), average variable costs, and (v) average (total) costs.**
+
+---
+
+| Cost | Equation |
+|------|----------|
+| Fixed Costs | $f=18 |
+| Average Fixed Costs | $AFC(q)=\frac{36}{q}$ |
+| Variable Costs | $VC(q)=4q^2+8q$ |
+| Average Variable Costs | $AVC(q)=4q+8$ |
+| Average (Total) Costs | $AC(q)=4q+8+\frac{36}{q}$ |
+
+---
+
+b. **The market price of premium meals is currently \$40. Calculate the profit-maximizing quantity of meals to serve.**
+
+---
+
+Because the industry is competitive, $Demand=MR(q)=$ market price of $40.
+
+The profit-maximizing quantity is always where:
+
+$$\begin{aligned}
+MR(q)&=MC(q)\\
+40 &= 8q+8\\
+32 &= 8q\\
+4 &= q^*\\
+\end{aligned}$$
+
+---
+
+c. **At the profit-maximizing quantity, calculate the average cost.**
+
+---
+
+$$\begin{aligned}
+AC(q)&=4q+8+\frac{36}{q}\\
+AC(4)&=4(4)+8+\frac{36}{4}\\
+AC(4)&=16+8+9\\
+AC(4)&=\$33\\
+\end{aligned}$$
+
+---
+
+d. **At the profit-maximizing price and quantity, calculate the total profit. Should your restaurant stay or exit the market in the long run?**
+
+---
+
+$$\begin{aligned}
+\pi&=[p-AC(q)]q\\
+\pi&=[40-25]9\\
+\pi&=15(9)\\
+\pi*=\$135\\
+\end{aligned}$$
+
+Since your firm is earning profits, it should stay the long run.
+
+---
+
+e. **Below what price should you stop production in the short run?**
+
+---
+
+The shut down price is where:
+
+$$\begin{aligned}
+MC(q) &= AVC(q)\\
+8q+8 &= 4q+8\\
+8q&=4q\\
+q&=0\\
+\end{aligned}$$
+
+At an output of 0, the $MC$ or $AVC$ is (using $MC)$:
+
+$$\begin{aligned}
+MC(0) &= 8(0)+8\\
+MC(0)&=\$8\\
+\end{aligned}$$
+
+The shutdown price is $8.
+
+---
+
+f. **What is the lowest price you need to charge in order to break even?**
+
+---
+
+The breakeven price is where:
+
+$$\begin{aligned}
+MC(q) &= AC(q)\\
+8q+8 &= 4q+8+\frac{36}{q}\\
+8q&=4q+\frac{36}{q}\\
+4q&=\frac{36}{q}\\
+4q^2&=36\\
+q^2&=9\\
+q&=3\\
+\end{aligned}$$
+
+At an output of 3, the $MC$ or $AC$ is (using $MC)$:
+
+$$\begin{aligned}
+MC(3) &= 8(3)+8\\
+MC(3)&=\$32\\
+\end{aligned}$$
+
+The breakeven price is $32.
+
+---
+
+g. **What must the long run equilibrium market price be for this industry, and why?**
+
+---
+
+As this is a competitive industry, in the long run, profits must fall to zero. This would imply a price that is equal to (the minimum of the) average cost (curve), i.e. the break-even price, which is $32. Thus, the market equilibrium price will ultimately settle at $32.  
+
+---
+
+```{r, echo=F, message=F, warning=F, fig.width=3.5, fig.asp=1.25, fig.align="center"}
+library(mosaic)
+ac_1=function(x){4*x+8+36/x}
+mc_1=function(x){8*x+8}
+avc_1=function(x){4*x+8}
+price_1=function(x){40}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_rect(xmin=0,xmax=4,ymin=33,ymax=40, fill="green", alpha=0.3)+
+  stat_function(fun=mc_1, geom="line", size=2, color = "red")+
+    geom_label(aes(x=4.5,y=mc_1(4.5)), color = "red", label=expression(MC(q)), size = 3)+
+  stat_function(fun=avc_1, geom="line", size=2, color = "brown")+
+    geom_label(aes(x=7,y=avc_1(7)), color = "brown", label=expression(AVC(q)), size = 3)+
+  stat_function(fun=ac_1, geom="line", size=2, color = "orange")+
+    geom_label(aes(x=8,y=ac_1(8)), color = "orange", label=expression(AC(q)), size = 3)+
+  geom_hline(yintercept=32, size=1, linetype="dashed")+
+  
+  stat_function(fun=price_1, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=7,y=price_1(8)), color = "blue", label=expression(Demand==MR(q)), size = 3)+
+  geom_label(x=6,y=32, label="Break Even: $32.00", size =2, color="orange")+
+  geom_segment(x=4,xend=4,y=0,yend=40, size=1, linetype="dotted")+
+  geom_segment(x=0,xend=4,y=33,yend=33, size=1, linetype="dotted")+
+  geom_hline(yintercept=8, size=1, linetype="dashed")+
+  geom_label(x=6,y=8, label="Shut Down: $8.00", size =2, color="brown")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                       limits=c(0,10),
+                       expand=c(0,0))+
+  scale_y_continuous(breaks=seq(0,50,4),
+                     limits=c(0,50),
+                     expand=c(0,0),
+                     labels=scales::dollar)+
+  
+  #geom_segment(x=0,xend=0,y=0,yend=23, color="red", size=5)+
+  #geom_segment(x=0,xend=5,y=23,yend=23, color="red", size=3.5)+
+  #stat_function(fun=mc, xlim=c(5,10), geom="line", size=3.5, color = "red")+
+   # geom_label(aes(x=2,y=23), color = "red", label="SUPPLY", size = 5)+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Hundreds of Meals, q",
+       y = "Price, p")+
+  theme_light(base_size=14)
+```
+
+\clearpage
+
+13. *Tweed Screeds* is publisher of obscure academic books. It has the following cost structure, where $q$ is hundreds of copies:
+$$\begin{aligned}
+C(q)&=2q^2+100q+200\\
+MC(q)&=4q+100\\	
+\end{aligned}$$
+It estimates that market demand for its new book release is estimated to be:
+$$q=17.5-0.125p$$
+
+a. **Calculate the profit-maximizing quantity of copies and price per copy.**
+
+---
+
+To find the quantity, we set marginal revenue equal to marginal cost, but we first need to find marginal revenue.
+
+Recall if we know inverse demand, we can simply double the slope. So in fact, we first need to take demand and solve it for $p$ to get inverse demand:
+
+$$\begin{aligned}
+q&=17.5-0.125p\\
+q+0.125&=17\\
+0.125p&=17-q\\
+p&=140-8q\\
+\end{aligned}$$
+
+Now we know marginal revenue is then
+
+$$MR(q)=140-16q$$
+
+So now we can find $q^*$ by setting
+
+$$\begin{aligned}
+MR(q)&=MC(q)\\
+140-16q&=4q+100\\
+140&=20q+100\\
+40&=20q\\
+2&=q^*\\
+\end{aligned}$$
+
+Next, we need to find the price. Since it has market power, the firm raises the price all the way to demand (Max WTP) at $q^*$:
+
+$$\begin{aligned}
+p&=140-8q\\
+p&=140-8(2)\\
+p^*&=\$124\\
+\end{aligned}$$
+
+---
+
+b. **Calculate the publisher's total profits.**
+
+---
+
+We can take total revenues minus total costs, or our usual $\pi=[p-AC(q)]q$. I'll do the latter so you can see it on the graph. First, find the function for average cost, and then find average cost at $q^*=2$:
+
+$$\begin{aligned}
+AC(q)&=2q+100+\frac{200}{q}\\
+AC(2)&=2(2)+100+\frac{200}{(2)}\\
+AC(2)&=4+100+100\\
+AC(2)&=\$204\\
+\end{aligned}$$
+
+Now plug in:
+
+$$\begin{aligned}
+\pi&=[p-AC(q)]q\\
+\pi&=[124-204]2\\
+\pi&=[-80]2\\
+\pi&=-\$160\\
+\end{aligned}$$
+
+---
+
+c. **Should this publisher stay or exit the industry in the long run?**
+
+---
+
+Since it is earning losses, it should exit in the long run.
+
+---
+
+d. **What is the lowest price it would need to charge in order to break even?**
+
+---
+
+We know a firm breaks even when $p=AC$, and the lowest part of the average cost curve is at the quantity where:
+
+$$\begin{aligned}
+AC(q)&=MC(q)\\
+2q+100+\frac{200}{q}&=4q+100\\
+2q+\frac{200}{q}&=4q\\
+\frac{200}{q}&=2q\\
+200&=2q^2\\
+100&=q^2\\
+10&=q\\
+\end{aligned}$$
+
+At an output of 0, the $MC$ or $AC$ is (using $MC)$:
+
+$$\begin{aligned}
+MC(10) &= 4(10)+100\\
+MC(0)&=\$140\\
+\end{aligned}$$
+
+The breakeven price is $140.
+
+---
+
+e. **Should it shut down production in the short run?**
+
+---
+
+We need to find the average variable cost function first, which is $AVC(q)=2q+100$, and set it equal to $MC$ to find the breakeven price:
+
+$$\begin{aligned}
+AVC(q)&=MC(q)\\
+2q+100&=4q+100\\
+2q&=4q\\
+q&=0\\
+\end{aligned}$$
+
+At an output of 0, the $MC$ or $AVC$ is (using $MC)$:
+
+$$\begin{aligned}
+MC(0) &= 4(0)+100\\
+MC(0)&=\$100\\
+\end{aligned}$$
+
+The shutdown price is $100.
+
+---
+
+f. **Calculate how much of the publisher's price is markup above cost.**
+
+---
+
+We'll use the Lerner index, which needs the profit maximizing price, and the marginal cost at the profit-maximizing quantity, which we need to find first:
+
+$$\begin{aligned}
+MC(q)&=4q+100\\
+MC(2)&=4(2)+100\\
+MC(2)&=108\\
+\end{aligned}$$
+
+Now plug this into the lefthand side of the Lerner index equation:
+
+$$\begin{aligned}
+L&=\frac{p^*-MC(q^*)}{p^*}\\
+L&=\frac{124-108}{124}\\
+L&=\frac{16}{108}\\
+L&\approx 0.15\\
+\end{aligned}$$
+
+About 15% of the price is markup above marginal cost (despite the fact the firm is still losing money!)
+
+---
+
+g. **Estimate the elasticity of demand for this book at the price you found in part a.**
+
+---
+
+We can simply find elasticity using the righthand side of the Lerner index equation:
+
+$$\begin{aligned}
+L&=-\frac{1}{\epsilon}\\
+0.15&=-\frac{1}{\epsilon}\\
+0.15\epsilon&=-1\\
+\epsilon & \approx -6.67\\
+\end{aligned}$$
+
+Demand is relatively elastic. For every 1% the price rises (falls), consumers will buy 6.67% less (more).
+
+```{r, echo=F, message=F, warning=F, fig.width=3.5, fig.asp=1.25, fig.align="center"}
+library(mosaic)
+ac_2=function(x){2*x+100+200/x}
+mc_2=function(x){4*x+100}
+avc_2=function(x){2*x+100}
+demand_2=function(x){140-8*x}
+mr_2=function(x){140-16*x}
+
+ggplot(data.frame(x=c(0,10)), aes(x=x))+
+  geom_rect(xmin=0,xmax=2,ymin=124,ymax=204, fill="green", alpha=0.3)+
+  stat_function(fun=mc_2, geom="line", size=2, color = "red")+
+    geom_label(aes(x=6,y=mc_2(6)), color = "red", label=expression(MC(q)), size = 3)+
+  stat_function(fun=avc_2, geom="line", size=2, color = "brown")+
+    geom_label(aes(x=8,y=avc_2(8)), color = "brown", label=expression(AVC(q)), size = 3)+
+  stat_function(fun=ac_2, geom="line", size=2, color = "orange")+
+    geom_label(aes(x=3,y=ac_2(3)), color = "orange", label=expression(AC(q)), size = 3)+
+  stat_function(fun=demand_2, geom="line", size=2, color = "blue")+
+    geom_label(aes(x=8,y=demand_2(8)), color = "blue", label="Demand", size = 3)+
+  stat_function(fun=mr_2, geom="line", size=2, color = "purple")+
+    geom_label(aes(x=8,y=mr_2(8)), color = "purple", label="MR(q)", size = 3)+
+  geom_hline(yintercept=140, size=1, linetype="dashed")+
+  geom_label(x=4,y=140, label="Break Even: $140.00", size =2, color="orange")+
+  geom_segment(x=2,xend=2,y=0,yend=204, size=1, linetype="dotted")+
+  geom_segment(x=0,xend=2,y=204,yend=204, size=1, linetype="dotted")+
+  geom_segment(x=0,xend=2,y=124,yend=124, size=1, linetype="dotted")+
+  geom_hline(yintercept=100, size=1, linetype="dashed")+
+  geom_label(x=8,y=100, label="Shut Down: $100.00", size =2, color="brown")+
+    scale_x_continuous(breaks=seq(0,10,1),
+                       limits=c(0,10),
+                       expand=c(0,0))+
+  scale_y_continuous(breaks=seq(0,220,20),
+                     limits=c(0,220),
+                     expand=c(0,0),
+                     labels=scales::dollar)+
+  
+  #geom_segment(x=0,xend=0,y=0,yend=23, color="red", size=5)+
+  #geom_segment(x=0,xend=5,y=23,yend=23, color="red", size=3.5)+
+  #stat_function(fun=mc, xlim=c(5,10), geom="line", size=3.5, color = "red")+
+   # geom_label(aes(x=2,y=23), color = "red", label="SUPPLY", size = 5)+
+  #scale_colour_manual("Curves", values = line_colors, guide=F)+
+  labs(x = "Hundreds of Books, q",
+       y = "Price, p")+
+  theme_light(base_size=14)
+```
