@@ -22,7 +22,7 @@ a. **Write the equations for (i) fixed costs, (ii) variable costs, (iii) average
 
 | Cost | Equation |
 |------|----------|
-| Fixed Costs | $f=18 |
+| Fixed Costs | $f=36$ |
 | Average Fixed Costs | $AFC(q)=\frac{36}{q}$ |
 | Variable Costs | $VC(q)=4q^2+8q$ |
 | Average Variable Costs | $AVC(q)=4q+8$ |
