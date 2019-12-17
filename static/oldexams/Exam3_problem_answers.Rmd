@@ -196,8 +196,8 @@ Recall if we know inverse demand, we can simply double the slope. So in fact, we
 
 $$\begin{aligned}
 q&=17.5-0.125p\\
-q+0.125&=17\\
-0.125p&=17-q\\
+q+0.125&=17.5\\
+0.125p&=17.5-q\\
 p&=140-8q\\
 \end{aligned}$$
 
